@@ -17,15 +17,19 @@
 YMD=`    date +%Y%m%d `
 MYNAME=` basename $0 `
 WRKDIR=` mktemp -d --tmpdir=/tmp ${MYNAME}.XXXX `
-> /tmp/${WRKDIR}/verification-${YMD}.txt 
-echo -n "# starts " >> /tmp/${WRKDIR}/verification-${YMD}.txt
-date     >> /tmp/${WRKDIR}/verification-${YMD}.txt
-uname -a >> /tmp/${WRKDIR}/verification-${YMD}.txt
+[ ! -d ${WRKDIR} ] && {
+	echo "error: something went wrong creating: ${WRKDIR} ... bailing " 1>&2
+	exit 1
+	}
+> ${WRKDIR}/verification-${YMD}.txt 
+echo -n "# starts " >> ${WRKDIR}/verification-${YMD}.txt
+date     >> ${WRKDIR}/verification-${YMD}.txt
+uname -a >> ${WRKDIR}/verification-${YMD}.txt
 for i in ` rpm -qa --qf '%{name}-%{version}-%{release}\n' | sort `; do 
-	echo "$i" | tee -a /tmp/${WRKDIR}/verification-${YMD}.txt 
-	rpm -V $i | tee -a /tmp/${WRKDIR}/verification-${YMD}.txt 
-	echo " "  | tee -a /tmp/${WRKDIR}/verification-${YMD}.txt 
+	echo "$i" | tee -a ${WRKDIR}/verification-${YMD}.txt 
+	rpm -V $i | tee -a ${WRKDIR}/verification-${YMD}.txt 
+	echo " "  | tee -a ${WRKDIR}/verification-${YMD}.txt 
 done
-echo -n "#  ends " >> /tmp/${WRKDIR}/verification-${YMD}.txt
-date >> /tmp/${WRKDIR}/verification-${YMD}.txt
+echo -n "#  ends " >> ${WRKDIR}/verification-${YMD}.txt
+date >> ${WRKDIR}/verification-${YMD}.txt
 #
