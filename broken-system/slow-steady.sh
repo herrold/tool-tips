@@ -1,12 +1,18 @@
 #!/bin/sh 
-# run thus: 
-#	chmod 755 test.sh
-#	sudo ./test.sh assuming it is named 'test.sh' 
+#
+#	slow-steady.sh
+# web reference: http://www.owlriver.com/tips/broken-system/
+#
+# retrieve and run thus: 
+#	wget -O slow-steady.sh \
+#		https://raw.githubusercontent.com/herrold/tool-tips/master/broken-system/slow-steady.sh
+#	chmod 755 slow-steady.sh
+#	sudo ./slow-steady.sh assuming it is named 'slow-steady.sh' 
+# 
 # Copyright (c) 2006 Owl River Company 
 # reports to: info@owlriver.com 
 # License: GPL, v. 2+ 
 #	relicensed as GPLv2+ 20140501 RPH
-# web reference: http://www.owlriver.com/tips/broken-system/
 #
 YMD=`date +%Y%m%d` 
 > /tmp/verification-${YMD}.txt 
