@@ -14,17 +14,18 @@
 # License: GPL, v. 2+ 
 #	relicensed as GPLv2+ 20140501 RPH
 #
-YMD=`date +%Y%m%d` 
-> /tmp/verification-${YMD}.txt 
-echo -n "# starts " >> /tmp/verification-${YMD}.txt
-date >> /tmp/verification-${YMD}.txt
-uname -a >> /tmp/verification-${YMD}.txt
-for i in `rpm -qa --qf '%{name}-%{version}-%{release}\n' | sort`; do 
-	echo "$i" | tee -a /tmp/verification-${YMD}.txt 
-	rpm -V $i | tee -a /tmp/verification-${YMD}.txt 
-	echo " " | tee -a /tmp/verification-${YMD}.txt 
+YMD=`    date +%Y%m%d `
+MYNAME=` basename $0 `
+WRKDIR=` mktemp -d --tmpdir=/tmp ${MYNAME}.XXXX `
+> /tmp/${WRKDIR}/verification-${YMD}.txt 
+echo -n "# starts " >> /tmp/${WRKDIR}/verification-${YMD}.txt
+date     >> /tmp/${WRKDIR}/verification-${YMD}.txt
+uname -a >> /tmp/${WRKDIR}/verification-${YMD}.txt
+for i in ` rpm -qa --qf '%{name}-%{version}-%{release}\n' | sort `; do 
+	echo "$i" | tee -a /tmp/${WRKDIR}/verification-${YMD}.txt 
+	rpm -V $i | tee -a /tmp/${WRKDIR}/verification-${YMD}.txt 
+	echo " "  | tee -a /tmp/${WRKDIR}/verification-${YMD}.txt 
 done
-echo -n "#  ends " >> /tmp/verification-${YMD}.txt
-date >> /tmp/verification-${YMD}.txt
+echo -n "#  ends " >> /tmp/${WRKDIR}/verification-${YMD}.txt
+date >> /tmp/${WRKDIR}/verification-${YMD}.txt
 #
-
