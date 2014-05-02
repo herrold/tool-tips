@@ -1,0 +1,91 @@
+#!/bin/sh
+#
+#	publish
+#		$Id: publish,v 1.2 2014/05/02 17:03:33 herrold Exp herrold $
+#
+#	used keyed ssh to push content outside the firewall, so it 
+#	may be seen by others
+#
+# Copyright (c) 2014 Owl River Company 
+# reports to: info@owlriver.com 
+# License: GPL, v. 2+ 
+#
+#	standard path
+PATH='/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:~/bin/'
+MYNAME=`basename $0`
+#
+#	configuration stuff
+REMHOST="gallery.example.com"
+REMDIR="~/public_html/"
+#	if the remote userid does not amtch the local one, address next
+#	the trailing '2' in the next line is needed
+# REMUSER="acme@"
+#
+#	display the path to look at
+WEBBISH=` echo "${REMDIR}" | sed -e 's@~/public_html@@g'`
+#
+QUIET="-q "
+#
+################################################################3
+#
+#	validate OPTS
+DONEOPTS=""
+#	prime the loop
+ARGDASH=`echo "$1" | cut -c 1 `
+DOUBLEDASH=`echo "$1" | cut -c 1-2`
+[ "x${DOUBLEDASH}" = "x--" ] && {
+	shift 1
+	DONEOPTS="y"
+	}
+while [ "x${ARGDASH}" = "x-" -a "x${DONEOPTS}" != "xy" ] ; do
+#
+#	the simplest options
+#	we do debug first, so that we can set on first to get diagnostics
+[ "x${1}" = "x-v" ] && {
+	export VERBOSE="-v "
+	}
+#
+[ "x${1}" = "x-d" ] && {
+	export DEVUG="y "
+	}
+#
+[ "x${1}" = "x-h" ] && {
+	export USAGE="-h "
+	}
+#
+# ... and harder options here
+#
+#	bottom of options while loop
+shift
+ARGDASH=`echo "$1" | cut -c 1 `
+DOUBLEDASH=`echo "$1" | cut -c 1-2`
+[ "x${DOUBLEDASH}" = "x--" ] && {
+	shift 1
+	DONEOPTS="y"
+	}
+done
+# echo "done parsing options"
+#
+###########################################################
+#
+[ "x$1" = "x" -o "x${USAGE}" != "x" ] && {
+	echo "usage: $MYNAME (file_opt_w_path) [...]" 1>&2
+	}
+while [ "x${1}" != "x" ] ; do 
+	[ -e $1 ] && {
+#
+#	we may need to do remote userid fixup mapping, but 
+#	this script does not ...
+		BAS=`basename $1`
+		scp ${QUIET} $1 ${REMUSER}${REMHOST}:${REMDIR}
+		[ "x${VERBOSE}" != "x" ] && {
+			echo "info: at: http://${REMHOST}${WEBBISH}${BAS}" 1>&2
+			}
+#	TBD: if verbose, show path
+		}
+	[ ! -e $1 ] && {
+		echo "error; cannot see file: $1 ... skipping " 1>&2
+		}
+	shift
+done
+#

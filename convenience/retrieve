@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+#	retrieve
+#		$Id: retrieve,v 1.3 2014/05/02 17:23:35 herrold Exp herrold $
+#
+#	uses keyed ssh to retrieve a LSH anchored match, in the 
+#	$HOME directory on a server outside the firewall, so it 
+#	examined locally.  drops in the CWD
+#
+# Copyright (c) 2014 Owl River Company 
+# reports to: info@owlriver.com 
+# License: GPL, v. 2+ 
+#
+#	standard path
+PATH='/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:~/bin/'
+MYNAME=`basename $0`
+#
+#	user configurables
+#		we deploy new servers from time to time
+# SERV="new.example.com"
+# SERV="bronson.example.com"
+SERV="charles.example.com"
+#
+QUIET="-q "
+#
+################################################################3
+#
+[ "x$1" != "x" ] && {
+	scp ${QUIET} $SERV:~/${1}* ./
+	} || {
+	echo "Usage: $MYNAME (file to retrieve)" 1>&2
+	}
+#
