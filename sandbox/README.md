@@ -17,7 +17,7 @@ setting up a fork rubric
 
 ------------
 
-editting in a a fork 
+setting up and doing an initial edit in a a fork 
 
 use the GH UI to make a from from a different 'master' at GH
 
@@ -39,3 +39,10 @@ then use the GH UI to request a pull
 
 ---------------
 
+later edits
+
+	cd wherever
+ 1526  May 02 14:42 git add  sandbox/README.md
+ 1527  May 02 14:43 git commit -m 'extend with some content'
+ 1528  May 02 14:43 git pull
+ 1529  May 02 14:43 git push
