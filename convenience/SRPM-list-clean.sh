@@ -1,19 +1,19 @@
 #!/bin/sh
 #
 #	SRPM-list-clean.sh
-#		$Id: SRPM-list-clean.sh,v 1.3 2014/05/09 21:09:05 root Exp root $
+#		$Id: SRPM-list-clean.sh,v 1.5 2014/05/09 21:14:26 root Exp root $
 #	this copy on xps420
 #
 #	License: GPLv2+
 #	Reports to: info@owlriver.com
 #
-#	This uitility can run daily, and cleans out selected summary reports 
+#	This utility can run daily, and cleans out selected summary reports 
 #	at the root of an FTP mirror directory
 #
 #	for a RH derived environment, place it under cron thus:
 #		ln -s /root/bin/SRPM-list-clean.sh /etc/cron.daily/
 #
-PATH=/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:/root/bin
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 #
 YMD=`date +%Y%m%d`
 DOM=`date +%d`
