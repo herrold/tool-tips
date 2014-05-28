@@ -135,7 +135,10 @@ def main():
             detected_structs[struct_name]["header_path"] = header_file
             detected_structs[struct_name]["members"] = struct_members
 
-    conn = MySQLdb.connect("192.168.60.6", "lsb", "lsb", "lsb")
+    conn = MySQLdb.connect(host=os.environ['LSBDBHOST'],
+                             user=os.environ['LSBUSER'],
+                             passwd=os.environ['LSBDBPASSWD'],
+                             db=os.environ['LSBDB'])
 
     good_types = []
     bad_types = []
@@ -148,11 +151,13 @@ def main():
                        len(detected_structs[type_name]["members"]) > 0:
                         cursor = conn.cursor()
                         cursor.execute("SELECT TMid FROM TypeMember WHERE " +
-                                       "TMtypeid = %s",
+                                       "TMmemberof = %s",
                                        (str(type_id),))
                         if cursor.rowcount < 1:
                             bad_types.append(type_name)
                         else:
+                            # before concluding it's good we should
+                            # check for a valid ArchType entry for this type
                             good_types.append(type_name)
 
     print "Structs detected to have problems (total %d):" % len(bad_types)
