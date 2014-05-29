@@ -79,6 +79,7 @@ We can see that the function-pointer type 10003829
  * points to
 a function which takes three arguments, and 
  * has a return type.
+
 The return type is the ArchType.ATbasetype value, 10003826:
 
 ```sql
@@ -124,7 +125,7 @@ versioning step is required for disambiguation.   Compound types can
 change members over time
 and the DB needs to be able to track such changing evolution over time.
 
-== Issue on bug 3943 == 
+## Issue on bug 3943 
 
 The incorrect types we are concerned with here, for Gtk and Gdk, are
 complex in that they are structures containing function pointer members.
