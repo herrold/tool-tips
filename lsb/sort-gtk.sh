@@ -5,7 +5,8 @@
 #	reports to: info@owlriver.com
 #	License GPLv3+
 #
-INFILE="gtk-list-201401528.txt"
+# INFILE="gtk-list-201401528.txt"
+INFILE="gtk-list.txt"
 NOCLASS="Info Appearance "
 echo "Enumerate last segment in: Class ${NOCLASS}"
 NEWWORD=""
