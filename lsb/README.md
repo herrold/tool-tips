@@ -1,35 +1,36 @@
-This directory deals with tools for fixing up missing/broken
-structure entries.
+This directory deals with tools for fixing up missing/broken structure
+entries in the LSB specification database.  Here's how this setup works
+(this information is all available elsewhere, but it was suggested having
+a note here might be useful too, as the LSB working group experiments
+with git/GitHub as a "low barrier to entry" development method).
 
-Here's how this setup works (this information is all available elsewhere,
-but it was suggested having a note here might be useful too, as 
-the LSB working group experiments with 'git' as a "low barrier to 
-entry", development method).
+<a name="typetable_return">
+</a> Data types are all described in the [Type database
+table](#typetable).  For a type to actually appear in a header,
+it additionally needs one or more records in the [ArchType database
+table](#archtypetable): one if the type is generic; one per architecture
+if it is variant. A very simple example of a variant type: "int",
+which needs to have ArchType.ATsize = 4 for 32-bit architectures, =
+8 for 64-bit.  The ArchType record needs to be marked included, that is
+ATappearedin is set to some LSB version, the version in which that type
+first appeared.
 
-<a name="typetable_return"></a>  
-Data types are all described in the [Type database table](#typetable).  
-For a
-type to actually appear in a header, it additionally needs one
-or more ArchType records - one if the type is generic, one per
-architecture if it is variant. A very simple example of a variant
-type: "int", which needs to have ArchType.ATsize = 4 for 32-bit
-architectures, = 8 for 64-bit.  The ArchType record needs to be
-marked included, that is ATappearedin is set to some LSB version,
-the version in which that type first appeared.
-
+<a name="typemembertable_return"></a> 
 For compound data types (Type.Ttype in 'Enum', 'Struct', 'Union',
 'FuncPtr' for this example, which ignores any C++ types), there
-will additionally have to be TypeMember entries, which describe
-each component of the type.
+will additionally have to be entries in the [TypeMember database
+table](#typemembertable).  TypeMember entries, which describe each
+component of the type.
 
-Function pointer types have a few levels to think about. Here
-is an example:
+Function pointer types have a few levels to think about. Let us use
+an example to illustrate:
 
 ```C
 typedef GdkFilterReturn(*GdkFilterFunc) (GdkXEvent * xevent, GdkEvent * event, gpointer data);
 ```
 
-The type itself is declared this way:
+The type itself is declared this way (the sql lines in the rest of
+this description are all grepped out of the relevant table dumps):
 
 ```sql
 INSERT INTO `Type` VALUES (10003827,'GdkFilterFunc','Typedef',1795,'','No',
@@ -39,7 +40,8 @@ INSERT INTO `ArchType` VALUES (1,10003827,'0','5.0',NULL,10003829,NULL);
 
 To decode this without having to refer to the DB schema (see the
 end of this file for snapshots of that if you really want it!)
-GdkFilterFunc is Tid 10003827, is a typedef, belongs to headergroup 1795.
+GdkFilterFunc identified by 10003827, is a typedef, belongs to 
+headergroup 1795 (which in turn belongs to gtk-3.0/gdk/gdk.h).
 It has a generic ArchType entry which marks it appearing in LSB 5.0,
 and since it's a typedef, it needs to have a base type - the thing
 it's typedef'd to. The base type here is 10003829:
@@ -64,10 +66,9 @@ INSERT INTO `Type` VALUES (10003826,'GdkFilterReturn','Typedef',1795,'',
 INSERT INTO `ArchType` VALUES (1,10003826,'0','5.0',NULL,10003825,NULL);
 ```
 
-we can chase GdkFilterReturn further - it's a typedef to an
-enum, itself a compound type, but doing so doesn't really improve
-this description, it could just as easily have been "int" as the
-return type.
+We can chase GdkFilterReturn further - it's a typedef to an enum, itself
+a compound type - but doing so doesn't really add to this discussion,
+consider it could just as easily have been "int" as the return type.
 
 The three arguments appear in the TypeMember table:
 
@@ -124,7 +125,7 @@ and 3.x, they need to be distinguished as to which library the type
 refers to.  In other words, there will be two Type entries for very
 many of the type names, don't modify the wrong one!!!
 
-= DB Schema snippets
+## DB Schema snippets
 
 <a name="typetable"></a>
 ```sql
@@ -146,6 +147,7 @@ CREATE TABLE `Type` (
 ```
 [Return](#typetable_return)
 
+<a name="archtypetable"></a>
 ```sql
 CREATE TABLE `ArchType` (
   `ATaid` int(10) unsigned NOT NULL DEFAULT '0',
@@ -155,9 +157,10 @@ CREATE TABLE `ArchType` (
   `ATwithdrawnin` varchar(5) DEFAULT NULL,
   `ATbasetype` int(10) unsigned NOT NULL DEFAULT '0',
   `ATattribute` varchar(255) DEFAULT NULL,
-
 ```
+[Return](#typetable_return)
 
+<a name="typemembertable"></a>
 ```sql
 CREATE TABLE `TypeMember` (
   `TMid` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -175,4 +178,4 @@ CREATE TABLE `TypeMember` (
   `TMaccess` enum('public','private','protected') DEFAULT NULL,
   `TMvalue` varchar(255) DEFAULT NULL,
 ```
-
+[Return](#typemembertable_return)
