@@ -32,7 +32,8 @@ INSERT INTO `Type` VALUES (10003827,'GdkFilterFunc','Typedef',1795,'','No','No',
 INSERT INTO `ArchType` VALUES (1,10003827,'0','5.0',NULL,10003829,NULL);
 ```
 
-To decode this without having to refer to the DB schema,
+To decode this without having to refer to the DB schema (see the
+end of this file for snapshots of that if you really want it!)
 GdkFilterFunc is Tid 10003827, is a typedef, belongs to headergroup 1795.
 It has a generic ArchType entry which marks it appearing in LSB 5.0,
 and since it's a typedef, it needs to have a base type - the thing
@@ -109,3 +110,51 @@ Because many of the Gtk and Gdk types are defined for both 2.x
 and 3.x, they need to be distinguished as to which library the type
 refers to.  In other words, there will be two Type entries for very
 many of the type names, don't modify the wrong one!!!
+
+= DB Schema snippets
+
+```sql
+CREATE TABLE `Type` (
+  `Tid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Tname` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
+  `Ttype` enum('Intrinsic','FuncPtr','Enum','Pointer','Typedef','Struct','Union','Array','Literal','Const','Class','Unknown','BinVariable','Volatile','Function','Ref','Namespace','Template','TemplateInstance','Macro','MemberPtr','MethodPtr') NOT NULL DEFAULT 'Unknown',
+  `Theadgroup` int(10) unsigned NOT NULL DEFAULT '0',
+  `Tdescription` varchar(255) NOT NULL DEFAULT '',
+  `Tsrconly` enum('Yes','No') NOT NULL DEFAULT 'No',
+  `Tconly` enum('Yes','No') NOT NULL DEFAULT 'No',
+  `Tindirect` enum('Yes','No') NOT NULL DEFAULT 'No', 
+  `Tunmangled` text,
+  `Tlibrary` varchar(200) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
+  `Tclass` int(10) unsigned NOT NULL DEFAULT '0',
+```
+
+```sql
+CREATE TABLE `ArchType` (
+  `ATaid` int(10) unsigned NOT NULL DEFAULT '0',
+  `ATtid` int(10) unsigned NOT NULL DEFAULT '0',
+  `ATsize` varchar(255) NOT NULL DEFAULT '0',
+  `ATappearedin` varchar(5) NOT NULL,
+  `ATwithdrawnin` varchar(5) DEFAULT NULL,
+  `ATbasetype` int(10) unsigned NOT NULL DEFAULT '0',
+  `ATattribute` varchar(255) DEFAULT NULL,
+
+```
+
+```sql
+CREATE TABLE `TypeMember` (
+  `TMid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `TMname` varchar(255) NOT NULL DEFAULT '',
+  `TMtypeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `TMposition` int(11) NOT NULL DEFAULT '0',
+  `TMdescription` varchar(255) NOT NULL DEFAULT '',
+  `TMmemberof` int(10) unsigned NOT NULL DEFAULT '0',
+  `TMarray` varchar(128) DEFAULT NULL,
+  `TMbitfield` tinyint(4) NOT NULL DEFAULT '0',
+  `TMtypetype` int(10) unsigned NOT NULL DEFAULT '0',
+  `TMwithdrawnin` varchar(5) DEFAULT NULL,
+  `TMappearedin` varchar(5) NOT NULL,
+  `TMaid` int(10) unsigned NOT NULL DEFAULT '1',
+  `TMaccess` enum('public','private','protected') DEFAULT NULL,
+  `TMvalue` varchar(255) DEFAULT NULL,
+```
+
