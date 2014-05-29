@@ -6,8 +6,8 @@ but it was suggested having a note here might be useful too, as
 the LSB working group experiments with 'git' as a "low barrier to 
 entry", development method).
 
-Data types are all described in the [Type database table](#typetable).  
 <a name="typetable_return"></a>  
+Data types are all described in the [Type database table](#typetable).  
 For a
 type to actually appear in a header, it additionally needs one
 or more ArchType records - one if the type is generic, one per
