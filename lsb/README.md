@@ -28,7 +28,8 @@ typedef GdkFilterReturn(*GdkFilterFunc) (GdkXEvent * xevent, GdkEvent * event, g
 The type itself is declared this way:
 
 ```sql
-INSERT INTO `Type` VALUES (10003827,'GdkFilterFunc','Typedef',1795,'','No','No','No',NULL,'libgdk-3',0);
+INSERT INTO `Type` VALUES (10003827,'GdkFilterFunc','Typedef',1795,'','No',
+   'No','No',NULL,'libgdk-3',0);
 INSERT INTO `ArchType` VALUES (1,10003827,'0','5.0',NULL,10003829,NULL);
 ```
 
@@ -40,7 +41,8 @@ and since it's a typedef, it needs to have a base type - the thing
 it's typedef'd to. The base type here is 10003829:
 
 ```sql
-INSERT INTO `Type` VALUES (10003829,'GdkFilterReturn (*)(GdkXEvent *, GdkEvent *, gpointer)','FuncPtr',0,'','No','No','No',NULL,'libgdk-3',0);
+INSERT INTO `Type` VALUES (10003829,'GdkFilterReturn (*)(GdkXEvent *, 
+   GdkEvent *, gpointer)','FuncPtr',0,'','No','No','No',NULL,'libgdk-3',0);
 INSERT INTO `ArchType` VALUES (1,10003829,'0','',NULL,10003826,NULL);
 ```
 
@@ -53,7 +55,8 @@ a function which takes three arguments, and has a return type.
 The return type is the ArchType.ATbasetype value, 10003826:
 
 ```sql
-INSERT INTO `Type` VALUES (10003826,'GdkFilterReturn','Typedef',1795,'','No','No','No',NULL,'libgdk-3',0);
+INSERT INTO `Type` VALUES (10003826,'GdkFilterReturn','Typedef',1795,'',
+   'No','No','No',NULL,'libgdk-3',0);
 INSERT INTO `ArchType` VALUES (1,10003826,'0','5.0',NULL,10003825,NULL);
 ```
 
@@ -65,9 +68,12 @@ return type.
 The three arguments appear in the TypeMember table:
 
 ```sql
-INSERT INTO `TypeMember` VALUES (234828,'xevent',10003828,0,'',10003829,NULL,0,0,NULL,'5.0',1,NULL,NULL);
-INSERT INTO `TypeMember` VALUES (234829,'event',10003822,1,'',10003829,NULL,0,0,NULL,'5.0',1,NULL,NULL);
-INSERT INTO `TypeMember` VALUES (234830,'data',11404,2,'',10003829,NULL,0,0,NULL,'5.0',1,NULL,NULL);
+INSERT INTO `TypeMember` VALUES (234828,'xevent',10003828,0,'',10003829,NULL,
+   0,0,NULL,'5.0',1,NULL,NULL);
+INSERT INTO `TypeMember` VALUES (234829,'event',10003822,1,'',10003829,NULL,
+   0,0,NULL,'5.0',1,NULL,NULL);
+INSERT INTO `TypeMember` VALUES (234830,'data',11404,2,'',10003829,NULL,
+   0,0,NULL,'5.0',1,NULL,NULL);
 ```
 
 * a member named xevent appears in position 0 and is type 10003828
@@ -75,9 +81,12 @@ INSERT INTO `TypeMember` VALUES (234830,'data',11404,2,'',10003829,NULL,0,0,NULL
 * a member named data appears in position 2 and is of type 11404
 
 ```sql
-INSERT INTO `Type` VALUES (10003828,'GdkXEvent *','Pointer',0,'','No','No','No',NULL,'libgdk-3',0);
-INSERT INTO `Type` VALUES (10003822,'GdkEvent *','Pointer',0,'','No','No','No',NULL,'libgdk-3',0);
-INSERT INTO `Type` VALUES (11404,'gpointer','Typedef',609,'','No','No','No',NULL,'libglib-2.0',0);
+INSERT INTO `Type` VALUES (10003828,'GdkXEvent *','Pointer',0,'','No','No',
+   'No',NULL,'libgdk-3',0);
+INSERT INTO `Type` VALUES (10003822,'GdkEvent *','Pointer',0,'','No','No',
+   'No',NULL,'libgdk-3',0);
+INSERT INTO `Type` VALUES (11404,'gpointer','Typedef',609,'','No','No','No',
+   NULL,'libglib-2.0',0);
 ```
 
 And we can see this matches the prototype we're after.
