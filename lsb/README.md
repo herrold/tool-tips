@@ -22,15 +22,15 @@ Function pointer types have a few levels to think about. Here
 is an example:
 
 ```C
-typedef GdkFilterReturn(*GdkFilterFunc) (GdkXEvent * xevent,
-                                         GdkEvent * event,
-                                         gpointer data);
+typedef GdkFilterReturn(*GdkFilterFunc) (GdkXEvent * xevent, GdkEvent * event, gpointer data);
 ```
 
 The type itself is declared this way:
 
+```sql
 INSERT INTO `Type` VALUES (10003827,'GdkFilterFunc','Typedef',1795,'','No','No','No',NULL,'libgdk-3',0);
 INSERT INTO `ArchType` VALUES (1,10003827,'0','5.0',NULL,10003829,NULL);
+```
 
 To decode this without having to refer to the DB schema,
 GdkFilterFunc is Tid 10003827, is a typedef, belongs to headergroup 1795.
@@ -38,8 +38,10 @@ It has a generic ArchType entry which marks it appearing in LSB 5.0,
 and since it's a typedef, it needs to have a base type - the thing
 it's typedef'd to. The base type here is 10003829:
 
+```sql
 INSERT INTO `Type` VALUES (10003829,'GdkFilterReturn (*)(GdkXEvent *, GdkEvent *, gpointer)','FuncPtr',0,'','No','No','No',NULL,'libgdk-3',0);
 INSERT INTO `ArchType` VALUES (1,10003829,'0','',NULL,10003826,NULL);
+```
 
 Notice this type is not marked as included - it will be referenced
 (by the GdkFilterFunc typedef at least) but will not itself appear as
