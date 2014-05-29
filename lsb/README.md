@@ -2,9 +2,12 @@ This directory deals with tools for fixing up missing/broken
 structure entries.
 
 Here's how this setup works (this information is all available elsewhere,
-but it was suggested having a note here might be useful too).
+but it was suggested having a note here might be useful too, as 
+the LSB working group experiments with 'git' as a "low barrier to 
+entry", development method).
 
-Data types are all described in the Type database table.  For a
+Data types are all described in the [Type database table](#typetable).  
+<a name="typetable_return"></a>For a
 type to actually appear in a header, it additionally needs one
 or more ArchType records - one if the type is generic, one per
 architecture if it is variant. A very simple example of a variant
@@ -122,7 +125,7 @@ many of the type names, don't modify the wrong one!!!
 
 = DB Schema snippets
 
-```sql
+<a name="typetable"></a>```sql
 CREATE TABLE `Type` (
   `Tid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `Tname` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
@@ -139,6 +142,7 @@ CREATE TABLE `Type` (
   `Tlibrary` varchar(200) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
   `Tclass` int(10) unsigned NOT NULL DEFAULT '0',
 ```
+[Return](typetable_return)
 
 ```sql
 CREATE TABLE `ArchType` (
