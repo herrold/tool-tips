@@ -69,9 +69,9 @@ INSERT INTO `TypeMember` VALUES (234829,'event',10003822,1,'',10003829,NULL,0,0,
 INSERT INTO `TypeMember` VALUES (234830,'data',11404,2,'',10003829,NULL,0,0,NULL,'5.0',1,NULL,NULL);
 ```
 
-a member named xevent appears in position 0 and is type 10003828
-a member named event appears in position 1 and is of type 10003822
-a member named data appears in position 2 and is of type 11404
+* a member named xevent appears in position 0 and is type 10003828
+* a member named event appears in position 1 and is of type 10003822
+* a member named data appears in position 2 and is of type 11404
 
 ```sql
 INSERT INTO `Type` VALUES (10003828,'GdkXEvent *','Pointer',0,'','No','No','No',NULL,'libgdk-3',0);
@@ -103,3 +103,9 @@ just build the descriptions from scratch, but to find out what's
 already there and fix up the ones that are not correct.  All of the
 structs in question exist, but all have parts missing, which is why
 this exercise in the first place.
+
+As a final note, we need to pay attention to the Type.Tlibrary field.
+Because many of the Gtk and Gdk types are defined for both 2.x
+and 3.x, they need to be distinguished as to which library the type
+refers to.  In other words, there will be two Type entries for very
+many of the type names, don't modify the wrong one!!!
