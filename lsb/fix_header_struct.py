@@ -147,18 +147,34 @@ def main():
         for (header_id,) in get_headers_from_lib(conn, lib_id):
             for (hgroup_id,) in get_header_groups(conn, header_id):
                 for (type_id, type_name) in get_structs_in_header_group(conn, hgroup_id):
-                    if type_name in detected_structs and \
-                       len(detected_structs[type_name]["members"]) > 0:
+                    if type_name in detected_structs:
+                        hdr_members = len(detected_structs[type_name]["members"])
+                        if hdr_members == 0:
+                            break;
                         cursor = conn.cursor()
                         cursor.execute("SELECT TMid FROM TypeMember WHERE " +
                                        "TMmemberof = %s",
                                        (str(type_id),))
-                        if cursor.rowcount < 1:
-                            bad_types.append(type_name)
+                        if cursor.rowcount != hdr_members:
+                            if cursor.rowcount == 0:
+                                bad_types.append(type_name)
+                            else:
+                                # include debugging printout
+                                bad_types.append("%s # expect %d, found %d" %
+                                 (type_name, hdr_members, cursor.rowcount))
                         else:
                             # before concluding it's good we should
                             # check for a valid ArchType entry for this type
-                            good_types.append(type_name)
+                            cursor.execute("SELECT Tid FROM Type " +
+                                           "JOIN ArchType on Tid=ATtid " +
+                                           "WHERE Tname=%s AND Tlibrary=%s " +
+                                           "AND ATappearedin > ''",
+                                           (type_name, library_name))
+                            if cursor.rowcount == 1:
+                                good_types.append(type_name)
+                            else:
+                                # include debugging printout
+                                bad_types.append("%s # no/disabled ArchType entry" % type_name)
 
     print "Structs detected to have problems (total %d):" % len(bad_types)
     for type_name in bad_types:
