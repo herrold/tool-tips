@@ -358,13 +358,13 @@ _GtkEventBoxClass # expect 1, found 5
 _GtkActivatableIface # expect 3, found 1
 _GtkMiscClass # expect 1, found 5
 _GtkColorChooserDialogClass # expect 1, found 5
-_GtkBin # no/disabled ArchType entry
+_GtkBin # no/disabled ArchType
 _GtkBinClass # expect 1, found 5
 _GtkSpinButtonClass
 _GtkToolButtonClass
 _GtkIMContextClass
 _GtkToolShellIface # expect 10, found 1
-_GtkToggleButton # no/disabled ArchType entry
+_GtkToggleButton # no/disabled ArchType
 _GtkToggleButtonClass
 _GtkMenuShellClass
 _GtkFileChooserDialogClass # expect 1, found 5
@@ -375,7 +375,7 @@ _GtkSeparatorMenuItemClass # expect 1, found 5
 _GtkLinkButtonClass
 _GtkRcStyle
 _GtkStyleContext # expect 2, found 3
-_GtkWindow # no/disabled ArchType entry
+_GtkWindow # no/disabled ArchType
 _GtkRangeClass
 _GtkTextMarkClass # expect 1, found 5
 _GtkTreeSelectionClass
@@ -387,7 +387,7 @@ _GtkStatusIconClass
 _GtkBoxClass # expect 1, found 5
 _GtkCalendarClass
 _GtkCellRendererProgressClass # expect 1, found 5
-_GtkDialog # no/disabled ArchType entry
+_GtkDialog # no/disabled ArchType
 _GtkDialogClass # expect 3, found 7
 _GtkActionableInterface # expect 5, found 1
 _GtkListStoreClass # expect 1, found 5
@@ -469,7 +469,7 @@ _GtkIMContextInfo # expect 5, found 6
 _GtkActionGroupClass
 _GtkPanedClass
 _GtkEditableInterface # expect 11, found 1
-_GtkAction # no/disabled ArchType entry
+_GtkAction # no/disabled ArchType
 _GtkActionClass
 _GtkScrolledWindowClass
 _GtkScaleClass
@@ -500,9 +500,9 @@ _GtkImageMenuItemClass # expect 1, found 5
 _GtkDrawingAreaClass # expect 1, found 5
 _GtkFixedClass # expect 1, found 5
 _GtkFixedChild # expect 2, found 3
-_GtkButton # no/disabled ArchType entry
+_GtkButton # no/disabled ArchType
 _GtkButtonClass
-_GtkAccelGroup # no/disabled ArchType entry
+_GtkAccelGroup # no/disabled ArchType
 _GtkAccelGroupClass
 _GtkIconFactoryClass # expect 1, found 5
 _GtkAppChooserWidget # expect 2, found 3
@@ -523,7 +523,7 @@ _GtkTreeModelIface
 _GtkCheckButtonClass
 _GtkWindowClass # expect 5, found 9
 _GtkWindowGroupClass # expect 1, found 5
-_GtkMenu # no/disabled ArchType entry
+_GtkMenu # no/disabled ArchType
 _GtkMenuClass # expect 1, found 5
 _GtkLevelBar # expect 2, found 3
 _GtkLevelBarClass # expect 3, found 1
@@ -557,12 +557,12 @@ _GtkLabelClass
 _GtkTreeSortableIface
 _GtkFileChooserButtonClass
 _GtkProgressBarClass # expect 1, found 5
-_GtkContainer # no/disabled ArchType entry
+_GtkContainer # no/disabled ArchType
 _GtkContainerClass # expect 12, found 20
 _GtkIconViewClass
-_GtkPageSetupUnixDialog # no/disabled ArchType entry
+_GtkPageSetupUnixDialog # no/disabled ArchType
 _GtkPageSetupUnixDialogClass # expect 1, found 5
-_GtkPrinter # no/disabled ArchType entry
+_GtkPrinter # no/disabled ArchType
 _GtkPrinterClass # expect 2, found 10
 Structs detected to not have problems (total 129):
 _GdkKeymapKey

@@ -4,7 +4,7 @@
 # where a number of structs are not properly defined.  This script will
 # find those structs, parse the correct definition from the actual GTK+ 3
 # headers, and output SQL to add those definitions to the database.
-# 
+#
 # It requires a usable database (defined in the usual way; if you can
 # "make restore" a specdb checkout, you've got what you need for this
 # script) and the GTK+ 3 headers.  For the best consistency, run this
@@ -18,11 +18,13 @@ import MySQLdb
 
 libraries = ["libgdk-3", "libgtk-3"]
 
+
 def walk_headers(path):
     for (subpath, dirs, files) in os.walk(path):
         for fn in files:
             if re.search(r'\.h$', fn):
                 yield os.path.join(subpath, fn)
+
 
 def un_comment(line):
     comment_state = 0
@@ -51,6 +53,7 @@ def un_comment(line):
             comment_state = 0
             out_line += c
     return out_line
+
 
 def extract_structs(header_path):
     with open(header_path) as header:
@@ -83,11 +86,13 @@ def extract_structs(header_path):
 
             header_data = header.read()
 
+
 def do_subid_query(conn, query, param):
     cursor = conn.cursor()
     cursor.execute(query, param)
     for row in cursor:
         yield row
+
 
 def get_library_id_by_name(conn, name):
     cursor = conn.cursor()
@@ -97,6 +102,7 @@ def get_library_id_by_name(conn, name):
         raise RuntimeError("more than one row returned for library " + name)
     return cursor.fetchone()[0]
 
+
 def get_header_id_by_name(conn, name):
     cursor = conn.cursor()
     cursor.execute("SELECT Hid FROM Header WHERE Hname = %s",
@@ -105,16 +111,19 @@ def get_header_id_by_name(conn, name):
         raise RuntimeError("more than one row returned for header " + name)
     return cursor.fetchone()[0]
 
+
 def get_headers_from_lib(conn, lib_id):
     return do_subid_query(conn, "SELECT Hid FROM Header WHERE Hlib = %s", (lib_id,))
+
 
 def get_header_groups(conn, header_id):
     return do_subid_query(conn,
                           "SELECT HGid FROM HeaderGroup WHERE HGheader = %s",
                           (str(header_id),))
 
+
 def get_structs_in_header_group(conn, hgroup_id):
-    return do_subid_query(conn, 
+    return do_subid_query(conn,
                           "SELECT Tid, Tname FROM Type " +
                           "WHERE Ttype = 'Struct' " +
                           "and Theadgroup = %s ",
@@ -126,19 +135,20 @@ def get_structs_in_header_group(conn, hgroup_id):
 #            m = re.match(r'', line)
 #            if m:
 
+
 def main():
     detected_structs = {}
     for header_file in walk_headers("/usr/include/gtk-3.0"):
-        print "Considering %s..." % header_file
+        print("Considering %s..." % header_file)
         for (struct_name, struct_members) in extract_structs(header_file):
             detected_structs[struct_name] = {}
             detected_structs[struct_name]["header_path"] = header_file
             detected_structs[struct_name]["members"] = struct_members
 
     conn = MySQLdb.connect(host=os.environ['LSBDBHOST'],
-                             user=os.environ['LSBUSER'],
-                             passwd=os.environ['LSBDBPASSWD'],
-                             db=os.environ['LSBDB'])
+                           user=os.environ['LSBUSER'],
+                           passwd=os.environ['LSBDBPASSWD'],
+                           db=os.environ['LSBDB'])
 
     good_types = []
     bad_types = []
@@ -146,11 +156,13 @@ def main():
         lib_id = get_library_id_by_name(conn, library_name)
         for (header_id,) in get_headers_from_lib(conn, lib_id):
             for (hgroup_id,) in get_header_groups(conn, header_id):
-                for (type_id, type_name) in get_structs_in_header_group(conn, hgroup_id):
+                                                                            #
+                for (type_id, type_name) in \
+                        get_structs_in_header_group(conn, hgroup_id):
                     if type_name in detected_structs:
                         hdr_members = len(detected_structs[type_name]["members"])
                         if hdr_members == 0:
-                            break;
+                            break
                         cursor = conn.cursor()
                         cursor.execute("SELECT TMid FROM TypeMember WHERE " +
                                        "TMmemberof = %s",
@@ -161,7 +173,7 @@ def main():
                             else:
                                 # include debugging printout
                                 bad_types.append("%s # expect %d, found %d" %
-                                 (type_name, hdr_members, cursor.rowcount))
+                                   (type_name, hdr_members, cursor.rowcount))
                         else:
                             # before concluding it's good we should
                             # check for a valid ArchType entry for this type
@@ -174,14 +186,16 @@ def main():
                                 good_types.append(type_name)
                             else:
                                 # include debugging printout
-                                bad_types.append("%s # no/disabled ArchType entry" % type_name)
+                                bad_types.append("%s # no/disabled ArchType" %
+                                                 type_name)
 
-    print "Structs detected to have problems (total %d):" % len(bad_types)
+    print("Structs detected to have problems (total %d):" % len(bad_types))
     for type_name in bad_types:
-        print type_name
-    print "Structs detected to not have problems (total %d):" % len(good_types)
+        print(type_name)
+
+    print("Structs detected to not have problems (total %d):" % len(good_types))
     for type_name in good_types:
-        print type_name
+        print(type_name)
 
 if __name__ == "__main__":
     main()
