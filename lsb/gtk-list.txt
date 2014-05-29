@@ -334,89 +334,243 @@ Considering /usr/include/gtk-3.0/gdk/broadway/gdkbroadwaydisplaymanager.h...
 Considering /usr/include/gtk-3.0/gdk/broadway/gdkbroadwaywindow.h...
 Considering /usr/include/gtk-3.0/gdk/broadway/gdkbroadwaycursor.h...
 Considering /usr/include/gtk-3.0/gdk/broadway/gdkbroadwayvisual.h...
-Structs detected to have problems (total 70):
+Structs detected to have problems (total 229):
+_GdkEventMotion # expect 11, found 12
+_GdkEventButton # expect 11, found 12
+_GdkEventTouch # expect 12, found 13
+_GdkEventScroll # expect 12, found 11
+_GdkEventConfigure # expect 6, found 7
+_GdkEventDND # expect 6, found 7
+_GdkWindowAttr # expect 12, found 14
+_GtkSettingsClass # expect 1, found 5
+_GtkSettingsValue # expect 1, found 2
+_GtkScaleButton # expect 2, found 3
+_GtkScaleButtonClass # expect 2, found 1
+_GtkComboBoxText # expect 2, found 3
+_GtkComboBoxTextClass # expect 1, found 6
+_GtkToolItemGroup # expect 2, found 3
+_GtkToolItemGroupClass # expect 1, found 6
 _GtkAdjustmentClass
+_GtkTextChildAnchorClass # expect 1, found 5
+_GtkSearchEntry # expect 1, found 2
+_GtkSearchEntryClass # expect 1, found 6
+_GtkEventBoxClass # expect 1, found 5
+_GtkActivatableIface # expect 3, found 1
+_GtkMiscClass # expect 1, found 5
+_GtkColorChooserDialogClass # expect 1, found 5
+_GtkBin # no/disabled ArchType entry
+_GtkBinClass # expect 1, found 5
 _GtkSpinButtonClass
 _GtkToolButtonClass
 _GtkIMContextClass
+_GtkToolShellIface # expect 10, found 1
+_GtkToggleButton # no/disabled ArchType entry
 _GtkToggleButtonClass
 _GtkMenuShellClass
+_GtkFileChooserDialogClass # expect 1, found 5
 _GtkRecentManagerClass
+_GtkFileChooserWidgetClass # expect 1, found 5
 _GtkRadioButtonClass
+_GtkSeparatorMenuItemClass # expect 1, found 5
 _GtkLinkButtonClass
 _GtkRcStyle
+_GtkStyleContext # expect 2, found 3
+_GtkWindow # no/disabled ArchType entry
 _GtkRangeClass
+_GtkTextMarkClass # expect 1, found 5
 _GtkTreeSelectionClass
+_GtkSeparatorClass # expect 1, found 5
 _GtkTreeViewColumnClass
+_GtkTreeModelSortClass # expect 1, found 5
+_GtkViewportClass # expect 1, found 5
 _GtkStatusIconClass
+_GtkBoxClass # expect 1, found 5
 _GtkCalendarClass
+_GtkCellRendererProgressClass # expect 1, found 5
+_GtkDialog # no/disabled ArchType entry
+_GtkDialogClass # expect 3, found 7
+_GtkActionableInterface # expect 5, found 1
+_GtkListStoreClass # expect 1, found 5
 _GtkRecentChooserIface
+_GtkScrollableInterface # expect 1, found 2
 _GtkRadioActionClass
+_GtkRecentChooserWidgetClass # expect 1, found 5
 _GtkPlugClass
 _GtkNotebookClass
+_GtkLockButton # expect 2, found 3
+_GtkLockButtonClass # expect 1, found 10
 _GtkTreeDragSourceIface
 _GtkTreeDragDestIface
+_GtkLayoutClass # expect 1, found 5
+_GtkGrid # expect 2, found 3
+_GtkGridClass # expect 1, found 10
+_GtkEntryBuffer # expect 2, found 3
+_GtkEntryBufferClass # expect 7, found 1
+_GtkRequestedSize # expect 3, found 4
+_GtkThemingEngine # expect 2, found 3
+_GtkThemingEngineClass # expect 18, found 1
+_GtkFontChooserIface # expect 7, found 1
+_GtkAppChooserButton # expect 2, found 3
+_GtkAppChooserButtonClass # expect 3, found 1
+_GtkCellRendererSpinnerClass # expect 1, found 5
+_GtkMountOperation # expect 2, found 3
+_GtkMountOperationClass # expect 1, found 6
 _GtkWidgetClass
+_GtkTreeStoreClass # expect 1, found 5
+_GtkStockItem # expect 4, found 5
 _GtkEntryClass
+_GtkColorChooserInterface # expect 6, found 1
+_GtkAccelLabelClass # expect 7, found 11
+_GtkMenuButton # expect 2, found 3
+_GtkMenuButtonClass # expect 1, found 6
+_GtkAppChooserDialog # expect 2, found 3
+_GtkAppChooserDialogClass # expect 2, found 3
 _GtkColorButtonClass
 _GtkUIManagerClass
 _GtkToggleToolButtonClass
 _GtkCellRendererAccelClass
+_GtkOverlay # expect 2, found 3
+_GtkOverlayClass # expect 2, found 1
 _GtkTextViewClass
+_GtkInfoBar # expect 2, found 3
+_GtkInfoBarClass # expect 3, found 1
+_GtkRecentAction # expect 2, found 3
+_GtkRecentActionClass # expect 1, found 6
+_GtkNumerableIcon # expect 2, found 3
+_GtkNumerableIconClass # expect 2, found 3
 _GtkTextTagTableClass
+_GtkSwitch # expect 2, found 3
+_GtkSwitchClass # expect 2, found 1
 _GtkCellRendererClass
+_GtkMenuBarClass # expect 1, found 5
 _GtkFrameClass
 _GtkAssistantClass
 _GtkToolItemClass
+_GtkTextAppearance # expect 5, found 12
+_GtkCellRendererSpinClass # expect 1, found 5
+_GtkIMMulticontextClass # expect 1, found 5
+_GtkCellAreaBox # expect 2, found 3
+_GtkCellAreaBoxClass # expect 1, found 6
+_GtkFontChooserDialog # expect 2, found 3
+_GtkFontChooserDialogClass # expect 1, found 5
 _GtkPrintOperationPreviewIface
 _GtkToggleActionClass
+_GtkCssProvider # expect 2, found 3
+_GtkCssProviderClass # expect 2, found 1
 _GtkTreeModelFilterClass
+_GtkSizeGroupClass # expect 1, found 5
+_GtkScrollbarClass # expect 1, found 5
 _GtkSocketClass
+_GtkOffscreenWindow # expect 1, found 2
+_GtkOffscreenWindowClass # expect 1, found 6
+_GtkCellViewClass # expect 1, found 5
 _GtkMenuItemClass
+_GtkIMContextInfo # expect 5, found 6
 _GtkActionGroupClass
 _GtkPanedClass
+_GtkEditableInterface # expect 11, found 1
+_GtkAction # no/disabled ArchType entry
 _GtkActionClass
 _GtkScrolledWindowClass
 _GtkScaleClass
+_GtkImageClass # expect 1, found 5
 _GtkCellRendererTextClass
+_GtkRadioToolButtonClass # expect 1, found 5
 _GtkTextTagClass
+_GtkApplication # expect 2, found 3
+_GtkApplicationClass # expect 4, found 1
+_GtkAccessibleClass # expect 4, found 6
+_GtkMessageDialogClass # expect 1, found 5
 _GtkRadioMenuItemClass
+_GtkStyleProperties # expect 2, found 3
+_GtkStylePropertiesClass # expect 1, found 6
+_GtkArrowClass # expect 1, found 5
+_GtkVolumeButton # expect 1, found 2
+_GtkVolumeButtonClass # expect 1, found 6
+_GtkStyleProviderIface # expect 4, found 1
+_GtkApplicationWindow # expect 2, found 3
+_GtkApplicationWindowClass # expect 2, found 3
 _GtkEntryCompletionClass
 _GtkCellEditableIface
 _GtkCheckMenuItemClass
+_GtkFontChooserWidget # expect 2, found 3
+_GtkFontChooserWidgetClass # expect 1, found 9
 _GtkFontButtonClass
+_GtkImageMenuItemClass # expect 1, found 5
+_GtkDrawingAreaClass # expect 1, found 5
+_GtkFixedClass # expect 1, found 5
+_GtkFixedChild # expect 2, found 3
+_GtkButton # no/disabled ArchType entry
 _GtkButtonClass
+_GtkAccelGroup # no/disabled ArchType entry
 _GtkAccelGroupClass
+_GtkIconFactoryClass # expect 1, found 5
+_GtkAppChooserWidget # expect 2, found 3
+_GtkAppChooserWidgetClass # expect 5, found 1
+_GtkButtonBoxClass # expect 1, found 5
+_GtkCellAreaContext # expect 2, found 3
+_GtkCellArea # expect 2, found 3
+_GtkCellAreaClass # expect 20, found 1
+_GtkCellAreaContextClass # expect 5, found 1
 _GtkPrintOperationClass
+_GtkCellRendererPixbufClass # expect 1, found 5
+_GtkAlignmentClass # expect 1, found 5
 _GtkTreeViewClass
+_GtkOrientableIface # expect 1, found 2
 _GtkCellRendererToggleClass
 _GtkAboutDialogClass
 _GtkTreeModelIface
 _GtkCheckButtonClass
+_GtkWindowClass # expect 5, found 9
+_GtkWindowGroupClass # expect 1, found 5
+_GtkMenu # no/disabled ArchType entry
+_GtkMenuClass # expect 1, found 5
+_GtkLevelBar # expect 2, found 3
+_GtkLevelBarClass # expect 3, found 1
 _GtkComboBoxClass
+_GtkSpinner # expect 2, found 3
+_GtkSpinnerClass # expect 1, found 6
+_GtkToolPalette # expect 2, found 3
+_GtkToolPaletteClass # expect 1, found 6
+_GtkRecentChooserDialogClass # expect 1, found 5
+_GtkCellRendererComboClass # expect 1, found 5
+_GtkBuilder # expect 2, found 3
+_GtkBuilderClass # expect 2, found 1
 _GtkTextBufferClass
 _GtkIconThemeClass
+_GtkBindingSet # expect 7, found 8
+_GtkBindingArg # expect 4, found 2
+_GtkBindingSignal # expect 3, found 4
 _GtkCellLayoutIface
 _GtkToolbarClass
 _GtkMenuToolButtonClass
+_GtkColorChooserWidget # expect 2, found 3
+_GtkColorChooserWidgetClass # expect 1, found 10
 _GtkStatusbarClass
+_GtkInvisibleClass # expect 1, found 5
 _GtkExpanderClass
+_GtkRecentChooserMenuClass # expect 1, found 5
+_GtkStyleContextClass # expect 2, found 1
+_GtkSeparatorToolItemClass # expect 1, found 5
+_GtkAspectFrameClass # expect 1, found 5
 _GtkLabelClass
 _GtkTreeSortableIface
 _GtkFileChooserButtonClass
+_GtkProgressBarClass # expect 1, found 5
+_GtkContainer # no/disabled ArchType entry
+_GtkContainerClass # expect 12, found 20
 _GtkIconViewClass
-Structs detected to not have problems (total 288):
+_GtkPageSetupUnixDialog # no/disabled ArchType entry
+_GtkPageSetupUnixDialogClass # expect 1, found 5
+_GtkPrinter # no/disabled ArchType entry
+_GtkPrinterClass # expect 2, found 10
+Structs detected to not have problems (total 129):
 _GdkKeymapKey
 _GdkEventAny
 _GdkEventExpose
 _GdkEventVisibility
-_GdkEventMotion
-_GdkEventButton
-_GdkEventTouch
-_GdkEventScroll
 _GdkEventCrossing
 _GdkEventFocus
-_GdkEventConfigure
 _GdkEventProperty
 _GdkEventSelection
 _GdkEventOwnerChange
@@ -424,273 +578,119 @@ _GdkEventProximity
 _GdkEventSetting
 _GdkEventWindowState
 _GdkEventGrabBroken
-_GdkEventDND
-_GdkWindowAttr
 _GdkPoint
 _GtkSettings
-_GtkSettingsClass
-_GtkSettingsValue
-_GtkScaleButton
-_GtkScaleButtonClass
-_GtkComboBoxText
-_GtkComboBoxTextClass
-_GtkToolItemGroup
-_GtkToolItemGroupClass
 _GtkAdjustment
-_GtkTextChildAnchorClass
 _GtkTextBuffer
-_GtkSearchEntry
-_GtkSearchEntryClass
 _GtkPageRange
 _GtkEventBox
-_GtkEventBoxClass
-_GtkActivatableIface
 _GtkMisc
-_GtkMiscClass
 _GtkColorChooserDialog
-_GtkColorChooserDialogClass
-_GtkBin
-_GtkBinClass
 _GtkSpinButton
 _GtkToolButton
 _GtkIMContext
-_GtkToolShellIface
-_GtkToggleButton
 _GtkMenuShell
 _GtkFileChooserDialog
-_GtkFileChooserDialogClass
 _GtkRecentManager
 _GtkFileChooserWidget
-_GtkFileChooserWidgetClass
 _GtkIMContextSimple
 _GtkIMContextSimpleClass
 _GtkRadioButton
 _GtkSeparatorMenuItem
-_GtkSeparatorMenuItemClass
 _GtkLinkButton
 _GtkRequisition
-_GtkStyleContext
 _GtkWidget
-_GtkWindow
 _GtkRange
-_GtkTextMarkClass
 _GtkTreeSelection
 _GtkSeparator
-_GtkSeparatorClass
 _GtkTreeViewColumn
 _GtkTreeModelSort
-_GtkTreeModelSortClass
 _GtkViewport
-_GtkViewportClass
 _GtkStatusIcon
 _GtkBox
-_GtkBoxClass
 _GtkCalendar
 _GtkCellRendererProgress
-_GtkCellRendererProgressClass
-_GtkDialog
-_GtkDialogClass
-_GtkActionableInterface
 _GtkListStore
-_GtkListStoreClass
-_GtkScrollableInterface
 _GtkRadioAction
 _GtkRecentChooserWidget
-_GtkRecentChooserWidgetClass
 _GtkPlug
 _GtkNotebook
-_GtkLockButton
-_GtkLockButtonClass
 _GtkLayout
-_GtkLayoutClass
-_GtkGrid
-_GtkGridClass
-_GtkEntryBuffer
-_GtkEntryBufferClass
-_GtkRequestedSize
 _GtkFileFilterInfo
-_GtkThemingEngine
-_GtkThemingEngineClass
-_GtkFontChooserIface
-_GtkAppChooserButton
-_GtkAppChooserButtonClass
 _GtkCellRendererSpinner
-_GtkCellRendererSpinnerClass
-_GtkMountOperation
-_GtkMountOperationClass
 _GtkWidgetAuxInfo
 _GtkTreeStore
-_GtkTreeStoreClass
-_GtkStockItem
 _GtkEntry
-_GtkColorChooserInterface
 _GtkAccelLabel
-_GtkAccelLabelClass
-_GtkMenuButton
-_GtkMenuButtonClass
-_GtkAppChooserDialog
-_GtkAppChooserDialogClass
 _GtkColorButton
 _GtkUIManager
 _GtkToggleToolButton
 _GtkCellRendererAccel
-_GtkOverlay
-_GtkOverlayClass
 _GtkTextView
-_GtkInfoBar
-_GtkInfoBarClass
-_GtkRecentAction
-_GtkRecentActionClass
-_GtkNumerableIcon
-_GtkNumerableIconClass
 _GtkTextTagTable
 _GtkRecentFilterInfo
-_GtkSwitch
-_GtkSwitchClass
 _GtkCellRenderer
 _GtkMenuBar
-_GtkMenuBarClass
 _GtkFrame
 _GtkAssistant
 _GtkToolItem
-_GtkTextAppearance
 _GtkTextAttributes
 _GtkCellRendererSpin
-_GtkCellRendererSpinClass
 _GtkIMMulticontext
-_GtkIMMulticontextClass
-_GtkCellAreaBox
-_GtkCellAreaBoxClass
-_GtkFontChooserDialog
-_GtkFontChooserDialogClass
 _GtkToggleAction
-_GtkCssProvider
-_GtkCssProviderClass
 _GtkTreeModelFilter
 _GtkSizeGroup
-_GtkSizeGroupClass
 _GtkScrollbar
-_GtkScrollbarClass
 _GtkSocket
-_GtkOffscreenWindow
-_GtkOffscreenWindowClass
 _GtkCellView
-_GtkCellViewClass
 _GtkMenuItem
-_GtkIMContextInfo
 _GtkActionGroup
 _GtkActionEntry
 _GtkToggleActionEntry
 _GtkRadioActionEntry
 _GtkPaned
-_GtkEditableInterface
-_GtkAction
 _GtkScrolledWindow
 _GtkScale
 _GtkImage
-_GtkImageClass
 _GtkCellRendererText
 _GtkRadioToolButton
-_GtkRadioToolButtonClass
 _GtkTextTag
-_GtkApplication
-_GtkApplicationClass
 _GtkAccessible
-_GtkAccessibleClass
 _GtkMessageDialog
-_GtkMessageDialogClass
 _GtkRadioMenuItem
-_GtkStyleProperties
-_GtkStylePropertiesClass
 _GtkArrow
-_GtkArrowClass
-_GtkVolumeButton
-_GtkVolumeButtonClass
-_GtkStyleProviderIface
-_GtkApplicationWindow
-_GtkApplicationWindowClass
 _GtkEntryCompletion
 _GtkCheckMenuItem
-_GtkFontChooserWidget
-_GtkFontChooserWidgetClass
 _GtkFontButton
 _GtkImageMenuItem
-_GtkImageMenuItemClass
 _GtkDrawingArea
-_GtkDrawingAreaClass
 _GtkFixed
-_GtkFixedClass
-_GtkFixedChild
-_GtkButton
-_GtkAccelGroup
 _GtkAccelKey
 _GtkAccelGroupEntry
 _GtkIconFactory
-_GtkIconFactoryClass
-_GtkAppChooserWidget
-_GtkAppChooserWidgetClass
 _GtkButtonBox
-_GtkButtonBoxClass
-_GtkCellAreaContext
-_GtkCellArea
-_GtkCellAreaClass
-_GtkCellAreaContextClass
 _GtkPrintOperation
 _GtkCellRendererPixbuf
-_GtkCellRendererPixbufClass
 _GtkAlignment
-_GtkAlignmentClass
 _GtkTreeView
-_GtkOrientableIface
 _GtkCellRendererToggle
 _GtkAboutDialog
 _GtkTreeIter
 _GtkCheckButton
-_GtkWindowClass
-_GtkWindowGroupClass
-_GtkMenu
-_GtkMenuClass
-_GtkLevelBar
-_GtkLevelBarClass
 _GtkComboBox
-_GtkSpinner
-_GtkSpinnerClass
-_GtkToolPalette
-_GtkToolPaletteClass
 _GtkRecentChooserDialog
-_GtkRecentChooserDialogClass
 _GtkCellRendererCombo
-_GtkCellRendererComboClass
-_GtkBuilder
-_GtkBuilderClass
 _GtkIconTheme
-_GtkBindingSet
 _GtkBindingEntry
-_GtkBindingArg
-_GtkBindingSignal
 _GtkToolbar
 _GtkMenuToolButton
-_GtkColorChooserWidget
-_GtkColorChooserWidgetClass
 _GtkStatusbar
 _GtkInvisible
-_GtkInvisibleClass
 _GtkExpander
 _GtkRecentChooserMenu
-_GtkRecentChooserMenuClass
-_GtkStyleContextClass
 _GtkSeparatorToolItem
-_GtkSeparatorToolItemClass
 _GtkAspectFrame
-_GtkAspectFrameClass
 _GtkLabel
 _GtkFileChooserButton
 _GtkProgressBar
-_GtkProgressBarClass
-_GtkContainer
-_GtkContainerClass
 _GtkIconView
-_GtkPageSetupUnixDialog
-_GtkPageSetupUnixDialogClass
-_GtkPrinter
-_GtkPrinterClass
