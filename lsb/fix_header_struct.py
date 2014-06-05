@@ -64,11 +64,10 @@ def extract_structs(header_path):
             for raw_line in re.split(r'[;\}]\s*', header_data, 0, re.S):
                 line = un_comment(raw_line)
                 if struct_name is None:
-                    struct_match = re.match(r'^\s*struct\s+(\w+)\s+{', line, re.S)
+                    struct_match = re.match(r'^\s*struct\s+(\w+)\s+{',line,re.S)
                     if struct_match:
                         struct_name = struct_match.group(1)
-                        struct_mem = re.search(r'{\s*(\w+)\s+(\w+)',
-                                               line, re.S)
+                        struct_mem = re.search(r'{\s*(\w+)\s+(\w+)',line,re.S)
                         if struct_mem:
                             struct_members.append((struct_mem.group(1),
                                                    struct_mem.group(2)))
@@ -96,8 +95,7 @@ def do_subid_query(conn, query, param):
 
 def get_library_id_by_name(conn, name):
     cursor = conn.cursor()
-    cursor.execute("SELECT Lid FROM Library WHERE Lname = %s",
-                   (name,))
+    cursor.execute("SELECT Lid FROM Library WHERE Lname = %s", (name,))
     if cursor.rowcount != 1:
         raise RuntimeError("more than one row returned for library " + name)
     return cursor.fetchone()[0]
@@ -105,8 +103,7 @@ def get_library_id_by_name(conn, name):
 
 def get_header_id_by_name(conn, name):
     cursor = conn.cursor()
-    cursor.execute("SELECT Hid FROM Header WHERE Hname = %s",
-                   (name,))
+    cursor.execute("SELECT Hid FROM Header WHERE Hname = %s", (name,))
     if cursor.rowcount != 1:
         raise RuntimeError("more than one row returned for header " + name)
     return cursor.fetchone()[0]
@@ -165,8 +162,7 @@ def main():
                             break
                         cursor = conn.cursor()
                         cursor.execute("SELECT TMid FROM TypeMember WHERE " +
-                                       "TMmemberof = %s",
-                                       (str(type_id),))
+                                       "TMmemberof = %s", (str(type_id),))
                         if cursor.rowcount != hdr_members:
                             if cursor.rowcount == 0:
                                 bad_types.append(type_name)
