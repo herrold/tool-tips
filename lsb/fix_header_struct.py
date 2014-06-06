@@ -26,33 +26,51 @@ def walk_headers(path):
                 yield os.path.join(subpath, fn)
 
 
-def un_comment(line):
-    comment_state = 0
-    out_line = ""
-    for c in line:
-        if c == '/' and comment_state == 0:
-            comment_state = 1
-        elif comment_state == 1:
-            if c == '*':
-                comment_state = 2
-                out_line += "  "
-            else:
-                comment_state = 0
-                out_line += "/" + c
-        elif comment_state == 2:
-            if c == '*':
-                comment_state += 1
-            out_line += " "
-        elif comment_state == 3:
-            if c == '/':
-                comment_state = 0
-            else:
-                comment_state = 2
-            out_line += " "
-        else:
-            comment_state = 0
-            out_line += c
-    return out_line
+def un_comment(text):
+    """ remove c-style comments.
+        text: blob of text with comments (can include newlines)
+        returns: text with comments removed
+    """
+    pattern = r"""
+                            ##  --------- COMMENT ---------
+           /\*              ##  Start of /* ... */ comment
+           [^*]*\*+         ##  Non-* followed by 1-or-more *'s
+           (                ##
+             [^/*][^*]*\*+  ##
+           )*               ##  0-or-more things which don't start with /
+                            ##    but do end with '*'
+           /                ##  End of /* ... */ comment
+         |                  ##  -OR-  various things which aren't comments:
+           (                ## 
+                            ##  ------ " ... " STRING ------
+             "              ##  Start of " ... " string
+             (              ##
+               \\.          ##  Escaped char
+             |              ##  -OR-
+               [^"\\]       ##  Non "\ characters
+             )*             ##
+             "              ##  End of " ... " string
+           |                ##  -OR-
+                            ##
+                            ##  ------ ' ... ' STRING ------
+             '              ##  Start of ' ... ' string
+             (              ##
+               \\.          ##  Escaped char
+             |              ##  -OR-
+               [^'\\]       ##  Non '\ characters
+             )*             ##
+             '              ##  End of ' ... ' string
+           |                ##  -OR-
+                            ##
+                            ##  ------ ANYTHING ELSE -------
+             .              ##  Anything other char
+             [^/"'\\]*      ##  Chars which doesn't start a comment, string
+           )                ##    or escape
+    """
+    regex = re.compile(pattern, re.VERBOSE|re.MULTILINE|re.DOTALL)
+    noncomments = [m.group(2) for m in regex.finditer(text) if m.group(2)]
+
+    return "".join(noncomments)
 
 
 def extract_structs(header_path):
