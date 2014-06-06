@@ -26,33 +26,51 @@ def walk_headers(path):
                 yield os.path.join(subpath, fn)
 
 
-def un_comment(line):
-    comment_state = 0
-    out_line = ""
-    for c in line:
-        if c == '/' and comment_state == 0:
-            comment_state = 1
-        elif comment_state == 1:
-            if c == '*':
-                comment_state = 2
-                out_line += "  "
-            else:
-                comment_state = 0
-                out_line += "/" + c
-        elif comment_state == 2:
-            if c == '*':
-                comment_state += 1
-            out_line += " "
-        elif comment_state == 3:
-            if c == '/':
-                comment_state = 0
-            else:
-                comment_state = 2
-            out_line += " "
-        else:
-            comment_state = 0
-            out_line += c
-    return out_line
+def un_comment(text):
+    """ remove c-style comments.
+        text: blob of text with comments (can include newlines)
+        returns: text with comments removed
+    """
+    pattern = r"""
+                            ##  --------- COMMENT ---------
+           /\*              ##  Start of /* ... */ comment
+           [^*]*\*+         ##  Non-* followed by 1-or-more *'s
+           (                ##
+             [^/*][^*]*\*+  ##
+           )*               ##  0-or-more things which don't start with /
+                            ##    but do end with '*'
+           /                ##  End of /* ... */ comment
+         |                  ##  -OR-  various things which aren't comments:
+           (                ## 
+                            ##  ------ " ... " STRING ------
+             "              ##  Start of " ... " string
+             (              ##
+               \\.          ##  Escaped char
+             |              ##  -OR-
+               [^"\\]       ##  Non "\ characters
+             )*             ##
+             "              ##  End of " ... " string
+           |                ##  -OR-
+                            ##
+                            ##  ------ ' ... ' STRING ------
+             '              ##  Start of ' ... ' string
+             (              ##
+               \\.          ##  Escaped char
+             |              ##  -OR-
+               [^'\\]       ##  Non '\ characters
+             )*             ##
+             '              ##  End of ' ... ' string
+           |                ##  -OR-
+                            ##
+                            ##  ------ ANYTHING ELSE -------
+             .              ##  Anything other char
+             [^/"'\\]*      ##  Chars which doesn't start a comment, string
+           )                ##    or escape
+    """
+    regex = re.compile(pattern, re.VERBOSE|re.MULTILINE|re.DOTALL)
+    noncomments = [m.group(2) for m in regex.finditer(text) if m.group(2)]
+
+    return "".join(noncomments)
 
 
 def extract_structs(header_path):
@@ -64,11 +82,10 @@ def extract_structs(header_path):
             for raw_line in re.split(r'[;\}]\s*', header_data, 0, re.S):
                 line = un_comment(raw_line)
                 if struct_name is None:
-                    struct_match = re.match(r'^\s*struct\s+(\w+)\s+{', line, re.S)
+                    struct_match = re.match(r'^\s*struct\s+(\w+)\s+{',line,re.S)
                     if struct_match:
                         struct_name = struct_match.group(1)
-                        struct_mem = re.search(r'{\s*(\w+)\s+(\w+)',
-                                               line, re.S)
+                        struct_mem = re.search(r'{\s*(\w+)\s+(\w+)',line,re.S)
                         if struct_mem:
                             struct_members.append((struct_mem.group(1),
                                                    struct_mem.group(2)))
@@ -96,8 +113,7 @@ def do_subid_query(conn, query, param):
 
 def get_library_id_by_name(conn, name):
     cursor = conn.cursor()
-    cursor.execute("SELECT Lid FROM Library WHERE Lname = %s",
-                   (name,))
+    cursor.execute("SELECT Lid FROM Library WHERE Lname = %s", (name,))
     if cursor.rowcount != 1:
         raise RuntimeError("more than one row returned for library " + name)
     return cursor.fetchone()[0]
@@ -105,8 +121,7 @@ def get_library_id_by_name(conn, name):
 
 def get_header_id_by_name(conn, name):
     cursor = conn.cursor()
-    cursor.execute("SELECT Hid FROM Header WHERE Hname = %s",
-                   (name,))
+    cursor.execute("SELECT Hid FROM Header WHERE Hname = %s", (name,))
     if cursor.rowcount != 1:
         raise RuntimeError("more than one row returned for header " + name)
     return cursor.fetchone()[0]
@@ -165,8 +180,7 @@ def main():
                             break
                         cursor = conn.cursor()
                         cursor.execute("SELECT TMid FROM TypeMember WHERE " +
-                                       "TMmemberof = %s",
-                                       (str(type_id),))
+                                       "TMmemberof = %s", (str(type_id),))
                         if cursor.rowcount != hdr_members:
                             if cursor.rowcount == 0:
                                 bad_types.append(type_name)

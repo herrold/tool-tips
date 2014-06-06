@@ -446,7 +446,7 @@ _GtkMenuBarClass # expect 1, found 5
 _GtkFrameClass
 _GtkAssistantClass
 _GtkToolItemClass
-_GtkTextAppearance # expect 5, found 12
+_GtkTextAppearance # expect 13, found 12
 _GtkCellRendererSpinClass # expect 1, found 5
 _GtkIMMulticontextClass # expect 1, found 5
 _GtkCellAreaBox # expect 2, found 3
