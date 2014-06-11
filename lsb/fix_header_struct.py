@@ -19,7 +19,7 @@ import re
 import MySQLdb
 
 # debug enabled will show the members scraped from the upstream headers
-debug = 0
+debug = 1
 
 libraries = ["libgdk-3", "libgtk-3"]
 
@@ -91,7 +91,7 @@ def extract_structs(header_path):
                     struct_match = re.match(r'^\s*struct\s+(\w+)\s+{',line,re.S)
                     if struct_match:
                         struct_name = struct_match.group(1)
-                        struct_mem = re.search(r'{\s*(\w+)\s+(\w+)',line,re.S)
+                        struct_mem = re.search(r'{\s*(.+)\s+([\w*]+)',line,re.S)
                         if struct_mem:
                             struct_members.append((struct_mem.group(1),
                                                    struct_mem.group(2)))
