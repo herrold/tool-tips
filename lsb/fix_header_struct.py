@@ -9,12 +9,17 @@
 # "make restore" a specdb checkout, you've got what you need for this
 # script) and the GTK+ 3 headers.  For the best consistency, run this
 # script against the headers as delivered in openSUSE 12.3 (which was the
-# distribution the database was originally defined from).
+# distribution the database was originally defined from). The script
+# expects to find these in a local directory named "gtk-3.0" - copy
+# from the noted distro to your work directory first.
 
 import sys
 import os
 import re
 import MySQLdb
+
+# debug enabled will show the members scraped from the upstream headers
+debug = 0
 
 libraries = ["libgdk-3", "libgtk-3"]
 
@@ -31,6 +36,7 @@ def un_comment(text):
         text: blob of text with comments (can include newlines)
         returns: text with comments removed
     """
+    # this pattern is cribbed from the web
     pattern = r"""
                             ##  --------- COMMENT ---------
            /\*              ##  Start of /* ... */ comment
@@ -95,11 +101,19 @@ def extract_structs(header_path):
                         struct_name = None
                         struct_members = []
                     else:
-                        struct_mem = re.search(r'(\w+)\s+([\w*]+)',
+                        # try to identify function pointer members
+                        struct_mem_fptr = re.search(r'(.+)\s+(\(\*.+)',
                                                line.strip(), re.S)
-                        if struct_mem:
-                            struct_members.append((struct_mem.group(1),
-                                                   struct_mem.group(2)))
+                        if struct_mem_fptr:
+                            struct_members.append((struct_mem_fptr.group(1),
+                                                   struct_mem_fptr.group(2)))
+                        else:
+                            # then regular members
+                            struct_mem = re.search(r'(.+)\s+([\w*]+)',
+                                                   line.strip(), re.S)
+                            if struct_mem:
+                                struct_members.append((struct_mem.group(1),
+                                                       struct_mem.group(2)))
 
             header_data = header.read()
 
@@ -151,10 +165,20 @@ def get_structs_in_header_group(conn, hgroup_id):
 #            if m:
 
 
+#def dumpmembers(detected_structs[type_name]["members"])
+def dumpmembers(members):
+    if len(members) == 0:
+        return
+    ct = 0
+    for member in members:
+        print("\t%d: %s\t%s" % (ct, member[0], ' '.join(member[1].split())))
+        ct += 1
+
+
 def main():
     detected_structs = {}
-    for header_file in walk_headers("/usr/include/gtk-3.0"):
-        print("Considering %s..." % header_file)
+    for header_file in walk_headers("./gtk-3.0"):
+        #print("Considering %s..." % header_file)
         for (struct_name, struct_members) in extract_structs(header_file):
             detected_structs[struct_name] = {}
             detected_structs[struct_name]["header_path"] = header_file
@@ -167,48 +191,75 @@ def main():
 
     good_types = []
     bad_types = []
+    bad_types_info = {}
+    members_disabled = []
     for library_name in libraries:
         lib_id = get_library_id_by_name(conn, library_name)
         for (header_id,) in get_headers_from_lib(conn, lib_id):
             for (hgroup_id,) in get_header_groups(conn, header_id):
-                                                                            #
                 for (type_id, type_name) in \
                         get_structs_in_header_group(conn, hgroup_id):
                     if type_name in detected_structs:
                         hdr_members = len(detected_structs[type_name]["members"])
+                        # if no members, nothing to do
                         if hdr_members == 0:
-                            break
+                            continue
+
                         cursor = conn.cursor()
+                        # how many included typemembers are there?
                         cursor.execute("SELECT TMid FROM TypeMember WHERE " +
-                                       "TMmemberof = %s", (str(type_id),))
-                        if cursor.rowcount != hdr_members:
-                            if cursor.rowcount == 0:
-                                bad_types.append(type_name)
-                            else:
-                                # include debugging printout
-                                bad_types.append("%s # expect %d, found %d" %
-                                   (type_name, hdr_members, cursor.rowcount))
-                        else:
-                            # before concluding it's good we should
-                            # check for a valid ArchType entry for this type
-                            cursor.execute("SELECT Tid FROM Type " +
-                                           "JOIN ArchType on Tid=ATtid " +
-                                           "WHERE Tname=%s AND Tlibrary=%s " +
-                                           "AND ATappearedin > ''",
-                                           (type_name, library_name))
-                            if cursor.rowcount == 1:
-                                good_types.append(type_name)
-                            else:
-                                # include debugging printout
-                                bad_types.append("%s # no/disabled ArchType" %
-                                                 type_name)
+                                       "TMmemberof = %s AND TMappearedin > ''",
+                                       (str(type_id),))
+                        mem_found = cursor.rowcount
+
+                        # how many not-included typemembers are there?
+                        cursor.execute("SELECT TMid FROM TypeMember WHERE " +
+                                       "TMmemberof = %s AND TMappearedin = ''", 
+                                       (str(type_id),))
+                        mem_disable = cursor.rowcount
+
+                        # is this type included at all?
+                        cursor.execute("SELECT Tid FROM Type " +
+                                       "JOIN ArchType on Tid=ATtid " +
+                                       "WHERE Tname=%s AND Tlibrary=%s " +
+                                       "AND ATappearedin > ''",
+                                       (type_name, library_name))
+                        if cursor.rowcount == 0:
+                            bad_types.append(type_name)
+                            bad_types_info[type_name] = \
+                                "missing or disabled ArchType"
+                            continue
+
+                        # do we have a member count mismatch?
+                        if mem_found != hdr_members:
+                            bad_types.append(type_name)
+                            bad_types_info[type_name] = \
+                                "expect %d members, found %d" % \
+                                (hdr_members, cursor.rowcount)
+                            continue
+
+                        # if we are still here, struct is okay on basic level
+                        good_types.append(type_name)
+
+                        # Are there disabled typemembers? If error, it will
+                        # have been caught above; this is just for cleanup
+                        if mem_disable > 0:
+                            members_disabled.append(type_name)
 
     print("Structs detected to have problems (total %d):" % len(bad_types))
     for type_name in bad_types:
-        print(type_name)
+        print("%s (%s)" % (type_name, bad_types_info[type_name]))
+        if debug:
+            dumpmembers(detected_structs[type_name]["members"])
 
     print("Structs detected to not have problems (total %d):" % len(good_types))
     for type_name in good_types:
+        print(type_name)
+
+    print("Structs where total members != enabled members in specdb (%d):" %
+          len(members_disabled))
+    print("NOTE: these may overlap with the two categories above")
+    for type_name in members_disabled:
         print(type_name)
 
 if __name__ == "__main__":
