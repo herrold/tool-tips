@@ -235,7 +235,7 @@ def main():
                             bad_types.append(type_name)
                             bad_types_info[type_name] = \
                                 "expect %d members, found %d" % \
-                                (hdr_members, cursor.rowcount)
+                                (hdr_members, mem_found)
                             continue
 
                         # if we are still here, struct is okay on basic level
@@ -256,11 +256,12 @@ def main():
     for type_name in good_types:
         print(type_name)
 
-    print("Structs where total members != enabled members in specdb (%d):" %
-          len(members_disabled))
-    print("NOTE: these may overlap with the two categories above")
-    for type_name in members_disabled:
-        print(type_name)
+    if members_disabled:
+        print("Structs where total members != enabled members in specdb (%d):" %
+              len(members_disabled))
+        print("NOTE: these may overlap with the two categories above")
+        for type_name in members_disabled:
+            print(type_name)
 
 if __name__ == "__main__":
     main()

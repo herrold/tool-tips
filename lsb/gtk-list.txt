@@ -1,110 +1,110 @@
 Structs detected to have problems (total 106):
-_GdkEventMotion (expect 11 members, found 1)
-_GdkEventButton (expect 11 members, found 1)
-_GdkEventTouch (expect 12 members, found 1)
-_GdkEventScroll (expect 12 members, found 1)
-_GdkEventConfigure (expect 6 members, found 1)
-_GdkEventDND (expect 6 members, found 1)
-_GdkWindowAttr (expect 12 members, found 1)
-_GtkSettingsValue (expect 1 members, found 1)
-_GtkScaleButtonClass (expect 6 members, found 1)
-_GtkAdjustmentClass (expect 7 members, found 1)
-_GtkActivatableIface (expect 3 members, found 1)
-_GtkSpinButtonClass (expect 10 members, found 1)
-_GtkToolButtonClass (expect 7 members, found 1)
-_GtkIMContextClass (expect 23 members, found 1)
-_GtkToolShellIface (expect 10 members, found 1)
-_GtkToggleButtonClass (expect 6 members, found 1)
-_GtkMenuShellClass (expect 15 members, found 1)
-_GtkRecentManagerClass (expect 6 members, found 1)
-_GtkRadioButtonClass (expect 6 members, found 1)
-_GtkLinkButtonClass (expect 6 members, found 1)
-_GtkRcStyle (expect 15 members, found 1)
-_GtkRangeClass (expect 12 members, found 1)
-_GtkTreeSelectionClass (expect 6 members, found 1)
-_GtkTreeViewColumnClass (expect 6 members, found 1)
-_GtkStatusIconClass (expect 12 members, found 1)
-_GtkCalendarClass (expect 12 members, found 1)
-_GtkActionableInterface (expect 5 members, found 1)
-_GtkRecentChooserIface (expect 15 members, found 1)
-_GtkRadioActionClass (expect 6 members, found 1)
-_GtkPlugClass (expect 6 members, found 1)
-_GtkNotebookClass (expect 20 members, found 1)
-_GtkTreeDragSourceIface (expect 4 members, found 1)
-_GtkTreeDragDestIface (expect 3 members, found 1)
-_GtkEntryBufferClass (expect 15 members, found 1)
-_GtkThemingEngineClass (expect 18 members, found 1)
-_GtkFontChooserIface (expect 7 members, found 1)
-_GtkAppChooserButtonClass (expect 3 members, found 1)
-_GtkWidgetClass (expect 87 members, found 1)
-_GtkStockItem (expect 4 members, found 1)
-_GtkEntryClass (expect 20 members, found 1)
-_GtkColorChooserInterface (expect 6 members, found 1)
-_GtkColorButtonClass (expect 6 members, found 1)
-_GtkUIManagerClass (expect 13 members, found 1)
-_GtkToggleToolButtonClass (expect 6 members, found 1)
-_GtkCellRendererAccelClass (expect 8 members, found 1)
-_GtkOverlayClass (expect 10 members, found 1)
-_GtkTextViewClass (expect 19 members, found 1)
-_GtkInfoBarClass (expect 7 members, found 1)
-_GtkTextTagTableClass (expect 8 members, found 1)
-_GtkSwitchClass (expect 8 members, found 1)
-_GtkCellRendererClass (expect 17 members, found 1)
-_GtkFrameClass (expect 6 members, found 1)
-_GtkAssistantClass (expect 10 members, found 1)
-_GtkToolItemClass (expect 7 members, found 1)
-_GtkTextAppearance (expect 13 members, found 1)
-_GtkPrintOperationPreviewIface (expect 14 members, found 1)
-_GtkToggleActionClass (expect 6 members, found 1)
-_GtkCssProviderClass (expect 5 members, found 1)
-_GtkTreeModelFilterClass (expect 7 members, found 1)
-_GtkSocketClass (expect 7 members, found 1)
-_GtkMenuItemClass (expect 14 members, found 1)
-_GtkActionGroupClass (expect 6 members, found 1)
-_GtkPanedClass (expect 11 members, found 1)
-_GtkEditableInterface (expect 11 members, found 1)
-_GtkActionClass (expect 13 members, found 1)
-_GtkScrolledWindowClass (expect 8 members, found 1)
-_GtkScaleClass (expect 8 members, found 1)
-_GtkCellRendererTextClass (expect 6 members, found 1)
-_GtkTextTagClass (expect 6 members, found 1)
-_GtkApplicationClass (expect 4 members, found 1)
-_GtkRadioMenuItemClass (expect 6 members, found 1)
-_GtkStyleProviderIface (expect 4 members, found 1)
-_GtkEntryCompletionClass (expect 9 members, found 1)
-_GtkCellEditableIface (expect 4 members, found 1)
-_GtkCheckMenuItemClass (expect 7 members, found 1)
-_GtkFontButtonClass (expect 6 members, found 1)
-_GtkFixedChild (expect 2 members, found 1)
-_GtkButtonClass (expect 11 members, found 1)
-_GtkAccelGroupClass (expect 6 members, found 1)
-_GtkAppChooserWidgetClass (expect 5 members, found 1)
-_GtkCellAreaClass (expect 28 members, found 1)
-_GtkCellAreaContextClass (expect 11 members, found 1)
-_GtkPrintOperationClass (expect 20 members, found 1)
-_GtkTreeViewClass (expect 24 members, found 1)
-_GtkCellRendererToggleClass (expect 6 members, found 1)
-_GtkAboutDialogClass (expect 6 members, found 1)
-_GtkTreeModelIface (expect 21 members, found 1)
-_GtkCheckButtonClass (expect 6 members, found 1)
-_GtkLevelBarClass (expect 3 members, found 1)
-_GtkComboBoxClass (expect 6 members, found 1)
-_GtkBuilderClass (expect 10 members, found 1)
-_GtkTextBufferClass (expect 18 members, found 1)
-_GtkIconThemeClass (expect 6 members, found 1)
-_GtkBindingSet (expect 7 members, found 1)
-_GtkBindingArg (expect 4 members, found 1)
-_GtkBindingSignal (expect 3 members, found 1)
-_GtkCellLayoutIface (expect 10 members, found 1)
-_GtkToolbarClass (expect 8 members, found 1)
-_GtkMenuToolButtonClass (expect 6 members, found 1)
-_GtkStatusbarClass (expect 8 members, found 1)
-_GtkExpanderClass (expect 7 members, found 1)
-_GtkStyleContextClass (expect 6 members, found 1)
-_GtkLabelClass (expect 13 members, found 1)
-_GtkTreeSortableIface (expect 7 members, found 1)
-_GtkFileChooserButtonClass (expect 6 members, found 1)
-_GtkIconViewClass (expect 13 members, found 1)
+_GdkEventMotion (expect 11 members, found 12)
+_GdkEventButton (expect 11 members, found 12)
+_GdkEventTouch (expect 12 members, found 13)
+_GdkEventScroll (expect 12 members, found 11)
+_GdkEventConfigure (expect 6 members, found 7)
+_GdkEventDND (expect 6 members, found 7)
+_GdkWindowAttr (expect 12 members, found 14)
+_GtkSettingsValue (expect 1 members, found 2)
+_GtkScaleButtonClass (expect 6 members, found 0)
+_GtkAdjustmentClass (expect 7 members, found 0)
+_GtkActivatableIface (expect 3 members, found 0)
+_GtkSpinButtonClass (expect 10 members, found 0)
+_GtkToolButtonClass (expect 7 members, found 0)
+_GtkIMContextClass (expect 23 members, found 0)
+_GtkToolShellIface (expect 10 members, found 0)
+_GtkToggleButtonClass (expect 6 members, found 0)
+_GtkMenuShellClass (expect 15 members, found 0)
+_GtkRecentManagerClass (expect 6 members, found 0)
+_GtkRadioButtonClass (expect 6 members, found 0)
+_GtkLinkButtonClass (expect 6 members, found 0)
+_GtkRcStyle (expect 15 members, found 0)
+_GtkRangeClass (expect 12 members, found 0)
+_GtkTreeSelectionClass (expect 6 members, found 0)
+_GtkTreeViewColumnClass (expect 6 members, found 0)
+_GtkStatusIconClass (expect 12 members, found 0)
+_GtkCalendarClass (expect 12 members, found 0)
+_GtkActionableInterface (expect 5 members, found 0)
+_GtkRecentChooserIface (expect 15 members, found 0)
+_GtkRadioActionClass (expect 6 members, found 0)
+_GtkPlugClass (expect 6 members, found 0)
+_GtkNotebookClass (expect 20 members, found 0)
+_GtkTreeDragSourceIface (expect 4 members, found 0)
+_GtkTreeDragDestIface (expect 3 members, found 0)
+_GtkEntryBufferClass (expect 15 members, found 0)
+_GtkThemingEngineClass (expect 18 members, found 0)
+_GtkFontChooserIface (expect 7 members, found 0)
+_GtkAppChooserButtonClass (expect 3 members, found 0)
+_GtkWidgetClass (expect 87 members, found 0)
+_GtkStockItem (expect 4 members, found 5)
+_GtkEntryClass (expect 20 members, found 0)
+_GtkColorChooserInterface (expect 6 members, found 0)
+_GtkColorButtonClass (expect 6 members, found 0)
+_GtkUIManagerClass (expect 13 members, found 0)
+_GtkToggleToolButtonClass (expect 6 members, found 0)
+_GtkCellRendererAccelClass (expect 8 members, found 0)
+_GtkOverlayClass (expect 10 members, found 0)
+_GtkTextViewClass (expect 19 members, found 0)
+_GtkInfoBarClass (expect 7 members, found 0)
+_GtkTextTagTableClass (expect 8 members, found 0)
+_GtkSwitchClass (expect 8 members, found 0)
+_GtkCellRendererClass (expect 17 members, found 0)
+_GtkFrameClass (expect 6 members, found 0)
+_GtkAssistantClass (expect 10 members, found 0)
+_GtkToolItemClass (expect 7 members, found 0)
+_GtkTextAppearance (expect 13 members, found 12)
+_GtkPrintOperationPreviewIface (expect 14 members, found 0)
+_GtkToggleActionClass (expect 6 members, found 0)
+_GtkCssProviderClass (expect 5 members, found 0)
+_GtkTreeModelFilterClass (expect 7 members, found 0)
+_GtkSocketClass (expect 7 members, found 0)
+_GtkMenuItemClass (expect 14 members, found 0)
+_GtkActionGroupClass (expect 6 members, found 0)
+_GtkPanedClass (expect 11 members, found 0)
+_GtkEditableInterface (expect 11 members, found 0)
+_GtkActionClass (expect 13 members, found 0)
+_GtkScrolledWindowClass (expect 8 members, found 0)
+_GtkScaleClass (expect 8 members, found 0)
+_GtkCellRendererTextClass (expect 6 members, found 0)
+_GtkTextTagClass (expect 6 members, found 0)
+_GtkApplicationClass (expect 4 members, found 0)
+_GtkRadioMenuItemClass (expect 6 members, found 0)
+_GtkStyleProviderIface (expect 4 members, found 0)
+_GtkEntryCompletionClass (expect 9 members, found 0)
+_GtkCellEditableIface (expect 4 members, found 0)
+_GtkCheckMenuItemClass (expect 7 members, found 0)
+_GtkFontButtonClass (expect 6 members, found 0)
+_GtkFixedChild (expect 2 members, found 3)
+_GtkButtonClass (expect 11 members, found 0)
+_GtkAccelGroupClass (expect 6 members, found 0)
+_GtkAppChooserWidgetClass (expect 5 members, found 0)
+_GtkCellAreaClass (expect 28 members, found 0)
+_GtkCellAreaContextClass (expect 11 members, found 0)
+_GtkPrintOperationClass (expect 20 members, found 0)
+_GtkTreeViewClass (expect 24 members, found 0)
+_GtkCellRendererToggleClass (expect 6 members, found 0)
+_GtkAboutDialogClass (expect 6 members, found 0)
+_GtkTreeModelIface (expect 21 members, found 0)
+_GtkCheckButtonClass (expect 6 members, found 0)
+_GtkLevelBarClass (expect 3 members, found 0)
+_GtkComboBoxClass (expect 6 members, found 0)
+_GtkBuilderClass (expect 10 members, found 0)
+_GtkTextBufferClass (expect 18 members, found 0)
+_GtkIconThemeClass (expect 6 members, found 0)
+_GtkBindingSet (expect 7 members, found 8)
+_GtkBindingArg (expect 4 members, found 2)
+_GtkBindingSignal (expect 3 members, found 4)
+_GtkCellLayoutIface (expect 10 members, found 0)
+_GtkToolbarClass (expect 8 members, found 0)
+_GtkMenuToolButtonClass (expect 6 members, found 0)
+_GtkStatusbarClass (expect 8 members, found 0)
+_GtkExpanderClass (expect 7 members, found 0)
+_GtkStyleContextClass (expect 6 members, found 0)
+_GtkLabelClass (expect 13 members, found 0)
+_GtkTreeSortableIface (expect 7 members, found 0)
+_GtkFileChooserButtonClass (expect 6 members, found 0)
+_GtkIconViewClass (expect 13 members, found 0)
 Structs detected to not have problems (total 252):
 _GdkKeymapKey
 _GdkEventAny
@@ -358,62 +358,3 @@ _GtkPageSetupUnixDialog
 _GtkPageSetupUnixDialogClass
 _GtkPrinter
 _GtkPrinterClass
-Structs where total members != enabled members in specdb (57):
-NOTE: these may overlap with the two categories above
-_GtkScaleButton
-_GtkComboBoxText
-_GtkComboBoxTextClass
-_GtkToolItemGroup
-_GtkToolItemGroupClass
-_GtkSearchEntry
-_GtkSearchEntryClass
-_GtkStyleContext
-_GtkScrollableInterface
-_GtkLockButton
-_GtkLockButtonClass
-_GtkGrid
-_GtkGridClass
-_GtkEntryBuffer
-_GtkRequestedSize
-_GtkThemingEngine
-_GtkAppChooserButton
-_GtkMountOperation
-_GtkMountOperationClass
-_GtkMenuButton
-_GtkMenuButtonClass
-_GtkAppChooserDialog
-_GtkAppChooserDialogClass
-_GtkOverlay
-_GtkInfoBar
-_GtkRecentAction
-_GtkRecentActionClass
-_GtkNumerableIcon
-_GtkNumerableIconClass
-_GtkSwitch
-_GtkCellAreaBox
-_GtkCellAreaBoxClass
-_GtkFontChooserDialog
-_GtkCssProvider
-_GtkOffscreenWindow
-_GtkOffscreenWindowClass
-_GtkIMContextInfo
-_GtkApplication
-_GtkStyleProperties
-_GtkStylePropertiesClass
-_GtkVolumeButton
-_GtkVolumeButtonClass
-_GtkApplicationWindow
-_GtkApplicationWindowClass
-_GtkFontChooserWidget
-_GtkAppChooserWidget
-_GtkCellAreaContext
-_GtkCellArea
-_GtkOrientableIface
-_GtkLevelBar
-_GtkSpinner
-_GtkSpinnerClass
-_GtkToolPalette
-_GtkToolPaletteClass
-_GtkBuilder
-_GtkColorChooserWidget
-_GtkColorChooserWidgetClass
