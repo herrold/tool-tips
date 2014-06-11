@@ -19,7 +19,7 @@ import re
 import MySQLdb
 
 # debug enabled will show the members scraped from the upstream headers
-debug = 0
+debug = 1
 
 libraries = ["libgdk-3", "libgtk-3"]
 
@@ -91,7 +91,7 @@ def extract_structs(header_path):
                     struct_match = re.match(r'^\s*struct\s+(\w+)\s+{',line,re.S)
                     if struct_match:
                         struct_name = struct_match.group(1)
-                        struct_mem = re.search(r'{\s*(\w+)\s+(\w+)',line,re.S)
+                        struct_mem = re.search(r'{\s*(.+)\s+([\w*]+)',line,re.S)
                         if struct_mem:
                             struct_members.append((struct_mem.group(1),
                                                    struct_mem.group(2)))
@@ -235,7 +235,7 @@ def main():
                             bad_types.append(type_name)
                             bad_types_info[type_name] = \
                                 "expect %d members, found %d" % \
-                                (hdr_members, cursor.rowcount)
+                                (hdr_members, mem_found)
                             continue
 
                         # if we are still here, struct is okay on basic level
@@ -256,11 +256,12 @@ def main():
     for type_name in good_types:
         print(type_name)
 
-    print("Structs where total members != enabled members in specdb (%d):" %
-          len(members_disabled))
-    print("NOTE: these may overlap with the two categories above")
-    for type_name in members_disabled:
-        print(type_name)
+    if members_disabled:
+        print("Structs where total members != enabled members in specdb (%d):" %
+              len(members_disabled))
+        print("NOTE: these may overlap with the two categories above")
+        for type_name in members_disabled:
+            print(type_name)
 
 if __name__ == "__main__":
     main()

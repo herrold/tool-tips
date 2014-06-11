@@ -1,111 +1,1154 @@
-Structs detected to have problems (total 106):
-_GdkEventMotion (expect 11 members, found 1)
-_GdkEventButton (expect 11 members, found 1)
-_GdkEventTouch (expect 12 members, found 1)
-_GdkEventScroll (expect 12 members, found 1)
-_GdkEventConfigure (expect 6 members, found 1)
-_GdkEventDND (expect 6 members, found 1)
-_GdkWindowAttr (expect 12 members, found 1)
-_GtkSettingsValue (expect 1 members, found 1)
-_GtkScaleButtonClass (expect 6 members, found 1)
-_GtkAdjustmentClass (expect 7 members, found 1)
-_GtkActivatableIface (expect 3 members, found 1)
-_GtkSpinButtonClass (expect 10 members, found 1)
-_GtkToolButtonClass (expect 7 members, found 1)
-_GtkIMContextClass (expect 23 members, found 1)
-_GtkToolShellIface (expect 10 members, found 1)
-_GtkToggleButtonClass (expect 6 members, found 1)
-_GtkMenuShellClass (expect 15 members, found 1)
-_GtkRecentManagerClass (expect 6 members, found 1)
-_GtkRadioButtonClass (expect 6 members, found 1)
-_GtkLinkButtonClass (expect 6 members, found 1)
-_GtkRcStyle (expect 15 members, found 1)
-_GtkRangeClass (expect 12 members, found 1)
-_GtkTreeSelectionClass (expect 6 members, found 1)
-_GtkTreeViewColumnClass (expect 6 members, found 1)
-_GtkStatusIconClass (expect 12 members, found 1)
-_GtkCalendarClass (expect 12 members, found 1)
-_GtkActionableInterface (expect 5 members, found 1)
-_GtkRecentChooserIface (expect 15 members, found 1)
-_GtkRadioActionClass (expect 6 members, found 1)
-_GtkPlugClass (expect 6 members, found 1)
-_GtkNotebookClass (expect 20 members, found 1)
-_GtkTreeDragSourceIface (expect 4 members, found 1)
-_GtkTreeDragDestIface (expect 3 members, found 1)
-_GtkEntryBufferClass (expect 15 members, found 1)
-_GtkThemingEngineClass (expect 18 members, found 1)
-_GtkFontChooserIface (expect 7 members, found 1)
-_GtkAppChooserButtonClass (expect 3 members, found 1)
-_GtkWidgetClass (expect 87 members, found 1)
-_GtkStockItem (expect 4 members, found 1)
-_GtkEntryClass (expect 20 members, found 1)
-_GtkColorChooserInterface (expect 6 members, found 1)
-_GtkColorButtonClass (expect 6 members, found 1)
-_GtkUIManagerClass (expect 13 members, found 1)
-_GtkToggleToolButtonClass (expect 6 members, found 1)
-_GtkCellRendererAccelClass (expect 8 members, found 1)
-_GtkOverlayClass (expect 10 members, found 1)
-_GtkTextViewClass (expect 19 members, found 1)
-_GtkInfoBarClass (expect 7 members, found 1)
-_GtkTextTagTableClass (expect 8 members, found 1)
-_GtkSwitchClass (expect 8 members, found 1)
-_GtkCellRendererClass (expect 17 members, found 1)
-_GtkFrameClass (expect 6 members, found 1)
-_GtkAssistantClass (expect 10 members, found 1)
-_GtkToolItemClass (expect 7 members, found 1)
-_GtkTextAppearance (expect 13 members, found 1)
-_GtkPrintOperationPreviewIface (expect 14 members, found 1)
-_GtkToggleActionClass (expect 6 members, found 1)
-_GtkCssProviderClass (expect 5 members, found 1)
-_GtkTreeModelFilterClass (expect 7 members, found 1)
-_GtkSocketClass (expect 7 members, found 1)
-_GtkMenuItemClass (expect 14 members, found 1)
-_GtkActionGroupClass (expect 6 members, found 1)
-_GtkPanedClass (expect 11 members, found 1)
-_GtkEditableInterface (expect 11 members, found 1)
-_GtkActionClass (expect 13 members, found 1)
-_GtkScrolledWindowClass (expect 8 members, found 1)
-_GtkScaleClass (expect 8 members, found 1)
-_GtkCellRendererTextClass (expect 6 members, found 1)
-_GtkTextTagClass (expect 6 members, found 1)
-_GtkApplicationClass (expect 4 members, found 1)
-_GtkRadioMenuItemClass (expect 6 members, found 1)
-_GtkStyleProviderIface (expect 4 members, found 1)
-_GtkEntryCompletionClass (expect 9 members, found 1)
-_GtkCellEditableIface (expect 4 members, found 1)
-_GtkCheckMenuItemClass (expect 7 members, found 1)
-_GtkFontButtonClass (expect 6 members, found 1)
-_GtkFixedChild (expect 2 members, found 1)
-_GtkButtonClass (expect 11 members, found 1)
-_GtkAccelGroupClass (expect 6 members, found 1)
-_GtkAppChooserWidgetClass (expect 5 members, found 1)
-_GtkCellAreaClass (expect 28 members, found 1)
-_GtkCellAreaContextClass (expect 11 members, found 1)
-_GtkPrintOperationClass (expect 20 members, found 1)
-_GtkTreeViewClass (expect 24 members, found 1)
-_GtkCellRendererToggleClass (expect 6 members, found 1)
-_GtkAboutDialogClass (expect 6 members, found 1)
-_GtkTreeModelIface (expect 21 members, found 1)
-_GtkCheckButtonClass (expect 6 members, found 1)
-_GtkLevelBarClass (expect 3 members, found 1)
-_GtkComboBoxClass (expect 6 members, found 1)
-_GtkBuilderClass (expect 10 members, found 1)
-_GtkTextBufferClass (expect 18 members, found 1)
-_GtkIconThemeClass (expect 6 members, found 1)
-_GtkBindingSet (expect 7 members, found 1)
-_GtkBindingArg (expect 4 members, found 1)
-_GtkBindingSignal (expect 3 members, found 1)
-_GtkCellLayoutIface (expect 10 members, found 1)
-_GtkToolbarClass (expect 8 members, found 1)
-_GtkMenuToolButtonClass (expect 6 members, found 1)
-_GtkStatusbarClass (expect 8 members, found 1)
-_GtkExpanderClass (expect 7 members, found 1)
-_GtkStyleContextClass (expect 6 members, found 1)
-_GtkLabelClass (expect 13 members, found 1)
-_GtkTreeSortableIface (expect 7 members, found 1)
-_GtkFileChooserButtonClass (expect 6 members, found 1)
-_GtkIconViewClass (expect 13 members, found 1)
-Structs detected to not have problems (total 252):
+Structs detected to have problems (total 101):
+_GdkEventMotion (expect 11 members, found 12)
+	0: GdkEventType	type
+	1: GdkWindow	*window
+	2: gint8	send_event
+	3: guint32	time
+	4: gdouble	x
+	5: gdouble	y
+	6: gdouble	*axes
+	7: guint	state
+	8: gint16	is_hint
+	9: GdkDevice	*device
+	10: gdouble x_root,	y_root
+_GdkEventButton (expect 11 members, found 12)
+	0: GdkEventType	type
+	1: GdkWindow	*window
+	2: gint8	send_event
+	3: guint32	time
+	4: gdouble	x
+	5: gdouble	y
+	6: gdouble	*axes
+	7: guint	state
+	8: guint	button
+	9: GdkDevice	*device
+	10: gdouble x_root,	y_root
+_GdkEventTouch (expect 12 members, found 13)
+	0: GdkEventType	type
+	1: GdkWindow	*window
+	2: gint8	send_event
+	3: guint32	time
+	4: gdouble	x
+	5: gdouble	y
+	6: gdouble	*axes
+	7: guint	state
+	8: GdkEventSequence	*sequence
+	9: gboolean	emulating_pointer
+	10: GdkDevice	*device
+	11: gdouble x_root,	y_root
+_GdkEventScroll (expect 12 members, found 11)
+	0: GdkEventType	type
+	1: GdkWindow	*window
+	2: gint8	send_event
+	3: guint32	time
+	4: gdouble	x
+	5: gdouble	y
+	6: guint	state
+	7: GdkScrollDirection	direction
+	8: GdkDevice	*device
+	9: gdouble x_root,	y_root
+	10: gdouble	delta_x
+	11: gdouble	delta_y
+_GdkEventConfigure (expect 6 members, found 7)
+	0: GdkEventType	type
+	1: GdkWindow	*window
+	2: gint8	send_event
+	3: gint x,	y
+	4: gint	width
+	5: gint	height
+_GdkEventDND (expect 6 members, found 7)
+	0: GdkEventType	type
+	1: GdkWindow	*window
+	2: gint8	send_event
+	3: GdkDragContext	*context
+	4: guint32	time
+	5: gshort x_root,	y_root
+_GdkWindowAttr (expect 13 members, found 14)
+	0: gchar	*title
+	1: gint	event_mask
+	2: gint x,	y
+	3: gint	width
+	4: gint	height
+	5: GdkWindowWindowClass	wclass
+	6: GdkVisual	*visual
+	7: GdkWindowType	window_type
+	8: GdkCursor	*cursor
+	9: gchar	*wmclass_name
+	10: gchar	*wmclass_class
+	11: gboolean	override_redirect
+	12: GdkWindowTypeHint	type_hint
+_GtkScaleButtonClass (expect 6 members, found 0)
+	0: GtkButtonClass	parent_class
+	1: void	(* value_changed) (GtkScaleButton *button, gdouble value)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkAdjustmentClass (expect 7 members, found 0)
+	0: GInitiallyUnownedClass	parent_class
+	1: void	(* changed) (GtkAdjustment *adjustment)
+	2: void	(* value_changed) (GtkAdjustment *adjustment)
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+	6: void	(*_gtk_reserved4) (void)
+_GtkActivatableIface (expect 3 members, found 0)
+	0: GTypeInterface	g_iface
+	1: void  	(* update) (GtkActivatable *activatable, GtkAction *action, const gchar *property_name)
+	2: void  	(* sync_action_properties) (GtkActivatable *activatable, GtkAction *action)
+_GtkSpinButtonClass (expect 10 members, found 0)
+	0: GtkEntryClass	parent_class
+	1: gint	(*input) (GtkSpinButton *spin_button, gdouble *new_value)
+	2: gint	(*output) (GtkSpinButton *spin_button)
+	3: void	(*value_changed) (GtkSpinButton *spin_button)
+	4: void	(*change_value) (GtkSpinButton *spin_button, GtkScrollType scroll)
+	5: void	(*wrapped) (GtkSpinButton *spin_button)
+	6: void	(*_gtk_reserved1) (void)
+	7: void	(*_gtk_reserved2) (void)
+	8: void	(*_gtk_reserved3) (void)
+	9: void	(*_gtk_reserved4) (void)
+_GtkToolButtonClass (expect 7 members, found 0)
+	0: GtkToolItemClass	parent_class
+	1: GType	button_type
+	2: void      	(* clicked) (GtkToolButton *tool_item)
+	3: void	(* _gtk_reserved1) (void)
+	4: void	(* _gtk_reserved2) (void)
+	5: void	(* _gtk_reserved3) (void)
+	6: void	(* _gtk_reserved4) (void)
+_GtkIMContextClass (expect 23 members, found 0)
+	0: GObjectClass	parent_class
+	1: void    	(*preedit_start) (GtkIMContext *context)
+	2: void    	(*preedit_end) (GtkIMContext *context)
+	3: void    	(*preedit_changed) (GtkIMContext *context)
+	4: void    	(*commit) (GtkIMContext *context, const gchar *str)
+	5: gboolean	(*retrieve_surrounding) (GtkIMContext *context)
+	6: gboolean	(*delete_surrounding) (GtkIMContext *context, gint offset, gint n_chars)
+	7: void    	(*set_client_window) (GtkIMContext *context, GdkWindow *window)
+	8: void    	(*get_preedit_string) (GtkIMContext *context, gchar **str, PangoAttrList **attrs, gint *cursor_pos)
+	9: gboolean	(*filter_keypress) (GtkIMContext *context, GdkEventKey *event)
+	10: void    	(*focus_in) (GtkIMContext *context)
+	11: void    	(*focus_out) (GtkIMContext *context)
+	12: void    	(*reset) (GtkIMContext *context)
+	13: void    	(*set_cursor_location) (GtkIMContext *context, GdkRectangle *area)
+	14: void    	(*set_use_preedit) (GtkIMContext *context, gboolean use_preedit)
+	15: void    	(*set_surrounding) (GtkIMContext *context, const gchar *text, gint len, gint cursor_index)
+	16: gboolean	(*get_surrounding) (GtkIMContext *context, gchar **text, gint *cursor_index)
+	17: void	(*_gtk_reserved1) (void)
+	18: void	(*_gtk_reserved2) (void)
+	19: void	(*_gtk_reserved3) (void)
+	20: void	(*_gtk_reserved4) (void)
+	21: void	(*_gtk_reserved5) (void)
+	22: void	(*_gtk_reserved6) (void)
+_GtkToolShellIface (expect 10 members, found 0)
+	0: GTypeInterface	g_iface
+	1: GtkIconSize       	(*get_icon_size) (GtkToolShell *shell)
+	2: GtkOrientation    	(*get_orientation) (GtkToolShell *shell)
+	3: GtkToolbarStyle   	(*get_style) (GtkToolShell *shell)
+	4: GtkReliefStyle    	(*get_relief_style) (GtkToolShell *shell)
+	5: void              	(*rebuild_menu) (GtkToolShell *shell)
+	6: GtkOrientation    	(*get_text_orientation) (GtkToolShell *shell)
+	7: gfloat            	(*get_text_alignment) (GtkToolShell *shell)
+	8: PangoEllipsizeMode	(*get_ellipsize_mode) (GtkToolShell *shell)
+	9: GtkSizeGroup *    	(*get_text_size_group) (GtkToolShell *shell)
+_GtkToggleButtonClass (expect 6 members, found 0)
+	0: GtkButtonClass	parent_class
+	1: void	(* toggled) (GtkToggleButton *toggle_button)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkMenuShellClass (expect 15 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: guint submenu_placement :	1
+	2: void    	(*deactivate) (GtkMenuShell *menu_shell)
+	3: void    	(*selection_done) (GtkMenuShell *menu_shell)
+	4: void    	(*move_current) (GtkMenuShell *menu_shell, GtkMenuDirectionType direction)
+	5: void    	(*activate_current) (GtkMenuShell *menu_shell, gboolean force_hide)
+	6: void    	(*cancel) (GtkMenuShell *menu_shell)
+	7: void    	(*select_item) (GtkMenuShell *menu_shell, GtkWidget *menu_item)
+	8: void    	(*insert) (GtkMenuShell *menu_shell, GtkWidget *child, gint position)
+	9: gint    	(*get_popup_delay) (GtkMenuShell *menu_shell)
+	10: gboolean	(*move_selected) (GtkMenuShell *menu_shell, gint distance)
+	11: void	(*_gtk_reserved1) (void)
+	12: void	(*_gtk_reserved2) (void)
+	13: void	(*_gtk_reserved3) (void)
+	14: void	(*_gtk_reserved4) (void)
+_GtkRecentManagerClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(*changed) (GtkRecentManager *manager)
+	2: void	(*_gtk_recent1) (void)
+	3: void	(*_gtk_recent2) (void)
+	4: void	(*_gtk_recent3) (void)
+	5: void	(*_gtk_recent4) (void)
+_GtkRadioButtonClass (expect 6 members, found 0)
+	0: GtkCheckButtonClass	parent_class
+	1: void	(*group_changed) (GtkRadioButton *radio_button)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkLinkButtonClass (expect 6 members, found 0)
+	0: GtkButtonClass	parent_class
+	1: gboolean	(* activate_link) (GtkLinkButton *button)
+	2: void	(*_gtk_padding1) (void)
+	3: void	(*_gtk_padding2) (void)
+	4: void	(*_gtk_padding3) (void)
+	5: void	(*_gtk_padding4) (void)
+_GtkRcStyle (expect 15 members, found 0)
+	0: GObject	parent_instance
+	1: gchar	*name
+	2: gchar	*bg_pixmap_name
+	3: PangoFontDescription	*font_desc
+	4: GtkRcFlags	color_flags
+	5: GdkColor  	fg
+	6: GdkColor  	bg
+	7: GdkColor  	text
+	8: GdkColor  	base
+	9: gint	xthickness
+	10: gint	ythickness
+	11: GArray	*rc_properties
+	12: GSList	*rc_style_lists
+	13: GSList	*icon_factories
+	14: guint engine_specified :	1
+_GtkRangeClass (expect 12 members, found 0)
+	0: GtkWidgetClass	parent_class
+	1: gchar	*slider_detail
+	2: gchar	*stepper_detail
+	3: void	(* value_changed) (GtkRange *range)
+	4: void	(* adjust_bounds) (GtkRange *range, gdouble new_value)
+	5: void	(* move_slider) (GtkRange *range, GtkScrollType scroll)
+	6: void	(* get_range_border) (GtkRange *range, GtkBorder *border_)
+	7: gboolean	(* change_value) (GtkRange *range, GtkScrollType scroll, gdouble new_value)
+	8: void	(*_gtk_reserved1) (void)
+	9: void	(*_gtk_reserved2) (void)
+	10: void	(*_gtk_reserved3) (void)
+	11: void	(*_gtk_reserved4) (void)
+_GtkTreeSelectionClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* changed) (GtkTreeSelection *selection)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkTreeViewColumnClass (expect 6 members, found 0)
+	0: GInitiallyUnownedClass	parent_class
+	1: void	(*clicked) (GtkTreeViewColumn *tree_column)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkStatusIconClass (expect 12 members, found 0)
+	0: GObjectClass	parent_class
+	1: void    	(* activate) (GtkStatusIcon *status_icon)
+	2: void    	(* popup_menu) (GtkStatusIcon *status_icon, guint button, guint32 activate_time)
+	3: gboolean	(* size_changed) (GtkStatusIcon *status_icon, gint size)
+	4: gboolean	(* button_press_event) (GtkStatusIcon *status_icon, GdkEventButton *event)
+	5: gboolean	(* button_release_event) (GtkStatusIcon *status_icon, GdkEventButton *event)
+	6: gboolean	(* scroll_event) (GtkStatusIcon *status_icon, GdkEventScroll *event)
+	7: gboolean	(* query_tooltip) (GtkStatusIcon *status_icon, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip)
+	8: void	(*__gtk_reserved1)
+	9: void	(*__gtk_reserved2)
+	10: void	(*__gtk_reserved3)
+	11: void	(*__gtk_reserved4)
+_GtkCalendarClass (expect 12 members, found 0)
+	0: GtkWidgetClass	parent_class
+	1: void	(* month_changed) (GtkCalendar *calendar)
+	2: void	(* day_selected) (GtkCalendar *calendar)
+	3: void	(* day_selected_double_click) (GtkCalendar *calendar)
+	4: void	(* prev_month) (GtkCalendar *calendar)
+	5: void	(* next_month) (GtkCalendar *calendar)
+	6: void	(* prev_year) (GtkCalendar *calendar)
+	7: void	(* next_year) (GtkCalendar *calendar)
+	8: void	(*_gtk_reserved1) (void)
+	9: void	(*_gtk_reserved2) (void)
+	10: void	(*_gtk_reserved3) (void)
+	11: void	(*_gtk_reserved4) (void)
+_GtkActionableInterface (expect 5 members, found 0)
+	0: GTypeInterface	g_iface
+	1: const gchar *	(* get_action_name) (GtkActionable *actionable)
+	2: void         	(* set_action_name) (GtkActionable *actionable, const gchar *action_name)
+	3: GVariant *   	(* get_action_target_value) (GtkActionable *actionable)
+	4: void         	(* set_action_target_value) (GtkActionable *actionable, GVariant *target_value)
+_GtkRecentChooserIface (expect 15 members, found 0)
+	0: GTypeInterface	base_iface
+	1: gboolean         	(* set_current_uri) (GtkRecentChooser *chooser, const gchar *uri, GError **error)
+	2: gchar *          	(* get_current_uri) (GtkRecentChooser *chooser)
+	3: gboolean         	(* select_uri) (GtkRecentChooser *chooser, const gchar *uri, GError **error)
+	4: void             	(* unselect_uri) (GtkRecentChooser *chooser, const gchar *uri)
+	5: void             	(* select_all) (GtkRecentChooser *chooser)
+	6: void             	(* unselect_all) (GtkRecentChooser *chooser)
+	7: GList *          	(* get_items) (GtkRecentChooser *chooser)
+	8: GtkRecentManager *(* get_recent_manager) (GtkRecentChooser 	*chooser
+	9: void             	(* add_filter) (GtkRecentChooser *chooser, GtkRecentFilter *filter)
+	10: void             	(* remove_filter) (GtkRecentChooser *chooser, GtkRecentFilter *filter)
+	11: GSList *         	(* list_filters) (GtkRecentChooser *chooser)
+	12: void             	(* set_sort_func) (GtkRecentChooser *chooser, GtkRecentSortFunc sort_func, gpointer sort_data, GDestroyNotify data_destroy)
+	13: void		   	(* item_activated) (GtkRecentChooser *chooser)
+	14: void		   	(* selection_changed) (GtkRecentChooser *chooser)
+_GtkRadioActionClass (expect 6 members, found 0)
+	0: GtkToggleActionClass	parent_class
+	1: void      	(* changed) (GtkRadioAction *action, GtkRadioAction *current)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkPlugClass (expect 6 members, found 0)
+	0: GtkWindowClass	parent_class
+	1: void	(*embedded) (GtkPlug *plug)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkNotebookClass (expect 20 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: void	(* switch_page) (GtkNotebook *notebook, GtkWidget *page, guint page_num)
+	2: gboolean	(* select_page) (GtkNotebook *notebook, gboolean move_focus)
+	3: gboolean	(* focus_tab) (GtkNotebook *notebook, GtkNotebookTab type)
+	4: gboolean	(* change_current_page) (GtkNotebook *notebook, gint offset)
+	5: void	(* move_focus_out) (GtkNotebook *notebook, GtkDirectionType direction)
+	6: gboolean	(* reorder_tab) (GtkNotebook *notebook, GtkDirectionType direction, gboolean move_to_last)
+	7: gint	(* insert_page) (GtkNotebook *notebook, GtkWidget *child, GtkWidget *tab_label, GtkWidget *menu_label, gint position)
+	8: GtkNotebook *	(* create_window) (GtkNotebook *notebook, GtkWidget *page, gint x, gint y)
+	9: void	(* page_reordered) (GtkNotebook *notebook, GtkWidget *child, guint page_num)
+	10: void	(* page_removed) (GtkNotebook *notebook, GtkWidget *child, guint page_num)
+	11: void	(* page_added) (GtkNotebook *notebook, GtkWidget *child, guint page_num)
+	12: void	(*_gtk_reserved1) (void)
+	13: void	(*_gtk_reserved2) (void)
+	14: void	(*_gtk_reserved3) (void)
+	15: void	(*_gtk_reserved4) (void)
+	16: void	(*_gtk_reserved5) (void)
+	17: void	(*_gtk_reserved6) (void)
+	18: void	(*_gtk_reserved7) (void)
+	19: void	(*_gtk_reserved8) (void)
+_GtkTreeDragSourceIface (expect 4 members, found 0)
+	0: GTypeInterface	g_iface
+	1: gboolean    	(* row_draggable) (GtkTreeDragSource *drag_source, GtkTreePath *path)
+	2: gboolean    	(* drag_data_get) (GtkTreeDragSource *drag_source, GtkTreePath *path, GtkSelectionData *selection_data)
+	3: gboolean    	(* drag_data_delete) (GtkTreeDragSource *drag_source, GtkTreePath *path)
+_GtkTreeDragDestIface (expect 3 members, found 0)
+	0: GTypeInterface	g_iface
+	1: gboolean    	(* drag_data_received) (GtkTreeDragDest *drag_dest, GtkTreePath *dest, GtkSelectionData *selection_data)
+	2: gboolean    	(* row_drop_possible) (GtkTreeDragDest *drag_dest, GtkTreePath *dest_path, GtkSelectionData *selection_data)
+_GtkEntryBufferClass (expect 15 members, found 0)
+	0: GObjectClass	parent_class
+	1: void        	(*inserted_text) (GtkEntryBuffer *buffer, guint position, const gchar *chars, guint n_chars)
+	2: void        	(*deleted_text) (GtkEntryBuffer *buffer, guint position, guint n_chars)
+	3: const gchar*	(*get_text) (GtkEntryBuffer *buffer, gsize *n_bytes)
+	4: guint       	(*get_length) (GtkEntryBuffer *buffer)
+	5: guint       	(*insert_text) (GtkEntryBuffer *buffer, guint position, const gchar *chars, guint n_chars)
+	6: guint       	(*delete_text) (GtkEntryBuffer *buffer, guint position, guint n_chars)
+	7: void	(*_gtk_reserved1) (void)
+	8: void	(*_gtk_reserved2) (void)
+	9: void	(*_gtk_reserved3) (void)
+	10: void	(*_gtk_reserved4) (void)
+	11: void	(*_gtk_reserved5) (void)
+	12: void	(*_gtk_reserved6) (void)
+	13: void	(*_gtk_reserved7) (void)
+	14: void	(*_gtk_reserved8) (void)
+_GtkThemingEngineClass (expect 18 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* render_line) (GtkThemingEngine *engine, cairo_t *cr, gdouble x0, gdouble y0, gdouble x1, gdouble y1)
+	2: void	(* render_background) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	3: void	(* render_frame) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	4: void	(* render_frame_gap) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height, GtkPositionType gap_side, gdouble xy0_gap, gdouble xy1_gap)
+	5: void	(* render_extension) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height, GtkPositionType gap_side)
+	6: void	(* render_check) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	7: void	(* render_option) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	8: void	(* render_arrow) (GtkThemingEngine *engine, cairo_t *cr, gdouble angle, gdouble x, gdouble y, gdouble size)
+	9: void	(* render_expander) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	10: void	(* render_focus) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	11: void	(* render_layout) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, PangoLayout *layout)
+	12: void	(* render_slider) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height, GtkOrientation orientation)
+	13: void	(* render_handle) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	14: void	(* render_activity) (GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height)
+	15: GdkPixbuf *	(* render_icon_pixbuf) (GtkThemingEngine *engine, const GtkIconSource *source, GtkIconSize size)
+	16: void	(* render_icon) (GtkThemingEngine *engine, cairo_t *cr, GdkPixbuf *pixbuf, gdouble x, gdouble y)
+	17: gpointer	padding
+_GtkFontChooserIface (expect 7 members, found 0)
+	0: GTypeInterface	base_iface
+	1: PangoFontFamily *	(* get_font_family) (GtkFontChooser *fontchooser)
+	2: PangoFontFace *  	(* get_font_face) (GtkFontChooser *fontchooser)
+	3: gint             	(* get_font_size) (GtkFontChooser *fontchooser)
+	4: void             	(* set_filter_func) (GtkFontChooser *fontchooser, GtkFontFilterFunc filter, gpointer user_data, GDestroyNotify destroy)
+	5: void	(* font_activated) (GtkFontChooser *chooser, const gchar *fontname)
+	6: gpointer	padding
+_GtkAppChooserButtonClass (expect 3 members, found 0)
+	0: GtkComboBoxClass	parent_class
+	1: void	(* custom_item_activated) (GtkAppChooserButton *self, const gchar *item_name)
+	2: gpointer	padding
+_GtkWidgetClass (expect 87 members, found 0)
+	0: GInitiallyUnownedClass	parent_class
+	1: guint	activate_signal
+	2: void	(*dispatch_child_properties_changed) (GtkWidget *widget, guint n_pspecs, GParamSpec **pspecs)
+	3: void	(* destroy) (GtkWidget *widget)
+	4: void	(* show) (GtkWidget *widget)
+	5: void	(* show_all) (GtkWidget *widget)
+	6: void	(* hide) (GtkWidget *widget)
+	7: void	(* map) (GtkWidget *widget)
+	8: void	(* unmap) (GtkWidget *widget)
+	9: void	(* realize) (GtkWidget *widget)
+	10: void	(* unrealize) (GtkWidget *widget)
+	11: void	(* size_allocate) (GtkWidget *widget, GtkAllocation *allocation)
+	12: void	(* state_changed) (GtkWidget *widget, GtkStateType previous_state)
+	13: void	(* state_flags_changed) (GtkWidget *widget, GtkStateFlags previous_state_flags)
+	14: void	(* parent_set) (GtkWidget *widget, GtkWidget *previous_parent)
+	15: void	(* hierarchy_changed) (GtkWidget *widget, GtkWidget *previous_toplevel)
+	16: void	(* style_set) (GtkWidget *widget, GtkStyle *previous_style)
+	17: void	(* direction_changed) (GtkWidget *widget, GtkTextDirection previous_direction)
+	18: void	(* grab_notify) (GtkWidget *widget, gboolean was_grabbed)
+	19: void	(* child_notify) (GtkWidget *widget, GParamSpec *child_property)
+	20: gboolean	(* draw) (GtkWidget *widget, cairo_t *cr)
+	21: GtkSizeRequestMode	(* get_request_mode) (GtkWidget *widget)
+	22: void              	(* get_preferred_height) (GtkWidget *widget, gint *minimum_height, gint *natural_height)
+	23: void              	(* get_preferred_width_for_height) (GtkWidget *widget, gint height, gint *minimum_width, gint *natural_width)
+	24: void              	(* get_preferred_width) (GtkWidget *widget, gint *minimum_width, gint *natural_width)
+	25: void              	(* get_preferred_height_for_width) (GtkWidget *widget, gint width, gint *minimum_height, gint *natural_height)
+	26: gboolean	(* mnemonic_activate) (GtkWidget *widget, gboolean group_cycling)
+	27: void    	(* grab_focus) (GtkWidget *widget)
+	28: gboolean	(* focus) (GtkWidget *widget, GtkDirectionType direction)
+	29: void    	(* move_focus) (GtkWidget *widget, GtkDirectionType direction)
+	30: gboolean	(* keynav_failed) (GtkWidget *widget, GtkDirectionType direction)
+	31: gboolean	(* event) (GtkWidget *widget, GdkEvent *event)
+	32: gboolean	(* button_press_event) (GtkWidget *widget, GdkEventButton *event)
+	33: gboolean	(* button_release_event) (GtkWidget *widget, GdkEventButton *event)
+	34: gboolean	(* scroll_event) (GtkWidget *widget, GdkEventScroll *event)
+	35: gboolean	(* motion_notify_event) (GtkWidget *widget, GdkEventMotion *event)
+	36: gboolean	(* delete_event) (GtkWidget *widget, GdkEventAny *event)
+	37: gboolean	(* destroy_event) (GtkWidget *widget, GdkEventAny *event)
+	38: gboolean	(* key_press_event) (GtkWidget *widget, GdkEventKey *event)
+	39: gboolean	(* key_release_event) (GtkWidget *widget, GdkEventKey *event)
+	40: gboolean	(* enter_notify_event) (GtkWidget *widget, GdkEventCrossing *event)
+	41: gboolean	(* leave_notify_event) (GtkWidget *widget, GdkEventCrossing *event)
+	42: gboolean	(* configure_event) (GtkWidget *widget, GdkEventConfigure *event)
+	43: gboolean	(* focus_in_event) (GtkWidget *widget, GdkEventFocus *event)
+	44: gboolean	(* focus_out_event) (GtkWidget *widget, GdkEventFocus *event)
+	45: gboolean	(* map_event) (GtkWidget *widget, GdkEventAny *event)
+	46: gboolean	(* unmap_event) (GtkWidget *widget, GdkEventAny *event)
+	47: gboolean	(* property_notify_event) (GtkWidget *widget, GdkEventProperty *event)
+	48: gboolean	(* selection_clear_event) (GtkWidget *widget, GdkEventSelection *event)
+	49: gboolean	(* selection_request_event) (GtkWidget *widget, GdkEventSelection *event)
+	50: gboolean	(* selection_notify_event) (GtkWidget *widget, GdkEventSelection *event)
+	51: gboolean	(* proximity_in_event) (GtkWidget *widget, GdkEventProximity *event)
+	52: gboolean	(* proximity_out_event) (GtkWidget *widget, GdkEventProximity *event)
+	53: gboolean	(* visibility_notify_event) (GtkWidget *widget, GdkEventVisibility *event)
+	54: gboolean	(* window_state_event) (GtkWidget *widget, GdkEventWindowState *event)
+	55: gboolean	(* damage_event) (GtkWidget *widget, GdkEventExpose *event)
+	56: gboolean	(* grab_broken_event) (GtkWidget *widget, GdkEventGrabBroken *event)
+	57: void    	(* selection_get) (GtkWidget *widget, GtkSelectionData *selection_data, guint info, guint time_)
+	58: void    	(* selection_received) (GtkWidget *widget, GtkSelectionData *selection_data, guint time_)
+	59: void    	(* drag_begin) (GtkWidget *widget, GdkDragContext *context)
+	60: void    	(* drag_end) (GtkWidget *widget, GdkDragContext *context)
+	61: void    	(* drag_data_get) (GtkWidget *widget, GdkDragContext *context, GtkSelectionData *selection_data, guint info, guint time_)
+	62: void    	(* drag_data_delete) (GtkWidget *widget, GdkDragContext *context)
+	63: void    	(* drag_leave) (GtkWidget *widget, GdkDragContext *context, guint time_)
+	64: gboolean	(* drag_motion) (GtkWidget *widget, GdkDragContext *context, gint x, gint y, guint time_)
+	65: gboolean	(* drag_drop) (GtkWidget *widget, GdkDragContext *context, gint x, gint y, guint time_)
+	66: void    	(* drag_data_received) (GtkWidget *widget, GdkDragContext *context, gint x, gint y, GtkSelectionData *selection_data, guint info, guint time_)
+	67: gboolean	(* drag_failed) (GtkWidget *widget, GdkDragContext *context, GtkDragResult result)
+	68: gboolean	(* popup_menu) (GtkWidget *widget)
+	69: gboolean	(* show_help) (GtkWidget *widget, GtkWidgetHelpType help_type)
+	70: AtkObject * 	(* get_accessible) (GtkWidget *widget)
+	71: void        	(* screen_changed) (GtkWidget *widget, GdkScreen *previous_screen)
+	72: gboolean    	(* can_activate_accel) (GtkWidget *widget, guint signal_id)
+	73: void        	(* composited_changed) (GtkWidget *widget)
+	74: gboolean    	(* query_tooltip) (GtkWidget *widget, gint x, gint y, gboolean keyboard_tooltip, GtkTooltip *tooltip)
+	75: void        	(* compute_expand) (GtkWidget *widget, gboolean *hexpand_p, gboolean *vexpand_p)
+	76: void        	(* adjust_size_request) (GtkWidget *widget, GtkOrientation orientation, gint *minimum_size, gint *natural_size)
+	77: void        	(* adjust_size_allocation) (GtkWidget *widget, GtkOrientation orientation, gint *minimum_size, gint *natural_size, gint *allocated_pos, gint *allocated_size)
+	78: void        	(* style_updated) (GtkWidget *widget)
+	79: gboolean    	(* touch_event) (GtkWidget *widget, GdkEventTouch *event)
+	80: GtkWidgetClassPrivate	*priv
+	81: void	(*_gtk_reserved2) (void)
+	82: void	(*_gtk_reserved3) (void)
+	83: void	(*_gtk_reserved4) (void)
+	84: void	(*_gtk_reserved5) (void)
+	85: void	(*_gtk_reserved6) (void)
+	86: void	(*_gtk_reserved7) (void)
+_GtkEntryClass (expect 20 members, found 0)
+	0: GtkWidgetClass	parent_class
+	1: void	(* populate_popup) (GtkEntry *entry, GtkMenu *menu)
+	2: void	(* activate) (GtkEntry *entry)
+	3: void	(* move_cursor) (GtkEntry *entry, GtkMovementStep step, gint count, gboolean extend_selection)
+	4: void	(* insert_at_cursor) (GtkEntry *entry, const gchar *str)
+	5: void	(* delete_from_cursor) (GtkEntry *entry, GtkDeleteType type, gint count)
+	6: void	(* backspace) (GtkEntry *entry)
+	7: void	(* cut_clipboard) (GtkEntry *entry)
+	8: void	(* copy_clipboard) (GtkEntry *entry)
+	9: void	(* paste_clipboard) (GtkEntry *entry)
+	10: void	(* toggle_overwrite) (GtkEntry *entry)
+	11: void	(* get_text_area_size) (GtkEntry *entry, gint *x, gint *y, gint *width, gint *height)
+	12: void	(* get_frame_size) (GtkEntry *entry, gint *x, gint *y, gint *width, gint *height)
+	13: void	(*_gtk_reserved1) (void)
+	14: void	(*_gtk_reserved2) (void)
+	15: void	(*_gtk_reserved3) (void)
+	16: void	(*_gtk_reserved4) (void)
+	17: void	(*_gtk_reserved5) (void)
+	18: void	(*_gtk_reserved6) (void)
+	19: void	(*_gtk_reserved7) (void)
+_GtkColorChooserInterface (expect 6 members, found 0)
+	0: GTypeInterface	base_interface
+	1: void	(* get_rgba) (GtkColorChooser *chooser, GdkRGBA *color)
+	2: void	(* set_rgba) (GtkColorChooser *chooser, const GdkRGBA *color)
+	3: void	(* add_palette) (GtkColorChooser *chooser, GtkOrientation orientation, gint colors_per_line, gint n_colors, GdkRGBA *colors)
+	4: void	(* color_activated) (GtkColorChooser *chooser, const GdkRGBA *color)
+	5: gpointer	padding
+_GtkColorButtonClass (expect 6 members, found 0)
+	0: GtkButtonClass	parent_class
+	1: void	(* color_set) (GtkColorButton *cp)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkUIManagerClass (expect 13 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* add_widget) (GtkUIManager *manager, GtkWidget *widget)
+	2: void	(* actions_changed) (GtkUIManager *manager)
+	3: void	(* connect_proxy) (GtkUIManager *manager, GtkAction *action, GtkWidget *proxy)
+	4: void	(* disconnect_proxy) (GtkUIManager *manager, GtkAction *action, GtkWidget *proxy)
+	5: void	(* pre_activate) (GtkUIManager *manager, GtkAction *action)
+	6: void	(* post_activate) (GtkUIManager *manager, GtkAction *action)
+	7: GtkWidget *	(* get_widget) (GtkUIManager *manager, const gchar *path)
+	8: GtkAction *	(* get_action) (GtkUIManager *manager, const gchar *path)
+	9: void	(*_gtk_reserved1) (void)
+	10: void	(*_gtk_reserved2) (void)
+	11: void	(*_gtk_reserved3) (void)
+	12: void	(*_gtk_reserved4) (void)
+_GtkToggleToolButtonClass (expect 6 members, found 0)
+	0: GtkToolButtonClass	parent_class
+	1: void	(* toggled) (GtkToggleToolButton *button)
+	2: void	(* _gtk_reserved1) (void)
+	3: void	(* _gtk_reserved2) (void)
+	4: void	(* _gtk_reserved3) (void)
+	5: void	(* _gtk_reserved4) (void)
+_GtkCellRendererAccelClass (expect 8 members, found 0)
+	0: GtkCellRendererTextClass	parent_class
+	1: void	(* accel_edited) (GtkCellRendererAccel *accel, const gchar *path_string, guint accel_key, GdkModifierType accel_mods, guint hardware_keycode)
+	2: void	(* accel_cleared) (GtkCellRendererAccel *accel, const gchar *path_string)
+	3: void	(*_gtk_reserved0) (void)
+	4: void	(*_gtk_reserved1) (void)
+	5: void	(*_gtk_reserved2) (void)
+	6: void	(*_gtk_reserved3) (void)
+	7: void	(*_gtk_reserved4) (void)
+_GtkOverlayClass (expect 10 members, found 0)
+	0: GtkBinClass	parent_class
+	1: gboolean	(*get_child_position) (GtkOverlay *overlay, GtkWidget *widget, GtkAllocation *allocation)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+	6: void	(*_gtk_reserved5) (void)
+	7: void	(*_gtk_reserved6) (void)
+	8: void	(*_gtk_reserved7) (void)
+	9: void	(*_gtk_reserved8) (void)
+_GtkTextViewClass (expect 19 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: void	(* populate_popup) (GtkTextView *text_view, GtkMenu *menu)
+	2: void	(* move_cursor) (GtkTextView *text_view, GtkMovementStep step, gint count, gboolean extend_selection)
+	3: void	(* set_anchor) (GtkTextView *text_view)
+	4: void	(* insert_at_cursor) (GtkTextView *text_view, const gchar *str)
+	5: void	(* delete_from_cursor) (GtkTextView *text_view, GtkDeleteType type, gint count)
+	6: void	(* backspace) (GtkTextView *text_view)
+	7: void	(* cut_clipboard) (GtkTextView *text_view)
+	8: void	(* copy_clipboard) (GtkTextView *text_view)
+	9: void	(* paste_clipboard) (GtkTextView *text_view)
+	10: void	(* toggle_overwrite) (GtkTextView *text_view)
+	11: void	(*_gtk_reserved1) (void)
+	12: void	(*_gtk_reserved2) (void)
+	13: void	(*_gtk_reserved3) (void)
+	14: void	(*_gtk_reserved4) (void)
+	15: void	(*_gtk_reserved5) (void)
+	16: void	(*_gtk_reserved6) (void)
+	17: void	(*_gtk_reserved7) (void)
+	18: void	(*_gtk_reserved8) (void)
+_GtkInfoBarClass (expect 7 members, found 0)
+	0: GtkBoxClass	parent_class
+	1: void	(* response) (GtkInfoBar *info_bar, gint response_id)
+	2: void	(* close) (GtkInfoBar *info_bar)
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+	6: void	(*_gtk_reserved4) (void)
+_GtkTextTagTableClass (expect 8 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* tag_changed) (GtkTextTagTable *table, GtkTextTag *tag, gboolean size_changed)
+	2: void	(* tag_added) (GtkTextTagTable *table, GtkTextTag *tag)
+	3: void	(* tag_removed) (GtkTextTagTable *table, GtkTextTag *tag)
+	4: void	(*_gtk_reserved1) (void)
+	5: void	(*_gtk_reserved2) (void)
+	6: void	(*_gtk_reserved3) (void)
+	7: void	(*_gtk_reserved4) (void)
+_GtkSwitchClass (expect 8 members, found 0)
+	0: GtkWidgetClass	parent_class
+	1: void	(* activate) (GtkSwitch *sw)
+	2: void	(* _switch_padding_1) (void)
+	3: void	(* _switch_padding_2) (void)
+	4: void	(* _switch_padding_3) (void)
+	5: void	(* _switch_padding_4) (void)
+	6: void	(* _switch_padding_5) (void)
+	7: void	(* _switch_padding_6) (void)
+_GtkCellRendererClass (expect 17 members, found 0)
+	0: GInitiallyUnownedClass	parent_class
+	1: GtkSizeRequestMode	(* get_request_mode) (GtkCellRenderer *cell)
+	2: void              	(* get_preferred_width) (GtkCellRenderer *cell, GtkWidget *widget, gint *minimum_size, gint *natural_size)
+	3: void              	(* get_preferred_height_for_width) (GtkCellRenderer *cell, GtkWidget *widget, gint width, gint *minimum_height, gint *natural_height)
+	4: void              	(* get_preferred_height) (GtkCellRenderer *cell, GtkWidget *widget, gint *minimum_size, gint *natural_size)
+	5: void              	(* get_preferred_width_for_height) (GtkCellRenderer *cell, GtkWidget *widget, gint height, gint *minimum_width, gint *natural_width)
+	6: void              	(* get_aligned_area) (GtkCellRenderer *cell, GtkWidget *widget, GtkCellRendererState flags, const GdkRectangle *cell_area, GdkRectangle *aligned_area)
+	7: void              	(* get_size) (GtkCellRenderer *cell, GtkWidget *widget, const GdkRectangle *cell_area, gint *x_offset, gint *y_offset, gint *width, gint *height)
+	8: void              	(* render) (GtkCellRenderer *cell, cairo_t *cr, GtkWidget *widget, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags)
+	9: gboolean          	(* activate) (GtkCellRenderer *cell, GdkEvent *event, GtkWidget *widget, const gchar *path, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags)
+	10: GtkCellEditable * 	(* start_editing) (GtkCellRenderer *cell, GdkEvent *event, GtkWidget *widget, const gchar *path, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags)
+	11: void	(* editing_canceled) (GtkCellRenderer *cell)
+	12: void	(* editing_started) (GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path)
+	13: GtkCellRendererClassPrivate	*priv
+	14: void	(*_gtk_reserved2) (void)
+	15: void	(*_gtk_reserved3) (void)
+	16: void	(*_gtk_reserved4) (void)
+_GtkFrameClass (expect 6 members, found 0)
+	0: GtkBinClass	parent_class
+	1: void	(*compute_child_allocation) (GtkFrame *frame, GtkAllocation *allocation)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkAssistantClass (expect 10 members, found 0)
+	0: GtkWindowClass	parent_class
+	1: void	(* prepare) (GtkAssistant *assistant, GtkWidget *page)
+	2: void	(* apply) (GtkAssistant *assistant)
+	3: void	(* close) (GtkAssistant *assistant)
+	4: void	(* cancel) (GtkAssistant *assistant)
+	5: void	(*_gtk_reserved1) (void)
+	6: void	(*_gtk_reserved2) (void)
+	7: void	(*_gtk_reserved3) (void)
+	8: void	(*_gtk_reserved4) (void)
+	9: void	(*_gtk_reserved5) (void)
+_GtkToolItemClass (expect 7 members, found 0)
+	0: GtkBinClass	parent_class
+	1: gboolean  	(* create_menu_proxy) (GtkToolItem *tool_item)
+	2: void      	(* toolbar_reconfigured) (GtkToolItem *tool_item)
+	3: void	(* _gtk_reserved1) (void)
+	4: void	(* _gtk_reserved2) (void)
+	5: void	(* _gtk_reserved3) (void)
+	6: void	(* _gtk_reserved4) (void)
+_GtkTextAppearance (expect 13 members, found 12)
+	0: GdkColor	bg_color
+	1: GdkColor	fg_color
+	2: gint	rise
+	3: guint underline :	4
+	4: guint strikethrough :	1
+	5: /* Whether to use background-related	values
+	6: this is irrelevant for
+   * the values struct when in a tag, but is used for the composite
+   * values	struct
+	7: it's true if any of the tags being composited
+   * had background stuff set.
+   */
+  guint draw_bg :	1
+	8: /* These are only used when we are actually laying out and rendering
+   * a	paragraph
+	9: not when a GtkTextAppearance is part of a
+   * GtkTextAttributes.
+   */
+  guint inside_selection :	1
+	10: guint is_text :	1
+	11: GdkRGBA	*rgba
+	12: #if (defined(__SIZEOF_INT__) && defined(__SIZEOF_POINTER__)) && (__SIZEOF_INT__ == __SIZEOF_POINTER__)
+  
+  guint	padding
+_GtkPrintOperationPreviewIface (expect 14 members, found 0)
+	0: GTypeInterface	g_iface
+	1: void             	(*ready) (GtkPrintOperationPreview *preview, GtkPrintContext *context)
+	2: void             	(*got_page_size) (GtkPrintOperationPreview *preview, GtkPrintContext *context, GtkPageSetup *page_setup)
+	3: void             	(*render_page) (GtkPrintOperationPreview *preview, gint page_nr)
+	4: gboolean         	(*is_selected) (GtkPrintOperationPreview *preview, gint page_nr)
+	5: void             	(*end_preview) (GtkPrintOperationPreview *preview)
+	6: void	(*_gtk_reserved1) (void)
+	7: void	(*_gtk_reserved2) (void)
+	8: void	(*_gtk_reserved3) (void)
+	9: void	(*_gtk_reserved4) (void)
+	10: void	(*_gtk_reserved5) (void)
+	11: void	(*_gtk_reserved6) (void)
+	12: void	(*_gtk_reserved7) (void)
+	13: void	(*_gtk_reserved8) (void)
+_GtkToggleActionClass (expect 6 members, found 0)
+	0: GtkActionClass	parent_class
+	1: void	(* toggled) (GtkToggleAction *action)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkCssProviderClass (expect 5 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* parsing_error) (GtkCssProvider *provider, GtkCssSection *section, const GError * error)
+	2: void	(*_gtk_reserved2) (void)
+	3: void	(*_gtk_reserved3) (void)
+	4: void	(*_gtk_reserved4) (void)
+_GtkTreeModelFilterClass (expect 7 members, found 0)
+	0: GObjectClass	parent_class
+	1: gboolean	(* visible) (GtkTreeModelFilter *self, GtkTreeModel *child_model, GtkTreeIter *iter)
+	2: void	(* modify) (GtkTreeModelFilter *self, GtkTreeModel *child_model, GtkTreeIter *iter, GValue *value, gint column)
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+	6: void	(*_gtk_reserved4) (void)
+_GtkSocketClass (expect 7 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: void    	(*plug_added) (GtkSocket *socket_)
+	2: gboolean	(*plug_removed) (GtkSocket *socket_)
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+	6: void	(*_gtk_reserved4) (void)
+_GtkMenuItemClass (expect 14 members, found 0)
+	0: GtkBinClass	parent_class
+	1: guint hide_on_activate :	1
+	2: void	(* activate) (GtkMenuItem *menu_item)
+	3: void	(* activate_item) (GtkMenuItem *menu_item)
+	4: void	(* toggle_size_request) (GtkMenuItem *menu_item, gint *requisition)
+	5: void	(* toggle_size_allocate) (GtkMenuItem *menu_item, gint allocation)
+	6: void	(* set_label) (GtkMenuItem *menu_item, const gchar *label)
+	7: const gchar *	(* get_label) (GtkMenuItem *menu_item)
+	8: void	(* select) (GtkMenuItem *menu_item)
+	9: void	(* deselect) (GtkMenuItem *menu_item)
+	10: void	(*_gtk_reserved1) (void)
+	11: void	(*_gtk_reserved2) (void)
+	12: void	(*_gtk_reserved3) (void)
+	13: void	(*_gtk_reserved4) (void)
+_GtkActionGroupClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: GtkAction *(* get_action) (GtkActionGroup *action_group,
+                             const gchar   	*action_name
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkPanedClass (expect 11 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: gboolean	(* cycle_child_focus) (GtkPaned *paned, gboolean reverse)
+	2: gboolean	(* toggle_handle_focus) (GtkPaned *paned)
+	3: gboolean	(* move_handle) (GtkPaned *paned, GtkScrollType scroll)
+	4: gboolean	(* cycle_handle_focus) (GtkPaned *paned, gboolean reverse)
+	5: gboolean	(* accept_position) (GtkPaned *paned)
+	6: gboolean	(* cancel_position) (GtkPaned *paned)
+	7: void	(*_gtk_reserved1) (void)
+	8: void	(*_gtk_reserved2) (void)
+	9: void	(*_gtk_reserved3) (void)
+	10: void	(*_gtk_reserved4) (void)
+_GtkEditableInterface (expect 11 members, found 0)
+	0: GTypeInterface		  	base_iface
+	1: void	(* insert_text) (GtkEditable *editable, const gchar *new_text, gint new_text_length, gint *position)
+	2: void	(* delete_text) (GtkEditable *editable, gint start_pos, gint end_pos)
+	3: void	(* changed) (GtkEditable *editable)
+	4: void	(* do_insert_text) (GtkEditable *editable, const gchar *new_text, gint new_text_length, gint *position)
+	5: void	(* do_delete_text) (GtkEditable *editable, gint start_pos, gint end_pos)
+	6: gchar*	(* get_chars) (GtkEditable *editable, gint start_pos, gint end_pos)
+	7: void	(* set_selection_bounds) (GtkEditable *editable, gint start_pos, gint end_pos)
+	8: gboolean	(* get_selection_bounds) (GtkEditable *editable, gint *start_pos, gint *end_pos)
+	9: void	(* set_position) (GtkEditable *editable, gint position)
+	10: gint	(* get_position) (GtkEditable *editable)
+_GtkActionClass (expect 13 members, found 0)
+	0: GObjectClass	parent_class
+	1: void      	(* activate) (GtkAction *action)
+	2: GType     	menu_item_type
+	3: GType     	toolbar_item_type
+	4: GtkWidget *(* create_menu_item)   (GtkAction	*action
+	5: GtkWidget *(* create_tool_item)   (GtkAction	*action
+	6: void      	(* connect_proxy) (GtkAction *action, GtkWidget *proxy)
+	7: void      	(* disconnect_proxy) (GtkAction *action, GtkWidget *proxy)
+	8: GtkWidget *(* create_menu)        (GtkAction	*action
+	9: void	(*_gtk_reserved1) (void)
+	10: void	(*_gtk_reserved2) (void)
+	11: void	(*_gtk_reserved3) (void)
+	12: void	(*_gtk_reserved4) (void)
+_GtkScrolledWindowClass (expect 8 members, found 0)
+	0: GtkBinClass	parent_class
+	1: gint	scrollbar_spacing
+	2: gboolean	(*scroll_child) (GtkScrolledWindow *scrolled_window, GtkScrollType scroll, gboolean horizontal)
+	3: void	(* move_focus_out) (GtkScrolledWindow *scrolled_window, GtkDirectionType direction)
+	4: void	(*_gtk_reserved1) (void)
+	5: void	(*_gtk_reserved2) (void)
+	6: void	(*_gtk_reserved3) (void)
+	7: void	(*_gtk_reserved4) (void)
+_GtkScaleClass (expect 8 members, found 0)
+	0: GtkRangeClass	parent_class
+	1: gchar*	(* format_value) (GtkScale *scale, gdouble value)
+	2: void	(* draw_value) (GtkScale *scale)
+	3: void	(* get_layout_offsets) (GtkScale *scale, gint *x, gint *y)
+	4: void	(*_gtk_reserved1) (void)
+	5: void	(*_gtk_reserved2) (void)
+	6: void	(*_gtk_reserved3) (void)
+	7: void	(*_gtk_reserved4) (void)
+_GtkCellRendererTextClass (expect 6 members, found 0)
+	0: GtkCellRendererClass	parent_class
+	1: void	(* edited) (GtkCellRendererText *cell_renderer_text, const gchar *path, const gchar *new_text)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkTextTagClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: gboolean	(* event) (GtkTextTag *tag, GObject *event_object, GdkEvent *event, const GtkTextIter *iter)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkApplicationClass (expect 4 members, found 0)
+	0: GApplicationClass	parent_class
+	1: void	(*window_added) (GtkApplication *application, GtkWindow *window)
+	2: void	(*window_removed) (GtkApplication *application, GtkWindow *window)
+	3: gpointer	padding
+_GtkRadioMenuItemClass (expect 6 members, found 0)
+	0: GtkCheckMenuItemClass	parent_class
+	1: void	(*group_changed) (GtkRadioMenuItem *radio_menu_item)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkStyleProviderIface (expect 4 members, found 0)
+	0: GTypeInterface	g_iface
+	1: GtkStyleProperties *	(* get_style) (GtkStyleProvider *provider, GtkWidgetPath *path)
+	2: gboolean	(* get_style_property) (GtkStyleProvider *provider, GtkWidgetPath *path, GtkStateFlags state, GParamSpec *pspec, GValue *value)
+	3: GtkIconFactory *	(* get_icon_factory) (GtkStyleProvider *provider, GtkWidgetPath *path)
+_GtkEntryCompletionClass (expect 9 members, found 0)
+	0: GObjectClass	parent_class
+	1: gboolean	(* match_selected) (GtkEntryCompletion *completion, GtkTreeModel *model, GtkTreeIter *iter)
+	2: void    	(* action_activated) (GtkEntryCompletion *completion, gint index_)
+	3: gboolean	(* insert_prefix) (GtkEntryCompletion *completion, const gchar *prefix)
+	4: gboolean	(* cursor_on_match) (GtkEntryCompletion *completion, GtkTreeModel *model, GtkTreeIter *iter)
+	5: void	(*_gtk_reserved0) (void)
+	6: void	(*_gtk_reserved1) (void)
+	7: void	(*_gtk_reserved2) (void)
+	8: void	(*_gtk_reserved3) (void)
+_GtkCellEditableIface (expect 4 members, found 0)
+	0: GTypeInterface	g_iface
+	1: void	(* editing_done) (GtkCellEditable *cell_editable)
+	2: void	(* remove_widget) (GtkCellEditable *cell_editable)
+	3: void	(* start_editing) (GtkCellEditable *cell_editable, GdkEvent *event)
+_GtkCheckMenuItemClass (expect 7 members, found 0)
+	0: GtkMenuItemClass	parent_class
+	1: void	(* toggled) (GtkCheckMenuItem *check_menu_item)
+	2: void	(* draw_indicator) (GtkCheckMenuItem *check_menu_item, cairo_t *cr)
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+	6: void	(*_gtk_reserved4) (void)
+_GtkFontButtonClass (expect 6 members, found 0)
+	0: GtkButtonClass	parent_class
+	1: void	(* font_set) (GtkFontButton *gfp)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkButtonClass (expect 11 members, found 0)
+	0: GtkBinClass       	parent_class
+	1: void	(* pressed) (GtkButton *button)
+	2: void	(* released) (GtkButton *button)
+	3: void	(* clicked) (GtkButton *button)
+	4: void	(* enter) (GtkButton *button)
+	5: void	(* leave) (GtkButton *button)
+	6: void	(* activate) (GtkButton *button)
+	7: void	(*_gtk_reserved1) (void)
+	8: void	(*_gtk_reserved2) (void)
+	9: void	(*_gtk_reserved3) (void)
+	10: void	(*_gtk_reserved4) (void)
+_GtkAccelGroupClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(*accel_changed) (GtkAccelGroup *accel_group, guint keyval, GdkModifierType modifier, GClosure *accel_closure)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkAppChooserWidgetClass (expect 5 members, found 0)
+	0: GtkBoxClass	parent_class
+	1: void	(* application_selected) (GtkAppChooserWidget *self, GAppInfo *app_info)
+	2: void	(* application_activated) (GtkAppChooserWidget *self, GAppInfo *app_info)
+	3: void	(* populate_popup) (GtkAppChooserWidget *self, GtkMenu *menu, GAppInfo *app_info)
+	4: gpointer	padding
+_GtkCellAreaClass (expect 28 members, found 0)
+	0: GInitiallyUnownedClass	parent_class
+	1: void              	(* add) (GtkCellArea *area, GtkCellRenderer *renderer)
+	2: void              	(* remove) (GtkCellArea *area, GtkCellRenderer *renderer)
+	3: void              	(* foreach) (GtkCellArea *area, GtkCellCallback callback, gpointer callback_data)
+	4: void              	(* foreach_alloc) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, const GdkRectangle *cell_area, const GdkRectangle *background_area, GtkCellAllocCallback callback, gpointer callback_data)
+	5: gint              	(* event) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, GdkEvent *event, const GdkRectangle *cell_area, GtkCellRendererState flags)
+	6: void              	(* render) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, cairo_t *cr, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags, gboolean paint_focus)
+	7: void              	(* apply_attributes) (GtkCellArea *area, GtkTreeModel *tree_model, GtkTreeIter *iter, gboolean is_expander, gboolean is_expanded)
+	8: GtkCellAreaContext *(* create_context)                 (GtkCellArea            	*area
+	9: GtkCellAreaContext *(* copy_context)                   (GtkCellArea             *area,
+                                                          GtkCellAreaContext     	*context
+	10: GtkSizeRequestMode	(* get_request_mode) (GtkCellArea *area)
+	11: void              	(* get_preferred_width) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint *minimum_width, gint *natural_width)
+	12: void              	(* get_preferred_height_for_width) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint width, gint *minimum_height, gint *natural_height)
+	13: void              	(* get_preferred_height) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint *minimum_height, gint *natural_height)
+	14: void              	(* get_preferred_width_for_height) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint height, gint *minimum_width, gint *natural_width)
+	15: void              	(* set_cell_property) (GtkCellArea *area, GtkCellRenderer *renderer, guint property_id, const GValue *value, GParamSpec *pspec)
+	16: void              	(* get_cell_property) (GtkCellArea *area, GtkCellRenderer *renderer, guint property_id, GValue *value, GParamSpec *pspec)
+	17: gboolean          	(* focus) (GtkCellArea *area, GtkDirectionType direction)
+	18: gboolean          	(* is_activatable) (GtkCellArea *area)
+	19: gboolean          	(* activate) (GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, const GdkRectangle *cell_area, GtkCellRendererState flags, gboolean edit_only)
+	20: void	(*_gtk_reserved1) (void)
+	21: void	(*_gtk_reserved2) (void)
+	22: void	(*_gtk_reserved3) (void)
+	23: void	(*_gtk_reserved4) (void)
+	24: void	(*_gtk_reserved5) (void)
+	25: void	(*_gtk_reserved6) (void)
+	26: void	(*_gtk_reserved7) (void)
+	27: void	(*_gtk_reserved8) (void)
+_GtkCellAreaContextClass (expect 11 members, found 0)
+	0: GObjectClass	parent_class
+	1: void   	(* allocate) (GtkCellAreaContext *context, gint width, gint height)
+	2: void   	(* reset) (GtkCellAreaContext *context)
+	3: void   	(* get_preferred_height_for_width) (GtkCellAreaContext *context, gint width, gint *minimum_height, gint *natural_height)
+	4: void   	(* get_preferred_width_for_height) (GtkCellAreaContext *context, gint height, gint *minimum_width, gint *natural_width)
+	5: void	(*_gtk_reserved1) (void)
+	6: void	(*_gtk_reserved2) (void)
+	7: void	(*_gtk_reserved3) (void)
+	8: void	(*_gtk_reserved4) (void)
+	9: void	(*_gtk_reserved5) (void)
+	10: void	(*_gtk_reserved6) (void)
+_GtkPrintOperationClass (expect 20 members, found 0)
+	0: GObjectClass	parent_class
+	1: void    	(*done) (GtkPrintOperation *operation, GtkPrintOperationResult result)
+	2: void    	(*begin_print) (GtkPrintOperation *operation, GtkPrintContext *context)
+	3: gboolean	(*paginate) (GtkPrintOperation *operation, GtkPrintContext *context)
+	4: void    	(*request_page_setup) (GtkPrintOperation *operation, GtkPrintContext *context, gint page_nr, GtkPageSetup *setup)
+	5: void    	(*draw_page) (GtkPrintOperation *operation, GtkPrintContext *context, gint page_nr)
+	6: void    	(*end_print) (GtkPrintOperation *operation, GtkPrintContext *context)
+	7: void    	(*status_changed) (GtkPrintOperation *operation)
+	8: GtkWidget *(*create_custom_widget) (GtkPrintOperation	*operation
+	9: void      	(*custom_widget_apply) (GtkPrintOperation *operation, GtkWidget *widget)
+	10: gboolean	(*preview) (GtkPrintOperation *operation, GtkPrintOperationPreview *preview, GtkPrintContext *context, GtkWindow *parent)
+	11: void    	(*update_custom_widget) (GtkPrintOperation *operation, GtkWidget *widget, GtkPageSetup *setup, GtkPrintSettings *settings)
+	12: void	(*_gtk_reserved1) (void)
+	13: void	(*_gtk_reserved2) (void)
+	14: void	(*_gtk_reserved3) (void)
+	15: void	(*_gtk_reserved4) (void)
+	16: void	(*_gtk_reserved5) (void)
+	17: void	(*_gtk_reserved6) (void)
+	18: void	(*_gtk_reserved7) (void)
+	19: void	(*_gtk_reserved8) (void)
+_GtkTreeViewClass (expect 24 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: void    	(* row_activated) (GtkTreeView *tree_view, GtkTreePath *path, GtkTreeViewColumn *column)
+	2: gboolean	(* test_expand_row) (GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path)
+	3: gboolean	(* test_collapse_row) (GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path)
+	4: void    	(* row_expanded) (GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path)
+	5: void    	(* row_collapsed) (GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path)
+	6: void    	(* columns_changed) (GtkTreeView *tree_view)
+	7: void    	(* cursor_changed) (GtkTreeView *tree_view)
+	8: gboolean	(* move_cursor) (GtkTreeView *tree_view, GtkMovementStep step, gint count)
+	9: gboolean	(* select_all) (GtkTreeView *tree_view)
+	10: gboolean	(* unselect_all) (GtkTreeView *tree_view)
+	11: gboolean	(* select_cursor_row) (GtkTreeView *tree_view, gboolean start_editing)
+	12: gboolean	(* toggle_cursor_row) (GtkTreeView *tree_view)
+	13: gboolean	(* expand_collapse_cursor_row) (GtkTreeView *tree_view, gboolean logical, gboolean expand, gboolean open_all)
+	14: gboolean	(* select_cursor_parent) (GtkTreeView *tree_view)
+	15: gboolean	(* start_interactive_search) (GtkTreeView *tree_view)
+	16: void	(*_gtk_reserved1) (void)
+	17: void	(*_gtk_reserved2) (void)
+	18: void	(*_gtk_reserved3) (void)
+	19: void	(*_gtk_reserved4) (void)
+	20: void	(*_gtk_reserved5) (void)
+	21: void	(*_gtk_reserved6) (void)
+	22: void	(*_gtk_reserved7) (void)
+	23: void	(*_gtk_reserved8) (void)
+_GtkCellRendererToggleClass (expect 6 members, found 0)
+	0: GtkCellRendererClass	parent_class
+	1: void	(* toggled) (GtkCellRendererToggle *cell_renderer_toggle, const gchar *path)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkAboutDialogClass (expect 6 members, found 0)
+	0: GtkDialogClass	parent_class
+	1: gboolean	(*activate_link) (GtkAboutDialog *dialog, const gchar *uri)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkTreeModelIface (expect 21 members, found 0)
+	0: GTypeInterface	g_iface
+	1: void        	(* row_changed) (GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter)
+	2: void        	(* row_inserted) (GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter)
+	3: void        	(* row_has_child_toggled) (GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter)
+	4: void        	(* row_deleted) (GtkTreeModel *tree_model, GtkTreePath *path)
+	5: void        	(* rows_reordered) (GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter, gint *new_order)
+	6: GtkTreeModelFlags	(* get_flags) (GtkTreeModel *tree_model)
+	7: gint        	(* get_n_columns) (GtkTreeModel *tree_model)
+	8: GType       	(* get_column_type) (GtkTreeModel *tree_model, gint index_)
+	9: gboolean    	(* get_iter) (GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreePath *path)
+	10: GtkTreePath *(* get_path)        (GtkTreeModel *tree_model,
+				    GtkTreeIter 	*iter
+	11: void        	(* get_value) (GtkTreeModel *tree_model, GtkTreeIter *iter, gint column, GValue *value)
+	12: gboolean    	(* iter_next) (GtkTreeModel *tree_model, GtkTreeIter *iter)
+	13: gboolean    	(* iter_previous) (GtkTreeModel *tree_model, GtkTreeIter *iter)
+	14: gboolean    	(* iter_children) (GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreeIter *parent)
+	15: gboolean    	(* iter_has_child) (GtkTreeModel *tree_model, GtkTreeIter *iter)
+	16: gint        	(* iter_n_children) (GtkTreeModel *tree_model, GtkTreeIter *iter)
+	17: gboolean    	(* iter_nth_child) (GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreeIter *parent, gint n)
+	18: gboolean    	(* iter_parent) (GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreeIter *child)
+	19: void        	(* ref_node) (GtkTreeModel *tree_model, GtkTreeIter *iter)
+	20: void        	(* unref_node) (GtkTreeModel *tree_model, GtkTreeIter *iter)
+_GtkCheckButtonClass (expect 6 members, found 0)
+	0: GtkToggleButtonClass	parent_class
+	1: void	(* draw_indicator) (GtkCheckButton *check_button, cairo_t *cr)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkLevelBarClass (expect 3 members, found 0)
+	0: GtkWidgetClass	parent_class
+	1: void	(* offset_changed) (GtkLevelBar *self, const gchar *name)
+	2: gpointer	padding
+_GtkComboBoxClass (expect 6 members, found 0)
+	0: GtkBinClass	parent_class
+	1: void    	(* changed) (GtkComboBox *combo_box)
+	2: gchar   *(* format_entry_text) (GtkComboBox *combo_box,
+				  const gchar	*path
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+_GtkBuilderClass (expect 10 members, found 0)
+	0: GObjectClass	parent_class
+	1: GType	(* get_type_from_name) (GtkBuilder *builder, const char *type_name)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+	6: void	(*_gtk_reserved5) (void)
+	7: void	(*_gtk_reserved6) (void)
+	8: void	(*_gtk_reserved7) (void)
+	9: void	(*_gtk_reserved8) (void)
+_GtkTextBufferClass (expect 18 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* insert_text) (GtkTextBuffer *buffer, GtkTextIter *pos, const gchar *new_text, gint new_text_length)
+	2: void	(* insert_pixbuf) (GtkTextBuffer *buffer, GtkTextIter *iter, GdkPixbuf *pixbuf)
+	3: void	(* insert_child_anchor) (GtkTextBuffer *buffer, GtkTextIter *iter, GtkTextChildAnchor *anchor)
+	4: void	(* delete_range) (GtkTextBuffer *buffer, GtkTextIter *start, GtkTextIter *end)
+	5: void	(* changed) (GtkTextBuffer *buffer)
+	6: void	(* modified_changed) (GtkTextBuffer *buffer)
+	7: void	(* mark_set) (GtkTextBuffer *buffer, const GtkTextIter *location, GtkTextMark *mark)
+	8: void	(* mark_deleted) (GtkTextBuffer *buffer, GtkTextMark *mark)
+	9: void	(* apply_tag) (GtkTextBuffer *buffer, GtkTextTag *tag, const GtkTextIter *start, const GtkTextIter *end)
+	10: void	(* remove_tag) (GtkTextBuffer *buffer, GtkTextTag *tag, const GtkTextIter *start, const GtkTextIter *end)
+	11: void	(* begin_user_action) (GtkTextBuffer *buffer)
+	12: void	(* end_user_action) (GtkTextBuffer *buffer)
+	13: void	(* paste_done) (GtkTextBuffer *buffer, GtkClipboard *clipboard)
+	14: void	(*_gtk_reserved1) (void)
+	15: void	(*_gtk_reserved2) (void)
+	16: void	(*_gtk_reserved3) (void)
+	17: void	(*_gtk_reserved4) (void)
+_GtkIconThemeClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* changed) (GtkIconTheme *icon_theme)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkBindingArg (expect 4 members, found 2)
+	0: GType     	arg_type
+	1: union {
+    glong   	long_data
+	2: gdouble 	double_data
+	3: gchar  	*string_data
+_GtkCellLayoutIface (expect 10 members, found 0)
+	0: GTypeInterface	g_iface
+	1: void	(* pack_start) (GtkCellLayout *cell_layout, GtkCellRenderer *cell, gboolean expand)
+	2: void	(* pack_end) (GtkCellLayout *cell_layout, GtkCellRenderer *cell, gboolean expand)
+	3: void	(* clear) (GtkCellLayout *cell_layout)
+	4: void	(* add_attribute) (GtkCellLayout *cell_layout, GtkCellRenderer *cell, const gchar *attribute, gint column)
+	5: void	(* set_cell_data_func) (GtkCellLayout *cell_layout, GtkCellRenderer *cell, GtkCellLayoutDataFunc func, gpointer func_data, GDestroyNotify destroy)
+	6: void	(* clear_attributes) (GtkCellLayout *cell_layout, GtkCellRenderer *cell)
+	7: void	(* reorder) (GtkCellLayout *cell_layout, GtkCellRenderer *cell, gint position)
+	8: GList*	(* get_cells) (GtkCellLayout *cell_layout)
+	9: GtkCellArea *(* get_area)   (GtkCellLayout        	*cell_layout
+_GtkToolbarClass (expect 8 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: void    	(* orientation_changed) (GtkToolbar *toolbar, GtkOrientation orientation)
+	2: void    	(* style_changed) (GtkToolbar *toolbar, GtkToolbarStyle style)
+	3: gboolean	(* popup_context_menu) (GtkToolbar *toolbar, gint x, gint y, gint button_number)
+	4: void	(*_gtk_reserved1) (void)
+	5: void	(*_gtk_reserved2) (void)
+	6: void	(*_gtk_reserved3) (void)
+	7: void	(*_gtk_reserved4) (void)
+_GtkMenuToolButtonClass (expect 6 members, found 0)
+	0: GtkToolButtonClass	parent_class
+	1: void	(*show_menu) (GtkMenuToolButton *button)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkStatusbarClass (expect 8 members, found 0)
+	0: GtkBoxClass	parent_class
+	1: gpointer	reserved
+	2: void	(*text_pushed) (GtkStatusbar *statusbar, guint context_id, const gchar *text)
+	3: void	(*text_popped) (GtkStatusbar *statusbar, guint context_id, const gchar *text)
+	4: void	(*_gtk_reserved1) (void)
+	5: void	(*_gtk_reserved2) (void)
+	6: void	(*_gtk_reserved3) (void)
+	7: void	(*_gtk_reserved4) (void)
+_GtkExpanderClass (expect 7 members, found 0)
+	0: GtkBinClass   	parent_class
+	1: /* Key binding	signal
+	2: to get notification on the expansion
+   * state connect to notify:expanded.
+   */
+  void       	(* activate) (GtkExpander *expander)
+	3: void	(*_gtk_reserved1) (void)
+	4: void	(*_gtk_reserved2) (void)
+	5: void	(*_gtk_reserved3) (void)
+	6: void	(*_gtk_reserved4) (void)
+_GtkStyleContextClass (expect 6 members, found 0)
+	0: GObjectClass	parent_class
+	1: void	(* changed) (GtkStyleContext *context)
+	2: void	(*_gtk_reserved1) (void)
+	3: void	(*_gtk_reserved2) (void)
+	4: void	(*_gtk_reserved3) (void)
+	5: void	(*_gtk_reserved4) (void)
+_GtkLabelClass (expect 13 members, found 0)
+	0: GtkMiscClass	parent_class
+	1: void	(* move_cursor) (GtkLabel *label, GtkMovementStep step, gint count, gboolean extend_selection)
+	2: void	(* copy_clipboard) (GtkLabel *label)
+	3: void	(* populate_popup) (GtkLabel *label, GtkMenu *menu)
+	4: gboolean	(*activate_link) (GtkLabel *label, const gchar *uri)
+	5: void	(*_gtk_reserved1) (void)
+	6: void	(*_gtk_reserved2) (void)
+	7: void	(*_gtk_reserved3) (void)
+	8: void	(*_gtk_reserved4) (void)
+	9: void	(*_gtk_reserved5) (void)
+	10: void	(*_gtk_reserved6) (void)
+	11: void	(*_gtk_reserved7) (void)
+	12: void	(*_gtk_reserved8) (void)
+_GtkTreeSortableIface (expect 7 members, found 0)
+	0: GTypeInterface	g_iface
+	1: void    	(* sort_column_changed) (GtkTreeSortable *sortable)
+	2: gboolean	(* get_sort_column_id) (GtkTreeSortable *sortable, gint *sort_column_id, GtkSortType *order)
+	3: void    	(* set_sort_column_id) (GtkTreeSortable *sortable, gint sort_column_id, GtkSortType order)
+	4: void    	(* set_sort_func) (GtkTreeSortable *sortable, gint sort_column_id, GtkTreeIterCompareFunc sort_func, gpointer user_data, GDestroyNotify destroy)
+	5: void    	(* set_default_sort_func) (GtkTreeSortable *sortable, GtkTreeIterCompareFunc sort_func, gpointer user_data, GDestroyNotify destroy)
+	6: gboolean	(* has_default_sort_func) (GtkTreeSortable *sortable)
+_GtkFileChooserButtonClass (expect 6 members, found 0)
+	0: GtkBoxClass	parent_class
+	1: void	(* file_set) (GtkFileChooserButton *fc)
+	2: void	(*__gtk_reserved1)
+	3: void	(*__gtk_reserved2)
+	4: void	(*__gtk_reserved3)
+	5: void	(*__gtk_reserved4)
+_GtkIconViewClass (expect 13 members, found 0)
+	0: GtkContainerClass	parent_class
+	1: void   	(* item_activated) (GtkIconView *icon_view, GtkTreePath *path)
+	2: void   	(* selection_changed) (GtkIconView *icon_view)
+	3: void   	(* select_all) (GtkIconView *icon_view)
+	4: void   	(* unselect_all) (GtkIconView *icon_view)
+	5: void   	(* select_cursor_item) (GtkIconView *icon_view)
+	6: void   	(* toggle_cursor_item) (GtkIconView *icon_view)
+	7: gboolean	(* move_cursor) (GtkIconView *icon_view, GtkMovementStep step, gint count)
+	8: gboolean	(* activate_cursor_item) (GtkIconView *icon_view)
+	9: void	(*_gtk_reserved1) (void)
+	10: void	(*_gtk_reserved2) (void)
+	11: void	(*_gtk_reserved3) (void)
+	12: void	(*_gtk_reserved4) (void)
+Structs detected to not have problems (total 257):
 _GdkKeymapKey
 _GdkEventAny
 _GdkEventExpose
@@ -122,6 +1165,7 @@ _GdkEventGrabBroken
 _GdkPoint
 _GtkSettings
 _GtkSettingsClass
+_GtkSettingsValue
 _GtkScaleButton
 _GtkComboBoxText
 _GtkComboBoxTextClass
@@ -205,6 +1249,7 @@ _GtkMountOperationClass
 _GtkWidgetAuxInfo
 _GtkTreeStore
 _GtkTreeStoreClass
+_GtkStockItem
 _GtkEntry
 _GtkAccelLabel
 _GtkAccelLabelClass
@@ -294,6 +1339,7 @@ _GtkDrawingArea
 _GtkDrawingAreaClass
 _GtkFixed
 _GtkFixedClass
+_GtkFixedChild
 _GtkButton
 _GtkAccelGroup
 _GtkAccelKey
@@ -332,7 +1378,9 @@ _GtkCellRendererCombo
 _GtkCellRendererComboClass
 _GtkBuilder
 _GtkIconTheme
+_GtkBindingSet
 _GtkBindingEntry
+_GtkBindingSignal
 _GtkToolbar
 _GtkMenuToolButton
 _GtkColorChooserWidget
@@ -358,62 +1406,3 @@ _GtkPageSetupUnixDialog
 _GtkPageSetupUnixDialogClass
 _GtkPrinter
 _GtkPrinterClass
-Structs where total members != enabled members in specdb (57):
-NOTE: these may overlap with the two categories above
-_GtkScaleButton
-_GtkComboBoxText
-_GtkComboBoxTextClass
-_GtkToolItemGroup
-_GtkToolItemGroupClass
-_GtkSearchEntry
-_GtkSearchEntryClass
-_GtkStyleContext
-_GtkScrollableInterface
-_GtkLockButton
-_GtkLockButtonClass
-_GtkGrid
-_GtkGridClass
-_GtkEntryBuffer
-_GtkRequestedSize
-_GtkThemingEngine
-_GtkAppChooserButton
-_GtkMountOperation
-_GtkMountOperationClass
-_GtkMenuButton
-_GtkMenuButtonClass
-_GtkAppChooserDialog
-_GtkAppChooserDialogClass
-_GtkOverlay
-_GtkInfoBar
-_GtkRecentAction
-_GtkRecentActionClass
-_GtkNumerableIcon
-_GtkNumerableIconClass
-_GtkSwitch
-_GtkCellAreaBox
-_GtkCellAreaBoxClass
-_GtkFontChooserDialog
-_GtkCssProvider
-_GtkOffscreenWindow
-_GtkOffscreenWindowClass
-_GtkIMContextInfo
-_GtkApplication
-_GtkStyleProperties
-_GtkStylePropertiesClass
-_GtkVolumeButton
-_GtkVolumeButtonClass
-_GtkApplicationWindow
-_GtkApplicationWindowClass
-_GtkFontChooserWidget
-_GtkAppChooserWidget
-_GtkCellAreaContext
-_GtkCellArea
-_GtkOrientableIface
-_GtkLevelBar
-_GtkSpinner
-_GtkSpinnerClass
-_GtkToolPalette
-_GtkToolPaletteClass
-_GtkBuilder
-_GtkColorChooserWidget
-_GtkColorChooserWidgetClass
