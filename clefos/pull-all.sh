@@ -51,11 +51,15 @@ NOTWITTER="y"
 #	main body follows
 cd
 cd ${ANCHORDIR}
+#
 #	SKIPTIL will move into an argument, but for now is hard coded
-#	if present, we BLOCK until we see it 
+#	if present, we are DELAYED building until we see it 
 [ "x${SKIPTIL}" != "x" ] && {
 	export DELAYED="y"
 	}
+#
+#	we walk all remote git package names in turn
+#	this driver list is sorted alpha
 for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #
 [ "x${SKIPTIL}" = "x$i" ] && {
@@ -67,6 +71,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 # FIXME: These are being left in the TLD in some error cases -- why?
 # rm -rf BUILD BUILDROOT RPMS SOURCES SPECS SRPMS
 #
+#	when we started developing we simplified the main loop
 # for i in 389-ds-base ; do
 	echo "$i"
 	echo "${MYNAME}: considering: $i" | logger -p local1.info
@@ -99,7 +104,10 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 		FOUND=` find . -name "${i}-[0-9]*.src.rpm" | head -n 1 `
 		echo "${MYNAME}: found: ${FOUND}" | logger -p local1.info
 		}
-#	the following test is: we have the directory, but no matching SRPM
+#
+#	the following test is: while we have the directory, but no matching SRPM
+#	so retrieve the git sources, etc, so we may try to build one
+	cd ${ANCHORDIR}
 	[ -e $i   -a  0$CNT -lt 1 ] && {
 	cd $i
 	git checkout c7
@@ -110,10 +118,12 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 	cd ..
 		}
 #
-#	out of scope for production needs
-	[ -e $i   ] && {
+	cd ${ANCHORDIR}
+	[ -e ./$i   ] && {
 	cd $i
+#
 	[ "x${DEBUG}" != "x" ] && {
+#	out of scope for production needs
 		git branch
 		echo "after git CO" 1>&2
 		echo -n "info: PWD 1: " 1>&2
@@ -139,7 +149,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 		head -n 1`
 	echo "info: SRCPATH: ${SRCPATH} " 1>&2
 	echo "info: SOURCES/i: SOURCES/$i " 1>&2
-	echo "notice: compare above -- may need dirname noramalization" 1>&2
+	echo "notice: compare above -- may need dirname normalization" 1>&2
 # exit 1
 	}
 #
@@ -172,6 +182,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #	this SHOULD be silent
 #	obsolete code
 	[ "x6" = "x9" ] && {
+#	in a Purple Haze
 	echo "info: looking for unexpanded paths" 1>&2
 	for j in ` find . -maxdepth 1 -type d | grep -v "/.git" ` ; do
 		NEWDIR=` echo "${j}" | sed -e "s@%{name}@$i@"`
@@ -181,9 +192,13 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 			}
 	done
 		}
+#	left behind during debugging
 #	exit
 #
-#	test emit a SRPM only, if we do not already have one
+###############################################################
+#	back to code of general import
+#
+#	emit a SRPM only, if we do not already have one
 	CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
 	[ 0$CNT -lt 1 ] && {
 		rpmbuild --nodeps --define "%_topdir `pwd`" \
@@ -215,10 +230,13 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 # echo "post"
 	}
 #
+#	and tell the console ...
 		echo -n "info: SRPM fruit: " 1>&2
 		find . -name "${i}-[0-9]*.src.rpm" | sed -e 's@^./@@g' 1>&2
 			}
 		}
+#
+#	and some whitespace to clean out the display
 	echo " " 1>&2
 #
 #	optionally try to build the package from .spec file
@@ -234,11 +252,12 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #
 #	belt and suspenders checking
 	cd ${ANCHORDIR}
-	[ ! -e $i ] && {
+	[ ! -e ./$i ] && {
 		echo "error: cannot see: ${ANCHORDIR}/$i" 1>&2
 		echo "${MYNAME}: error: cannot see: ${ANCHORDIR}/$i" | \
 			logger -p local1.info
 		}
+#
 #	bottom of BLOCKED / DELAYED packages conditional
 	}
 	cd ${ANCHORDIR}
