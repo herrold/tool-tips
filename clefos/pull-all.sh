@@ -43,6 +43,10 @@ EBLOCKFILE="c7-blockfile.txt"
 ANCHORDIR="/home/herrold/vcs/git/centos-7-archive"
 PULLSCRIPT="centos-git-common/get_sources.sh"
 #
+#	no twitter 
+#	this will not work unless you configure it properly
+NOTWITTER="y"
+#
 #################################################3
 #	main body follows
 cd
@@ -193,6 +197,10 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 		echo "${MYNAME}: just made: ${FOUND}" | \
 			sed -e "s@ ./@ @g" | \
 			logger -p local1.info
+#
+#	most people will not be doing this
+#	if non-null, we do not tweet
+	[ "x${NOTWITTER}" = "x" ] && {
 #	twitter support
 # echo "pre"
 		echo "${MYNAME}: just made: ${FOUND}" | \
@@ -205,6 +213,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 		sleep 30 
 		# -silent
 # echo "post"
+	}
 #
 		echo -n "info: SRPM fruit: " 1>&2
 		find . -name "${i}-[0-9]*.src.rpm" | sed -e 's@^./@@g' 1>&2
