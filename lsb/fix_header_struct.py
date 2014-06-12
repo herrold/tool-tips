@@ -19,7 +19,7 @@ import re
 import MySQLdb
 
 # debug enabled will show the members scraped from the upstream headers
-debug = 1
+debug = 0
 
 libraries = ["libgdk-3", "libgtk-3"]
 
@@ -31,66 +31,30 @@ def walk_headers(path):
                 yield os.path.join(subpath, fn)
 
 
-def un_comment(text):
-    """ remove c-style comments.
-        text: blob of text with comments (can include newlines)
-        returns: text with comments removed
-    """
-    # this pattern is cribbed from the web
-    pattern = r"""
-                            ##  --------- COMMENT ---------
-           /\*              ##  Start of /* ... */ comment
-           [^*]*\*+         ##  Non-* followed by 1-or-more *'s
-           (                ##
-             [^/*][^*]*\*+  ##
-           )*               ##  0-or-more things which don't start with /
-                            ##    but do end with '*'
-           /                ##  End of /* ... */ comment
-         |                  ##  -OR-  various things which aren't comments:
-           (                ## 
-                            ##  ------ " ... " STRING ------
-             "              ##  Start of " ... " string
-             (              ##
-               \\.          ##  Escaped char
-             |              ##  -OR-
-               [^"\\]       ##  Non "\ characters
-             )*             ##
-             "              ##  End of " ... " string
-           |                ##  -OR-
-                            ##
-                            ##  ------ ' ... ' STRING ------
-             '              ##  Start of ' ... ' string
-             (              ##
-               \\.          ##  Escaped char
-             |              ##  -OR-
-               [^'\\]       ##  Non '\ characters
-             )*             ##
-             '              ##  End of ' ... ' string
-           |                ##  -OR-
-                            ##
-                            ##  ------ ANYTHING ELSE -------
-             .              ##  Anything other char
-             [^/"'\\]*      ##  Chars which doesn't start a comment, string
-           )                ##    or escape
-    """
-    regex = re.compile(pattern, re.VERBOSE|re.MULTILINE|re.DOTALL)
-    noncomments = [m.group(2) for m in regex.finditer(text) if m.group(2)]
-
-    return "".join(noncomments)
+# http://www.incognitomind.com/?p=238
+# adapted from: http://stackoverflow.com/questions/241327/python-snippet-to-remove-c-and-c-comments  
+# strips c/c++ comments  
+def un_comment(text):  
+    rep = r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"'  
+    pattern = re.compile(rep, re.DOTALL | re.MULTILINE)  
+    return re.sub(pattern,  
+        lambda match:(match.group(0),"")[match.group(0).startswith('/')], text)
 
 
 def extract_structs(header_path):
     with open(header_path) as header:
         struct_name = None
         struct_members = []
-        header_data = header.read()
+        header_data = un_comment(header.read())
         while header_data:
-            for raw_line in re.split(r'[;\}]\s*', header_data, 0, re.S):
-                line = un_comment(raw_line)
+            for line in re.split(r'[;\}]\s*', header_data, 0, re.S):
                 if struct_name is None:
+                    # try to find beginning of struct declr
                     struct_match = re.match(r'^\s*struct\s+(\w+)\s+{',line,re.S)
                     if struct_match:
                         struct_name = struct_match.group(1)
+                        # find first member, assume not fptr 
+                        # which appears to always be true in gtk
                         struct_mem = re.search(r'{\s*(.+)\s+([\w*]+)',line,re.S)
                         if struct_mem:
                             struct_members.append((struct_mem.group(1),
@@ -115,7 +79,7 @@ def extract_structs(header_path):
                                 struct_members.append((struct_mem.group(1),
                                                        struct_mem.group(2)))
 
-            header_data = header.read()
+            header_data = un_comment(header.read())
 
 
 def do_subid_query(conn, query, param):
@@ -158,21 +122,17 @@ def get_structs_in_header_group(conn, hgroup_id):
                           "and Theadgroup = %s ",
                           (hgroup_id,))
 
-#def get_structs_from_header(header_path):
-#    with open(header_path) as header_file:
-#        for line in header_file:
-#            m = re.match(r'', line)
-#            if m:
 
-
-#def dumpmembers(detected_structs[type_name]["members"])
-def dumpmembers(members):
+# detailed printout of scraped struct members
+def dumpmembers(type, members):
     if len(members) == 0:
         return
-    ct = 0
+
+    position = 0
     for member in members:
-        print("\t%d: %s\t%s" % (ct, member[0], ' '.join(member[1].split())))
-        ct += 1
+        print("%s|%d|%s|%s" % (type, position, member[0].strip(), 
+                               ' '.join(member[1].split())))
+        position += 1
 
 
 def main():
@@ -250,7 +210,7 @@ def main():
     for type_name in bad_types:
         print("%s (%s)" % (type_name, bad_types_info[type_name]))
         if debug:
-            dumpmembers(detected_structs[type_name]["members"])
+            dumpmembers(type_name, detected_structs[type_name]["members"])
 
     print("Structs detected to not have problems (total %d):" % len(good_types))
     for type_name in good_types:
