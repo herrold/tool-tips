@@ -1,14 +1,14 @@
 #!/bin/sh
 #
 #	pull-all.sh
-#		$Id: pull-all.sh,v 1.5 2014/06/12 22:54:14 herrold Exp herrold $
+#		$Id: pull-all.sh,v 1.7 2014/06/13 16:35:58 herrold Exp herrold $
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
 #	reports to: info@owlriver.com
 #	discussion: http://lists.clefos.org/mailman/listinfo, on list:
 #		e7-devel-list
-#       license: GPLv3+
+#       license: GPLv3+ 
 #
 #	based on our practice approach at: 
 #		http://wiki.centos.org/Sources
@@ -33,10 +33,11 @@ DIST=".CHANGEME"
 #
 DEBUG=""
 #
-#	made by: git-C-manifest.sh
+#	made by: git-C-manifest.sh, and stats-close.sh
 #	from: https://github.com/herrold/tool-tips/tree/master/clefos
 EROOT="/home/herrold/clefos"
 EFILE="c7-packages.txt"
+ECACHE="c7-SRPM-cache.txt"
 EBLOCKFILE="c7-blockfile.txt"
 #
 #	from the C wiki page cited
@@ -99,8 +100,14 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #	we do a SRPM check here to remove the former Hendrix conditional
 #
 #	test emit a SRPM only, if we do not already have one
-	CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
-	[ 0$CNT -gt 0 ] && {
+	CNT=0
+#	check the cache
+	[ -s ${EROOT}/${ECACHE} ] && \
+		CNT=`grep -c "${i}-[0-9]*.src.rpm" ${EROOT}/${ECACHE} `
+#	if we have a cache miss, we may still have a later build
+	[ 0$CNT -lt 1 ] && \
+		CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
+	[ 0$CNT -gt 0 -a "x${DEBUG}" != "x" ] && {
 		FOUND=` find . -name "${i}-[0-9]*.src.rpm" | head -n 1 `
 		echo "${MYNAME}: found: ${FOUND}" | logger -p local1.info
 		}
@@ -199,13 +206,23 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #	back to code of general import
 #
 #	emit a SRPM only, if we do not already have one
-	CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
+	CNT=0
+#	check the cache
+	[ -s ${EROOT}/${ECACHE} ] && \
+		CNT=`grep -c "${i}-[0-9]*.src.rpm" ${EROOT}/${ECACHE} `
+#	if we have a cache miss, we may still have a later build
+	[ 0$CNT -lt 1 ] && \
+		CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
+#	if STILL not present, build it
 	[ 0$CNT -lt 1 ] && {
 		rpmbuild --nodeps --define "%_topdir `pwd`" \
 			--define "%dist ${DIST}" \
 			-bs SPECS/$i.spec 
 #
 #	did it succeed?
+#	this is fast, as it is down a level from the top WD
+#	we don't need a cache here
+	CNT=0
 	CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
 	[ 0$CNT -gt 0 ] && {
 		FOUND=` find . -name "${i}-[0-9]*.src.rpm" | head -n 1 `
