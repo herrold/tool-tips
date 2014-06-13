@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	pull-all.sh
-#		$Id: pull-all.sh,v 1.8 2014/06/13 16:55:02 herrold Exp herrold $
+#		$Id: pull-all.sh,v 1.9 2014/06/13 17:01:52 herrold Exp herrold $
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
@@ -118,6 +118,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #	the following test is: while we have the directory, but no matching SRPM
 #	so retrieve the git sources, etc, so we may try to build one
 	cd ${ANCHORDIR}
+	[ "x${OMIT}" = "x" ] && {
 	[ -e $i   -a  0$CNT -lt 1 ] && {
 	cd $i
 	git checkout c7
@@ -126,6 +127,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 	git branch my-$i
 	${ANCHORDIR}/${PULLSCRIPT}
 	cd ..
+		}
 		}
 #
 	cd ${ANCHORDIR}
