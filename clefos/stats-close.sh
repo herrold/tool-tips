@@ -5,6 +5,9 @@
 #
 #	generate closing rate stats
 #
+#	run thus:
+#		while [1] ; do sleep 3600 ; ./stats-close.sh ; done
+#
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
