@@ -9,7 +9,10 @@ the package name into the path:
     [herrold@centos-6 ~]$ grep source  ~/.rpmmacros
     %_sourcedir     %{_topdir}/SOURCES/%{name}
 
+Mailing lists at:
+    http://lists.clefos.org/mailman/listinfo
 
 -- Russ herrold
+
 reports to: info@owlriver.com
 
