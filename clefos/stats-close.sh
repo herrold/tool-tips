@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.2 2014/06/13 13:44:57 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.4 2014/06/13 14:58:16 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -23,7 +23,7 @@ EFILE="c7-packages.txt"
 #
 #	no twitter 
 #	this will not work unless you configure it properly
-NOTWITTER="y"
+## NOTWITTER="y"
 #
 PATH='/bin:/usr/bin:/usr/sbin:/sbin:~/bin/'
 MYNAME=`basename $0`
@@ -39,11 +39,12 @@ find $STARTDIR -name "*src.rpm" | wc -l | awk {'print $1'} > newstats.txt
 	}
 cp newstats.txt oldstats.txt
 GOAL=`wc -l ${EROOT}/${EFILE} | awk {'print $1'} `
+REMAINING=`echo "0${GOAL} - 0${THIS} " | bc`
 #
 #	only report when we have a change
 [ 0${DELTA} -gt 0 ] && {
-echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} " 
-echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} " | \
+echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} " 
+echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} " | \
 	logger -p local1.info
 #
 #	most people will not be doing this
@@ -51,7 +52,7 @@ echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} " |
 	[ "x${NOTWITTER}" = "x" ] && {
 #	twitter support
 # echo "pre"
-echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} " | \
+echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} " | \
 	/home/herrold/build/6/ttytter/ttytter-2.1.00.pl \
 		-rc=/home/herrold/.ttytter-buildmonbot-rc \
 		-keyf=/home/herrold/.ttytter-buildmonbot-key \
