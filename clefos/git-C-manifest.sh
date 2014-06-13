@@ -7,9 +7,11 @@
 #	at the CentOS git server
 #
 #	Copyright (c) R P Herrold info@owlriver.com
+#	master lives on: centos-6 at: /home/herrold/clefos
 #	reports to: info@owlriver.com	
+#	discussion: http://lists.clefos.org/mailman/listinfo, on list:
+#		e7-devel-list
 #	license: GPLv3+
-#	master lives in: /home/herrold/clefos
 #
 lynx -dump https://git.centos.org/sources/ | awk {'print $2'} | \
 	grep ^http | grep "sources/" | grep "/$" \
