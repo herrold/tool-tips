@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	pull-all.sh
-#		$Id: pull-all.sh,v 1.7 2014/06/13 16:35:58 herrold Exp herrold $
+#		$Id: pull-all.sh,v 1.8 2014/06/13 16:55:02 herrold Exp herrold $
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
@@ -110,6 +110,9 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 	[ 0$CNT -gt 0 -a "x${DEBUG}" != "x" ] && {
 		FOUND=` find . -name "${i}-[0-9]*.src.rpm" | head -n 1 `
 		echo "${MYNAME}: found: ${FOUND}" | logger -p local1.info
+		}
+	[ 0$CNT -gt 0 ] && {
+		export OMIT="y"
 		}
 #
 #	the following test is: while we have the directory, but no matching SRPM
