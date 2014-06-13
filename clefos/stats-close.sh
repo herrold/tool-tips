@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.4 2014/06/13 14:58:16 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.6 2014/06/13 16:23:08 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -20,6 +20,7 @@
 #	from: https://github.com/herrold/tool-tips/tree/master/clefos
 EROOT="/home/herrold/clefos"
 EFILE="c7-packages.txt"
+ECACHE="c7-SRPM-cache.txt"
 #
 #	no twitter 
 #	this will not work unless you configure it properly
@@ -31,17 +32,28 @@ MYNAME=`basename $0`
 STARTDIR="/home/herrold/vcs/git/centos-7-archive"
 cd 
 cd $STARTDIR
-find $STARTDIR -name "*src.rpm" | wc -l | awk {'print $1'} > newstats.txt
-[ -e oldstats.txt ] && {
-	PRIOR=`head -n 1 oldstats.txt`
+#	option to force a freshening of stat backing close data 
+#	and the cache
+[ "x${1}" = "x-f" ] && {
+#	this prevents phantom reports
+	[ -e oldstats.txt ] && rm -f oldstats.txt
+	> ${EROOT}/${ECACHE}
+	}
+#	we can speed other operations w a cache periodically rebuilt
+find $STARTDIR -name "*src.rpm" | sort  > ${EROOT}/${ECACHE}
+wc -l ${EROOT}/${ECACHE} | awk {'print $1'} > newstats.txt
+#
+GOAL=`wc -l ${EROOT}/${EFILE} | awk {'print $1'} `
+[ -e oldstats.txt -a -e newstats.txt ] && {
+	PRIOR=`head -n 1 oldstats.txt 2> /dev/null`
 	THIS=`head -n 1 newstats.txt`
 	DELTA=` echo "0${THIS} - 0${PRIOR}" | bc `
+	REMAINING=`echo "0${GOAL} - 0${THIS} " | bc`
 	}
 cp newstats.txt oldstats.txt
-GOAL=`wc -l ${EROOT}/${EFILE} | awk {'print $1'} `
-REMAINING=`echo "0${GOAL} - 0${THIS} " | bc`
 #
-#	only report when we have a change
+#	only report when we have a change, and also data 
+#	( after -f we will not report)
 [ 0${DELTA} -gt 0 ] && {
 echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} " 
 echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} " | \
@@ -58,8 +70,16 @@ echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; r
 		-keyf=/home/herrold/.ttytter-buildmonbot-key \
 		-silent \
 		-status=- 
-		sleep 30 
+#
+		sleep 180 
 		# -silent
+echo "Follow along at: https://github.com/herrold/tool-tips/tree/master/clefos " | \
+	/home/herrold/build/6/ttytter/ttytter-2.1.00.pl \
+		-rc=/home/herrold/.ttytter-buildmonbot-rc \
+		-keyf=/home/herrold/.ttytter-buildmonbot-key \
+		-silent \
+		-status=- 
+#
 # echo "post"
 	}
 #
