@@ -1,114 +1,1906 @@
-Structs detected to have problems (total 102):
-_GdkEventMotion (expect 11 members, found 12)
-_GdkEventButton (expect 11 members, found 12)
-_GdkEventTouch (expect 12 members, found 13)
-_GdkEventScroll (expect 12 members, found 13)
-_GdkEventConfigure (expect 6 members, found 7)
-_GdkEventDND (expect 6 members, found 7)
-_GdkWindowAttr (expect 13 members, found 14)
+Structs detected to have problems (total 95):
 _GtkScaleButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005564 TMposition=0 TMmemberof=10004152 # type=GtkButtonClass
+# function pointer member follows:
+TMname=value_changed TMtypeid=TBD TMposition=1 TMmemberof=10004152 # type=void args=GtkScaleButton *button, gdouble value
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004152 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004152 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004152 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004152 # type=void args=void
 _GtkAdjustmentClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10003273 TMposition=0 TMmemberof=10004182 # type=GInitiallyUnownedClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10004182 # type=void args=GtkAdjustment *adjustment
+# function pointer member follows:
+TMname=value_changed TMtypeid=TBD TMposition=2 TMmemberof=10004182 # type=void args=GtkAdjustment *adjustment
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10004182 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10004182 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10004182 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10004182 # type=void args=void
 _GtkActivatableIface (expect 3 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10004241 # type=GTypeInterface
+# function pointer member follows:
+TMname=update TMtypeid=TBD TMposition=1 TMmemberof=10004241 # type=void   args=GtkActivatable *activatable, GtkAction *action, const gchar *property_name
+# function pointer member follows:
+TMname=sync_action_properties TMtypeid=TBD TMposition=2 TMmemberof=10004241 # type=void   args=GtkActivatable *activatable, GtkAction *action
 _GtkSpinButtonClass (expect 10 members, found 0)
+TMname=parent_class TMtypeid=10004883 TMposition=0 TMmemberof=10004293 # type=GtkEntryClass
+# function pointer member follows:
+TMname=input TMtypeid=TBD TMposition=1 TMmemberof=10004293 # type=gint args=GtkSpinButton *spin_button, gdouble *new_value
+# function pointer member follows:
+TMname=output TMtypeid=TBD TMposition=2 TMmemberof=10004293 # type=gint args=GtkSpinButton *spin_button
+# function pointer member follows:
+TMname=value_changed TMtypeid=TBD TMposition=3 TMmemberof=10004293 # type=void args=GtkSpinButton *spin_button
+# function pointer member follows:
+TMname=change_value TMtypeid=TBD TMposition=4 TMmemberof=10004293 # type=void args=GtkSpinButton *spin_button, GtkScrollType scroll
+# function pointer member follows:
+TMname=wrapped TMtypeid=TBD TMposition=5 TMmemberof=10004293 # type=void args=GtkSpinButton *spin_button
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=6 TMmemberof=10004293 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=7 TMmemberof=10004293 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=8 TMmemberof=10004293 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=9 TMmemberof=10004293 # type=void args=void
 _GtkToolButtonClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10005114 TMposition=0 TMmemberof=10004304 # type=GtkToolItemClass
+TMname=button_type TMtypeid=11836 TMposition=1 TMmemberof=10004304 # type=GType
+# function pointer member follows:
+TMname=clicked TMtypeid=TBD TMposition=2 TMmemberof=10004304 # type=void       args=GtkToolButton *tool_item
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10004304 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10004304 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10004304 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10004304 # type=void args=void
 _GtkIMContextClass (expect 23 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004311 # type=GObjectClass
+# function pointer member follows:
+TMname=preedit_start TMtypeid=TBD TMposition=1 TMmemberof=10004311 # type=void     args=GtkIMContext *context
+# function pointer member follows:
+TMname=preedit_end TMtypeid=TBD TMposition=2 TMmemberof=10004311 # type=void     args=GtkIMContext *context
+# function pointer member follows:
+TMname=preedit_changed TMtypeid=TBD TMposition=3 TMmemberof=10004311 # type=void     args=GtkIMContext *context
+# function pointer member follows:
+TMname=commit TMtypeid=TBD TMposition=4 TMmemberof=10004311 # type=void     args=GtkIMContext *context, const gchar *str
+# function pointer member follows:
+TMname=retrieve_surrounding TMtypeid=TBD TMposition=5 TMmemberof=10004311 # type=gboolean args=GtkIMContext *context
+# function pointer member follows:
+TMname=delete_surrounding TMtypeid=TBD TMposition=6 TMmemberof=10004311 # type=gboolean args=GtkIMContext *context, gint offset, gint n_chars
+# function pointer member follows:
+TMname=set_client_window TMtypeid=TBD TMposition=7 TMmemberof=10004311 # type=void     args=GtkIMContext *context, GdkWindow *window
+# function pointer member follows:
+TMname=get_preedit_string TMtypeid=TBD TMposition=8 TMmemberof=10004311 # type=void     args=GtkIMContext *context, gchar **str, PangoAttrList **attrs, gint *cursor_pos
+# function pointer member follows:
+TMname=filter_keypress TMtypeid=TBD TMposition=9 TMmemberof=10004311 # type=gboolean args=GtkIMContext *context, GdkEventKey *event
+# function pointer member follows:
+TMname=focus_in TMtypeid=TBD TMposition=10 TMmemberof=10004311 # type=void     args=GtkIMContext *context
+# function pointer member follows:
+TMname=focus_out TMtypeid=TBD TMposition=11 TMmemberof=10004311 # type=void     args=GtkIMContext *context
+# function pointer member follows:
+TMname=reset TMtypeid=TBD TMposition=12 TMmemberof=10004311 # type=void     args=GtkIMContext *context
+# function pointer member follows:
+TMname=set_cursor_location TMtypeid=TBD TMposition=13 TMmemberof=10004311 # type=void     args=GtkIMContext *context, GdkRectangle *area
+# function pointer member follows:
+TMname=set_use_preedit TMtypeid=TBD TMposition=14 TMmemberof=10004311 # type=void     args=GtkIMContext *context, gboolean use_preedit
+# function pointer member follows:
+TMname=set_surrounding TMtypeid=TBD TMposition=15 TMmemberof=10004311 # type=void     args=GtkIMContext *context, const gchar *text, gint len, gint cursor_index
+# function pointer member follows:
+TMname=get_surrounding TMtypeid=TBD TMposition=16 TMmemberof=10004311 # type=gboolean args=GtkIMContext *context, gchar **text, gint *cursor_index
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=17 TMmemberof=10004311 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=18 TMmemberof=10004311 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=19 TMmemberof=10004311 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=20 TMmemberof=10004311 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=21 TMmemberof=10004311 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=22 TMmemberof=10004311 # type=void args=void
 _GtkToolShellIface (expect 10 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10004323 # type=GTypeInterface
+# function pointer member follows:
+TMname=get_icon_size TMtypeid=TBD TMposition=1 TMmemberof=10004323 # type=GtkIconSize        args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_orientation TMtypeid=TBD TMposition=2 TMmemberof=10004323 # type=GtkOrientation     args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_style TMtypeid=TBD TMposition=3 TMmemberof=10004323 # type=GtkToolbarStyle    args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_relief_style TMtypeid=TBD TMposition=4 TMmemberof=10004323 # type=GtkReliefStyle     args=GtkToolShell *shell
+# function pointer member follows:
+TMname=rebuild_menu TMtypeid=TBD TMposition=5 TMmemberof=10004323 # type=void               args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_text_orientation TMtypeid=TBD TMposition=6 TMmemberof=10004323 # type=GtkOrientation     args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_text_alignment TMtypeid=TBD TMposition=7 TMmemberof=10004323 # type=gfloat             args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_ellipsize_mode TMtypeid=TBD TMposition=8 TMmemberof=10004323 # type=PangoEllipsizeMode args=GtkToolShell *shell
+# function pointer member follows:
+TMname=get_text_size_group TMtypeid=TBD TMposition=9 TMmemberof=10004323 # type=GtkSizeGroup *     args=GtkToolShell *shell
 _GtkToggleButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005564 TMposition=0 TMmemberof=10004333 # type=GtkButtonClass
+# function pointer member follows:
+TMname=toggled TMtypeid=TBD TMposition=1 TMmemberof=10004333 # type=void args=GtkToggleButton *toggle_button
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004333 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004333 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004333 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004333 # type=void args=void
 _GtkMenuShellClass (expect 15 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10004342 # type=GtkContainerClass
+TMname=1 TMtypeid=0 TMposition=1 TMmemberof=10004342 # type=guint submenu_placement :
+# function pointer member follows:
+TMname=deactivate TMtypeid=TBD TMposition=2 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell
+# function pointer member follows:
+TMname=selection_done TMtypeid=TBD TMposition=3 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell
+# function pointer member follows:
+TMname=move_current TMtypeid=TBD TMposition=4 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell, GtkMenuDirectionType direction
+# function pointer member follows:
+TMname=activate_current TMtypeid=TBD TMposition=5 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell, gboolean force_hide
+# function pointer member follows:
+TMname=cancel TMtypeid=TBD TMposition=6 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell
+# function pointer member follows:
+TMname=select_item TMtypeid=TBD TMposition=7 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell, GtkWidget *menu_item
+# function pointer member follows:
+TMname=insert TMtypeid=TBD TMposition=8 TMmemberof=10004342 # type=void     args=GtkMenuShell *menu_shell, GtkWidget *child, gint position
+# function pointer member follows:
+TMname=get_popup_delay TMtypeid=TBD TMposition=9 TMmemberof=10004342 # type=gint     args=GtkMenuShell *menu_shell
+# function pointer member follows:
+TMname=move_selected TMtypeid=TBD TMposition=10 TMmemberof=10004342 # type=gboolean args=GtkMenuShell *menu_shell, gint distance
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=11 TMmemberof=10004342 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=12 TMmemberof=10004342 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=13 TMmemberof=10004342 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=14 TMmemberof=10004342 # type=void args=void
 _GtkRecentManagerClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004365 # type=GObjectClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10004365 # type=void args=GtkRecentManager *manager
+# function pointer member follows:
+TMname=_gtk_recent1 TMtypeid=TBD TMposition=2 TMmemberof=10004365 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_recent2 TMtypeid=TBD TMposition=3 TMmemberof=10004365 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_recent3 TMtypeid=TBD TMposition=4 TMmemberof=10004365 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_recent4 TMtypeid=TBD TMposition=5 TMmemberof=10004365 # type=void args=void
 _GtkRadioButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005875 TMposition=0 TMmemberof=10004402 # type=GtkCheckButtonClass
+# function pointer member follows:
+TMname=group_changed TMtypeid=TBD TMposition=1 TMmemberof=10004402 # type=void args=GtkRadioButton *radio_button
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004402 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004402 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004402 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004402 # type=void args=void
 _GtkLinkButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005564 TMposition=0 TMmemberof=10004432 # type=GtkButtonClass
+# function pointer member follows:
+TMname=activate_link TMtypeid=TBD TMposition=1 TMmemberof=10004432 # type=gboolean args=GtkLinkButton *button
+# function pointer member follows:
+TMname=_gtk_padding1 TMtypeid=TBD TMposition=2 TMmemberof=10004432 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_padding2 TMtypeid=TBD TMposition=3 TMmemberof=10004432 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_padding3 TMtypeid=TBD TMposition=4 TMmemberof=10004432 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_padding4 TMtypeid=TBD TMposition=5 TMmemberof=10004432 # type=void args=void
 _GtkRcStyle (expect 15 members, found 0)
+TMname=parent_instance TMtypeid=11840 TMposition=0 TMmemberof=10004442 # type=GObject
+TMname=name TMtypeid=11415 TMposition=1 TMmemberof=10004442 # type=gchar *
+TMname=bg_pixmap_name TMtypeid=11415 TMposition=2 TMmemberof=10004442 # type=gchar *
+TMname=font_desc TMtypeid=12451 TMposition=3 TMmemberof=10004442 # type=PangoFontDescription *
+TMname=color_flags TMtypeid=0 TMposition=4 TMmemberof=10004442 # type=GtkRcFlags
+TMname=fg TMtypeid=0 TMposition=5 TMmemberof=10004442 # type=GdkColor  
+TMname=bg TMtypeid=0 TMposition=6 TMmemberof=10004442 # type=GdkColor  
+TMname=text TMtypeid=0 TMposition=7 TMmemberof=10004442 # type=GdkColor  
+TMname=base TMtypeid=0 TMposition=8 TMmemberof=10004442 # type=GdkColor  
+TMname=xthickness TMtypeid=11400 TMposition=9 TMmemberof=10004442 # type=gint
+TMname=ythickness TMtypeid=11400 TMposition=10 TMmemberof=10004442 # type=gint
+TMname=rc_properties TMtypeid=11646 TMposition=11 TMmemberof=10004442 # type=GArray *
+TMname=rc_style_lists TMtypeid=11452 TMposition=12 TMmemberof=10004442 # type=GSList *
+TMname=icon_factories TMtypeid=11452 TMposition=13 TMmemberof=10004442 # type=GSList *
+TMname=1 TMtypeid=0 TMposition=14 TMmemberof=10004442 # type=guint engine_specified :
 _GtkRangeClass (expect 12 members, found 0)
+TMname=parent_class TMtypeid=10004828 TMposition=0 TMmemberof=10004469 # type=GtkWidgetClass
+TMname=slider_detail TMtypeid=11415 TMposition=1 TMmemberof=10004469 # type=gchar *
+TMname=stepper_detail TMtypeid=11415 TMposition=2 TMmemberof=10004469 # type=gchar *
+# function pointer member follows:
+TMname=value_changed TMtypeid=TBD TMposition=3 TMmemberof=10004469 # type=void args=GtkRange *range
+# function pointer member follows:
+TMname=adjust_bounds TMtypeid=TBD TMposition=4 TMmemberof=10004469 # type=void args=GtkRange *range, gdouble new_value
+# function pointer member follows:
+TMname=move_slider TMtypeid=TBD TMposition=5 TMmemberof=10004469 # type=void args=GtkRange *range, GtkScrollType scroll
+# function pointer member follows:
+TMname=get_range_border TMtypeid=TBD TMposition=6 TMmemberof=10004469 # type=void args=GtkRange *range, GtkBorder *border_
+# function pointer member follows:
+TMname=change_value TMtypeid=TBD TMposition=7 TMmemberof=10004469 # type=gboolean args=GtkRange *range, GtkScrollType scroll, gdouble new_value
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=8 TMmemberof=10004469 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=9 TMmemberof=10004469 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=10 TMmemberof=10004469 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=11 TMmemberof=10004469 # type=void args=void
 _GtkTreeSelectionClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004494 # type=GObjectClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10004494 # type=void args=GtkTreeSelection *selection
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004494 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004494 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004494 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004494 # type=void args=void
 _GtkTreeViewColumnClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10003273 TMposition=0 TMmemberof=10004518 # type=GInitiallyUnownedClass
+# function pointer member follows:
+TMname=clicked TMtypeid=TBD TMposition=1 TMmemberof=10004518 # type=void args=GtkTreeViewColumn *tree_column
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004518 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004518 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004518 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004518 # type=void args=void
 _GtkStatusIconClass (expect 12 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004545 # type=GObjectClass
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=1 TMmemberof=10004545 # type=void     args=GtkStatusIcon *status_icon
+# function pointer member follows:
+TMname=popup_menu TMtypeid=TBD TMposition=2 TMmemberof=10004545 # type=void     args=GtkStatusIcon *status_icon, guint button, guint32 activate_time
+# function pointer member follows:
+TMname=size_changed TMtypeid=TBD TMposition=3 TMmemberof=10004545 # type=gboolean args=GtkStatusIcon *status_icon, gint size
+# function pointer member follows:
+TMname=button_press_event TMtypeid=TBD TMposition=4 TMmemberof=10004545 # type=gboolean args=GtkStatusIcon *status_icon, GdkEventButton *event
+# function pointer member follows:
+TMname=button_release_event TMtypeid=TBD TMposition=5 TMmemberof=10004545 # type=gboolean args=GtkStatusIcon *status_icon, GdkEventButton *event
+# function pointer member follows:
+TMname=scroll_event TMtypeid=TBD TMposition=6 TMmemberof=10004545 # type=gboolean args=GtkStatusIcon *status_icon, GdkEventScroll *event
+# function pointer member follows:
+TMname=query_tooltip TMtypeid=TBD TMposition=7 TMmemberof=10004545 # type=gboolean args=GtkStatusIcon *status_icon, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved1)
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved2)
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved3)
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved4)
 _GtkCalendarClass (expect 12 members, found 0)
+TMname=parent_class TMtypeid=10004828 TMposition=0 TMmemberof=10004573 # type=GtkWidgetClass
+# function pointer member follows:
+TMname=month_changed TMtypeid=TBD TMposition=1 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=day_selected TMtypeid=TBD TMposition=2 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=day_selected_double_click TMtypeid=TBD TMposition=3 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=prev_month TMtypeid=TBD TMposition=4 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=next_month TMtypeid=TBD TMposition=5 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=prev_year TMtypeid=TBD TMposition=6 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=next_year TMtypeid=TBD TMposition=7 TMmemberof=10004573 # type=void args=GtkCalendar *calendar
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=8 TMmemberof=10004573 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=9 TMmemberof=10004573 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=10 TMmemberof=10004573 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=11 TMmemberof=10004573 # type=void args=void
 _GtkActionableInterface (expect 5 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10004599 # type=GTypeInterface
+# function pointer member follows:
+TMname=get_action_name TMtypeid=TBD TMposition=1 TMmemberof=10004599 # type=const gchar * args=GtkActionable *actionable
+# function pointer member follows:
+TMname=set_action_name TMtypeid=TBD TMposition=2 TMmemberof=10004599 # type=void          args=GtkActionable *actionable, const gchar *action_name
+# function pointer member follows:
+TMname=get_action_target_value TMtypeid=TBD TMposition=3 TMmemberof=10004599 # type=GVariant *    args=GtkActionable *actionable
+# function pointer member follows:
+TMname=set_action_target_value TMtypeid=TBD TMposition=4 TMmemberof=10004599 # type=void          args=GtkActionable *actionable, GVariant *target_value
 _GtkRecentChooserIface (expect 15 members, found 0)
+TMname=base_iface TMtypeid=11997 TMposition=0 TMmemberof=10004623 # type=GTypeInterface
+# function pointer member follows:
+TMname=set_current_uri TMtypeid=TBD TMposition=1 TMmemberof=10004623 # type=gboolean          args=GtkRecentChooser *chooser, const gchar *uri, GError **error
+# function pointer member follows:
+TMname=get_current_uri TMtypeid=TBD TMposition=2 TMmemberof=10004623 # type=gchar *           args=GtkRecentChooser *chooser
+# function pointer member follows:
+TMname=select_uri TMtypeid=TBD TMposition=3 TMmemberof=10004623 # type=gboolean          args=GtkRecentChooser *chooser, const gchar *uri, GError **error
+# function pointer member follows:
+TMname=unselect_uri TMtypeid=TBD TMposition=4 TMmemberof=10004623 # type=void              args=GtkRecentChooser *chooser, const gchar *uri
+# function pointer member follows:
+TMname=select_all TMtypeid=TBD TMposition=5 TMmemberof=10004623 # type=void              args=GtkRecentChooser *chooser
+# function pointer member follows:
+TMname=unselect_all TMtypeid=TBD TMposition=6 TMmemberof=10004623 # type=void              args=GtkRecentChooser *chooser
+# function pointer member follows:
+TMname=get_items TMtypeid=TBD TMposition=7 TMmemberof=10004623 # type=GList *           args=GtkRecentChooser *chooser
+TMname=chooser TMtypeid=0 TMposition=8 TMmemberof=10004623 # type=GtkRecentManager *(* get_recent_manager) (GtkRecentChooser *
+# function pointer member follows:
+TMname=add_filter TMtypeid=TBD TMposition=9 TMmemberof=10004623 # type=void              args=GtkRecentChooser *chooser, GtkRecentFilter *filter
+# function pointer member follows:
+TMname=remove_filter TMtypeid=TBD TMposition=10 TMmemberof=10004623 # type=void              args=GtkRecentChooser *chooser, GtkRecentFilter *filter
+# function pointer member follows:
+TMname=list_filters TMtypeid=TBD TMposition=11 TMmemberof=10004623 # type=GSList *          args=GtkRecentChooser *chooser
+# function pointer member follows:
+TMname=set_sort_func TMtypeid=TBD TMposition=12 TMmemberof=10004623 # type=void              args=GtkRecentChooser *chooser, GtkRecentSortFunc sort_func, gpointer sort_data, GDestroyNotify data_destroy
+# function pointer member follows:
+TMname=item_activated TMtypeid=TBD TMposition=13 TMmemberof=10004623 # type=void		    args=GtkRecentChooser *chooser
+# function pointer member follows:
+TMname=selection_changed TMtypeid=TBD TMposition=14 TMmemberof=10004623 # type=void		    args=GtkRecentChooser *chooser
 _GtkRadioActionClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005170 TMposition=0 TMmemberof=10004639 # type=GtkToggleActionClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10004639 # type=void       args=GtkRadioAction *action, GtkRadioAction *current
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004639 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004639 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004639 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004639 # type=void args=void
 _GtkPlugClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005883 TMposition=0 TMmemberof=10004656 # type=GtkWindowClass
+# function pointer member follows:
+TMname=embedded TMtypeid=TBD TMposition=1 TMmemberof=10004656 # type=void args=GtkPlug *plug
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004656 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004656 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004656 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004656 # type=void args=void
 _GtkNotebookClass (expect 20 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10004698 # type=GtkContainerClass
+# function pointer member follows:
+TMname=switch_page TMtypeid=TBD TMposition=1 TMmemberof=10004698 # type=void args=GtkNotebook *notebook, GtkWidget *page, guint page_num
+# function pointer member follows:
+TMname=select_page TMtypeid=TBD TMposition=2 TMmemberof=10004698 # type=gboolean args=GtkNotebook *notebook, gboolean move_focus
+# function pointer member follows:
+TMname=focus_tab TMtypeid=TBD TMposition=3 TMmemberof=10004698 # type=gboolean args=GtkNotebook *notebook, GtkNotebookTab type
+# function pointer member follows:
+TMname=change_current_page TMtypeid=TBD TMposition=4 TMmemberof=10004698 # type=gboolean args=GtkNotebook *notebook, gint offset
+# function pointer member follows:
+TMname=move_focus_out TMtypeid=TBD TMposition=5 TMmemberof=10004698 # type=void args=GtkNotebook *notebook, GtkDirectionType direction
+# function pointer member follows:
+TMname=reorder_tab TMtypeid=TBD TMposition=6 TMmemberof=10004698 # type=gboolean args=GtkNotebook *notebook, GtkDirectionType direction, gboolean move_to_last
+# function pointer member follows:
+TMname=insert_page TMtypeid=TBD TMposition=7 TMmemberof=10004698 # type=gint args=GtkNotebook *notebook, GtkWidget *child, GtkWidget *tab_label, GtkWidget *menu_label, gint position
+# function pointer member follows:
+TMname=create_window TMtypeid=TBD TMposition=8 TMmemberof=10004698 # type=GtkNotebook * args=GtkNotebook *notebook, GtkWidget *page, gint x, gint y
+# function pointer member follows:
+TMname=page_reordered TMtypeid=TBD TMposition=9 TMmemberof=10004698 # type=void args=GtkNotebook *notebook, GtkWidget *child, guint page_num
+# function pointer member follows:
+TMname=page_removed TMtypeid=TBD TMposition=10 TMmemberof=10004698 # type=void args=GtkNotebook *notebook, GtkWidget *child, guint page_num
+# function pointer member follows:
+TMname=page_added TMtypeid=TBD TMposition=11 TMmemberof=10004698 # type=void args=GtkNotebook *notebook, GtkWidget *child, guint page_num
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=12 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=13 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=14 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=15 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=16 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=17 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=18 TMmemberof=10004698 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=19 TMmemberof=10004698 # type=void args=void
 _GtkTreeDragSourceIface (expect 4 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10004714 # type=GTypeInterface
+# function pointer member follows:
+TMname=row_draggable TMtypeid=TBD TMposition=1 TMmemberof=10004714 # type=gboolean     args=GtkTreeDragSource *drag_source, GtkTreePath *path
+# function pointer member follows:
+TMname=drag_data_get TMtypeid=TBD TMposition=2 TMmemberof=10004714 # type=gboolean     args=GtkTreeDragSource *drag_source, GtkTreePath *path, GtkSelectionData *selection_data
+# function pointer member follows:
+TMname=drag_data_delete TMtypeid=TBD TMposition=3 TMmemberof=10004714 # type=gboolean     args=GtkTreeDragSource *drag_source, GtkTreePath *path
 _GtkTreeDragDestIface (expect 3 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10004720 # type=GTypeInterface
+# function pointer member follows:
+TMname=drag_data_received TMtypeid=TBD TMposition=1 TMmemberof=10004720 # type=gboolean     args=GtkTreeDragDest *drag_dest, GtkTreePath *dest, GtkSelectionData *selection_data
+# function pointer member follows:
+TMname=row_drop_possible TMtypeid=TBD TMposition=2 TMmemberof=10004720 # type=gboolean     args=GtkTreeDragDest *drag_dest, GtkTreePath *dest_path, GtkSelectionData *selection_data
 _GtkEntryBufferClass (expect 15 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004748 # type=GObjectClass
+# function pointer member follows:
+TMname=inserted_text TMtypeid=TBD TMposition=1 TMmemberof=10004748 # type=void         args=GtkEntryBuffer *buffer, guint position, const gchar *chars, guint n_chars
+# function pointer member follows:
+TMname=deleted_text TMtypeid=TBD TMposition=2 TMmemberof=10004748 # type=void         args=GtkEntryBuffer *buffer, guint position, guint n_chars
+# function pointer member follows:
+TMname=get_text TMtypeid=TBD TMposition=3 TMmemberof=10004748 # type=const gchar* args=GtkEntryBuffer *buffer, gsize *n_bytes
+# function pointer member follows:
+TMname=get_length TMtypeid=TBD TMposition=4 TMmemberof=10004748 # type=guint        args=GtkEntryBuffer *buffer
+# function pointer member follows:
+TMname=insert_text TMtypeid=TBD TMposition=5 TMmemberof=10004748 # type=guint        args=GtkEntryBuffer *buffer, guint position, const gchar *chars, guint n_chars
+# function pointer member follows:
+TMname=delete_text TMtypeid=TBD TMposition=6 TMmemberof=10004748 # type=guint        args=GtkEntryBuffer *buffer, guint position, guint n_chars
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=7 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=8 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=9 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=10 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=11 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=12 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=13 TMmemberof=10004748 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=14 TMmemberof=10004748 # type=void args=void
 _GtkThemingEngineClass (expect 18 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004773 # type=GObjectClass
+# function pointer member follows:
+TMname=render_line TMtypeid=TBD TMposition=1 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x0, gdouble y0, gdouble x1, gdouble y1
+# function pointer member follows:
+TMname=render_background TMtypeid=TBD TMposition=2 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_frame TMtypeid=TBD TMposition=3 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_frame_gap TMtypeid=TBD TMposition=4 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height, GtkPositionType gap_side, gdouble xy0_gap, gdouble xy1_gap
+# function pointer member follows:
+TMname=render_extension TMtypeid=TBD TMposition=5 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height, GtkPositionType gap_side
+# function pointer member follows:
+TMname=render_check TMtypeid=TBD TMposition=6 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_option TMtypeid=TBD TMposition=7 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_arrow TMtypeid=TBD TMposition=8 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble angle, gdouble x, gdouble y, gdouble size
+# function pointer member follows:
+TMname=render_expander TMtypeid=TBD TMposition=9 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_focus TMtypeid=TBD TMposition=10 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_layout TMtypeid=TBD TMposition=11 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, PangoLayout *layout
+# function pointer member follows:
+TMname=render_slider TMtypeid=TBD TMposition=12 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height, GtkOrientation orientation
+# function pointer member follows:
+TMname=render_handle TMtypeid=TBD TMposition=13 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_activity TMtypeid=TBD TMposition=14 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, gdouble x, gdouble y, gdouble width, gdouble height
+# function pointer member follows:
+TMname=render_icon_pixbuf TMtypeid=TBD TMposition=15 TMmemberof=10004773 # type=GdkPixbuf * args=GtkThemingEngine *engine, const GtkIconSource *source, GtkIconSize size
+# function pointer member follows:
+TMname=render_icon TMtypeid=TBD TMposition=16 TMmemberof=10004773 # type=void args=GtkThemingEngine *engine, cairo_t *cr, GdkPixbuf *pixbuf, gdouble x, gdouble y
+TMname=padding TMtypeid=11404 TMposition=17 TMmemberof=10004773 # type=gpointer
 _GtkFontChooserIface (expect 7 members, found 0)
+TMname=base_iface TMtypeid=11997 TMposition=0 TMmemberof=10004791 # type=GTypeInterface
+# function pointer member follows:
+TMname=get_font_family TMtypeid=TBD TMposition=1 TMmemberof=10004791 # type=PangoFontFamily * args=GtkFontChooser *fontchooser
+# function pointer member follows:
+TMname=get_font_face TMtypeid=TBD TMposition=2 TMmemberof=10004791 # type=PangoFontFace *   args=GtkFontChooser *fontchooser
+# function pointer member follows:
+TMname=get_font_size TMtypeid=TBD TMposition=3 TMmemberof=10004791 # type=gint              args=GtkFontChooser *fontchooser
+# function pointer member follows:
+TMname=set_filter_func TMtypeid=TBD TMposition=4 TMmemberof=10004791 # type=void              args=GtkFontChooser *fontchooser, GtkFontFilterFunc filter, gpointer user_data, GDestroyNotify destroy
+# function pointer member follows:
+TMname=font_activated TMtypeid=TBD TMposition=5 TMmemberof=10004791 # type=void args=GtkFontChooser *chooser, const gchar *fontname
+TMname=padding TMtypeid=11404 TMposition=6 TMmemberof=10004791 # type=gpointer
 _GtkAppChooserButtonClass (expect 3 members, found 0)
+TMname=parent_class TMtypeid=10005921 TMposition=0 TMmemberof=10004804 # type=GtkComboBoxClass
+# function pointer member follows:
+TMname=custom_item_activated TMtypeid=TBD TMposition=1 TMmemberof=10004804 # type=void args=GtkAppChooserButton *self, const gchar *item_name
+TMname=padding TMtypeid=11404 TMposition=2 TMmemberof=10004804 # type=gpointer
 _GtkWidgetClass (expect 87 members, found 0)
+TMname=parent_class TMtypeid=10003273 TMposition=0 TMmemberof=10004837 # type=GInitiallyUnownedClass
+TMname=activate_signal TMtypeid=11402 TMposition=1 TMmemberof=10004837 # type=guint
+# function pointer member follows:
+TMname=dispatch_child_properties_changed TMtypeid=TBD TMposition=2 TMmemberof=10004837 # type=void args=GtkWidget *widget, guint n_pspecs, GParamSpec **pspecs
+# function pointer member follows:
+TMname=destroy TMtypeid=TBD TMposition=3 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=show TMtypeid=TBD TMposition=4 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=show_all TMtypeid=TBD TMposition=5 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=hide TMtypeid=TBD TMposition=6 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=map TMtypeid=TBD TMposition=7 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=unmap TMtypeid=TBD TMposition=8 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=realize TMtypeid=TBD TMposition=9 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=unrealize TMtypeid=TBD TMposition=10 TMmemberof=10004837 # type=void args=GtkWidget *widget
+# function pointer member follows:
+TMname=size_allocate TMtypeid=TBD TMposition=11 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkAllocation *allocation
+# function pointer member follows:
+TMname=state_changed TMtypeid=TBD TMposition=12 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkStateType previous_state
+# function pointer member follows:
+TMname=state_flags_changed TMtypeid=TBD TMposition=13 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkStateFlags previous_state_flags
+# function pointer member follows:
+TMname=parent_set TMtypeid=TBD TMposition=14 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkWidget *previous_parent
+# function pointer member follows:
+TMname=hierarchy_changed TMtypeid=TBD TMposition=15 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkWidget *previous_toplevel
+# function pointer member follows:
+TMname=style_set TMtypeid=TBD TMposition=16 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkStyle *previous_style
+# function pointer member follows:
+TMname=direction_changed TMtypeid=TBD TMposition=17 TMmemberof=10004837 # type=void args=GtkWidget *widget, GtkTextDirection previous_direction
+# function pointer member follows:
+TMname=grab_notify TMtypeid=TBD TMposition=18 TMmemberof=10004837 # type=void args=GtkWidget *widget, gboolean was_grabbed
+# function pointer member follows:
+TMname=child_notify TMtypeid=TBD TMposition=19 TMmemberof=10004837 # type=void args=GtkWidget *widget, GParamSpec *child_property
+# function pointer member follows:
+TMname=draw TMtypeid=TBD TMposition=20 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, cairo_t *cr
+# function pointer member follows:
+TMname=get_request_mode TMtypeid=TBD TMposition=21 TMmemberof=10004837 # type=GtkSizeRequestMode args=GtkWidget *widget
+# function pointer member follows:
+TMname=get_preferred_height TMtypeid=TBD TMposition=22 TMmemberof=10004837 # type=void               args=GtkWidget *widget, gint *minimum_height, gint *natural_height
+# function pointer member follows:
+TMname=get_preferred_width_for_height TMtypeid=TBD TMposition=23 TMmemberof=10004837 # type=void               args=GtkWidget *widget, gint height, gint *minimum_width, gint *natural_width
+# function pointer member follows:
+TMname=get_preferred_width TMtypeid=TBD TMposition=24 TMmemberof=10004837 # type=void               args=GtkWidget *widget, gint *minimum_width, gint *natural_width
+# function pointer member follows:
+TMname=get_preferred_height_for_width TMtypeid=TBD TMposition=25 TMmemberof=10004837 # type=void               args=GtkWidget *widget, gint width, gint *minimum_height, gint *natural_height
+# function pointer member follows:
+TMname=mnemonic_activate TMtypeid=TBD TMposition=26 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, gboolean group_cycling
+# function pointer member follows:
+TMname=grab_focus TMtypeid=TBD TMposition=27 TMmemberof=10004837 # type=void     args=GtkWidget *widget
+# function pointer member follows:
+TMname=focus TMtypeid=TBD TMposition=28 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GtkDirectionType direction
+# function pointer member follows:
+TMname=move_focus TMtypeid=TBD TMposition=29 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GtkDirectionType direction
+# function pointer member follows:
+TMname=keynav_failed TMtypeid=TBD TMposition=30 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GtkDirectionType direction
+# function pointer member follows:
+TMname=event TMtypeid=TBD TMposition=31 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEvent *event
+# function pointer member follows:
+TMname=button_press_event TMtypeid=TBD TMposition=32 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventButton *event
+# function pointer member follows:
+TMname=button_release_event TMtypeid=TBD TMposition=33 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventButton *event
+# function pointer member follows:
+TMname=scroll_event TMtypeid=TBD TMposition=34 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventScroll *event
+# function pointer member follows:
+TMname=motion_notify_event TMtypeid=TBD TMposition=35 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventMotion *event
+# function pointer member follows:
+TMname=delete_event TMtypeid=TBD TMposition=36 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventAny *event
+# function pointer member follows:
+TMname=destroy_event TMtypeid=TBD TMposition=37 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventAny *event
+# function pointer member follows:
+TMname=key_press_event TMtypeid=TBD TMposition=38 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventKey *event
+# function pointer member follows:
+TMname=key_release_event TMtypeid=TBD TMposition=39 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventKey *event
+# function pointer member follows:
+TMname=enter_notify_event TMtypeid=TBD TMposition=40 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventCrossing *event
+# function pointer member follows:
+TMname=leave_notify_event TMtypeid=TBD TMposition=41 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventCrossing *event
+# function pointer member follows:
+TMname=configure_event TMtypeid=TBD TMposition=42 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventConfigure *event
+# function pointer member follows:
+TMname=focus_in_event TMtypeid=TBD TMposition=43 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventFocus *event
+# function pointer member follows:
+TMname=focus_out_event TMtypeid=TBD TMposition=44 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventFocus *event
+# function pointer member follows:
+TMname=map_event TMtypeid=TBD TMposition=45 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventAny *event
+# function pointer member follows:
+TMname=unmap_event TMtypeid=TBD TMposition=46 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventAny *event
+# function pointer member follows:
+TMname=property_notify_event TMtypeid=TBD TMposition=47 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventProperty *event
+# function pointer member follows:
+TMname=selection_clear_event TMtypeid=TBD TMposition=48 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventSelection *event
+# function pointer member follows:
+TMname=selection_request_event TMtypeid=TBD TMposition=49 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventSelection *event
+# function pointer member follows:
+TMname=selection_notify_event TMtypeid=TBD TMposition=50 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventSelection *event
+# function pointer member follows:
+TMname=proximity_in_event TMtypeid=TBD TMposition=51 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventProximity *event
+# function pointer member follows:
+TMname=proximity_out_event TMtypeid=TBD TMposition=52 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventProximity *event
+# function pointer member follows:
+TMname=visibility_notify_event TMtypeid=TBD TMposition=53 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventVisibility *event
+# function pointer member follows:
+TMname=window_state_event TMtypeid=TBD TMposition=54 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventWindowState *event
+# function pointer member follows:
+TMname=damage_event TMtypeid=TBD TMposition=55 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventExpose *event
+# function pointer member follows:
+TMname=grab_broken_event TMtypeid=TBD TMposition=56 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkEventGrabBroken *event
+# function pointer member follows:
+TMname=selection_get TMtypeid=TBD TMposition=57 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GtkSelectionData *selection_data, guint info, guint time_
+# function pointer member follows:
+TMname=selection_received TMtypeid=TBD TMposition=58 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GtkSelectionData *selection_data, guint time_
+# function pointer member follows:
+TMname=drag_begin TMtypeid=TBD TMposition=59 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GdkDragContext *context
+# function pointer member follows:
+TMname=drag_end TMtypeid=TBD TMposition=60 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GdkDragContext *context
+# function pointer member follows:
+TMname=drag_data_get TMtypeid=TBD TMposition=61 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GdkDragContext *context, GtkSelectionData *selection_data, guint info, guint time_
+# function pointer member follows:
+TMname=drag_data_delete TMtypeid=TBD TMposition=62 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GdkDragContext *context
+# function pointer member follows:
+TMname=drag_leave TMtypeid=TBD TMposition=63 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GdkDragContext *context, guint time_
+# function pointer member follows:
+TMname=drag_motion TMtypeid=TBD TMposition=64 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkDragContext *context, gint x, gint y, guint time_
+# function pointer member follows:
+TMname=drag_drop TMtypeid=TBD TMposition=65 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkDragContext *context, gint x, gint y, guint time_
+# function pointer member follows:
+TMname=drag_data_received TMtypeid=TBD TMposition=66 TMmemberof=10004837 # type=void     args=GtkWidget *widget, GdkDragContext *context, gint x, gint y, GtkSelectionData *selection_data, guint info, guint time_
+# function pointer member follows:
+TMname=drag_failed TMtypeid=TBD TMposition=67 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GdkDragContext *context, GtkDragResult result
+# function pointer member follows:
+TMname=popup_menu TMtypeid=TBD TMposition=68 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget
+# function pointer member follows:
+TMname=show_help TMtypeid=TBD TMposition=69 TMmemberof=10004837 # type=gboolean args=GtkWidget *widget, GtkWidgetHelpType help_type
+# function pointer member follows:
+TMname=get_accessible TMtypeid=TBD TMposition=70 TMmemberof=10004837 # type=AtkObject *  args=GtkWidget *widget
+# function pointer member follows:
+TMname=screen_changed TMtypeid=TBD TMposition=71 TMmemberof=10004837 # type=void         args=GtkWidget *widget, GdkScreen *previous_screen
+# function pointer member follows:
+TMname=can_activate_accel TMtypeid=TBD TMposition=72 TMmemberof=10004837 # type=gboolean     args=GtkWidget *widget, guint signal_id
+# function pointer member follows:
+TMname=composited_changed TMtypeid=TBD TMposition=73 TMmemberof=10004837 # type=void         args=GtkWidget *widget
+# function pointer member follows:
+TMname=query_tooltip TMtypeid=TBD TMposition=74 TMmemberof=10004837 # type=gboolean     args=GtkWidget *widget, gint x, gint y, gboolean keyboard_tooltip, GtkTooltip *tooltip
+# function pointer member follows:
+TMname=compute_expand TMtypeid=TBD TMposition=75 TMmemberof=10004837 # type=void         args=GtkWidget *widget, gboolean *hexpand_p, gboolean *vexpand_p
+# function pointer member follows:
+TMname=adjust_size_request TMtypeid=TBD TMposition=76 TMmemberof=10004837 # type=void         args=GtkWidget *widget, GtkOrientation orientation, gint *minimum_size, gint *natural_size
+# function pointer member follows:
+TMname=adjust_size_allocation TMtypeid=TBD TMposition=77 TMmemberof=10004837 # type=void         args=GtkWidget *widget, GtkOrientation orientation, gint *minimum_size, gint *natural_size, gint *allocated_pos, gint *allocated_size
+# function pointer member follows:
+TMname=style_updated TMtypeid=TBD TMposition=78 TMmemberof=10004837 # type=void         args=GtkWidget *widget
+# function pointer member follows:
+TMname=touch_event TMtypeid=TBD TMposition=79 TMmemberof=10004837 # type=gboolean     args=GtkWidget *widget, GdkEventTouch *event
+TMname=priv TMtypeid=10006293 TMposition=80 TMmemberof=10004837 # type=GtkWidgetClassPrivate *
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=81 TMmemberof=10004837 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=82 TMmemberof=10004837 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=83 TMmemberof=10004837 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=84 TMmemberof=10004837 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=85 TMmemberof=10004837 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=86 TMmemberof=10004837 # type=void args=void
 _GtkEntryClass (expect 20 members, found 0)
+TMname=parent_class TMtypeid=10004828 TMposition=0 TMmemberof=10004886 # type=GtkWidgetClass
+# function pointer member follows:
+TMname=populate_popup TMtypeid=TBD TMposition=1 TMmemberof=10004886 # type=void args=GtkEntry *entry, GtkMenu *menu
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=2 TMmemberof=10004886 # type=void args=GtkEntry *entry
+# function pointer member follows:
+TMname=move_cursor TMtypeid=TBD TMposition=3 TMmemberof=10004886 # type=void args=GtkEntry *entry, GtkMovementStep step, gint count, gboolean extend_selection
+# function pointer member follows:
+TMname=insert_at_cursor TMtypeid=TBD TMposition=4 TMmemberof=10004886 # type=void args=GtkEntry *entry, const gchar *str
+# function pointer member follows:
+TMname=delete_from_cursor TMtypeid=TBD TMposition=5 TMmemberof=10004886 # type=void args=GtkEntry *entry, GtkDeleteType type, gint count
+# function pointer member follows:
+TMname=backspace TMtypeid=TBD TMposition=6 TMmemberof=10004886 # type=void args=GtkEntry *entry
+# function pointer member follows:
+TMname=cut_clipboard TMtypeid=TBD TMposition=7 TMmemberof=10004886 # type=void args=GtkEntry *entry
+# function pointer member follows:
+TMname=copy_clipboard TMtypeid=TBD TMposition=8 TMmemberof=10004886 # type=void args=GtkEntry *entry
+# function pointer member follows:
+TMname=paste_clipboard TMtypeid=TBD TMposition=9 TMmemberof=10004886 # type=void args=GtkEntry *entry
+# function pointer member follows:
+TMname=toggle_overwrite TMtypeid=TBD TMposition=10 TMmemberof=10004886 # type=void args=GtkEntry *entry
+# function pointer member follows:
+TMname=get_text_area_size TMtypeid=TBD TMposition=11 TMmemberof=10004886 # type=void args=GtkEntry *entry, gint *x, gint *y, gint *width, gint *height
+# function pointer member follows:
+TMname=get_frame_size TMtypeid=TBD TMposition=12 TMmemberof=10004886 # type=void args=GtkEntry *entry, gint *x, gint *y, gint *width, gint *height
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=13 TMmemberof=10004886 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=14 TMmemberof=10004886 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=15 TMmemberof=10004886 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=16 TMmemberof=10004886 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=17 TMmemberof=10004886 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=18 TMmemberof=10004886 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=19 TMmemberof=10004886 # type=void args=void
 _GtkColorChooserInterface (expect 6 members, found 0)
+TMname=base_interface TMtypeid=11997 TMposition=0 TMmemberof=10004896 # type=GTypeInterface
+# function pointer member follows:
+TMname=get_rgba TMtypeid=TBD TMposition=1 TMmemberof=10004896 # type=void args=GtkColorChooser *chooser, GdkRGBA *color
+# function pointer member follows:
+TMname=set_rgba TMtypeid=TBD TMposition=2 TMmemberof=10004896 # type=void args=GtkColorChooser *chooser, const GdkRGBA *color
+# function pointer member follows:
+TMname=add_palette TMtypeid=TBD TMposition=3 TMmemberof=10004896 # type=void args=GtkColorChooser *chooser, GtkOrientation orientation, gint colors_per_line, gint n_colors, GdkRGBA *colors
+# function pointer member follows:
+TMname=color_activated TMtypeid=TBD TMposition=4 TMmemberof=10004896 # type=void args=GtkColorChooser *chooser, const GdkRGBA *color
+TMname=padding TMtypeid=11404 TMposition=5 TMmemberof=10004896 # type=gpointer
 _GtkColorButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005564 TMposition=0 TMmemberof=10004936 # type=GtkButtonClass
+# function pointer member follows:
+TMname=color_set TMtypeid=TBD TMposition=1 TMmemberof=10004936 # type=void args=GtkColorButton *cp
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004936 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004936 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004936 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004936 # type=void args=void
 _GtkUIManagerClass (expect 13 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10004948 # type=GObjectClass
+# function pointer member follows:
+TMname=add_widget TMtypeid=TBD TMposition=1 TMmemberof=10004948 # type=void args=GtkUIManager *manager, GtkWidget *widget
+# function pointer member follows:
+TMname=actions_changed TMtypeid=TBD TMposition=2 TMmemberof=10004948 # type=void args=GtkUIManager *manager
+# function pointer member follows:
+TMname=connect_proxy TMtypeid=TBD TMposition=3 TMmemberof=10004948 # type=void args=GtkUIManager *manager, GtkAction *action, GtkWidget *proxy
+# function pointer member follows:
+TMname=disconnect_proxy TMtypeid=TBD TMposition=4 TMmemberof=10004948 # type=void args=GtkUIManager *manager, GtkAction *action, GtkWidget *proxy
+# function pointer member follows:
+TMname=pre_activate TMtypeid=TBD TMposition=5 TMmemberof=10004948 # type=void args=GtkUIManager *manager, GtkAction *action
+# function pointer member follows:
+TMname=post_activate TMtypeid=TBD TMposition=6 TMmemberof=10004948 # type=void args=GtkUIManager *manager, GtkAction *action
+# function pointer member follows:
+TMname=get_widget TMtypeid=TBD TMposition=7 TMmemberof=10004948 # type=GtkWidget * args=GtkUIManager *manager, const gchar *path
+# function pointer member follows:
+TMname=get_action TMtypeid=TBD TMposition=8 TMmemberof=10004948 # type=GtkAction * args=GtkUIManager *manager, const gchar *path
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=9 TMmemberof=10004948 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=10 TMmemberof=10004948 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=11 TMmemberof=10004948 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=12 TMmemberof=10004948 # type=void args=void
 _GtkToggleToolButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004299 TMposition=0 TMmemberof=10004959 # type=GtkToolButtonClass
+# function pointer member follows:
+TMname=toggled TMtypeid=TBD TMposition=1 TMmemberof=10004959 # type=void args=GtkToggleToolButton *button
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004959 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004959 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004959 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004959 # type=void args=void
 _GtkCellRendererAccelClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=10005360 TMposition=0 TMmemberof=10004970 # type=GtkCellRendererTextClass
+# function pointer member follows:
+TMname=accel_edited TMtypeid=TBD TMposition=1 TMmemberof=10004970 # type=void args=GtkCellRendererAccel *accel, const gchar *path_string, guint accel_key, GdkModifierType accel_mods, guint hardware_keycode
+# function pointer member follows:
+TMname=accel_cleared TMtypeid=TBD TMposition=2 TMmemberof=10004970 # type=void args=GtkCellRendererAccel *accel, const gchar *path_string
+# function pointer member follows:
+TMname=_gtk_reserved0 TMtypeid=TBD TMposition=3 TMmemberof=10004970 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10004970 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10004970 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10004970 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=7 TMmemberof=10004970 # type=void args=void
 _GtkOverlayClass (expect 10 members, found 0)
+TMname=parent_class TMtypeid=10004268 TMposition=0 TMmemberof=10004978 # type=GtkBinClass
+# function pointer member follows:
+TMname=get_child_position TMtypeid=TBD TMposition=1 TMmemberof=10004978 # type=gboolean args=GtkOverlay *overlay, GtkWidget *widget, GtkAllocation *allocation
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=6 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=7 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=8 TMmemberof=10004978 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=9 TMmemberof=10004978 # type=void args=void
 _GtkTextViewClass (expect 19 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10004989 # type=GtkContainerClass
+# function pointer member follows:
+TMname=populate_popup TMtypeid=TBD TMposition=1 TMmemberof=10004989 # type=void args=GtkTextView *text_view, GtkMenu *menu
+# function pointer member follows:
+TMname=move_cursor TMtypeid=TBD TMposition=2 TMmemberof=10004989 # type=void args=GtkTextView *text_view, GtkMovementStep step, gint count, gboolean extend_selection
+# function pointer member follows:
+TMname=set_anchor TMtypeid=TBD TMposition=3 TMmemberof=10004989 # type=void args=GtkTextView *text_view
+# function pointer member follows:
+TMname=insert_at_cursor TMtypeid=TBD TMposition=4 TMmemberof=10004989 # type=void args=GtkTextView *text_view, const gchar *str
+# function pointer member follows:
+TMname=delete_from_cursor TMtypeid=TBD TMposition=5 TMmemberof=10004989 # type=void args=GtkTextView *text_view, GtkDeleteType type, gint count
+# function pointer member follows:
+TMname=backspace TMtypeid=TBD TMposition=6 TMmemberof=10004989 # type=void args=GtkTextView *text_view
+# function pointer member follows:
+TMname=cut_clipboard TMtypeid=TBD TMposition=7 TMmemberof=10004989 # type=void args=GtkTextView *text_view
+# function pointer member follows:
+TMname=copy_clipboard TMtypeid=TBD TMposition=8 TMmemberof=10004989 # type=void args=GtkTextView *text_view
+# function pointer member follows:
+TMname=paste_clipboard TMtypeid=TBD TMposition=9 TMmemberof=10004989 # type=void args=GtkTextView *text_view
+# function pointer member follows:
+TMname=toggle_overwrite TMtypeid=TBD TMposition=10 TMmemberof=10004989 # type=void args=GtkTextView *text_view
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=11 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=12 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=13 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=14 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=15 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=16 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=17 TMmemberof=10004989 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=18 TMmemberof=10004989 # type=void args=void
 _GtkInfoBarClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10004555 TMposition=0 TMmemberof=10004999 # type=GtkBoxClass
+# function pointer member follows:
+TMname=response TMtypeid=TBD TMposition=1 TMmemberof=10004999 # type=void args=GtkInfoBar *info_bar, gint response_id
+# function pointer member follows:
+TMname=close TMtypeid=TBD TMposition=2 TMmemberof=10004999 # type=void args=GtkInfoBar *info_bar
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10004999 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10004999 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10004999 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10004999 # type=void args=void
 _GtkTextTagTableClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005027 # type=GObjectClass
+# function pointer member follows:
+TMname=tag_changed TMtypeid=TBD TMposition=1 TMmemberof=10005027 # type=void args=GtkTextTagTable *table, GtkTextTag *tag, gboolean size_changed
+# function pointer member follows:
+TMname=tag_added TMtypeid=TBD TMposition=2 TMmemberof=10005027 # type=void args=GtkTextTagTable *table, GtkTextTag *tag
+# function pointer member follows:
+TMname=tag_removed TMtypeid=TBD TMposition=3 TMmemberof=10005027 # type=void args=GtkTextTagTable *table, GtkTextTag *tag
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10005027 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10005027 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10005027 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=7 TMmemberof=10005027 # type=void args=void
 _GtkSwitchClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=10004828 TMposition=0 TMmemberof=10005047 # type=GtkWidgetClass
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=1 TMmemberof=10005047 # type=void args=GtkSwitch *sw
+# function pointer member follows:
+TMname=_switch_padding_1 TMtypeid=TBD TMposition=2 TMmemberof=10005047 # type=void args=void
+# function pointer member follows:
+TMname=_switch_padding_2 TMtypeid=TBD TMposition=3 TMmemberof=10005047 # type=void args=void
+# function pointer member follows:
+TMname=_switch_padding_3 TMtypeid=TBD TMposition=4 TMmemberof=10005047 # type=void args=void
+# function pointer member follows:
+TMname=_switch_padding_4 TMtypeid=TBD TMposition=5 TMmemberof=10005047 # type=void args=void
+# function pointer member follows:
+TMname=_switch_padding_5 TMtypeid=TBD TMposition=6 TMmemberof=10005047 # type=void args=void
+# function pointer member follows:
+TMname=_switch_padding_6 TMtypeid=TBD TMposition=7 TMmemberof=10005047 # type=void args=void
 _GtkCellRendererClass (expect 17 members, found 0)
+TMname=parent_class TMtypeid=10003273 TMposition=0 TMmemberof=10005062 # type=GInitiallyUnownedClass
+# function pointer member follows:
+TMname=get_request_mode TMtypeid=TBD TMposition=1 TMmemberof=10005062 # type=GtkSizeRequestMode args=GtkCellRenderer *cell
+# function pointer member follows:
+TMname=get_preferred_width TMtypeid=TBD TMposition=2 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, GtkWidget *widget, gint *minimum_size, gint *natural_size
+# function pointer member follows:
+TMname=get_preferred_height_for_width TMtypeid=TBD TMposition=3 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, GtkWidget *widget, gint width, gint *minimum_height, gint *natural_height
+# function pointer member follows:
+TMname=get_preferred_height TMtypeid=TBD TMposition=4 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, GtkWidget *widget, gint *minimum_size, gint *natural_size
+# function pointer member follows:
+TMname=get_preferred_width_for_height TMtypeid=TBD TMposition=5 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, GtkWidget *widget, gint height, gint *minimum_width, gint *natural_width
+# function pointer member follows:
+TMname=get_aligned_area TMtypeid=TBD TMposition=6 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, GtkWidget *widget, GtkCellRendererState flags, const GdkRectangle *cell_area, GdkRectangle *aligned_area
+# function pointer member follows:
+TMname=get_size TMtypeid=TBD TMposition=7 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, GtkWidget *widget, const GdkRectangle *cell_area, gint *x_offset, gint *y_offset, gint *width, gint *height
+# function pointer member follows:
+TMname=render TMtypeid=TBD TMposition=8 TMmemberof=10005062 # type=void               args=GtkCellRenderer *cell, cairo_t *cr, GtkWidget *widget, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=9 TMmemberof=10005062 # type=gboolean           args=GtkCellRenderer *cell, GdkEvent *event, GtkWidget *widget, const gchar *path, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags
+# function pointer member follows:
+TMname=start_editing TMtypeid=TBD TMposition=10 TMmemberof=10005062 # type=GtkCellEditable *  args=GtkCellRenderer *cell, GdkEvent *event, GtkWidget *widget, const gchar *path, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags
+# function pointer member follows:
+TMname=editing_canceled TMtypeid=TBD TMposition=11 TMmemberof=10005062 # type=void args=GtkCellRenderer *cell
+# function pointer member follows:
+TMname=editing_started TMtypeid=TBD TMposition=12 TMmemberof=10005062 # type=void args=GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path
+TMname=priv TMtypeid=0 TMposition=13 TMmemberof=10005062 # type=GtkCellRendererClassPrivate *
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=14 TMmemberof=10005062 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=15 TMmemberof=10005062 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=16 TMmemberof=10005062 # type=void args=void
 _GtkFrameClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004268 TMposition=0 TMmemberof=10005092 # type=GtkBinClass
+# function pointer member follows:
+TMname=compute_child_allocation TMtypeid=TBD TMposition=1 TMmemberof=10005092 # type=void args=GtkFrame *frame, GtkAllocation *allocation
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005092 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005092 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005092 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005092 # type=void args=void
 _GtkAssistantClass (expect 10 members, found 0)
+TMname=parent_class TMtypeid=10005883 TMposition=0 TMmemberof=10005103 # type=GtkWindowClass
+# function pointer member follows:
+TMname=prepare TMtypeid=TBD TMposition=1 TMmemberof=10005103 # type=void args=GtkAssistant *assistant, GtkWidget *page
+# function pointer member follows:
+TMname=apply TMtypeid=TBD TMposition=2 TMmemberof=10005103 # type=void args=GtkAssistant *assistant
+# function pointer member follows:
+TMname=close TMtypeid=TBD TMposition=3 TMmemberof=10005103 # type=void args=GtkAssistant *assistant
+# function pointer member follows:
+TMname=cancel TMtypeid=TBD TMposition=4 TMmemberof=10005103 # type=void args=GtkAssistant *assistant
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=5 TMmemberof=10005103 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=6 TMmemberof=10005103 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=7 TMmemberof=10005103 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=8 TMmemberof=10005103 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=9 TMmemberof=10005103 # type=void args=void
 _GtkToolItemClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10004268 TMposition=0 TMmemberof=10005119 # type=GtkBinClass
+# function pointer member follows:
+TMname=create_menu_proxy TMtypeid=TBD TMposition=1 TMmemberof=10005119 # type=gboolean   args=GtkToolItem *tool_item
+# function pointer member follows:
+TMname=toolbar_reconfigured TMtypeid=TBD TMposition=2 TMmemberof=10005119 # type=void       args=GtkToolItem *tool_item
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10005119 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10005119 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10005119 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10005119 # type=void args=void
 _GtkTextAppearance (expect 10 members, found 12)
+TMname=bg_color TMtypeid=10004011 TMposition=0 TMmemberof=10005123 # type=GdkColor
+TMname=fg_color TMtypeid=10004011 TMposition=1 TMmemberof=10005123 # type=GdkColor
+TMname=rise TMtypeid=11400 TMposition=2 TMmemberof=10005123 # type=gint
+TMname=4 TMtypeid=0 TMposition=3 TMmemberof=10005123 # type=guint underline :
+TMname=1 TMtypeid=0 TMposition=4 TMmemberof=10005123 # type=guint strikethrough :
+TMname=1 TMtypeid=0 TMposition=5 TMmemberof=10005123 # type=guint draw_bg :
+TMname=1 TMtypeid=0 TMposition=6 TMmemberof=10005123 # type=guint inside_selection :
+TMname=1 TMtypeid=0 TMposition=7 TMmemberof=10005123 # type=guint is_text :
+TMname=rgba TMtypeid=10003790 TMposition=8 TMmemberof=10005123 # type=GdkRGBA *
+TMname=padding TMtypeid=0 TMposition=9 TMmemberof=10005123 # type=#if (defined(__SIZEOF_INT__) && defined(__SIZEOF_POINTER__)) && (__SIZEOF_INT__ == __SIZEOF_POINTER__)
+  
+  guint
 _GtkPrintOperationPreviewIface (expect 14 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10005164 # type=GTypeInterface
+# function pointer member follows:
+TMname=ready TMtypeid=TBD TMposition=1 TMmemberof=10005164 # type=void              args=GtkPrintOperationPreview *preview, GtkPrintContext *context
+# function pointer member follows:
+TMname=got_page_size TMtypeid=TBD TMposition=2 TMmemberof=10005164 # type=void              args=GtkPrintOperationPreview *preview, GtkPrintContext *context, GtkPageSetup *page_setup
+# function pointer member follows:
+TMname=render_page TMtypeid=TBD TMposition=3 TMmemberof=10005164 # type=void              args=GtkPrintOperationPreview *preview, gint page_nr
+# function pointer member follows:
+TMname=is_selected TMtypeid=TBD TMposition=4 TMmemberof=10005164 # type=gboolean          args=GtkPrintOperationPreview *preview, gint page_nr
+# function pointer member follows:
+TMname=end_preview TMtypeid=TBD TMposition=5 TMmemberof=10005164 # type=void              args=GtkPrintOperationPreview *preview
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=6 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=7 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=8 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=9 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=10 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=11 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=12 TMmemberof=10005164 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=13 TMmemberof=10005164 # type=void args=void
 _GtkToggleActionClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005315 TMposition=0 TMmemberof=10005173 # type=GtkActionClass
+# function pointer member follows:
+TMname=toggled TMtypeid=TBD TMposition=1 TMmemberof=10005173 # type=void args=GtkToggleAction *action
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005173 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005173 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005173 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005173 # type=void args=void
 _GtkCssProviderClass (expect 5 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005184 # type=GObjectClass
+# function pointer member follows:
+TMname=parsing_error TMtypeid=TBD TMposition=1 TMmemberof=10005184 # type=void args=GtkCssProvider *provider, GtkCssSection *section, const GError * error
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=2 TMmemberof=10005184 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=3 TMmemberof=10005184 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=4 TMmemberof=10005184 # type=void args=void
 _GtkTreeModelFilterClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005197 # type=GObjectClass
+# function pointer member follows:
+TMname=visible TMtypeid=TBD TMposition=1 TMmemberof=10005197 # type=gboolean args=GtkTreeModelFilter *self, GtkTreeModel *child_model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=modify TMtypeid=TBD TMposition=2 TMmemberof=10005197 # type=void args=GtkTreeModelFilter *self, GtkTreeModel *child_model, GtkTreeIter *iter, GValue *value, gint column
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10005197 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10005197 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10005197 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10005197 # type=void args=void
 _GtkSocketClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10005222 # type=GtkContainerClass
+# function pointer member follows:
+TMname=plug_added TMtypeid=TBD TMposition=1 TMmemberof=10005222 # type=void     args=GtkSocket *socket_
+# function pointer member follows:
+TMname=plug_removed TMtypeid=TBD TMposition=2 TMmemberof=10005222 # type=gboolean args=GtkSocket *socket_
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10005222 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10005222 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10005222 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10005222 # type=void args=void
 _GtkMenuItemClass (expect 14 members, found 0)
-_GtkActionGroupClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004268 TMposition=0 TMmemberof=10005261 # type=GtkBinClass
+TMname=1 TMtypeid=0 TMposition=1 TMmemberof=10005261 # type=guint hide_on_activate :
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=2 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item
+# function pointer member follows:
+TMname=activate_item TMtypeid=TBD TMposition=3 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item
+# function pointer member follows:
+TMname=toggle_size_request TMtypeid=TBD TMposition=4 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item, gint *requisition
+# function pointer member follows:
+TMname=toggle_size_allocate TMtypeid=TBD TMposition=5 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item, gint allocation
+# function pointer member follows:
+TMname=set_label TMtypeid=TBD TMposition=6 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item, const gchar *label
+# function pointer member follows:
+TMname=get_label TMtypeid=TBD TMposition=7 TMmemberof=10005261 # type=const gchar * args=GtkMenuItem *menu_item
+# function pointer member follows:
+TMname=select TMtypeid=TBD TMposition=8 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item
+# function pointer member follows:
+TMname=deselect TMtypeid=TBD TMposition=9 TMmemberof=10005261 # type=void args=GtkMenuItem *menu_item
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=10 TMmemberof=10005261 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=11 TMmemberof=10005261 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=12 TMmemberof=10005261 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=13 TMmemberof=10005261 # type=void args=void
+_GtkActionGroupClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005276 # type=GObjectClass
+TMname=action_name TMtypeid=0 TMposition=1 TMmemberof=10005276 # type=GtkAction *(* get_action) (GtkActionGroup *action_group,
+                             const gchar *
+TMname=action_name TMtypeid=0 TMposition=2 TMmemberof=10005276 # type=GtkAction *(* get_action) (GtkActionGroup *action_group,
+                             const gchar *
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10005276 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10005276 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10005276 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10005276 # type=void args=void
 _GtkPanedClass (expect 11 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10005305 # type=GtkContainerClass
+# function pointer member follows:
+TMname=cycle_child_focus TMtypeid=TBD TMposition=1 TMmemberof=10005305 # type=gboolean args=GtkPaned *paned, gboolean reverse
+# function pointer member follows:
+TMname=toggle_handle_focus TMtypeid=TBD TMposition=2 TMmemberof=10005305 # type=gboolean args=GtkPaned *paned
+# function pointer member follows:
+TMname=move_handle TMtypeid=TBD TMposition=3 TMmemberof=10005305 # type=gboolean args=GtkPaned *paned, GtkScrollType scroll
+# function pointer member follows:
+TMname=cycle_handle_focus TMtypeid=TBD TMposition=4 TMmemberof=10005305 # type=gboolean args=GtkPaned *paned, gboolean reverse
+# function pointer member follows:
+TMname=accept_position TMtypeid=TBD TMposition=5 TMmemberof=10005305 # type=gboolean args=GtkPaned *paned
+# function pointer member follows:
+TMname=cancel_position TMtypeid=TBD TMposition=6 TMmemberof=10005305 # type=gboolean args=GtkPaned *paned
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=7 TMmemberof=10005305 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=8 TMmemberof=10005305 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=9 TMmemberof=10005305 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=10 TMmemberof=10005305 # type=void args=void
 _GtkEditableInterface (expect 11 members, found 0)
+TMname=base_iface TMtypeid=0 TMposition=0 TMmemberof=10005311 # type=GTypeInterface		  
+# function pointer member follows:
+TMname=insert_text TMtypeid=TBD TMposition=1 TMmemberof=10005311 # type=void args=GtkEditable *editable, const gchar *new_text, gint new_text_length, gint *position
+# function pointer member follows:
+TMname=delete_text TMtypeid=TBD TMposition=2 TMmemberof=10005311 # type=void args=GtkEditable *editable, gint start_pos, gint end_pos
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=3 TMmemberof=10005311 # type=void args=GtkEditable *editable
+# function pointer member follows:
+TMname=do_insert_text TMtypeid=TBD TMposition=4 TMmemberof=10005311 # type=void args=GtkEditable *editable, const gchar *new_text, gint new_text_length, gint *position
+# function pointer member follows:
+TMname=do_delete_text TMtypeid=TBD TMposition=5 TMmemberof=10005311 # type=void args=GtkEditable *editable, gint start_pos, gint end_pos
+# function pointer member follows:
+TMname=get_chars TMtypeid=TBD TMposition=6 TMmemberof=10005311 # type=gchar* args=GtkEditable *editable, gint start_pos, gint end_pos
+# function pointer member follows:
+TMname=set_selection_bounds TMtypeid=TBD TMposition=7 TMmemberof=10005311 # type=void args=GtkEditable *editable, gint start_pos, gint end_pos
+# function pointer member follows:
+TMname=get_selection_bounds TMtypeid=TBD TMposition=8 TMmemberof=10005311 # type=gboolean args=GtkEditable *editable, gint *start_pos, gint *end_pos
+# function pointer member follows:
+TMname=set_position TMtypeid=TBD TMposition=9 TMmemberof=10005311 # type=void args=GtkEditable *editable, gint position
+# function pointer member follows:
+TMname=get_position TMtypeid=TBD TMposition=10 TMmemberof=10005311 # type=gint args=GtkEditable *editable
 _GtkActionClass (expect 13 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005320 # type=GObjectClass
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=1 TMmemberof=10005320 # type=void       args=GtkAction *action
+TMname=menu_item_type TMtypeid=11836 TMposition=2 TMmemberof=10005320 # type=GType     
+TMname=toolbar_item_type TMtypeid=11836 TMposition=3 TMmemberof=10005320 # type=GType     
+TMname=action TMtypeid=0 TMposition=4 TMmemberof=10005320 # type=GtkWidget *(* create_menu_item)   (GtkAction *
+TMname=action TMtypeid=0 TMposition=5 TMmemberof=10005320 # type=GtkWidget *(* create_tool_item)   (GtkAction *
+# function pointer member follows:
+TMname=connect_proxy TMtypeid=TBD TMposition=6 TMmemberof=10005320 # type=void       args=GtkAction *action, GtkWidget *proxy
+# function pointer member follows:
+TMname=disconnect_proxy TMtypeid=TBD TMposition=7 TMmemberof=10005320 # type=void       args=GtkAction *action, GtkWidget *proxy
+TMname=action TMtypeid=0 TMposition=8 TMmemberof=10005320 # type=GtkWidget *(* create_menu)        (GtkAction *
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=9 TMmemberof=10005320 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=10 TMmemberof=10005320 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=11 TMmemberof=10005320 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=12 TMmemberof=10005320 # type=void args=void
 _GtkScrolledWindowClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=10004268 TMposition=0 TMmemberof=10005328 # type=GtkBinClass
+TMname=scrollbar_spacing TMtypeid=11400 TMposition=1 TMmemberof=10005328 # type=gint
+# function pointer member follows:
+TMname=scroll_child TMtypeid=TBD TMposition=2 TMmemberof=10005328 # type=gboolean args=GtkScrolledWindow *scrolled_window, GtkScrollType scroll, gboolean horizontal
+# function pointer member follows:
+TMname=move_focus_out TMtypeid=TBD TMposition=3 TMmemberof=10005328 # type=void args=GtkScrolledWindow *scrolled_window, GtkDirectionType direction
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10005328 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10005328 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10005328 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=7 TMmemberof=10005328 # type=void args=void
 _GtkScaleClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=10004466 TMposition=0 TMmemberof=10005338 # type=GtkRangeClass
+# function pointer member follows:
+TMname=format_value TMtypeid=TBD TMposition=1 TMmemberof=10005338 # type=gchar* args=GtkScale *scale, gdouble value
+# function pointer member follows:
+TMname=draw_value TMtypeid=TBD TMposition=2 TMmemberof=10005338 # type=void args=GtkScale *scale
+# function pointer member follows:
+TMname=get_layout_offsets TMtypeid=TBD TMposition=3 TMmemberof=10005338 # type=void args=GtkScale *scale, gint *x, gint *y
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10005338 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10005338 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10005338 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=7 TMmemberof=10005338 # type=void args=void
 _GtkCellRendererTextClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005057 TMposition=0 TMmemberof=10005363 # type=GtkCellRendererClass
+# function pointer member follows:
+TMname=edited TMtypeid=TBD TMposition=1 TMmemberof=10005363 # type=void args=GtkCellRendererText *cell_renderer_text, const gchar *path, const gchar *new_text
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005363 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005363 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005363 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005363 # type=void args=void
 _GtkTextTagClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005381 # type=GObjectClass
+# function pointer member follows:
+TMname=event TMtypeid=TBD TMposition=1 TMmemberof=10005381 # type=gboolean args=GtkTextTag *tag, GObject *event_object, GdkEvent *event, const GtkTextIter *iter
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005381 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005381 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005381 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005381 # type=void args=void
 _GtkApplicationClass (expect 4 members, found 0)
+TMname=parent_class TMtypeid=10002772 TMposition=0 TMmemberof=10005391 # type=GApplicationClass
+# function pointer member follows:
+TMname=window_added TMtypeid=TBD TMposition=1 TMmemberof=10005391 # type=void args=GtkApplication *application, GtkWindow *window
+# function pointer member follows:
+TMname=window_removed TMtypeid=TBD TMposition=2 TMmemberof=10005391 # type=void args=GtkApplication *application, GtkWindow *window
+TMname=padding TMtypeid=11404 TMposition=3 TMmemberof=10005391 # type=gpointer
 _GtkRadioMenuItemClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005495 TMposition=0 TMmemberof=10005422 # type=GtkCheckMenuItemClass
+# function pointer member follows:
+TMname=group_changed TMtypeid=TBD TMposition=1 TMmemberof=10005422 # type=void args=GtkRadioMenuItem *radio_menu_item
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005422 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005422 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005422 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005422 # type=void args=void
 _GtkStyleProviderIface (expect 4 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10005464 # type=GTypeInterface
+# function pointer member follows:
+TMname=get_style TMtypeid=TBD TMposition=1 TMmemberof=10005464 # type=GtkStyleProperties * args=GtkStyleProvider *provider, GtkWidgetPath *path
+# function pointer member follows:
+TMname=get_style_property TMtypeid=TBD TMposition=2 TMmemberof=10005464 # type=gboolean args=GtkStyleProvider *provider, GtkWidgetPath *path, GtkStateFlags state, GParamSpec *pspec, GValue *value
+# function pointer member follows:
+TMname=get_icon_factory TMtypeid=TBD TMposition=3 TMmemberof=10005464 # type=GtkIconFactory * args=GtkStyleProvider *provider, GtkWidgetPath *path
 _GtkEntryCompletionClass (expect 9 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005485 # type=GObjectClass
+# function pointer member follows:
+TMname=match_selected TMtypeid=TBD TMposition=1 TMmemberof=10005485 # type=gboolean args=GtkEntryCompletion *completion, GtkTreeModel *model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=action_activated TMtypeid=TBD TMposition=2 TMmemberof=10005485 # type=void     args=GtkEntryCompletion *completion, gint index_
+# function pointer member follows:
+TMname=insert_prefix TMtypeid=TBD TMposition=3 TMmemberof=10005485 # type=gboolean args=GtkEntryCompletion *completion, const gchar *prefix
+# function pointer member follows:
+TMname=cursor_on_match TMtypeid=TBD TMposition=4 TMmemberof=10005485 # type=gboolean args=GtkEntryCompletion *completion, GtkTreeModel *model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=_gtk_reserved0 TMtypeid=TBD TMposition=5 TMmemberof=10005485 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=6 TMmemberof=10005485 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=7 TMmemberof=10005485 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=8 TMmemberof=10005485 # type=void args=void
 _GtkCellEditableIface (expect 4 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10005490 # type=GTypeInterface
+# function pointer member follows:
+TMname=editing_done TMtypeid=TBD TMposition=1 TMmemberof=10005490 # type=void args=GtkCellEditable *cell_editable
+# function pointer member follows:
+TMname=remove_widget TMtypeid=TBD TMposition=2 TMmemberof=10005490 # type=void args=GtkCellEditable *cell_editable
+# function pointer member follows:
+TMname=start_editing TMtypeid=TBD TMposition=3 TMmemberof=10005490 # type=void args=GtkCellEditable *cell_editable, GdkEvent *event
 _GtkCheckMenuItemClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10005256 TMposition=0 TMmemberof=10005498 # type=GtkMenuItemClass
+# function pointer member follows:
+TMname=toggled TMtypeid=TBD TMposition=1 TMmemberof=10005498 # type=void args=GtkCheckMenuItem *check_menu_item
+# function pointer member follows:
+TMname=draw_indicator TMtypeid=TBD TMposition=2 TMmemberof=10005498 # type=void args=GtkCheckMenuItem *check_menu_item, cairo_t *cr
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=3 TMmemberof=10005498 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=4 TMmemberof=10005498 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=5 TMmemberof=10005498 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=6 TMmemberof=10005498 # type=void args=void
 _GtkFontButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005564 TMposition=0 TMmemberof=10005516 # type=GtkButtonClass
+# function pointer member follows:
+TMname=font_set TMtypeid=TBD TMposition=1 TMmemberof=10005516 # type=void args=GtkFontButton *gfp
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005516 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005516 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005516 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005516 # type=void args=void
 _GtkBuildableIface (expect 11 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10005554 # type=GTypeInterface
+# function pointer member follows:
+TMname=set_name TMtypeid=TBD TMposition=1 TMmemberof=10005554 # type=void          args=GtkBuildable *buildable, const gchar *name
+# function pointer member follows:
+TMname=get_name TMtypeid=TBD TMposition=2 TMmemberof=10005554 # type=const gchar * args=GtkBuildable *buildable
+# function pointer member follows:
+TMname=add_child TMtypeid=TBD TMposition=3 TMmemberof=10005554 # type=void          args=GtkBuildable *buildable, GtkBuilder *builder, GObject *child, const gchar *type
+# function pointer member follows:
+TMname=set_buildable_property TMtypeid=TBD TMposition=4 TMmemberof=10005554 # type=void          args=GtkBuildable *buildable, GtkBuilder *builder, const gchar *name, const GValue *value
+# function pointer member follows:
+TMname=construct_child TMtypeid=TBD TMposition=5 TMmemberof=10005554 # type=GObject *     args=GtkBuildable *buildable, GtkBuilder *builder, const gchar *name
+# function pointer member follows:
+TMname=custom_tag_start TMtypeid=TBD TMposition=6 TMmemberof=10005554 # type=gboolean      args=GtkBuildable *buildable, GtkBuilder *builder, GObject *child, const gchar *tagname, GMarkupParser *parser, gpointer *data
+# function pointer member follows:
+TMname=custom_tag_end TMtypeid=TBD TMposition=7 TMmemberof=10005554 # type=void          args=GtkBuildable *buildable, GtkBuilder *builder, GObject *child, const gchar *tagname, gpointer *data
+# function pointer member follows:
+TMname=custom_finished TMtypeid=TBD TMposition=8 TMmemberof=10005554 # type=void          args=GtkBuildable *buildable, GtkBuilder *builder, GObject *child, const gchar *tagname, gpointer data
+# function pointer member follows:
+TMname=parser_finished TMtypeid=TBD TMposition=9 TMmemberof=10005554 # type=void          args=GtkBuildable *buildable, GtkBuilder *builder
+# function pointer member follows:
+TMname=get_internal_child TMtypeid=TBD TMposition=10 TMmemberof=10005554 # type=GObject *     args=GtkBuildable *buildable, GtkBuilder *builder, const gchar *childname
 _GtkButtonClass (expect 11 members, found 0)
+TMname=parent_class TMtypeid=0 TMposition=0 TMmemberof=10005567 # type=GtkBinClass       
+# function pointer member follows:
+TMname=pressed TMtypeid=TBD TMposition=1 TMmemberof=10005567 # type=void args=GtkButton *button
+# function pointer member follows:
+TMname=released TMtypeid=TBD TMposition=2 TMmemberof=10005567 # type=void args=GtkButton *button
+# function pointer member follows:
+TMname=clicked TMtypeid=TBD TMposition=3 TMmemberof=10005567 # type=void args=GtkButton *button
+# function pointer member follows:
+TMname=enter TMtypeid=TBD TMposition=4 TMmemberof=10005567 # type=void args=GtkButton *button
+# function pointer member follows:
+TMname=leave TMtypeid=TBD TMposition=5 TMmemberof=10005567 # type=void args=GtkButton *button
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=6 TMmemberof=10005567 # type=void args=GtkButton *button
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=7 TMmemberof=10005567 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=8 TMmemberof=10005567 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=9 TMmemberof=10005567 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=10 TMmemberof=10005567 # type=void args=void
 _GtkAccelGroupClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005695 # type=GObjectClass
+# function pointer member follows:
+TMname=accel_changed TMtypeid=TBD TMposition=1 TMmemberof=10005695 # type=void args=GtkAccelGroup *accel_group, guint keyval, GdkModifierType modifier, GClosure *accel_closure
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005695 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005695 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005695 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005695 # type=void args=void
 _GtkAppChooserWidgetClass (expect 5 members, found 0)
-_GtkCellAreaClass (expect 28 members, found 0)
+TMname=parent_class TMtypeid=10004555 TMposition=0 TMmemberof=10005723 # type=GtkBoxClass
+# function pointer member follows:
+TMname=application_selected TMtypeid=TBD TMposition=1 TMmemberof=10005723 # type=void args=GtkAppChooserWidget *self, GAppInfo *app_info
+# function pointer member follows:
+TMname=application_activated TMtypeid=TBD TMposition=2 TMmemberof=10005723 # type=void args=GtkAppChooserWidget *self, GAppInfo *app_info
+# function pointer member follows:
+TMname=populate_popup TMtypeid=TBD TMposition=3 TMmemberof=10005723 # type=void args=GtkAppChooserWidget *self, GtkMenu *menu, GAppInfo *app_info
+TMname=padding TMtypeid=11404 TMposition=4 TMmemberof=10005723 # type=gpointer
+_GtkCellAreaClass (expect 29 members, found 0)
+TMname=parent_class TMtypeid=10003273 TMposition=0 TMmemberof=10005746 # type=GInitiallyUnownedClass
+# function pointer member follows:
+TMname=add TMtypeid=TBD TMposition=1 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellRenderer *renderer
+# function pointer member follows:
+TMname=remove TMtypeid=TBD TMposition=2 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellRenderer *renderer
+# function pointer member follows:
+TMname=foreach TMtypeid=TBD TMposition=3 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellCallback callback, gpointer callback_data
+# function pointer member follows:
+TMname=foreach_alloc TMtypeid=TBD TMposition=4 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, const GdkRectangle *cell_area, const GdkRectangle *background_area, GtkCellAllocCallback callback, gpointer callback_data
+# function pointer member follows:
+TMname=event TMtypeid=TBD TMposition=5 TMmemberof=10005746 # type=gint               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, GdkEvent *event, const GdkRectangle *cell_area, GtkCellRendererState flags
+# function pointer member follows:
+TMname=render TMtypeid=TBD TMposition=6 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, cairo_t *cr, const GdkRectangle *background_area, const GdkRectangle *cell_area, GtkCellRendererState flags, gboolean paint_focus
+# function pointer member follows:
+TMname=apply_attributes TMtypeid=TBD TMposition=7 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkTreeModel *tree_model, GtkTreeIter *iter, gboolean is_expander, gboolean is_expanded
+TMname=area TMtypeid=0 TMposition=8 TMmemberof=10005746 # type=GtkCellAreaContext *(* create_context)                 (GtkCellArea *
+TMname=context TMtypeid=0 TMposition=9 TMmemberof=10005746 # type=GtkCellAreaContext *(* copy_context)                   (GtkCellArea             *area,
+                                                          GtkCellAreaContext *
+TMname=context TMtypeid=0 TMposition=10 TMmemberof=10005746 # type=GtkCellAreaContext *(* copy_context)                   (GtkCellArea             *area,
+                                                          GtkCellAreaContext *
+# function pointer member follows:
+TMname=get_request_mode TMtypeid=TBD TMposition=11 TMmemberof=10005746 # type=GtkSizeRequestMode args=GtkCellArea *area
+# function pointer member follows:
+TMname=get_preferred_width TMtypeid=TBD TMposition=12 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint *minimum_width, gint *natural_width
+# function pointer member follows:
+TMname=get_preferred_height_for_width TMtypeid=TBD TMposition=13 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint width, gint *minimum_height, gint *natural_height
+# function pointer member follows:
+TMname=get_preferred_height TMtypeid=TBD TMposition=14 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint *minimum_height, gint *natural_height
+# function pointer member follows:
+TMname=get_preferred_width_for_height TMtypeid=TBD TMposition=15 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, gint height, gint *minimum_width, gint *natural_width
+# function pointer member follows:
+TMname=set_cell_property TMtypeid=TBD TMposition=16 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellRenderer *renderer, guint property_id, const GValue *value, GParamSpec *pspec
+# function pointer member follows:
+TMname=get_cell_property TMtypeid=TBD TMposition=17 TMmemberof=10005746 # type=void               args=GtkCellArea *area, GtkCellRenderer *renderer, guint property_id, GValue *value, GParamSpec *pspec
+# function pointer member follows:
+TMname=focus TMtypeid=TBD TMposition=18 TMmemberof=10005746 # type=gboolean           args=GtkCellArea *area, GtkDirectionType direction
+# function pointer member follows:
+TMname=is_activatable TMtypeid=TBD TMposition=19 TMmemberof=10005746 # type=gboolean           args=GtkCellArea *area
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=20 TMmemberof=10005746 # type=gboolean           args=GtkCellArea *area, GtkCellAreaContext *context, GtkWidget *widget, const GdkRectangle *cell_area, GtkCellRendererState flags, gboolean edit_only
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=21 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=22 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=23 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=24 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=25 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=26 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=27 TMmemberof=10005746 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=28 TMmemberof=10005746 # type=void args=void
 _GtkCellAreaContextClass (expect 11 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005755 # type=GObjectClass
+# function pointer member follows:
+TMname=allocate TMtypeid=TBD TMposition=1 TMmemberof=10005755 # type=void    args=GtkCellAreaContext *context, gint width, gint height
+# function pointer member follows:
+TMname=reset TMtypeid=TBD TMposition=2 TMmemberof=10005755 # type=void    args=GtkCellAreaContext *context
+# function pointer member follows:
+TMname=get_preferred_height_for_width TMtypeid=TBD TMposition=3 TMmemberof=10005755 # type=void    args=GtkCellAreaContext *context, gint width, gint *minimum_height, gint *natural_height
+# function pointer member follows:
+TMname=get_preferred_width_for_height TMtypeid=TBD TMposition=4 TMmemberof=10005755 # type=void    args=GtkCellAreaContext *context, gint height, gint *minimum_width, gint *natural_width
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=5 TMmemberof=10005755 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=6 TMmemberof=10005755 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=7 TMmemberof=10005755 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=8 TMmemberof=10005755 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=9 TMmemberof=10005755 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=10 TMmemberof=10005755 # type=void args=void
 _GtkPrintOperationClass (expect 20 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005769 # type=GObjectClass
+# function pointer member follows:
+TMname=done TMtypeid=TBD TMposition=1 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation, GtkPrintOperationResult result
+# function pointer member follows:
+TMname=begin_print TMtypeid=TBD TMposition=2 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation, GtkPrintContext *context
+# function pointer member follows:
+TMname=paginate TMtypeid=TBD TMposition=3 TMmemberof=10005769 # type=gboolean args=GtkPrintOperation *operation, GtkPrintContext *context
+# function pointer member follows:
+TMname=request_page_setup TMtypeid=TBD TMposition=4 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation, GtkPrintContext *context, gint page_nr, GtkPageSetup *setup
+# function pointer member follows:
+TMname=draw_page TMtypeid=TBD TMposition=5 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation, GtkPrintContext *context, gint page_nr
+# function pointer member follows:
+TMname=end_print TMtypeid=TBD TMposition=6 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation, GtkPrintContext *context
+# function pointer member follows:
+TMname=status_changed TMtypeid=TBD TMposition=7 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation
+TMname=operation TMtypeid=0 TMposition=8 TMmemberof=10005769 # type=GtkWidget *(*create_custom_widget) (GtkPrintOperation *
+# function pointer member follows:
+TMname=custom_widget_apply TMtypeid=TBD TMposition=9 TMmemberof=10005769 # type=void       args=GtkPrintOperation *operation, GtkWidget *widget
+# function pointer member follows:
+TMname=preview TMtypeid=TBD TMposition=10 TMmemberof=10005769 # type=gboolean args=GtkPrintOperation *operation, GtkPrintOperationPreview *preview, GtkPrintContext *context, GtkWindow *parent
+# function pointer member follows:
+TMname=update_custom_widget TMtypeid=TBD TMposition=11 TMmemberof=10005769 # type=void     args=GtkPrintOperation *operation, GtkWidget *widget, GtkPageSetup *setup, GtkPrintSettings *settings
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=12 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=13 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=14 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=15 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=16 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=17 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=18 TMmemberof=10005769 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=19 TMmemberof=10005769 # type=void args=void
 _GtkTreeViewClass (expect 24 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10005807 # type=GtkContainerClass
+# function pointer member follows:
+TMname=row_activated TMtypeid=TBD TMposition=1 TMmemberof=10005807 # type=void     args=GtkTreeView *tree_view, GtkTreePath *path, GtkTreeViewColumn *column
+# function pointer member follows:
+TMname=test_expand_row TMtypeid=TBD TMposition=2 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path
+# function pointer member follows:
+TMname=test_collapse_row TMtypeid=TBD TMposition=3 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path
+# function pointer member follows:
+TMname=row_expanded TMtypeid=TBD TMposition=4 TMmemberof=10005807 # type=void     args=GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path
+# function pointer member follows:
+TMname=row_collapsed TMtypeid=TBD TMposition=5 TMmemberof=10005807 # type=void     args=GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path
+# function pointer member follows:
+TMname=columns_changed TMtypeid=TBD TMposition=6 TMmemberof=10005807 # type=void     args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=cursor_changed TMtypeid=TBD TMposition=7 TMmemberof=10005807 # type=void     args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=move_cursor TMtypeid=TBD TMposition=8 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view, GtkMovementStep step, gint count
+# function pointer member follows:
+TMname=select_all TMtypeid=TBD TMposition=9 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=unselect_all TMtypeid=TBD TMposition=10 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=select_cursor_row TMtypeid=TBD TMposition=11 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view, gboolean start_editing
+# function pointer member follows:
+TMname=toggle_cursor_row TMtypeid=TBD TMposition=12 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=expand_collapse_cursor_row TMtypeid=TBD TMposition=13 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view, gboolean logical, gboolean expand, gboolean open_all
+# function pointer member follows:
+TMname=select_cursor_parent TMtypeid=TBD TMposition=14 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=start_interactive_search TMtypeid=TBD TMposition=15 TMmemberof=10005807 # type=gboolean args=GtkTreeView *tree_view
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=16 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=17 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=18 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=19 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=20 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=21 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=22 TMmemberof=10005807 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=23 TMmemberof=10005807 # type=void args=void
 _GtkCellRendererToggleClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10005057 TMposition=0 TMmemberof=10005839 # type=GtkCellRendererClass
+# function pointer member follows:
+TMname=toggled TMtypeid=TBD TMposition=1 TMmemberof=10005839 # type=void args=GtkCellRendererToggle *cell_renderer_toggle, const gchar *path
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005839 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005839 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005839 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005839 # type=void args=void
 _GtkAboutDialogClass (expect 6 members, found 0)
-_GtkTreeModelIface (expect 21 members, found 0)
+TMname=parent_class TMtypeid=10004590 TMposition=0 TMmemberof=10005850 # type=GtkDialogClass
+# function pointer member follows:
+TMname=activate_link TMtypeid=TBD TMposition=1 TMmemberof=10005850 # type=gboolean args=GtkAboutDialog *dialog, const gchar *uri
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005850 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005850 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005850 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005850 # type=void args=void
+_GtkTreeModelIface (expect 22 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10005869 # type=GTypeInterface
+# function pointer member follows:
+TMname=row_changed TMtypeid=TBD TMposition=1 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter
+# function pointer member follows:
+TMname=row_inserted TMtypeid=TBD TMposition=2 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter
+# function pointer member follows:
+TMname=row_has_child_toggled TMtypeid=TBD TMposition=3 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter
+# function pointer member follows:
+TMname=row_deleted TMtypeid=TBD TMposition=4 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreePath *path
+# function pointer member follows:
+TMname=rows_reordered TMtypeid=TBD TMposition=5 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreePath *path, GtkTreeIter *iter, gint *new_order
+# function pointer member follows:
+TMname=get_flags TMtypeid=TBD TMposition=6 TMmemberof=10005869 # type=GtkTreeModelFlags args=GtkTreeModel *tree_model
+# function pointer member follows:
+TMname=get_n_columns TMtypeid=TBD TMposition=7 TMmemberof=10005869 # type=gint         args=GtkTreeModel *tree_model
+# function pointer member follows:
+TMname=get_column_type TMtypeid=TBD TMposition=8 TMmemberof=10005869 # type=GType        args=GtkTreeModel *tree_model, gint index_
+# function pointer member follows:
+TMname=get_iter TMtypeid=TBD TMposition=9 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreePath *path
+TMname=iter TMtypeid=0 TMposition=10 TMmemberof=10005869 # type=GtkTreePath *(* get_path)        (GtkTreeModel *tree_model,
+				    GtkTreeIter *
+TMname=iter TMtypeid=0 TMposition=11 TMmemberof=10005869 # type=GtkTreePath *(* get_path)        (GtkTreeModel *tree_model,
+				    GtkTreeIter *
+# function pointer member follows:
+TMname=get_value TMtypeid=TBD TMposition=12 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreeIter *iter, gint column, GValue *value
+# function pointer member follows:
+TMname=iter_next TMtypeid=TBD TMposition=13 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=iter_previous TMtypeid=TBD TMposition=14 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=iter_children TMtypeid=TBD TMposition=15 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreeIter *parent
+# function pointer member follows:
+TMname=iter_has_child TMtypeid=TBD TMposition=16 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=iter_n_children TMtypeid=TBD TMposition=17 TMmemberof=10005869 # type=gint         args=GtkTreeModel *tree_model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=iter_nth_child TMtypeid=TBD TMposition=18 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreeIter *parent, gint n
+# function pointer member follows:
+TMname=iter_parent TMtypeid=TBD TMposition=19 TMmemberof=10005869 # type=gboolean     args=GtkTreeModel *tree_model, GtkTreeIter *iter, GtkTreeIter *child
+# function pointer member follows:
+TMname=ref_node TMtypeid=TBD TMposition=20 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreeIter *iter
+# function pointer member follows:
+TMname=unref_node TMtypeid=TBD TMposition=21 TMmemberof=10005869 # type=void         args=GtkTreeModel *tree_model, GtkTreeIter *iter
 _GtkCheckButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004330 TMposition=0 TMmemberof=10005878 # type=GtkToggleButtonClass
+# function pointer member follows:
+TMname=draw_indicator TMtypeid=TBD TMposition=1 TMmemberof=10005878 # type=void args=GtkCheckButton *check_button, cairo_t *cr
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005878 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005878 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005878 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005878 # type=void args=void
 _GtkLevelBarClass (expect 3 members, found 0)
-_GtkComboBoxClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004828 TMposition=0 TMmemberof=10005918 # type=GtkWidgetClass
+# function pointer member follows:
+TMname=offset_changed TMtypeid=TBD TMposition=1 TMmemberof=10005918 # type=void args=GtkLevelBar *self, const gchar *name
+TMname=padding TMtypeid=11404 TMposition=2 TMmemberof=10005918 # type=gpointer
+_GtkComboBoxClass (expect 7 members, found 0)
+TMname=parent_class TMtypeid=10004268 TMposition=0 TMmemberof=10005926 # type=GtkBinClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10005926 # type=void     args=GtkComboBox *combo_box
+TMname=path TMtypeid=0 TMposition=2 TMmemberof=10005926 # type=gchar   *(* format_entry_text) (GtkComboBox *combo_box,
+				  const gchar *
+TMname=path TMtypeid=0 TMposition=3 TMmemberof=10005926 # type=gchar   *(* format_entry_text) (GtkComboBox *combo_box,
+				  const gchar *
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10005926 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10005926 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10005926 # type=void args=void
 _GtkBuilderClass (expect 10 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005973 # type=GObjectClass
+# function pointer member follows:
+TMname=get_type_from_name TMtypeid=TBD TMposition=1 TMmemberof=10005973 # type=GType args=GtkBuilder *builder, const char *type_name
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=6 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=7 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=8 TMmemberof=10005973 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=9 TMmemberof=10005973 # type=void args=void
 _GtkTextBufferClass (expect 18 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005985 # type=GObjectClass
+# function pointer member follows:
+TMname=insert_text TMtypeid=TBD TMposition=1 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextIter *pos, const gchar *new_text, gint new_text_length
+# function pointer member follows:
+TMname=insert_pixbuf TMtypeid=TBD TMposition=2 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextIter *iter, GdkPixbuf *pixbuf
+# function pointer member follows:
+TMname=insert_child_anchor TMtypeid=TBD TMposition=3 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextIter *iter, GtkTextChildAnchor *anchor
+# function pointer member follows:
+TMname=delete_range TMtypeid=TBD TMposition=4 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextIter *start, GtkTextIter *end
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=5 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer
+# function pointer member follows:
+TMname=modified_changed TMtypeid=TBD TMposition=6 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer
+# function pointer member follows:
+TMname=mark_set TMtypeid=TBD TMposition=7 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, const GtkTextIter *location, GtkTextMark *mark
+# function pointer member follows:
+TMname=mark_deleted TMtypeid=TBD TMposition=8 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextMark *mark
+# function pointer member follows:
+TMname=apply_tag TMtypeid=TBD TMposition=9 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextTag *tag, const GtkTextIter *start, const GtkTextIter *end
+# function pointer member follows:
+TMname=remove_tag TMtypeid=TBD TMposition=10 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkTextTag *tag, const GtkTextIter *start, const GtkTextIter *end
+# function pointer member follows:
+TMname=begin_user_action TMtypeid=TBD TMposition=11 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer
+# function pointer member follows:
+TMname=end_user_action TMtypeid=TBD TMposition=12 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer
+# function pointer member follows:
+TMname=paste_done TMtypeid=TBD TMposition=13 TMmemberof=10005985 # type=void args=GtkTextBuffer *buffer, GtkClipboard *clipboard
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=14 TMmemberof=10005985 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=15 TMmemberof=10005985 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=16 TMmemberof=10005985 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=17 TMmemberof=10005985 # type=void args=void
 _GtkIconThemeClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10005998 # type=GObjectClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10005998 # type=void args=GtkIconTheme *icon_theme
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10005998 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10005998 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10005998 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10005998 # type=void args=void
 _GtkBindingArg (expect 4 members, found 2)
+TMname=arg_type TMtypeid=11836 TMposition=0 TMmemberof=10006016 # type=GType     
+TMname=long_data TMtypeid=0 TMposition=1 TMmemberof=10006016 # type=union {
+    glong   
+TMname=double_data TMtypeid=11598 TMposition=2 TMmemberof=10006016 # type=gdouble 
+TMname=string_data TMtypeid=11415 TMposition=3 TMmemberof=10006016 # type=gchar *
 _GtkCellLayoutIface (expect 10 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10006030 # type=GTypeInterface
+# function pointer member follows:
+TMname=pack_start TMtypeid=TBD TMposition=1 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout, GtkCellRenderer *cell, gboolean expand
+# function pointer member follows:
+TMname=pack_end TMtypeid=TBD TMposition=2 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout, GtkCellRenderer *cell, gboolean expand
+# function pointer member follows:
+TMname=clear TMtypeid=TBD TMposition=3 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout
+# function pointer member follows:
+TMname=add_attribute TMtypeid=TBD TMposition=4 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout, GtkCellRenderer *cell, const gchar *attribute, gint column
+# function pointer member follows:
+TMname=set_cell_data_func TMtypeid=TBD TMposition=5 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout, GtkCellRenderer *cell, GtkCellLayoutDataFunc func, gpointer func_data, GDestroyNotify destroy
+# function pointer member follows:
+TMname=clear_attributes TMtypeid=TBD TMposition=6 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout, GtkCellRenderer *cell
+# function pointer member follows:
+TMname=reorder TMtypeid=TBD TMposition=7 TMmemberof=10006030 # type=void args=GtkCellLayout *cell_layout, GtkCellRenderer *cell, gint position
+# function pointer member follows:
+TMname=get_cells TMtypeid=TBD TMposition=8 TMmemberof=10006030 # type=GList* args=GtkCellLayout *cell_layout
+TMname=cell_layout TMtypeid=0 TMposition=9 TMmemberof=10006030 # type=GtkCellArea *(* get_area)   (GtkCellLayout *
 _GtkToolbarClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10006040 # type=GtkContainerClass
+# function pointer member follows:
+TMname=orientation_changed TMtypeid=TBD TMposition=1 TMmemberof=10006040 # type=void     args=GtkToolbar *toolbar, GtkOrientation orientation
+# function pointer member follows:
+TMname=style_changed TMtypeid=TBD TMposition=2 TMmemberof=10006040 # type=void     args=GtkToolbar *toolbar, GtkToolbarStyle style
+# function pointer member follows:
+TMname=popup_context_menu TMtypeid=TBD TMposition=3 TMmemberof=10006040 # type=gboolean args=GtkToolbar *toolbar, gint x, gint y, gint button_number
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10006040 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10006040 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10006040 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=7 TMmemberof=10006040 # type=void args=void
 _GtkMenuToolButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004299 TMposition=0 TMmemberof=10006049 # type=GtkToolButtonClass
+# function pointer member follows:
+TMname=show_menu TMtypeid=TBD TMposition=1 TMmemberof=10006049 # type=void args=GtkMenuToolButton *button
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10006049 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10006049 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10006049 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10006049 # type=void args=void
 _GtkStatusbarClass (expect 8 members, found 0)
+TMname=parent_class TMtypeid=10004555 TMposition=0 TMmemberof=10006066 # type=GtkBoxClass
+TMname=reserved TMtypeid=11404 TMposition=1 TMmemberof=10006066 # type=gpointer
+# function pointer member follows:
+TMname=text_pushed TMtypeid=TBD TMposition=2 TMmemberof=10006066 # type=void args=GtkStatusbar *statusbar, guint context_id, const gchar *text
+# function pointer member follows:
+TMname=text_popped TMtypeid=TBD TMposition=3 TMmemberof=10006066 # type=void args=GtkStatusbar *statusbar, guint context_id, const gchar *text
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=4 TMmemberof=10006066 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=5 TMmemberof=10006066 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=6 TMmemberof=10006066 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=7 TMmemberof=10006066 # type=void args=void
 _GtkExpanderClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=0 TMposition=0 TMmemberof=10006084 # type=GtkBinClass   
+# function pointer member follows:
+TMname=activate TMtypeid=TBD TMposition=1 TMmemberof=10006084 # type=void        args=GtkExpander *expander
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10006084 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10006084 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10006084 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10006084 # type=void args=void
 _GtkStyleContextClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=11867 TMposition=0 TMmemberof=10006100 # type=GObjectClass
+# function pointer member follows:
+TMname=changed TMtypeid=TBD TMposition=1 TMmemberof=10006100 # type=void args=GtkStyleContext *context
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=2 TMmemberof=10006100 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=3 TMmemberof=10006100 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=4 TMmemberof=10006100 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=5 TMmemberof=10006100 # type=void args=void
 _GtkLabelClass (expect 13 members, found 0)
+TMname=parent_class TMtypeid=10004248 TMposition=0 TMmemberof=10006129 # type=GtkMiscClass
+# function pointer member follows:
+TMname=move_cursor TMtypeid=TBD TMposition=1 TMmemberof=10006129 # type=void args=GtkLabel *label, GtkMovementStep step, gint count, gboolean extend_selection
+# function pointer member follows:
+TMname=copy_clipboard TMtypeid=TBD TMposition=2 TMmemberof=10006129 # type=void args=GtkLabel *label
+# function pointer member follows:
+TMname=populate_popup TMtypeid=TBD TMposition=3 TMmemberof=10006129 # type=void args=GtkLabel *label, GtkMenu *menu
+# function pointer member follows:
+TMname=activate_link TMtypeid=TBD TMposition=4 TMmemberof=10006129 # type=gboolean args=GtkLabel *label, const gchar *uri
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=5 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=6 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=7 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=8 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved5 TMtypeid=TBD TMposition=9 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved6 TMtypeid=TBD TMposition=10 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved7 TMtypeid=TBD TMposition=11 TMmemberof=10006129 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved8 TMtypeid=TBD TMposition=12 TMmemberof=10006129 # type=void args=void
 _GtkTreeSortableIface (expect 7 members, found 0)
+TMname=g_iface TMtypeid=11997 TMposition=0 TMmemberof=10006142 # type=GTypeInterface
+# function pointer member follows:
+TMname=sort_column_changed TMtypeid=TBD TMposition=1 TMmemberof=10006142 # type=void     args=GtkTreeSortable *sortable
+# function pointer member follows:
+TMname=get_sort_column_id TMtypeid=TBD TMposition=2 TMmemberof=10006142 # type=gboolean args=GtkTreeSortable *sortable, gint *sort_column_id, GtkSortType *order
+# function pointer member follows:
+TMname=set_sort_column_id TMtypeid=TBD TMposition=3 TMmemberof=10006142 # type=void     args=GtkTreeSortable *sortable, gint sort_column_id, GtkSortType order
+# function pointer member follows:
+TMname=set_sort_func TMtypeid=TBD TMposition=4 TMmemberof=10006142 # type=void     args=GtkTreeSortable *sortable, gint sort_column_id, GtkTreeIterCompareFunc sort_func, gpointer user_data, GDestroyNotify destroy
+# function pointer member follows:
+TMname=set_default_sort_func TMtypeid=TBD TMposition=5 TMmemberof=10006142 # type=void     args=GtkTreeSortable *sortable, GtkTreeIterCompareFunc sort_func, gpointer user_data, GDestroyNotify destroy
+# function pointer member follows:
+TMname=has_default_sort_func TMtypeid=TBD TMposition=6 TMmemberof=10006142 # type=gboolean args=GtkTreeSortable *sortable
 _GtkFileChooserButtonClass (expect 6 members, found 0)
+TMname=parent_class TMtypeid=10004555 TMposition=0 TMmemberof=10006152 # type=GtkBoxClass
+# function pointer member follows:
+TMname=file_set TMtypeid=TBD TMposition=1 TMmemberof=10006152 # type=void args=GtkFileChooserButton *fc
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved1)
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved2)
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved3)
+# function pointer member follows:
+#OOPS! what happened? void|(*__gtk_reserved4)
 _GtkIconViewClass (expect 13 members, found 0)
-Structs detected to not have problems (total 260):
+TMname=parent_class TMtypeid=10006175 TMposition=0 TMmemberof=10006195 # type=GtkContainerClass
+# function pointer member follows:
+TMname=item_activated TMtypeid=TBD TMposition=1 TMmemberof=10006195 # type=void    args=GtkIconView *icon_view, GtkTreePath *path
+# function pointer member follows:
+TMname=selection_changed TMtypeid=TBD TMposition=2 TMmemberof=10006195 # type=void    args=GtkIconView *icon_view
+# function pointer member follows:
+TMname=select_all TMtypeid=TBD TMposition=3 TMmemberof=10006195 # type=void    args=GtkIconView *icon_view
+# function pointer member follows:
+TMname=unselect_all TMtypeid=TBD TMposition=4 TMmemberof=10006195 # type=void    args=GtkIconView *icon_view
+# function pointer member follows:
+TMname=select_cursor_item TMtypeid=TBD TMposition=5 TMmemberof=10006195 # type=void    args=GtkIconView *icon_view
+# function pointer member follows:
+TMname=toggle_cursor_item TMtypeid=TBD TMposition=6 TMmemberof=10006195 # type=void    args=GtkIconView *icon_view
+# function pointer member follows:
+TMname=move_cursor TMtypeid=TBD TMposition=7 TMmemberof=10006195 # type=gboolean args=GtkIconView *icon_view, GtkMovementStep step, gint count
+# function pointer member follows:
+TMname=activate_cursor_item TMtypeid=TBD TMposition=8 TMmemberof=10006195 # type=gboolean args=GtkIconView *icon_view
+# function pointer member follows:
+TMname=_gtk_reserved1 TMtypeid=TBD TMposition=9 TMmemberof=10006195 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved2 TMtypeid=TBD TMposition=10 TMmemberof=10006195 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved3 TMtypeid=TBD TMposition=11 TMmemberof=10006195 # type=void args=void
+# function pointer member follows:
+TMname=_gtk_reserved4 TMtypeid=TBD TMposition=12 TMmemberof=10006195 # type=void args=void
+Structs detected to not have problems (total 267):
 _GdkKeymapKey
 _GdkEventAny
 _GdkEventExpose
 _GdkEventVisibility
+_GdkEventMotion
+_GdkEventButton
+_GdkEventTouch
+_GdkEventScroll
 _GdkEventKey
 _GdkEventCrossing
 _GdkEventFocus
+_GdkEventConfigure
 _GdkEventProperty
 _GdkEventSelection
 _GdkEventOwnerChange
@@ -116,6 +1908,8 @@ _GdkEventProximity
 _GdkEventSetting
 _GdkEventWindowState
 _GdkEventGrabBroken
+_GdkEventDND
+_GdkWindowAttr
 _GdkGeometry
 _GdkPoint
 _GtkSettings
