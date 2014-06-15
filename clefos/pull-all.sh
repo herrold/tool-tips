@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	pull-all.sh
-#		$Id: pull-all.sh,v 1.9 2014/06/13 17:01:52 herrold Exp herrold $
+#		$Id: pull-all.sh,v 1.11 2014/06/15 13:18:54 herrold Exp herrold $
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
@@ -63,6 +63,7 @@ cd ${ANCHORDIR}
 #	this driver list is sorted alpha
 for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #
+export OMIT=""
 [ "x${SKIPTIL}" = "x$i" ] && {
 	export DELAYED=""
 	}
@@ -106,18 +107,19 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 		CNT=`grep -c "${i}-[0-9]*.src.rpm" ${EROOT}/${ECACHE} `
 #	if we have a cache miss, we may still have a later build
 	[ 0$CNT -lt 1 ] && \
-		CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
-	[ 0$CNT -gt 0 -a "x${DEBUG}" != "x" ] && {
-		FOUND=` find . -name "${i}-[0-9]*.src.rpm" | head -n 1 `
-		echo "${MYNAME}: found: ${FOUND}" | logger -p local1.info
-		}
+		CNT=`find ./$i -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
 	[ 0$CNT -gt 0 ] && {
 		export OMIT="y"
+		}
+	[ "x${OMIT}" = "x"  -a "x${DEBUG}" != "x" ] && {
+		FOUND=` find ./$i -name "${i}-[0-9]*.src.rpm" | head -n 1 `
+		echo "${MYNAME}: found: ${FOUND}" | logger -p local1.info
 		}
 #
 #	the following test is: while we have the directory, but no matching SRPM
 #	so retrieve the git sources, etc, so we may try to build one
 	cd ${ANCHORDIR}
+#	this just for doing a CO
 	[ "x${OMIT}" = "x" ] && {
 	[ -e $i   -a  0$CNT -lt 1 ] && {
 	cd $i
@@ -128,8 +130,12 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 	${ANCHORDIR}/${PULLSCRIPT}
 	cd ..
 		}
+#	bottom of the just for doing a CO
 		}
 #
+#	SHOULD we proceed?
+[ "x${OMIT}" = "x" ] && {
+#	CAN we proceed?
 	cd ${ANCHORDIR}
 	[ -e ./$i   ] && {
 	cd $i
@@ -216,6 +222,8 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 	[ -s ${EROOT}/${ECACHE} ] && \
 		CNT=`grep -c "${i}-[0-9]*.src.rpm" ${EROOT}/${ECACHE} `
 #	if we have a cache miss, we may still have a later build
+#	we are down in the package directory already, so the find path
+#	is just the CWD
 	[ 0$CNT -lt 1 ] && \
 		CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
 #	if STILL not present, build it
@@ -225,7 +233,8 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 			-bs SPECS/$i.spec 
 #
 #	did it succeed?
-#	this is fast, as it is down a level from the top WD
+#	this is fast, as it is down a level from the top WD in the package
+#	directory
 #	we don't need a cache here
 	CNT=0
 	CNT=`find . -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
@@ -250,6 +259,7 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 		sleep 30 
 		# -silent
 # echo "post"
+#	bottom of twitter
 	}
 #
 #	and tell the console ...
@@ -270,7 +280,12 @@ for i in ` awk {'print $1'} ${EROOT}/${EFILE} ` ; do
 #	rpmbuild --define "%_topdir `pwd`" \
 #		--define "%dist ${DIST}" \
 #		-ba SPECS/$i.spec
+#
+#	bottom of CAN
 		}
+#
+#	bottom of last OMIT
+	}
 #
 #	belt and suspenders checking
 	cd ${ANCHORDIR}
