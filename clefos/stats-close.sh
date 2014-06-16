@@ -58,7 +58,7 @@ cp newstats.txt oldstats.txt
 #	only report when we have a change, and also data 
 #	( after -f we will not report)
 [ 0${DELTA} -gt 0 ] && {
-YMD=`date +%Y-%m-%d" "%H:%M:%S`
+YMD=`date +%Y-%m-%d" "%H:%M:%S" "%z"(US "%Z")"`
 echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " 
 echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " | \
 	logger -p local1.info
