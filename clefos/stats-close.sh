@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.9 2014/06/16 15:38:02 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.10 2014/06/16 19:48:20 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -30,6 +30,10 @@ PATH='/bin:/usr/bin:/usr/sbin:/sbin:~/bin/'
 MYNAME=`basename $0`
 #
 STARTDIR="/home/herrold/vcs/git/centos-7-archive"
+MAXAGE=8
+#
+##########################################################
+#
 cd 
 cd $STARTDIR
 #	option to force a freshening of stat backing close data 
@@ -39,6 +43,12 @@ cd $STARTDIR
 	[ -e oldstats.txt ] && rm -f oldstats.txt
 	> ${EROOT}/${ECACHE}
 	}
+#
+#	that said, don't let a cache file longer longer than MAXAGE
+#	hours; when it goes over, it gets removed, causing a freshen
+MAXMIN=`echo "0${MAXAGE} * 60 " | bc`
+find -name -cmin +${MAXMIN} -name oldstats.txt -a -exec rm {} \;
+#
 #	we can speed other operations w a cache periodically rebuilt
 find $STARTDIR -name "*src.rpm" | sort  > ${EROOT}/${ECACHE}.WORK
 #	atomic update of the cache
@@ -53,7 +63,9 @@ GOAL=`wc -l ${EROOT}/${EFILE} | awk {'print $1'} `
 	DELTA=` echo "0${THIS} - 0${PRIOR}" | bc `
 	REMAINING=`echo "0${GOAL} - 0${THIS} " | bc`
 	}
-cp newstats.txt oldstats.txt
+#
+#	we are done making stats, so we can prepare for the next round
+mv newstats.txt oldstats.txt
 #
 #	only report when we have a change, and also data 
 #	( after -f we will not report)
