@@ -17,6 +17,7 @@ import sys
 import os
 import re
 import MySQLdb
+from string import Template
 
 # debug enabled will show the members scraped from the upstream headers
 debug = 1
@@ -151,7 +152,7 @@ def get_structs_in_header_group(conn, hgroup_id):
 
 
 def getid(conn, membertype):
-    '''fish out the Type.Tid for given Type.Tname'''
+    '''return the Type.Tid for given Type.Tname'''
 
     # for Gtk/Gdk there are likely dupes, so filter down by library
     if membertype[0:3] == 'Gtk':
@@ -162,9 +163,11 @@ def getid(conn, membertype):
 	Lib = None
 
     cursor = conn.cursor()
-    # we'd like to check if the type is included, but many types are not
-    # (e.g. pointers - the base type is included but not the ptr) so skip
-    # we could follow the chain, but that is a bunch more work
+    #
+    # we'd like to check if the type is included, but many types are not.
+    # e.g. pointers: the base type is included but not the ptr itself.
+    # we could follow the chain, but that is a bunch more work, so skip check.
+    #
     if Lib:
         cursor.execute("SELECT DISTINCT Tid FROM Type " +
                        "JOIN ArchType on Tid=ATtid " +
@@ -179,39 +182,52 @@ def getid(conn, membertype):
         return cursor.fetchone()[0]
 
 
-def dumpmembers(conn, structname, typeid, members):
-    '''detailed printout of scraped struct members.
-       Since we're only here if a struct has problems, we would like
-       to produce SQL directly here.'''
+def addfptr(rtype, data):
+    ''' build a function pointer type for the specdb.
+        needs Type, ArchType, TypeMembers. Try first to match in
+        case it exists, if so don't build new one. Returns the Tid '''
+    #
+    #  Need to decompose 'data' which is the RHS of ftpr. So perhaps:
+    #
+    #    "GtkTreeSortable *sortable, GtkTreeIterCompareFunc  sort_func,
+    #     gpointer user_data, GDestroyNotify destroy"
+    #
+    #  We need to produce a string which will be the fptr typename:
+    #  "(*) (GtkTreeSortable *, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)"
+    # and the individual "arguments", so we can make up typemembers
+    #
+
+    print "# not adding function pointer: %s (*) (%s)" % (rtype, ' '.join(data.split()))
+    return 0
+
+
+def addtypemembers(conn, structname, typeid, members):
+    ''' build SQL to add the typemembers. 
+        for function-pointer types, also build the ftpr '''
 
     if len(members) == 0:
         return
 
     pos = 0
+    tmtemplate = "INSERT INTO TypeMember " + \
+                 "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)" +\
+                 "VALUES(0,'$name',$tid,$pos,$member,'5.0') # type=$typ"
+    tmsql = Template(tmtemplate)
+
     for (flag, membertype, name) in members:
         if  flag == "fptr":
-            print("# function pointer member follows:")
-	    fptr_mem = re.search(r'\(\*\s*(\w+?)\)\s*\((.+)\)', name.strip(), re.S)
+	    fptr_mem = re.search(r'\(\*\s*(\w+?)\)\s*\((.+)\)',
+                                 name.strip(), re.S)
 	    if fptr_mem:
-                print("TMname=%s TMtypeid=TBD TMposition=%d TMmemberof=%d # type=%s args=%s" % \
-                      (fptr_mem.group(1), pos, typeid,
-	               membertype, ' '.join(fptr_mem.group(2).split())))
-#
-#               More decomposition is needed. Given:
-#  void     (* set_default_sort_func) (GtkTreeSortable        *sortable,
-#                                      GtkTreeIterCompareFunc  sort_func,
-#                                      gpointer                user_data,
-#                                      GDestroyNotify          destroy);
-#               we need the fptr-type-name extracted as 
-#  (*) (GtkTreeSortable *, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)
-#               and the individual "arguments", so we can make up fptr-type
-#
+                memid = addfptr(membertype.strip(), fptr_mem.group(2).strip())
+                print tmsql.substitute(name=fptr_mem.group(1), tid=memid, 
+                                       pos=pos, member=typeid, typ='fptr')
             else:
-                # must be of type "void (*__gtk_reserved1)"
-                # only two upstream headers (gtkfilechooserbutton.h and
+                # Unexpected outcome: type is "void (*__gtk_reserved1)"
+                # Two upstream headers (gtkfilechooserbutton.h and
                 # gtkstatusicon.h) do this instead of the more common
-                # "void (*_gtk_reserved1) (void)".  This does not match
-                # our pattern.  What to do here?
+                # "void (*_gtk_reserved1) (void)". Not new, was this way
+                # in gtk-2.0 also.  Does not match our pattern. What to do?
                 print("#OOPS! what happened? %s|%s" % (membertype, name))
         else:
             # regex splits so if there is a *, it belongs to member name, 
@@ -221,8 +237,8 @@ def dumpmembers(conn, structname, typeid, members):
                 membertype = ' '.join((membertype.strip(), '*'))
 
             memid = getid(conn, membertype)
-            print("TMname=%s TMtypeid=%d TMposition=%d TMmemberof=%d # type=%s" % \
-                  (' '.join(name.split()), memid, pos, typeid, membertype))
+            print tmsql.substitute(name=' '.join(name.split()), tid=memid, 
+                                   pos=pos, member=typeid, typ=membertype)
         pos += 1
 
 
@@ -298,23 +314,23 @@ def main():
                         if mem_disable > 0:
                             members_disabled.append(typename)
 
-    print("Structs detected to have problems (total %d):" % len(bad_types))
+    print("# Structs detected to have problems (total %d):" % len(bad_types))
     for (structname, typeid) in bad_types:
-        print("%s (%s)" % (structname, bad_types_info[structname]))
+        print("# %s (%s)" % (structname, bad_types_info[structname]))
         if debug:
-            dumpmembers(conn, structname, typeid,
-                        detected_structs[structname]["members"])
+            addtypemembers(conn, structname, typeid,
+                           detected_structs[structname]["members"])
 
-    print("Structs detected to not have problems (total %d):" % len(good_types))
+    print("# Structs detected to not have problems (total %d):" % len(good_types))
     for structname in good_types:
-        print(structname)
+        print('# ', structname)
 
     if members_disabled:
-        print("Structs where total members != enabled members in specdb (%d):" %
+        print("# Structs where total members != enabled members in specdb (%d):" %
               len(members_disabled))
-        print("NOTE: these may overlap with the two categories above")
+        print("# NOTE: these may overlap with the two categories above")
         for structname in members_disabled:
-            print(structname)
+            print('# ', structname)
 
 if __name__ == "__main__":
     main()
