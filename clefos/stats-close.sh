@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.7 2014/06/16 14:54:29 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.8 2014/06/16 15:04:51 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -40,7 +40,10 @@ cd $STARTDIR
 	> ${EROOT}/${ECACHE}
 	}
 #	we can speed other operations w a cache periodically rebuilt
-find $STARTDIR -name "*src.rpm" | sort  > ${EROOT}/${ECACHE}
+find $STARTDIR -name "*src.rpm" | sort  > ${EROOT}/${ECACHE}.WORK
+#	atomic update of the cache
+[ -s ${EROOT}/${ECACHE}.WORK ] && \
+	mv ${EROOT}/${ECACHE}.WORK ${EROOT}/${ECACHE}
 wc -l ${EROOT}/${ECACHE} | awk {'print $1'} > newstats.txt
 #
 GOAL=`wc -l ${EROOT}/${EFILE} | awk {'print $1'} `
