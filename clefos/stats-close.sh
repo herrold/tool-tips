@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.12 2014/06/16 22:48:56 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.13 2014/06/16 23:20:13 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -109,6 +109,6 @@ echo -n "Duration: " 1>&2
 #	optionally shave off hours if zero, and leading 0s 
 #	in all cases --- but always leave at least units on minutes
 date -u -d "1970-01-01 ${DURATION} seconds" +%T  | \
-	sed -e "s@^00@@g" -e "s@^0@@g" 1>&2
+	sed -e "s@^00:@@g" -e "s@^0@@g" 1>&2
 #	EOJ
 #
