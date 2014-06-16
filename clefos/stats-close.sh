@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.11 2014/06/16 21:37:42 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.12 2014/06/16 22:48:56 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -24,7 +24,7 @@ ECACHE="c7-SRPM-cache.txt"
 #
 #	no twitter 
 #	this will not work unless you configure it properly
-## NOTWITTER="y"
+NOTWITTER="y"
 #
 PATH='/bin:/usr/bin:/usr/sbin:/sbin:~/bin/'
 MYNAME=`basename $0`
@@ -36,6 +36,7 @@ MAXAGE=8
 #
 cd 
 cd $STARTDIR
+STJOB=`date +%s`
 #	option to force a freshening of stat backing close data 
 #	and the cache
 [ "x${1}" = "x-f" ] && {
@@ -102,5 +103,12 @@ echo "Follow along at: https://github.com/herrold/tool-tips/tree/master/clefos "
 #
 	}
 #
+ENDJOB=`date +%s`
+DURATION=`echo "0${ENDJOB} - 0${STJOB}" | bc`
+echo -n "Duration: " 1>&2
+#	optionally shave off hours if zero, and leading 0s 
+#	in all cases --- but always leave at least units on minutes
+date -u -d "1970-01-01 ${DURATION} seconds" +%T  | \
+	sed -e "s@^00@@g" -e "s@^0@@g" 1>&2
 #	EOJ
 #
