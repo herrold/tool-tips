@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.10 2014/06/16 19:48:20 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.11 2014/06/16 21:37:42 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -47,7 +47,8 @@ cd $STARTDIR
 #	that said, don't let a cache file longer longer than MAXAGE
 #	hours; when it goes over, it gets removed, causing a freshen
 MAXMIN=`echo "0${MAXAGE} * 60 " | bc`
-find -name -cmin +${MAXMIN} -name oldstats.txt -a -exec rm {} \;
+find $STARTDIR -cmin +${MAXMIN} -name oldstats.txt -a \
+	-exec rm {} \;
 #
 #	we can speed other operations w a cache periodically rebuilt
 find $STARTDIR -name "*src.rpm" | sort  > ${EROOT}/${ECACHE}.WORK
