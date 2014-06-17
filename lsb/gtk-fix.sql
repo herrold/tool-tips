@@ -1,14 +1,12 @@
 # Structs detected to have problems (total 95):
 
-# _GtkScaleButtonClass (expect 6 members, found 1 
+# _GtkScaleButtonClass (expect 6 members, found 0 
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'parent_class',10005564,0,10004152,'5.0'); # type=GtkButtonClass
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkScaleButton *, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkScaleButton *, typeid=10004156, name=button)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'button',10004156,0,@Tid,'5.0'); # type=GtkScaleButton *
-# args (pos=1, type=gdouble, typeid=11598, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11598,1,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value_changed',0,1,10004152,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,2,10004152,'5.0'); # type=fptr
@@ -33,20 +31,15 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkActivatable *, GtkAction *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkActivatable *, typeid=10004243, name=activatable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'activatable',10004243,0,@Tid,'5.0'); # type=GtkActivatable *
-# args (pos=1, type=GtkAction *, typeid=10004244, name=action)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'action',10004244,1,@Tid,'5.0'); # type=GtkAction *
-# args (pos=2, type=const gchar *, typeid=11421, name=property_name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'property_name',11421,2,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'update',0,1,10004241,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkActivatable *, GtkAction *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkActivatable *, typeid=10004243, name=activatable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'activatable',10004243,0,@Tid,'5.0'); # type=GtkActivatable *
-# args (pos=1, type=GtkAction *, typeid=10004244, name=action)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'action',10004244,1,@Tid,'5.0'); # type=GtkAction *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sync_action_properties',0,2,10004241,'5.0'); # type=fptr
 
@@ -124,63 +117,54 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkIconSize (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_icon_size',0,1,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkOrientation (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_orientation',0,2,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkToolbarStyle (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_style',0,3,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkReliefStyle (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_relief_style',0,4,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'rebuild_menu',0,5,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkOrientation (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_text_orientation',0,6,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gfloat (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_text_alignment',0,7,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'PangoEllipsizeMode (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_ellipsize_mode',0,8,10004323,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkSizeGroup * (*)(GtkToolShell *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkToolShell *, typeid=10004325, name=shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'shell',10004325,0,@Tid,'5.0'); # type=GtkToolShell *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_text_size_group',0,9,10004323,'5.0'); # type=fptr
 
@@ -216,9 +200,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkMenuShell *, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkMenuShell *, typeid=10004344, name=menu_shell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'menu_shell',10004344,0,@Tid,'5.0'); # type=GtkMenuShell *
-# args (pos=1, type=gint, typeid=11400, name=distance)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'distance',11400,1,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'move_selected',0,10,10004342,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,11,10004342,'5.0'); # type=fptr
@@ -250,7 +232,6 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkLinkButton *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkLinkButton *, typeid=10004434, name=button)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'button',10004434,0,@Tid,'5.0'); # type=GtkLinkButton *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'activate_link',0,1,10004432,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_padding1',9926,2,10004432,'5.0'); # type=fptr
@@ -328,9 +309,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkStatusIcon *, GdkEventScroll *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkStatusIcon *, typeid=10004547, name=status_icon)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'status_icon',10004547,0,@Tid,'5.0'); # type=GtkStatusIcon *
-# args (pos=1, type=GdkEventScroll *, typeid=0, name=event)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'event',0,1,@Tid,'5.0'); # type=GdkEventScroll *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'scroll_event',0,6,10004545,'5.0'); # type=fptr
 # fptr gboolean (*)(GtkStatusIcon *, gint, gint, gboolean, GtkTooltip *) found, id=40585
@@ -367,32 +346,26 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'const gchar * (*)(GtkActionable *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkActionable *, typeid=10004601, name=actionable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'actionable',10004601,0,@Tid,'5.0'); # type=GtkActionable *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_action_name',0,1,10004599,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkActionable *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkActionable *, typeid=10004601, name=actionable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'actionable',10004601,0,@Tid,'5.0'); # type=GtkActionable *
-# args (pos=1, type=const gchar *, typeid=11421, name=action_name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'action_name',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_action_name',0,2,10004599,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GVariant * (*)(GtkActionable *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkActionable *, typeid=10004601, name=actionable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'actionable',10004601,0,@Tid,'5.0'); # type=GtkActionable *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_action_target_value',0,3,10004599,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkActionable *, GVariant *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkActionable *, typeid=10004601, name=actionable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'actionable',10004601,0,@Tid,'5.0'); # type=GtkActionable *
-# args (pos=1, type=GVariant *, typeid=41081, name=target_value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'target_value',41081,1,@Tid,'5.0'); # type=GVariant *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_action_target_value',0,4,10004599,'5.0'); # type=fptr
 
@@ -402,11 +375,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkRecentChooser *, const gchar *, GError **)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkRecentChooser *, typeid=10004625, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004625,0,@Tid,'5.0'); # type=GtkRecentChooser *
-# args (pos=1, type=const gchar *, typeid=11421, name=uri)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'uri',11421,1,@Tid,'5.0'); # type=const gchar *
-# args (pos=2, type=GError **, typeid=11481, name=error)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'error',11481,2,@Tid,'5.0'); # type=GError **
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_current_uri',0,1,10004623,'5.0'); # type=fptr
 # fptr gchar * (*)(GtkRecentChooser *) found, id=40195
@@ -415,20 +385,15 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkRecentChooser *, const gchar *, GError **)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkRecentChooser *, typeid=10004625, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004625,0,@Tid,'5.0'); # type=GtkRecentChooser *
-# args (pos=1, type=const gchar *, typeid=11421, name=uri)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'uri',11421,1,@Tid,'5.0'); # type=const gchar *
-# args (pos=2, type=GError **, typeid=11481, name=error)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'error',11481,2,@Tid,'5.0'); # type=GError **
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'select_uri',0,3,10004623,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkRecentChooser *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkRecentChooser *, typeid=10004625, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004625,0,@Tid,'5.0'); # type=GtkRecentChooser *
-# args (pos=1, type=const gchar *, typeid=11421, name=uri)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'uri',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'unselect_uri',0,4,10004623,'5.0'); # type=fptr
 # fptr void (*)(GtkRecentChooser *) found, id=40197
@@ -475,11 +440,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkNotebook *, GtkWidget *, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkNotebook *, typeid=10004700, name=notebook)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'notebook',10004700,0,@Tid,'5.0'); # type=GtkNotebook *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=page)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=guint, typeid=11402, name=page_num)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_num',11402,2,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'switch_page',0,1,10004698,'5.0'); # type=fptr
 # fptr gboolean (*)(GtkNotebook *, gboolean) found, id=14464
@@ -490,9 +452,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkNotebook *, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkNotebook *, typeid=10004700, name=notebook)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'notebook',10004700,0,@Tid,'5.0'); # type=GtkNotebook *
-# args (pos=1, type=gint, typeid=11400, name=offset)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'offset',11400,1,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'change_current_page',0,4,10004698,'5.0'); # type=fptr
 # fptr void (*)(GtkNotebook *, GtkDirectionType) found, id=14467
@@ -505,46 +465,33 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkNotebook * (*)(GtkNotebook *, GtkWidget *, gint, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkNotebook *, typeid=10004700, name=notebook)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'notebook',10004700,0,@Tid,'5.0'); # type=GtkNotebook *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=page)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=gint, typeid=11400, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11400,2,@Tid,'5.0'); # type=gint
-# args (pos=3, type=gint, typeid=11400, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11400,3,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'create_window',0,8,10004698,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkNotebook *, GtkWidget *, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkNotebook *, typeid=10004700, name=notebook)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'notebook',10004700,0,@Tid,'5.0'); # type=GtkNotebook *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=guint, typeid=11402, name=page_num)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_num',11402,2,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_reordered',0,9,10004698,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkNotebook *, GtkWidget *, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkNotebook *, typeid=10004700, name=notebook)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'notebook',10004700,0,@Tid,'5.0'); # type=GtkNotebook *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=guint, typeid=11402, name=page_num)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_num',11402,2,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_removed',0,10,10004698,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkNotebook *, GtkWidget *, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkNotebook *, typeid=10004700, name=notebook)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'notebook',10004700,0,@Tid,'5.0'); # type=GtkNotebook *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=guint, typeid=11402, name=page_num)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_num',11402,2,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'page_added',0,11,10004698,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,12,10004698,'5.0'); # type=fptr
@@ -578,64 +525,47 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkEntryBuffer *, guint, const gchar *, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntryBuffer *, typeid=10004750, name=buffer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buffer',10004750,0,@Tid,'5.0'); # type=GtkEntryBuffer *
-# args (pos=1, type=guint, typeid=11402, name=position)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'position',11402,1,@Tid,'5.0'); # type=guint
-# args (pos=2, type=const gchar *, typeid=11421, name=chars)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chars',11421,2,@Tid,'5.0'); # type=const gchar *
-# args (pos=3, type=guint, typeid=11402, name=n_chars)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'n_chars',11402,3,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'inserted_text',0,1,10004748,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkEntryBuffer *, guint, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntryBuffer *, typeid=10004750, name=buffer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buffer',10004750,0,@Tid,'5.0'); # type=GtkEntryBuffer *
-# args (pos=1, type=guint, typeid=11402, name=position)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'position',11402,1,@Tid,'5.0'); # type=guint
-# args (pos=2, type=guint, typeid=11402, name=n_chars)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'n_chars',11402,2,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'deleted_text',0,2,10004748,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'const gchar* (*)(GtkEntryBuffer *, gsize *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntryBuffer *, typeid=10004750, name=buffer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buffer',10004750,0,@Tid,'5.0'); # type=GtkEntryBuffer *
-# args (pos=1, type=gsize *, typeid=11480, name=n_bytes)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'n_bytes',11480,1,@Tid,'5.0'); # type=gsize *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_text',0,3,10004748,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'guint (*)(GtkEntryBuffer *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntryBuffer *, typeid=10004750, name=buffer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buffer',10004750,0,@Tid,'5.0'); # type=GtkEntryBuffer *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_length',0,4,10004748,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'guint (*)(GtkEntryBuffer *, guint, const gchar *, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntryBuffer *, typeid=10004750, name=buffer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buffer',10004750,0,@Tid,'5.0'); # type=GtkEntryBuffer *
-# args (pos=1, type=guint, typeid=11402, name=position)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'position',11402,1,@Tid,'5.0'); # type=guint
-# args (pos=2, type=const gchar *, typeid=11421, name=chars)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chars',11421,2,@Tid,'5.0'); # type=const gchar *
-# args (pos=3, type=guint, typeid=11402, name=n_chars)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'n_chars',11402,3,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'insert_text',0,5,10004748,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'guint (*)(GtkEntryBuffer *, guint, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntryBuffer *, typeid=10004750, name=buffer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buffer',10004750,0,@Tid,'5.0'); # type=GtkEntryBuffer *
-# args (pos=1, type=guint, typeid=11402, name=position)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'position',11402,1,@Tid,'5.0'); # type=guint
-# args (pos=2, type=guint, typeid=11402, name=n_chars)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'n_chars',11402,2,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'delete_text',0,6,10004748,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,7,10004748,'5.0'); # type=fptr
@@ -653,272 +583,176 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x0)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x0',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y0)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y0',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=x1)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x1',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=y1)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y1',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_line',0,1,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_background',0,2,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_frame',0,3,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble, GtkPositionType, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
-# args (pos=6, type=GtkPositionType, typeid=10005615, name=gap_side)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'gap_side',10005615,6,@Tid,'5.0'); # type=GtkPositionType
-# args (pos=7, type=gdouble, typeid=11598, name=xy0_gap)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'xy0_gap',11598,7,@Tid,'5.0'); # type=gdouble
-# args (pos=8, type=gdouble, typeid=11598, name=xy1_gap)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'xy1_gap',11598,8,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_frame_gap',0,4,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble, GtkPositionType)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
-# args (pos=6, type=GtkPositionType, typeid=10005615, name=gap_side)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'gap_side',10005615,6,@Tid,'5.0'); # type=GtkPositionType
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_extension',0,5,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_check',0,6,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_option',0,7,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=angle)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'angle',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'size',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_arrow',0,8,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_expander',0,9,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_focus',0,10,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, PangoLayout *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=PangoLayout *, typeid=12355, name=layout)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'layout',12355,4,@Tid,'5.0'); # type=PangoLayout *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_layout',0,11,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble, GtkOrientation)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
-# args (pos=6, type=GtkOrientation, typeid=10005603, name=orientation)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'orientation',10005603,6,@Tid,'5.0'); # type=GtkOrientation
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_slider',0,12,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_handle',0,13,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, gdouble, gdouble, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,2,@Tid,'5.0'); # type=gdouble
-# args (pos=3, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11598,4,@Tid,'5.0'); # type=gdouble
-# args (pos=5, type=gdouble, typeid=11598, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11598,5,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_activity',0,14,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GdkPixbuf * (*)(GtkThemingEngine *, const GtkIconSource *, GtkIconSize)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=const GtkIconSource *, typeid=10005713, name=source)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'source',10005713,1,@Tid,'5.0'); # type=const GtkIconSource *
-# args (pos=2, type=GtkIconSize, typeid=10005587, name=size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'size',10005587,2,@Tid,'5.0'); # type=GtkIconSize
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_icon_pixbuf',0,15,10004773,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkThemingEngine *, cairo_t *, GdkPixbuf *, gdouble, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkThemingEngine *, typeid=10004775, name=engine)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'engine',10004775,0,@Tid,'5.0'); # type=GtkThemingEngine *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=GdkPixbuf *, typeid=0, name=pixbuf)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'pixbuf',0,2,@Tid,'5.0'); # type=GdkPixbuf *
-# args (pos=3, type=gdouble, typeid=11598, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11598,3,@Tid,'5.0'); # type=gdouble
-# args (pos=4, type=gdouble, typeid=11598, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11598,4,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render_icon',0,16,10004773,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,17,10004773,'5.0'); # type=gpointer
@@ -929,43 +763,34 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'PangoFontFamily * (*)(GtkFontChooser *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkFontChooser *, typeid=10004794, name=fontchooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'fontchooser',10004794,0,@Tid,'5.0'); # type=GtkFontChooser *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_font_family',0,1,10004791,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'PangoFontFace * (*)(GtkFontChooser *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkFontChooser *, typeid=10004794, name=fontchooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'fontchooser',10004794,0,@Tid,'5.0'); # type=GtkFontChooser *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_font_face',0,2,10004791,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gint (*)(GtkFontChooser *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkFontChooser *, typeid=10004794, name=fontchooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'fontchooser',10004794,0,@Tid,'5.0'); # type=GtkFontChooser *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_font_size',0,3,10004791,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkFontChooser *, GtkFontFilterFunc, gpointer, GDestroyNotify)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkFontChooser *, typeid=10004794, name=fontchooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'fontchooser',10004794,0,@Tid,'5.0'); # type=GtkFontChooser *
-# args (pos=1, type=GtkFontFilterFunc, typeid=10004782, name=filter)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'filter',10004782,1,@Tid,'5.0'); # type=GtkFontFilterFunc
-# args (pos=2, type=gpointer, typeid=11404, name=user_data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'user_data',11404,2,@Tid,'5.0'); # type=gpointer
-# args (pos=3, type=GDestroyNotify, typeid=11439, name=destroy)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'destroy',11439,3,@Tid,'5.0'); # type=GDestroyNotify
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_filter_func',0,4,10004791,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkFontChooser *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkFontChooser *, typeid=10004794, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004794,0,@Tid,'5.0'); # type=GtkFontChooser *
-# args (pos=1, type=const gchar *, typeid=11421, name=fontname)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'fontname',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'font_activated',0,5,10004791,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,6,10004791,'5.0'); # type=gpointer
@@ -976,9 +801,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkAppChooserButton *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkAppChooserButton *, typeid=10004805, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10004805,0,@Tid,'5.0'); # type=GtkAppChooserButton *
-# args (pos=1, type=const gchar *, typeid=11421, name=item_name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'item_name',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'custom_item_activated',0,1,10004804,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,2,10004804,'5.0'); # type=gpointer
@@ -1012,9 +835,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, GtkStateFlags)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=GtkStateFlags, typeid=10005667, name=previous_state_flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'previous_state_flags',10005667,1,@Tid,'5.0'); # type=GtkStateFlags
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'state_flags_changed',0,13,10004837,'5.0'); # type=fptr
 # fptr void (*)(GtkWidget *, GtkWidget *) found, id=13437
@@ -1033,64 +854,47 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkWidget *, cairo_t *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'draw',0,20,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkSizeRequestMode (*)(GtkWidget *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_request_mode',0,21,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=gint *, typeid=11516, name=minimum_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_height',11516,1,@Tid,'5.0'); # type=gint *
-# args (pos=2, type=gint *, typeid=11516, name=natural_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_height',11516,2,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height',0,22,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=gint, typeid=11400, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=gint *, typeid=11516, name=minimum_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_width',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_width',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width_for_height',0,23,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=gint *, typeid=11516, name=minimum_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_width',11516,1,@Tid,'5.0'); # type=gint *
-# args (pos=2, type=gint *, typeid=11516, name=natural_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_width',11516,2,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width',0,24,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=gint, typeid=11400, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=gint *, typeid=11516, name=minimum_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_height',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_height',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height_for_width',0,25,10004837,'5.0'); # type=fptr
 # fptr gboolean (*)(GtkWidget *, gboolean) found, id=13442
@@ -1103,9 +907,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, GtkDirectionType)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=GtkDirectionType, typeid=10005583, name=direction)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'direction',10005583,1,@Tid,'5.0'); # type=GtkDirectionType
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'move_focus',0,29,10004837,'5.0'); # type=fptr
 # fptr gboolean (*)(GtkWidget *, GtkDirectionType) found, id=13445
@@ -1186,11 +988,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkWidget *, GdkDragContext *, GtkDragResult)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=GdkDragContext *, typeid=10003932, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10003932,1,@Tid,'5.0'); # type=GdkDragContext *
-# args (pos=2, type=GtkDragResult, typeid=10005661, name=result)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'result',10005661,2,@Tid,'5.0'); # type=GtkDragResult
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'drag_failed',0,67,10004837,'5.0'); # type=fptr
 # fptr gboolean (*)(GtkWidget *) found, id=13483
@@ -1211,41 +1010,28 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, gboolean *, gboolean *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=gboolean *, typeid=11763, name=hexpand_p)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'hexpand_p',11763,1,@Tid,'5.0'); # type=gboolean *
-# args (pos=2, type=gboolean *, typeid=11763, name=vexpand_p)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'vexpand_p',11763,2,@Tid,'5.0'); # type=gboolean *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'compute_expand',0,75,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, GtkOrientation, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=GtkOrientation, typeid=10005603, name=orientation)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'orientation',10005603,1,@Tid,'5.0'); # type=GtkOrientation
-# args (pos=2, type=gint *, typeid=11516, name=minimum_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_size',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_size',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'adjust_size_request',0,76,10004837,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkWidget *, GtkOrientation, gint *, gint *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=GtkOrientation, typeid=10005603, name=orientation)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'orientation',10005603,1,@Tid,'5.0'); # type=GtkOrientation
-# args (pos=2, type=gint *, typeid=11516, name=minimum_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_size',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_size',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=allocated_pos)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'allocated_pos',11516,4,@Tid,'5.0'); # type=gint *
-# args (pos=5, type=gint *, typeid=11516, name=allocated_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'allocated_size',11516,5,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'adjust_size_allocation',0,77,10004837,'5.0'); # type=fptr
 # fptr void (*)(GtkWidget *) found, id=13433
@@ -1254,9 +1040,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkWidget *, GdkEventTouch *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,0,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=1, type=GdkEventTouch *, typeid=0, name=event)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'event',0,1,@Tid,'5.0'); # type=GdkEventTouch *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'touch_event',0,79,10004837,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'priv',10006293,80,10004837,'5.0'); # type=GtkWidgetClassPrivate *
@@ -1293,30 +1077,20 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkEntry *, gint *, gint *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntry *, typeid=10004888, name=entry)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'entry',10004888,0,@Tid,'5.0'); # type=GtkEntry *
-# args (pos=1, type=gint *, typeid=11516, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11516,1,@Tid,'5.0'); # type=gint *
-# args (pos=2, type=gint *, typeid=11516, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11516,4,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_text_area_size',0,11,10004886,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkEntry *, gint *, gint *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEntry *, typeid=10004888, name=entry)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'entry',10004888,0,@Tid,'5.0'); # type=GtkEntry *
-# args (pos=1, type=gint *, typeid=11516, name=x)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x',11516,1,@Tid,'5.0'); # type=gint *
-# args (pos=2, type=gint *, typeid=11516, name=y)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11516,4,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_frame_size',0,12,10004886,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,13,10004886,'5.0'); # type=fptr
@@ -1333,42 +1107,31 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkColorChooser *, GdkRGBA *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkColorChooser *, typeid=10004898, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004898,0,@Tid,'5.0'); # type=GtkColorChooser *
-# args (pos=1, type=GdkRGBA *, typeid=10003790, name=color)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'color',10003790,1,@Tid,'5.0'); # type=GdkRGBA *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_rgba',0,1,10004896,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkColorChooser *, const GdkRGBA *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkColorChooser *, typeid=10004898, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004898,0,@Tid,'5.0'); # type=GtkColorChooser *
-# args (pos=1, type=const GdkRGBA *, typeid=10003792, name=color)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'color',10003792,1,@Tid,'5.0'); # type=const GdkRGBA *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_rgba',0,2,10004896,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkColorChooser *, GtkOrientation, gint, gint, GdkRGBA *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkColorChooser *, typeid=10004898, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004898,0,@Tid,'5.0'); # type=GtkColorChooser *
-# args (pos=1, type=GtkOrientation, typeid=10005603, name=orientation)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'orientation',10005603,1,@Tid,'5.0'); # type=GtkOrientation
-# args (pos=2, type=gint, typeid=11400, name=colors_per_line)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'colors_per_line',11400,2,@Tid,'5.0'); # type=gint
-# args (pos=3, type=gint, typeid=11400, name=n_colors)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'n_colors',11400,3,@Tid,'5.0'); # type=gint
-# args (pos=4, type=GdkRGBA *, typeid=10003790, name=colors)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'colors',10003790,4,@Tid,'5.0'); # type=GdkRGBA *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'add_palette',0,3,10004896,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkColorChooser *, const GdkRGBA *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkColorChooser *, typeid=10004898, name=chooser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'chooser',10004898,0,@Tid,'5.0'); # type=GtkColorChooser *
-# args (pos=1, type=const GdkRGBA *, typeid=10003792, name=color)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'color',10003792,1,@Tid,'5.0'); # type=const GdkRGBA *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'color_activated',0,4,10004896,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,5,10004896,'5.0'); # type=gpointer
@@ -1400,18 +1163,14 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkWidget * (*)(GtkUIManager *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkUIManager *, typeid=10004951, name=manager)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'manager',10004951,0,@Tid,'5.0'); # type=GtkUIManager *
-# args (pos=1, type=const gchar *, typeid=11421, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_widget',0,7,10004948,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkAction * (*)(GtkUIManager *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkUIManager *, typeid=10004951, name=manager)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'manager',10004951,0,@Tid,'5.0'); # type=GtkUIManager *
-# args (pos=1, type=const gchar *, typeid=11421, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_action',0,8,10004948,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,9,10004948,'5.0'); # type=fptr
@@ -1434,24 +1193,17 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRendererAccel *, const gchar *, guint, GdkModifierType, guint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRendererAccel *, typeid=0, name=accel)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'accel',0,0,@Tid,'5.0'); # type=GtkCellRendererAccel *
-# args (pos=1, type=const gchar *, typeid=11421, name=path_string)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path_string',11421,1,@Tid,'5.0'); # type=const gchar *
-# args (pos=2, type=guint, typeid=11402, name=accel_key)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'accel_key',11402,2,@Tid,'5.0'); # type=guint
-# args (pos=3, type=GdkModifierType, typeid=10004038, name=accel_mods)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'accel_mods',10004038,3,@Tid,'5.0'); # type=GdkModifierType
-# args (pos=4, type=guint, typeid=11402, name=hardware_keycode)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'hardware_keycode',11402,4,@Tid,'5.0'); # type=guint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'accel_edited',0,1,10004970,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRendererAccel *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRendererAccel *, typeid=0, name=accel)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'accel',0,0,@Tid,'5.0'); # type=GtkCellRendererAccel *
-# args (pos=1, type=const gchar *, typeid=11421, name=path_string)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path_string',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'accel_cleared',0,2,10004970,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved0',9926,3,10004970,'5.0'); # type=fptr
@@ -1466,11 +1218,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkOverlay *, GtkWidget *, GtkAllocation *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkOverlay *, typeid=10004980, name=overlay)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'overlay',10004980,0,@Tid,'5.0'); # type=GtkOverlay *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=GtkAllocation *, typeid=10004845, name=allocation)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'allocation',10004845,2,@Tid,'5.0'); # type=GtkAllocation *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_child_position',0,1,10004978,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,2,10004978,'5.0'); # type=fptr
@@ -1519,16 +1268,13 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkInfoBar *, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkInfoBar *, typeid=10005001, name=info_bar)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'info_bar',10005001,0,@Tid,'5.0'); # type=GtkInfoBar *
-# args (pos=1, type=gint, typeid=11400, name=response_id)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'response_id',11400,1,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'response',0,1,10004999,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkInfoBar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkInfoBar *, typeid=10005001, name=info_bar)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'info_bar',10005001,0,@Tid,'5.0'); # type=GtkInfoBar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'close',0,2,10004999,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,3,10004999,'5.0'); # type=fptr
@@ -1555,7 +1301,6 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkSwitch *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkSwitch *, typeid=10005049, name=sw)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sw',10005049,0,@Tid,'5.0'); # type=GtkSwitch *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'activate',0,1,10005047,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_switch_padding_1',9926,2,10005047,'5.0'); # type=fptr
@@ -1571,152 +1316,101 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkSizeRequestMode (*)(GtkCellRenderer *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_request_mode',0,1,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, GtkWidget *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=gint *, typeid=11516, name=minimum_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_size',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_size',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width',0,2,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, GtkWidget *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=gint, typeid=11400, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11400,2,@Tid,'5.0'); # type=gint
-# args (pos=3, type=gint *, typeid=11516, name=minimum_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_height',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=natural_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_height',11516,4,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height_for_width',0,3,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, GtkWidget *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=gint *, typeid=11516, name=minimum_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_size',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_size)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_size',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height',0,4,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, GtkWidget *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=gint, typeid=11400, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11400,2,@Tid,'5.0'); # type=gint
-# args (pos=3, type=gint *, typeid=11516, name=minimum_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_width',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=natural_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_width',11516,4,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width_for_height',0,5,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, GtkWidget *, GtkCellRendererState, const GdkRectangle *, GdkRectangle *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,2,@Tid,'5.0'); # type=GtkCellRendererState
-# args (pos=3, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,3,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=4, type=GdkRectangle *, typeid=10003975, name=aligned_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'aligned_area',10003975,4,@Tid,'5.0'); # type=GdkRectangle *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_aligned_area',0,6,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, GtkWidget *, const GdkRectangle *, gint *, gint *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,1,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=2, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,2,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=3, type=gint *, typeid=11516, name=x_offset)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'x_offset',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=y_offset)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'y_offset',11516,4,@Tid,'5.0'); # type=gint *
-# args (pos=5, type=gint *, typeid=11516, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11516,5,@Tid,'5.0'); # type=gint *
-# args (pos=6, type=gint *, typeid=11516, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11516,6,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_size',0,7,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellRenderer *, cairo_t *, GtkWidget *, const GdkRectangle *, const GdkRectangle *, GtkCellRendererState)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=const GdkRectangle *, typeid=39913, name=background_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'background_area',39913,3,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=4, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,4,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=5, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,5,@Tid,'5.0'); # type=GtkCellRendererState
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render',0,8,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkCellRenderer *, GdkEvent *, GtkWidget *, const gchar *, const GdkRectangle *, const GdkRectangle *, GtkCellRendererState)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GdkEvent *, typeid=10003822, name=event)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'event',10003822,1,@Tid,'5.0'); # type=GdkEvent *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=const gchar *, typeid=11421, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',11421,3,@Tid,'5.0'); # type=const gchar *
-# args (pos=4, type=const GdkRectangle *, typeid=39913, name=background_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'background_area',39913,4,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=5, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,5,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=6, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,6,@Tid,'5.0'); # type=GtkCellRendererState
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'activate',0,9,10005062,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkCellEditable * (*)(GtkCellRenderer *, GdkEvent *, GtkWidget *, const gchar *, const GdkRectangle *, const GdkRectangle *, GtkCellRendererState)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellRenderer *, typeid=10004514, name=cell)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell',10004514,0,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=1, type=GdkEvent *, typeid=10003822, name=event)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'event',10003822,1,@Tid,'5.0'); # type=GdkEvent *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=const gchar *, typeid=11421, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',11421,3,@Tid,'5.0'); # type=const gchar *
-# args (pos=4, type=const GdkRectangle *, typeid=39913, name=background_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'background_area',39913,4,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=5, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,5,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=6, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,6,@Tid,'5.0'); # type=GtkCellRendererState
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'start_editing',0,10,10005062,'5.0'); # type=fptr
 # fptr void (*)(GtkCellRenderer *) found, id=14104
@@ -1814,11 +1508,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCssProvider *, GtkCssSection *, const GError *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCssProvider *, typeid=10005186, name=provider)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'provider',10005186,0,@Tid,'5.0'); # type=GtkCssProvider *
-# args (pos=1, type=GtkCssSection *, typeid=10005237, name=section)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'section',10005237,1,@Tid,'5.0'); # type=GtkCssSection *
-# args (pos=2, type=const GError *, typeid=11419, name=error)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'error',11419,2,@Tid,'5.0'); # type=const GError *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'parsing_error',0,1,10005184,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved2',9926,2,10005184,'5.0'); # type=fptr
@@ -1831,26 +1522,18 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkTreeModelFilter *, GtkTreeModel *, GtkTreeIter *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkTreeModelFilter *, typeid=10005199, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10005199,0,@Tid,'5.0'); # type=GtkTreeModelFilter *
-# args (pos=1, type=GtkTreeModel *, typeid=10004486, name=child_model)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child_model',10004486,1,@Tid,'5.0'); # type=GtkTreeModel *
-# args (pos=2, type=GtkTreeIter *, typeid=10004490, name=iter)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'iter',10004490,2,@Tid,'5.0'); # type=GtkTreeIter *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'visible',0,1,10005197,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkTreeModelFilter *, GtkTreeModel *, GtkTreeIter *, GValue *, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkTreeModelFilter *, typeid=10005199, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10005199,0,@Tid,'5.0'); # type=GtkTreeModelFilter *
-# args (pos=1, type=GtkTreeModel *, typeid=10004486, name=child_model)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child_model',10004486,1,@Tid,'5.0'); # type=GtkTreeModel *
-# args (pos=2, type=GtkTreeIter *, typeid=10004490, name=iter)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'iter',10004490,2,@Tid,'5.0'); # type=GtkTreeIter *
-# args (pos=3, type=GValue *, typeid=11849, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11849,3,@Tid,'5.0'); # type=GValue *
-# args (pos=4, type=gint, typeid=11400, name=column)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'column',11400,4,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'modify',0,2,10005197,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,3,10005197,'5.0'); # type=fptr
@@ -1939,11 +1622,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gchar* (*)(GtkEditable *, gint, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkEditable *, typeid=10005313, name=editable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'editable',10005313,0,@Tid,'5.0'); # type=GtkEditable *
-# args (pos=1, type=gint, typeid=11400, name=start_pos)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'start_pos',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=gint, typeid=11400, name=end_pos)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'end_pos',11400,2,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_chars',0,6,10005311,'5.0'); # type=fptr
 # fptr void (*)(GtkEditable *, gint, gint) found, id=13962
@@ -1980,11 +1660,8 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkScrolledWindow *, GtkScrollType, gboolean)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkScrolledWindow *, typeid=10005330, name=scrolled_window)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'scrolled_window',10005330,0,@Tid,'5.0'); # type=GtkScrolledWindow *
-# args (pos=1, type=GtkScrollType, typeid=10005621, name=scroll)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'scroll',10005621,1,@Tid,'5.0'); # type=GtkScrollType
-# args (pos=2, type=gboolean, typeid=11401, name=horizontal)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'horizontal',11401,2,@Tid,'5.0'); # type=gboolean
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'scroll_child',0,2,10005328,'5.0'); # type=fptr
 # fptr void (*)(GtkScrolledWindow *, GtkDirectionType) found, id=14391
@@ -2000,9 +1677,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gchar* (*)(GtkScale *, gdouble)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkScale *, typeid=10005340, name=scale)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'scale',10005340,0,@Tid,'5.0'); # type=GtkScale *
-# args (pos=1, type=gdouble, typeid=11598, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11598,1,@Tid,'5.0'); # type=gdouble
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'format_value',0,1,10005338,'5.0'); # type=fptr
 # fptr void (*)(GtkScale *) found, id=13935
@@ -2038,18 +1713,14 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkApplication *, GtkWindow *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkApplication *, typeid=10005393, name=application)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'application',10005393,0,@Tid,'5.0'); # type=GtkApplication *
-# args (pos=1, type=GtkWindow *, typeid=10004264, name=window)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'window',10004264,1,@Tid,'5.0'); # type=GtkWindow *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'window_added',0,1,10005391,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkApplication *, GtkWindow *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkApplication *, typeid=10005393, name=application)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'application',10005393,0,@Tid,'5.0'); # type=GtkApplication *
-# args (pos=1, type=GtkWindow *, typeid=10004264, name=window)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'window',10004264,1,@Tid,'5.0'); # type=GtkWindow *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'window_removed',0,2,10005391,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,3,10005391,'5.0'); # type=gpointer
@@ -2069,33 +1740,24 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkStyleProperties * (*)(GtkStyleProvider *, GtkWidgetPath *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkStyleProvider *, typeid=10005466, name=provider)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'provider',10005466,0,@Tid,'5.0'); # type=GtkStyleProvider *
-# args (pos=1, type=GtkWidgetPath *, typeid=10004859, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',10004859,1,@Tid,'5.0'); # type=GtkWidgetPath *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_style',0,1,10005464,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkStyleProvider *, GtkWidgetPath *, GtkStateFlags, GParamSpec *, GValue *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkStyleProvider *, typeid=10005466, name=provider)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'provider',10005466,0,@Tid,'5.0'); # type=GtkStyleProvider *
-# args (pos=1, type=GtkWidgetPath *, typeid=10004859, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',10004859,1,@Tid,'5.0'); # type=GtkWidgetPath *
-# args (pos=2, type=GtkStateFlags, typeid=10005667, name=state)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'state',10005667,2,@Tid,'5.0'); # type=GtkStateFlags
-# args (pos=3, type=GParamSpec *, typeid=11854, name=pspec)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'pspec',11854,3,@Tid,'5.0'); # type=GParamSpec *
-# args (pos=4, type=GValue *, typeid=11849, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11849,4,@Tid,'5.0'); # type=GValue *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_style_property',0,2,10005464,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkIconFactory * (*)(GtkStyleProvider *, GtkWidgetPath *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkStyleProvider *, typeid=10005466, name=provider)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'provider',10005466,0,@Tid,'5.0'); # type=GtkStyleProvider *
-# args (pos=1, type=GtkWidgetPath *, typeid=10004859, name=path)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'path',10004859,1,@Tid,'5.0'); # type=GtkWidgetPath *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_icon_factory',0,3,10005464,'5.0'); # type=fptr
 
@@ -2131,9 +1793,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCheckMenuItem *, cairo_t *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCheckMenuItem *, typeid=10005500, name=check_menu_item)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'check_menu_item',10005500,0,@Tid,'5.0'); # type=GtkCheckMenuItem *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'draw_indicator',0,2,10005498,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,3,10005498,'5.0'); # type=fptr
@@ -2156,120 +1816,85 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkBuildable *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=const gchar *, typeid=11421, name=name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'name',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_name',0,1,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'const gchar * (*)(GtkBuildable *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_name',0,2,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkBuildable *, GtkBuilder *, GObject *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=GObject *, typeid=11841, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',11841,2,@Tid,'5.0'); # type=GObject *
-# args (pos=3, type=const gchar *, typeid=11421, name=type)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'type',11421,3,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'add_child',0,3,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkBuildable *, GtkBuilder *, const gchar *, const GValue *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=const gchar *, typeid=11421, name=name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'name',11421,2,@Tid,'5.0'); # type=const gchar *
-# args (pos=3, type=const GValue *, typeid=11848, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11848,3,@Tid,'5.0'); # type=const GValue *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_buildable_property',0,4,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GObject * (*)(GtkBuildable *, GtkBuilder *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=const gchar *, typeid=11421, name=name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'name',11421,2,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'construct_child',0,5,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkBuildable *, GtkBuilder *, GObject *, const gchar *, GMarkupParser *, gpointer *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=GObject *, typeid=11841, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',11841,2,@Tid,'5.0'); # type=GObject *
-# args (pos=3, type=const gchar *, typeid=11421, name=tagname)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'tagname',11421,3,@Tid,'5.0'); # type=const gchar *
-# args (pos=4, type=GMarkupParser *, typeid=10005558, name=parser)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'parser',10005558,4,@Tid,'5.0'); # type=GMarkupParser *
-# args (pos=5, type=gpointer *, typeid=11458, name=data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'data',11458,5,@Tid,'5.0'); # type=gpointer *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'custom_tag_start',0,6,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkBuildable *, GtkBuilder *, GObject *, const gchar *, gpointer *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=GObject *, typeid=11841, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',11841,2,@Tid,'5.0'); # type=GObject *
-# args (pos=3, type=const gchar *, typeid=11421, name=tagname)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'tagname',11421,3,@Tid,'5.0'); # type=const gchar *
-# args (pos=4, type=gpointer *, typeid=11458, name=data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'data',11458,4,@Tid,'5.0'); # type=gpointer *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'custom_tag_end',0,7,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkBuildable *, GtkBuilder *, GObject *, const gchar *, gpointer)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=GObject *, typeid=11841, name=child)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'child',11841,2,@Tid,'5.0'); # type=GObject *
-# args (pos=3, type=const gchar *, typeid=11421, name=tagname)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'tagname',11421,3,@Tid,'5.0'); # type=const gchar *
-# args (pos=4, type=gpointer, typeid=11404, name=data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'data',11404,4,@Tid,'5.0'); # type=gpointer
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'custom_finished',0,8,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkBuildable *, GtkBuilder *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'parser_finished',0,9,10005554,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GObject * (*)(GtkBuildable *, GtkBuilder *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuildable *, typeid=10005556, name=buildable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'buildable',10005556,0,@Tid,'5.0'); # type=GtkBuildable *
-# args (pos=1, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,1,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=2, type=const gchar *, typeid=11421, name=childname)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'childname',11421,2,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_internal_child',0,10,10005554,'5.0'); # type=fptr
 
@@ -2307,29 +1932,22 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkAppChooserWidget *, GAppInfo *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkAppChooserWidget *, typeid=10005724, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10005724,0,@Tid,'5.0'); # type=GtkAppChooserWidget *
-# args (pos=1, type=GAppInfo *, typeid=10002988, name=app_info)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'app_info',10002988,1,@Tid,'5.0'); # type=GAppInfo *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'application_selected',0,1,10005723,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkAppChooserWidget *, GAppInfo *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkAppChooserWidget *, typeid=10005724, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10005724,0,@Tid,'5.0'); # type=GtkAppChooserWidget *
-# args (pos=1, type=GAppInfo *, typeid=10002988, name=app_info)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'app_info',10002988,1,@Tid,'5.0'); # type=GAppInfo *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'application_activated',0,2,10005723,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkAppChooserWidget *, GtkMenu *, GAppInfo *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkAppChooserWidget *, typeid=10005724, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10005724,0,@Tid,'5.0'); # type=GtkAppChooserWidget *
-# args (pos=1, type=GtkMenu *, typeid=10004548, name=menu)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'menu',10004548,1,@Tid,'5.0'); # type=GtkMenu *
-# args (pos=2, type=GAppInfo *, typeid=10002988, name=app_info)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'app_info',10002988,2,@Tid,'5.0'); # type=GAppInfo *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'populate_popup',0,3,10005723,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,4,10005723,'5.0'); # type=gpointer
@@ -2340,101 +1958,68 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellRenderer *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellRenderer *, typeid=10004514, name=renderer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'renderer',10004514,1,@Tid,'5.0'); # type=GtkCellRenderer *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'add',0,1,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellRenderer *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellRenderer *, typeid=10004514, name=renderer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'renderer',10004514,1,@Tid,'5.0'); # type=GtkCellRenderer *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'remove',0,2,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellCallback, gpointer)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellCallback, typeid=10005740, name=callback)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'callback',10005740,1,@Tid,'5.0'); # type=GtkCellCallback
-# args (pos=2, type=gpointer, typeid=11404, name=callback_data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'callback_data',11404,2,@Tid,'5.0'); # type=gpointer
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'foreach',0,3,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, const GdkRectangle *, const GdkRectangle *, GtkCellAllocCallback, gpointer)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,3,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=4, type=const GdkRectangle *, typeid=39913, name=background_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'background_area',39913,4,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=5, type=GtkCellAllocCallback, typeid=10005742, name=callback)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'callback',10005742,5,@Tid,'5.0'); # type=GtkCellAllocCallback
-# args (pos=6, type=gpointer, typeid=11404, name=callback_data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'callback_data',11404,6,@Tid,'5.0'); # type=gpointer
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'foreach_alloc',0,4,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gint (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, GdkEvent *, const GdkRectangle *, GtkCellRendererState)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=GdkEvent *, typeid=10003822, name=event)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'event',10003822,3,@Tid,'5.0'); # type=GdkEvent *
-# args (pos=4, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,4,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=5, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,5,@Tid,'5.0'); # type=GtkCellRendererState
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'event',0,5,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, cairo_t *, const GdkRectangle *, const GdkRectangle *, GtkCellRendererState, gboolean)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,3,@Tid,'5.0'); # type=cairo_t *
-# args (pos=4, type=const GdkRectangle *, typeid=39913, name=background_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'background_area',39913,4,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=5, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,5,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=6, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,6,@Tid,'5.0'); # type=GtkCellRendererState
-# args (pos=7, type=gboolean, typeid=11401, name=paint_focus)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'paint_focus',11401,7,@Tid,'5.0'); # type=gboolean
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'render',0,6,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkTreeModel *, GtkTreeIter *, gboolean, gboolean)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkTreeModel *, typeid=10004486, name=tree_model)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'tree_model',10004486,1,@Tid,'5.0'); # type=GtkTreeModel *
-# args (pos=2, type=GtkTreeIter *, typeid=10004490, name=iter)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'iter',10004490,2,@Tid,'5.0'); # type=GtkTreeIter *
-# args (pos=3, type=gboolean, typeid=11401, name=is_expander)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'is_expander',11401,3,@Tid,'5.0'); # type=gboolean
-# args (pos=4, type=gboolean, typeid=11401, name=is_expanded)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'is_expanded',11401,4,@Tid,'5.0'); # type=gboolean
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'apply_attributes',0,7,10005746,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',0,8,10005746,'5.0'); # type=GtkCellAreaContext *(* create_context)                 (GtkCellArea *
@@ -2446,134 +2031,92 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkSizeRequestMode (*)(GtkCellArea *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_request_mode',0,11,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=gint *, typeid=11516, name=minimum_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_width',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=natural_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_width',11516,4,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width',0,12,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=gint, typeid=11400, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11400,3,@Tid,'5.0'); # type=gint
-# args (pos=4, type=gint *, typeid=11516, name=minimum_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_height',11516,4,@Tid,'5.0'); # type=gint *
-# args (pos=5, type=gint *, typeid=11516, name=natural_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_height',11516,5,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height_for_width',0,13,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=gint *, typeid=11516, name=minimum_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_height',11516,3,@Tid,'5.0'); # type=gint *
-# args (pos=4, type=gint *, typeid=11516, name=natural_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_height',11516,4,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height',0,14,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=gint, typeid=11400, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11400,3,@Tid,'5.0'); # type=gint
-# args (pos=4, type=gint *, typeid=11516, name=minimum_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_width',11516,4,@Tid,'5.0'); # type=gint *
-# args (pos=5, type=gint *, typeid=11516, name=natural_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_width',11516,5,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width_for_height',0,15,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellRenderer *, guint, const GValue *, GParamSpec *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellRenderer *, typeid=10004514, name=renderer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'renderer',10004514,1,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=2, type=guint, typeid=11402, name=property_id)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'property_id',11402,2,@Tid,'5.0'); # type=guint
-# args (pos=3, type=const GValue *, typeid=11848, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11848,3,@Tid,'5.0'); # type=const GValue *
-# args (pos=4, type=GParamSpec *, typeid=11854, name=pspec)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'pspec',11854,4,@Tid,'5.0'); # type=GParamSpec *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_cell_property',0,16,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellArea *, GtkCellRenderer *, guint, GValue *, GParamSpec *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellRenderer *, typeid=10004514, name=renderer)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'renderer',10004514,1,@Tid,'5.0'); # type=GtkCellRenderer *
-# args (pos=2, type=guint, typeid=11402, name=property_id)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'property_id',11402,2,@Tid,'5.0'); # type=guint
-# args (pos=3, type=GValue *, typeid=11849, name=value)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'value',11849,3,@Tid,'5.0'); # type=GValue *
-# args (pos=4, type=GParamSpec *, typeid=11854, name=pspec)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'pspec',11854,4,@Tid,'5.0'); # type=GParamSpec *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_cell_property',0,17,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkCellArea *, GtkDirectionType)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkDirectionType, typeid=10005583, name=direction)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'direction',10005583,1,@Tid,'5.0'); # type=GtkDirectionType
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'focus',0,18,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkCellArea *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'is_activatable',0,19,10005746,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'gboolean (*)(GtkCellArea *, GtkCellAreaContext *, GtkWidget *, const GdkRectangle *, GtkCellRendererState, gboolean)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellArea *, typeid=10004520, name=area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'area',10004520,0,@Tid,'5.0'); # type=GtkCellArea *
-# args (pos=1, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,1,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=2, type=GtkWidget *, typeid=10004154, name=widget)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'widget',10004154,2,@Tid,'5.0'); # type=GtkWidget *
-# args (pos=3, type=const GdkRectangle *, typeid=39913, name=cell_area)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_area',39913,3,@Tid,'5.0'); # type=const GdkRectangle *
-# args (pos=4, type=GtkCellRendererState, typeid=10005051, name=flags)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'flags',10005051,4,@Tid,'5.0'); # type=GtkCellRendererState
-# args (pos=5, type=gboolean, typeid=11401, name=edit_only)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'edit_only',11401,5,@Tid,'5.0'); # type=gboolean
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'activate',0,20,10005746,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,21,10005746,'5.0'); # type=fptr
@@ -2591,44 +2134,32 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellAreaContext *, gint, gint)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,0,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=1, type=gint, typeid=11400, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=gint, typeid=11400, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11400,2,@Tid,'5.0'); # type=gint
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'allocate',0,1,10005755,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellAreaContext *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,0,@Tid,'5.0'); # type=GtkCellAreaContext *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'reset',0,2,10005755,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellAreaContext *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,0,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=1, type=gint, typeid=11400, name=width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'width',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=gint *, typeid=11516, name=minimum_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_height',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_height',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_height_for_width',0,3,10005755,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCellAreaContext *, gint, gint *, gint *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellAreaContext *, typeid=10005248, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10005248,0,@Tid,'5.0'); # type=GtkCellAreaContext *
-# args (pos=1, type=gint, typeid=11400, name=height)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'height',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=gint *, typeid=11516, name=minimum_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'minimum_width',11516,2,@Tid,'5.0'); # type=gint *
-# args (pos=3, type=gint *, typeid=11516, name=natural_width)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'natural_width',11516,3,@Tid,'5.0'); # type=gint *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_preferred_width_for_height',0,4,10005755,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,5,10005755,'5.0'); # type=fptr
@@ -2745,7 +2276,6 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GtkTreeModelFlags (*)(GtkTreeModel *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkTreeModel *, typeid=10004486, name=tree_model)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'tree_model',10004486,0,@Tid,'5.0'); # type=GtkTreeModel *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_flags',0,6,10005869,'5.0'); # type=fptr
 # fptr gint (*)(GtkTreeModel *) found, id=14189
@@ -2785,9 +2315,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkCheckButton *, cairo_t *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCheckButton *, typeid=10005880, name=check_button)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'check_button',10005880,0,@Tid,'5.0'); # type=GtkCheckButton *
-# args (pos=1, type=cairo_t *, typeid=32487, name=cr)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cr',32487,1,@Tid,'5.0'); # type=cairo_t *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'draw_indicator',0,1,10005878,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,2,10005878,'5.0'); # type=fptr
@@ -2801,9 +2329,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkLevelBar *, const gchar *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkLevelBar *, typeid=10005919, name=self)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'self',10005919,0,@Tid,'5.0'); # type=GtkLevelBar *
-# args (pos=1, type=const gchar *, typeid=11421, name=name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'name',11421,1,@Tid,'5.0'); # type=const gchar *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'offset_changed',0,1,10005918,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'padding',11404,2,10005918,'5.0'); # type=gpointer
@@ -2826,9 +2352,7 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GType (*)(GtkBuilder *, const char *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkBuilder *, typeid=10005557, name=builder)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'builder',10005557,0,@Tid,'5.0'); # type=GtkBuilder *
-# args (pos=1, type=const char *, typeid=10295, name=type_name)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'type_name',10295,1,@Tid,'5.0'); # type=const char *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_type_from_name',0,1,10005973,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,2,10005973,'5.0'); # type=fptr
@@ -2909,7 +2433,6 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'GList* (*)(GtkCellLayout *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkCellLayout *, typeid=10006028, name=cell_layout)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_layout',10006028,0,@Tid,'5.0'); # type=GtkCellLayout *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'get_cells',0,8,10006030,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'cell_layout',0,9,10006030,'5.0'); # type=GtkCellArea *(* get_area)   (GtkCellLayout *
@@ -2963,7 +2486,6 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkStyleContext *)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkStyleContext *, typeid=10004858, name=context)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'context',10004858,0,@Tid,'5.0'); # type=GtkStyleContext *
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'changed',0,1,10006100,'5.0'); # type=fptr
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'_gtk_reserved1',9926,2,10006100,'5.0'); # type=fptr
@@ -3002,28 +2524,19 @@ INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkTreeSortable *, gint, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkTreeSortable *, typeid=10006144, name=sortable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sortable',10006144,0,@Tid,'5.0'); # type=GtkTreeSortable *
-# args (pos=1, type=gint, typeid=11400, name=sort_column_id)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sort_column_id',11400,1,@Tid,'5.0'); # type=gint
-# args (pos=2, type=GtkTreeIterCompareFunc, typeid=10006140, name=sort_func)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sort_func',10006140,2,@Tid,'5.0'); # type=GtkTreeIterCompareFunc
-# args (pos=3, type=gpointer, typeid=11404, name=user_data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'user_data',11404,3,@Tid,'5.0'); # type=gpointer
-# args (pos=4, type=GDestroyNotify, typeid=11439, name=destroy)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'destroy',11439,4,@Tid,'5.0'); # type=GDestroyNotify
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_sort_func',0,4,10006142,'5.0'); # type=fptr
 # making new ftpr: 
 INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) VALUES(0,'void (*)(GtkTreeSortable *, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)','FuncPtr',0,'');
 SET @Tid=(select last_insert_id());
 INSERT INTO ArchType (ATaid,ATtid,ATsize,ATappearedin,ATbasetype) VALUES(1,@Tid,0,'5.0',0);
-# args (pos=0, type=GtkTreeSortable *, typeid=10006144, name=sortable)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sortable',10006144,0,@Tid,'5.0'); # type=GtkTreeSortable *
-# args (pos=1, type=GtkTreeIterCompareFunc, typeid=10006140, name=sort_func)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'sort_func',10006140,1,@Tid,'5.0'); # type=GtkTreeIterCompareFunc
-# args (pos=2, type=gpointer, typeid=11404, name=user_data)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'user_data',11404,2,@Tid,'5.0'); # type=gpointer
-# args (pos=3, type=GDestroyNotify, typeid=11439, name=destroy)
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'destroy',11439,3,@Tid,'5.0'); # type=GDestroyNotify
 INSERT INTO TypeMember (TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) VALUES(0,'set_default_sort_func',0,5,10006142,'5.0'); # type=fptr
 # fptr gboolean (*)(GtkTreeSortable *) found, id=14281

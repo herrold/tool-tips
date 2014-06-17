@@ -155,6 +155,9 @@ def getid(conn, membertype):
     '''return the Type.Tid for given Type.Tname'''
 
     # for Gtk/Gdk there are likely dupes, so filter down by library
+    # in the "nothing is ever simple" category, this works okay
+    # for ordinary types, which do indeed begin with Gtk or Gdk
+    # for function pointer types, we need to look deeper  TODO
     if membertype[0:3] == 'Gtk':
         Lib = 'libgtk-3'
     elif membertype[0:3] == 'Gdk':
@@ -162,12 +165,11 @@ def getid(conn, membertype):
     else:
         Lib = None
 
-    cursor = conn.cursor()
-    #
     # we'd like to check if the type is included, but many types are not.
     # e.g. pointers: the base type is included but not the ptr itself.
     # we could follow the chain, but that is a bunch more work, so skip check.
     #
+    cursor = conn.cursor()
     if Lib:
         cursor.execute("SELECT DISTINCT Tid FROM Type " +
                        "JOIN ArchType on Tid=ATtid " +
@@ -186,14 +188,14 @@ def addfptr(conn, rtype, data):
     ''' build a function pointer type for the specdb.
         needs Type, ArchType, TypeMembers. Try first to match in
         case it exists, if so don't build new one. Returns the Tid '''
+ 
+    # Need to decompose 'data' which is the RHS of ftpr. So perhaps:
     #
-    #  Need to decompose 'data' which is the RHS of ftpr. So perhaps:
+    #   "GtkTreeSortable *sortable, GtkTreeIterCompareFunc  sort_func,
+    #    gpointer user_data, GDestroyNotify destroy"
     #
-    #    "GtkTreeSortable *sortable, GtkTreeIterCompareFunc  sort_func,
-    #     gpointer user_data, GDestroyNotify destroy"
-    #
-    #  We need to produce a string which will be the fptr typename:
-    #  "(*) (GtkTreeSortable *, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)"
+    # We need to produce a string which will be the fptr typename:
+    # (*) (GtkTreeSortable *, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)
     # and the individual "arguments", so we can make up typemembers
     #
     TMtmpl = "INSERT INTO TypeMember " + \
@@ -210,7 +212,7 @@ def addfptr(conn, rtype, data):
 
     if data == 'void':
         # special case, takes no args
-        return 9926	# could look up, but we know this one...
+        return 9926	# could look up, but we magically know this one...
 
     fpstring = "%s (*)" % rtype		# the string for the Type entry
     fpargs = data.split(',')		# parameter strings (type + name)
@@ -222,11 +224,8 @@ def addfptr(conn, rtype, data):
             first = 0
         else:
             fpstring += ', '
-        #print "#parm is: ", parm.strip()
         par = re.search(r'(.+\W+)(\w+$)', parm)
         if par:
-            #print "# splits to: %s:%s" % (par.group(1).strip(), 
-            #                              par.group(2).strip())
             typ = ' '.join(par.group(1).split())
             fpstring += typ
             fpargv.append((typ, par.group(2).strip()))
@@ -239,13 +238,18 @@ def addfptr(conn, rtype, data):
         return id
 
     print '# making new ftpr: '
+    # the approach of making a static set of strings breaks down here,
+    # what if we have previously made the same ftpr type?
+    # this script will not know since we have not applied the earlier
+    # sql it generated   TODO
+    #
     print Tsql.substitute(name=fpstring)
     print 'SET @Tid=(select last_insert_id());'
     print ATtmpl
     pos = 0
     for (typ, name) in fpargv:
-        print '# args (pos=%s, type=%s, typeid=%d, name=%s)' % \
-               (pos, typ, getid(conn, typ), name)
+        #print '# args (pos=%s, type=%s, typeid=%d, name=%s)' % \
+        #       (pos, typ, getid(conn, typ), name)
         print TMsql.substitute(name=name, tid=getid(conn, typ),
                                pos=pos, member='@Tid', typ=typ)
         pos += 1
