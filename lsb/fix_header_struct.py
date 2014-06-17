@@ -156,11 +156,11 @@ def getid(conn, membertype):
 
     # for Gtk/Gdk there are likely dupes, so filter down by library
     if membertype[0:3] == 'Gtk':
-	Lib = 'libgtk-3'
+        Lib = 'libgtk-3'
     elif membertype[0:3] == 'Gdk':
-	Lib = 'libgdk-3'
+        Lib = 'libgdk-3'
     else:
-	Lib = None
+        Lib = None
 
     cursor = conn.cursor()
     #
@@ -182,7 +182,7 @@ def getid(conn, membertype):
         return cursor.fetchone()[0]
 
 
-def addfptr(rtype, data):
+def addfptr(conn, rtype, data):
     ''' build a function pointer type for the specdb.
         needs Type, ArchType, TypeMembers. Try first to match in
         case it exists, if so don't build new one. Returns the Tid '''
@@ -196,8 +196,60 @@ def addfptr(rtype, data):
     #  "(*) (GtkTreeSortable *, GtkTreeIterCompareFunc, gpointer, GDestroyNotify)"
     # and the individual "arguments", so we can make up typemembers
     #
+    TMtmpl = "INSERT INTO TypeMember " + \
+             "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) " + \
+             "VALUES(0,'$name',$tid,$pos,$member,'5.0') # type=$typ"
+    TMsql = Template(TMtmpl)
+    Ttmpl = "INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) " + \
+            "VALUES(0,'$name','FuncPtr',0,'')"
+    Tsql = Template(Ttmpl)
+    ATtmpl = "INSERT INTO ArchType " + \
+             "(ATaid,ATtid,ATsize,ATappearedin,ATbasetype) " + \
+             "VALUES(1,@Tid,0,'5.0',0)"
+    #ATsql = Template(ATtmpl)
 
-    print "# not adding function pointer: %s (*) (%s)" % (rtype, ' '.join(data.split()))
+    if data == 'void':
+        # special case, takes no args
+        return 9926	# could look up, but we know this one...
+
+    fpstring = "%s (*)" % rtype		# the string for the Type entry
+    fpargs = data.split(',')		# parameter strings (type + name)
+    fpargv = []				# the individual parameters
+    first = 1
+    for parm in fpargs:
+        if first:
+            fpstring += '('
+            first = 0
+        else:
+            fpstring += ', '
+        #print "#parm is: ", parm.strip()
+        par = re.search(r'(.+\W+)(\w+$)', parm)
+        if par:
+            #print "# splits to: %s:%s" % (par.group(1).strip(), 
+            #                              par.group(2).strip())
+            typ = ' '.join(par.group(1).split())
+            fpstring += typ
+            fpargv.append((typ, par.group(2).strip()))
+    fpstring += ')'
+
+    id = getid(conn, fpstring)
+    if id:
+        # this function pointer already exists, return its ID
+        print '# fptr %s found, id=%d' % (fpstring, id)
+        return id
+
+    print '# making new ftpr: '
+    print Tsql.substitute(name=fpstring)
+    print 'SET @Tid=(select last_insert_id())'
+    print ATtmpl
+    pos = 0
+    for (typ, name) in fpargv:
+        print '# args (pos=%s, type=%s, typeid=%d, name=%s)' % \
+               (pos, typ, getid(conn, typ), name)
+        print TMsql.substitute(name=name, tid=getid(conn, typ),
+                               pos=pos, member='@Tid', typ=typ)
+        pos += 1
+        
     return 0
 
 
@@ -209,18 +261,18 @@ def addtypemembers(conn, structname, typeid, members):
         return
 
     pos = 0
-    tmtemplate = "INSERT INTO TypeMember " + \
-                 "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin)" +\
-                 "VALUES(0,'$name',$tid,$pos,$member,'5.0') # type=$typ"
-    tmsql = Template(tmtemplate)
+    TMtmpl = "INSERT INTO TypeMember " + \
+             "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) " + \
+             "VALUES(0,'$name',$tid,$pos,$member,'5.0') # type=$typ"
+    TMsql = Template(TMtmpl)
 
     for (flag, membertype, name) in members:
         if  flag == "fptr":
-	    fptr_mem = re.search(r'\(\*\s*(\w+?)\)\s*\((.+)\)',
+            fptr_mem = re.search(r'\(\*\s*(\w+?)\)\s*\((.+)\)',
                                  name.strip(), re.S)
-	    if fptr_mem:
-                memid = addfptr(membertype.strip(), fptr_mem.group(2).strip())
-                print tmsql.substitute(name=fptr_mem.group(1), tid=memid, 
+            if fptr_mem:
+                memid = addfptr(conn, membertype.strip(), fptr_mem.group(2).strip())
+                print TMsql.substitute(name=fptr_mem.group(1), tid=memid, 
                                        pos=pos, member=typeid, typ='fptr')
             else:
                 # Unexpected outcome: type is "void (*__gtk_reserved1)"
@@ -237,7 +289,7 @@ def addtypemembers(conn, structname, typeid, members):
                 membertype = ' '.join((membertype.strip(), '*'))
 
             memid = getid(conn, membertype)
-            print tmsql.substitute(name=' '.join(name.split()), tid=memid, 
+            print TMsql.substitute(name=' '.join(name.split()), tid=memid, 
                                    pos=pos, member=typeid, typ=membertype)
         pos += 1
 
@@ -314,23 +366,23 @@ def main():
                         if mem_disable > 0:
                             members_disabled.append(typename)
 
-    print("# Structs detected to have problems (total %d):" % len(bad_types))
+    print "# Structs detected to have problems (total %d):" % len(bad_types)
     for (structname, typeid) in bad_types:
-        print("# %s (%s)" % (structname, bad_types_info[structname]))
+        print "\n# %s (%s " % (structname, bad_types_info[structname])
         if debug:
             addtypemembers(conn, structname, typeid,
                            detected_structs[structname]["members"])
 
-    print("# Structs detected to not have problems (total %d):" % len(good_types))
+    print "\n# Structs detected to not have problems (total %d):" % len(good_types)
     for structname in good_types:
-        print('# ', structname)
+        print '#', structname 
 
     if members_disabled:
-        print("# Structs where total members != enabled members in specdb (%d):" %
-              len(members_disabled))
-        print("# NOTE: these may overlap with the two categories above")
+        print "\n# Structs where total members != enabled members in specdb (%d):" % \
+              len(members_disabled)
+        print "# NOTE: these may overlap with the two categories above"
         for structname in members_disabled:
-            print('# ', structname)
+            print '#', structname 
 
 if __name__ == "__main__":
     main()
