@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	stats-close.sh
-#		$Id: stats-close.sh,v 1.13 2014/06/16 23:20:13 herrold Exp herrold $
+#		$Id: stats-close.sh,v 1.14 2014/06/17 14:11:59 herrold Exp herrold $
 #
 #	generate closing rate stats
 #
@@ -73,8 +73,8 @@ mv newstats.txt oldstats.txt
 #	( after -f we will not report)
 [ 0${DELTA} -gt 0 ] && {
 YMD=`date +%Y-%m-%d" "%H:%M:%S" "%z"(US "%Z")"`
-echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " 
-echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " | \
+echo "${MYNAME}: stats: total: ${THIS} ; last report: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " 
+echo "${MYNAME}: stats: total: ${THIS} ; last report: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " | \
 	logger -p local1.info
 #
 #	most people will not be doing this
@@ -82,7 +82,7 @@ echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; r
 	[ "x${NOTWITTER}" = "x" ] && {
 #	twitter support
 # echo "pre"
-echo "${MYNAME}: stats: total: ${THIS} ; last hour: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " | \
+echo "${MYNAME}: stats: total: ${THIS} ; last report: ${DELTA} ; goal: ${GOAL} ; remaining: ${REMAINING} at: ${YMD} " | \
 	/home/herrold/build/6/ttytter/ttytter-2.1.00.pl \
 		-rc=/home/herrold/.ttytter-buildmonbot-rc \
 		-keyf=/home/herrold/.ttytter-buildmonbot-key \
