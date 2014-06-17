@@ -1,7 +1,7 @@
 #!/bin/sh 
 #
 #	fixup-dist.sh
-#		$Id: fixup-dist.sh,v 1.4 2014/06/17 20:04:50 herrold Exp herrold $
+#		$Id: fixup-dist.sh,v 1.5 2014/06/17 21:14:34 herrold Exp herrold $
 #
 #	remedial script to cover bad form of dist tag used 
 #
@@ -12,8 +12,8 @@
 #		rsync -a . ../backup-`date +%Y%m%d`/.
 #
 #	then flatten 
-#		rm -rf SRPMS ; mkdir SRPMS ; for i in `find . \
-#			-name "*.src.rpm" `; do ln -s $i ./SRPMS/ ; done
+#		rm -rf SRPMS ; mkdir SRPMS ; cd SRPMS 
+#		for i in `find .. -name "*.src.rpm" `; do ln -s $i  ; done
 #
 #	there also some missing %{dist] tags in play:
 cat << END > /dev/null 
