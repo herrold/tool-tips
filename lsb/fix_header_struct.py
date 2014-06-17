@@ -198,14 +198,14 @@ def addfptr(conn, rtype, data):
     #
     TMtmpl = "INSERT INTO TypeMember " + \
              "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) " + \
-             "VALUES(0,'$name',$tid,$pos,$member,'5.0') # type=$typ"
+             "VALUES(0,'$name',$tid,$pos,$member,'5.0'); # type=$typ"
     TMsql = Template(TMtmpl)
     Ttmpl = "INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) " + \
-            "VALUES(0,'$name','FuncPtr',0,'')"
+            "VALUES(0,'$name','FuncPtr',0,'');"
     Tsql = Template(Ttmpl)
     ATtmpl = "INSERT INTO ArchType " + \
              "(ATaid,ATtid,ATsize,ATappearedin,ATbasetype) " + \
-             "VALUES(1,@Tid,0,'5.0',0)"
+             "VALUES(1,@Tid,0,'5.0',0);"
     #ATsql = Template(ATtmpl)
 
     if data == 'void':
@@ -240,7 +240,7 @@ def addfptr(conn, rtype, data):
 
     print '# making new ftpr: '
     print Tsql.substitute(name=fpstring)
-    print 'SET @Tid=(select last_insert_id())'
+    print 'SET @Tid=(select last_insert_id());'
     print ATtmpl
     pos = 0
     for (typ, name) in fpargv:
@@ -263,7 +263,7 @@ def addtypemembers(conn, structname, typeid, members):
     pos = 0
     TMtmpl = "INSERT INTO TypeMember " + \
              "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) " + \
-             "VALUES(0,'$name',$tid,$pos,$member,'5.0') # type=$typ"
+             "VALUES(0,'$name',$tid,$pos,$member,'5.0'); # type=$typ"
     TMsql = Template(TMtmpl)
 
     for (flag, membertype, name) in members:
