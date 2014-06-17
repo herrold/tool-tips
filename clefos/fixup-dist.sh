@@ -1,7 +1,7 @@
 #!/bin/sh 
 #
 #	fixup-dist.sh
-#		$Id: fixup-dist.sh,v 1.5 2014/06/17 21:14:34 herrold Exp herrold $
+#		$Id: fixup-dist.sh,v 1.6 2014/06/17 21:16:27 herrold Exp herrold $
 #
 #	remedial script to cover bad form of dist tag used 
 #
@@ -14,8 +14,13 @@
 #	then flatten 
 #		rm -rf SRPMS ; mkdir SRPMS ; cd SRPMS 
 #		for i in `find .. -name "*.src.rpm" `; do ln -s $i  ; done
+#	size is as follows:
+cat - << END > /dev/null
+herrold@centos-6 SRPMS]$ du -shL
+5.8G    
+END
 #
-#	there also some missing %{dist] tags in play:
+#	there are also some missing %{dist] tags in play:
 cat << END > /dev/null 
 [herrold@centos-6 centos-7-archive]$ ls SRPMS | grep -v ".orc7."
 centos-logos-70.0.3-99.el7.centos.src.rpm
