@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 #
 #	pull-all.sh
 #		$Id: pull-all.sh,v 1.13 2014/06/16 19:21:21 herrold Exp herrold $
@@ -106,7 +106,7 @@ export OMIT=""
 	[ -s ${EROOT}/${ECACHE} ] && \
 		CNT=`grep -c "${i}-[0-9]*.src.rpm" ${EROOT}/${ECACHE} `
 #	if we have a cache miss, we may still have a later build
-	[ 0$CNT -lt 1 ] && }
+	[ 0$CNT -lt 1 ] && {
 		[ -e ./$i ] && \
 		CNT=`find ./$i -name "${i}-[0-9]*.src.rpm" | grep -c "src.rpm$"`
 		}
