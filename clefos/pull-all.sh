@@ -1,7 +1,8 @@
-#!/bin/sh -x
+#!/bin/sh 
+#	debugging: -x
 #
 #	pull-all.sh
-#		$Id: pull-all.sh,v 1.13 2014/06/16 19:21:21 herrold Exp herrold $
+#		$Id: pull-all.sh,v 1.14 2014/06/17 04:13:07 herrold Exp herrold $
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
