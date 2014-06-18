@@ -1,12 +1,12 @@
 #!/bin/sh
 #
 #	git-C-manifest.sh
-#		$Id: git-C-manifest.sh,v 1.2 2014/06/18 19:19:41 herrold Exp herrold $
+#		$Id: git-C-manifest.sh,v 1.3 2014/06/18 19:35:07 herrold Exp herrold $
 #
 #	get the manifest of all package sources 
 #	at the CentOS git server; maintain a history of changes over time
 #
-#	suitable for crontab addition
+#	suitable for crontab addition daily
 #	
 #	Copyright (c) R P Herrold info@owlriver.com
 #	reports to: info@owlriver.com	
@@ -15,6 +15,7 @@
 #		as: /home/herrold/clefos/git-C-manifest.sh
 #
 PATH='/bin:/usr/bin:/usr/sbin:/sbin'
+MYNAME=`basename $0`
 #
 YMD=`date +%Y%m%d`
 #
