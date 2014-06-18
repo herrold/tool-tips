@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	weekly-C-check.sh
-#		$Id: weekly-C-check.sh,v 1.1 2014/06/18 19:35:07 herrold Exp herrold $
+#		$Id: weekly-C-check.sh,v 1.2 2014/06/18 19:39:34 herrold Exp herrold $
 #
 #	once a week, we examine our inventory of the C git server, 
 #	and note any diffs to stdout ... cron will mail it
@@ -38,6 +38,12 @@ SPOKE=""
 		history/c7-packages-${THISMONDAY}.txt
 	export SPOKE="y"
 	}
-
+[ "x${SPOKE}" != "xy" ] && {
+#	if we have not spoken yet, there is a problem 
+#	-- note it for investigation with sufficient detail
+	pwd
+	hostname
+	date
+	echo "${MYNAME} had a problem "
+	}
 #
-
