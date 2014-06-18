@@ -23,6 +23,7 @@ from string import Template
 debug = 1
 
 libraries = ["libgdk-3", "libgtk-3"]
+added_fptrs = []
 
 
 def walk_headers(path):
@@ -43,16 +44,41 @@ def un_comment(text):
         lambda match:(match.group(0),"")[match.group(0).startswith('/')], text)
 
 
+def addmembers(flag, struct, grp):
+    # we are called after a regexp match/split: clean first
+    typ = ' '.join(grp.group(1).split())
+    name = ' '.join(grp.group(2).split())
+    bitf = 0
+
+    # now try to fix special cases
+    # 1: "foo" "*bar" instead of "foo *" "bar"
+    if name.startswith('*'):
+	name = name.strip('*').strip()
+	typ = ' '.join((typ.strip(), '*'))
+	#print "DEBUG fixer - ptr: %s|%s" % (typ, name)
+
+    # 2: bitfields, split as "guint foo :" "1"
+    if typ.endswith(':'):
+	# type=guint submenu_placement :
+	typ = typ.strip(':').strip()
+	bitf = name
+	bitf_mem = re.search(r'(.+)\s+([\w*]+)', typ, re.S)
+	if bitf_mem:
+	    typ = bitf_mem.group(1)
+	    name = bitf_mem.group(2)
+	#print "DEBUG fixer - bitf: %s|%s|%s" % (typ, name, bitf)
+
+    # 3: array types.  no idea yet
+
+    struct.append((flag, typ, name, bitf))
+
+
 def extract_structs(header_path):
     '''extract structure definitions from a tree of headers'''
 
-    # generally speaking, there are two problems with the way a struct
-    # member line is parsed below.
-    # 1 "char *foo" splits into "char" and *foo" instead of "char *" and "foo"
-    # 2 "gdouble x_root, y_root" splits into "gdouble x_root," and "y_root"
-    # (1) can be fixed later, but (2) needs work here, because it affects
-    # the count of the number of members extracted, to be compared before
-    # any late fixups can be done.  TODO
+    # There are many problems with using a simple regexp to parse a
+    # struct member.  We'll use a "cleaner" function (above) to try
+    # to help with that.
 
     with open(header_path) as header:
         struct_name = None
@@ -70,15 +96,11 @@ def extract_structs(header_path):
                         struct_mem = re.search(r'{\s*(.+)\s+([\w*]+)',line,re.S)
                         if struct_mem:
                             commas = struct_mem.group(1).count(',')
-                            # cheat: just dup members
+                            # cheat: just dup members to get counts right
                             while commas > 0:
-                                struct_members.append((None, 
-                                                       struct_mem.group(1),
-                                                       struct_mem.group(2)))
+                                addmembers(None, struct_members, struct_mem)
                                 commas -= 1
-                            struct_members.append((None, 
-                                                   struct_mem.group(1),
-                                                   struct_mem.group(2)))
+                            addmembers(None, struct_members, struct_mem)
                 else:
                     if not line.strip():
                         yield (struct_name, struct_members)
@@ -86,26 +108,21 @@ def extract_structs(header_path):
                         struct_members = []
                     else:
                         # try to identify function pointer members
-                        struct_mem_fptr = re.search(r'(.+)\s+(\(\*.+)',
+                        struct_mem_fptr = re.search(r'(.+\s+\*?)(\(\*.+)',
                                                line.strip(), re.S)
                         if struct_mem_fptr:
-                            struct_members.append(("fptr",struct_mem_fptr.group(1),
-                                                   struct_mem_fptr.group(2)))
+                            addmembers("fptr", struct_members, struct_mem_fptr)
                         else:
                             # then regular members
                             struct_mem = re.search(r'(.+)\s+([\w*]+)',
                                                    line.strip(), re.S)
                             if struct_mem:
                                 commas = struct_mem.group(1).count(',')
-                                # cheat: just dup members
+                                # cheat: just dup members to get counts right
                                 while commas > 0:
-                                    struct_members.append((None, 
-                                                           struct_mem.group(1),
-                                                           struct_mem.group(2)))
+                                    addmembers(None, struct_members, struct_mem)
                                     commas -= 1
-                                struct_members.append((None, 
-                                                       struct_mem.group(1),
-                                                       struct_mem.group(2)))
+                                addmembers(None, struct_members, struct_mem)
 
             header_data = un_comment(header.read())
 
@@ -151,33 +168,31 @@ def get_structs_in_header_group(conn, hgroup_id):
                           (hgroup_id,))
 
 
-def getid(conn, membertype):
-    '''return the Type.Tid for given Type.Tname'''
+def getid(conn, membertype, Lib=None):
+    '''return the Type.Tid for given Type.Tname matching
+       optional Type.Tlibrary'''
 
     # for Gtk/Gdk there are likely dupes, so filter down by library
     # in the "nothing is ever simple" category, this works okay
     # for ordinary types, which do indeed begin with Gtk or Gdk
     # for function pointer types, we need to look deeper  TODO
-    if membertype[0:3] == 'Gtk':
-        Lib = 'libgtk-3'
-    elif membertype[0:3] == 'Gdk':
-        Lib = 'libgdk-3'
-    else:
-        Lib = None
+    #
+    if not Lib:
+        if membertype.startswith('Gtk'):
+            Lib = 'libgtk-3'
+        elif membertype.startswith('Gdk'):
+            Lib = 'libgdk-3'
 
     # we'd like to check if the type is included, but many types are not.
     # e.g. pointers: the base type is included but not the ptr itself.
     # we could follow the chain, but that is a bunch more work, so skip check.
     #
     cursor = conn.cursor()
+    query = "SELECT DISTINCT Tid FROM Type JOIN ArchType on Tid=ATtid " + \
+            "WHERE Tname='%s'" % membertype
     if Lib:
-        cursor.execute("SELECT DISTINCT Tid FROM Type " +
-                       "JOIN ArchType on Tid=ATtid " +
-                       "WHERE Tname=%s AND Tlibrary=%s", (membertype,Lib))
-    else:
-        cursor.execute("SELECT DISTINCT Tid FROM Type " +
-                       "JOIN ArchType on Tid=ATtid " +
-                       "WHERE Tname=%s", (membertype,))
+        query += "AND Tlibrary='%s'" % Lib
+    cursor.execute(query)
     if cursor.rowcount == 0:
         return 0
     else:
@@ -203,21 +218,22 @@ def addfptr(conn, rtype, data):
              "VALUES(0,'$name',$tid,$pos,$member,'5.0'); # type=$typ"
     TMsql = Template(TMtmpl)
     Ttmpl = "INSERT INTO Type (Tid,Tname,Ttype,Theadgroup,Tlibrary) " + \
-            "VALUES(0,'$name','FuncPtr',0,'');"
+            "VALUES(0,'$name','FuncPtr',0,'libgtk-3');"
     Tsql = Template(Ttmpl)
     ATtmpl = "INSERT INTO ArchType " + \
              "(ATaid,ATtid,ATsize,ATappearedin,ATbasetype) " + \
-             "VALUES(1,@Tid,0,'5.0',0);"
-    #ATsql = Template(ATtmpl)
+             "VALUES(1,@Tid,0,'',$ret);"
+    ATsql = Template(ATtmpl)
 
     if data == 'void':
-        # special case, takes no args
-        return 9926	# could look up, but we magically know this one...
+        # recognize special case, return the ftpr string to looup later
+        return ('void (*)(void)', None)
 
-    fpstring = "%s (*)" % rtype		# the string for the Type entry
+    fpstring = "%s (*)" % rtype		# start the string for the Type entry
     fpargs = data.split(',')		# parameter strings (type + name)
-    fpargv = []				# the individual parameters
+    fpargv = []
     first = 1
+    Lib = None
     for parm in fpargs:
         if first:
             fpstring += '('
@@ -228,14 +244,21 @@ def addfptr(conn, rtype, data):
         if par:
             typ = ' '.join(par.group(1).split())
             fpstring += typ
+            if typ[0:3] == 'Gtk':
+                Lib = 'libgtk-3'
+            #nice thought, but breaks. just call it libgtk for now.
+            #elif typ[0:3] == 'Gdk':
+            #    Lib = 'libgdk-3'
             fpargv.append((typ, par.group(2).strip()))
     fpstring += ')'
 
-    id = getid(conn, fpstring)
+    id = getid(conn, fpstring, Lib)
     if id:
-        # this function pointer already exists, return its ID
+        # this function pointer already existed in specdb
+        # want to return its ID, but because of below, we return the
+        # string to query for to find it
         print '# fptr %s found, id=%d' % (fpstring, id)
-        return id
+        return (fpstring, Lib)
 
     print '# making new ftpr: '
     # the approach of making a static set of strings breaks down here,
@@ -243,18 +266,32 @@ def addfptr(conn, rtype, data):
     # this script will not know since we have not applied the earlier
     # sql it generated   TODO
     #
+    if fpstring in added_fptrs:
+        # this function pointer did not exist in specdb, but we have
+        # added it in other steps. we can't query for it here then, 
+        # but we can return a query string so it can be done "at runtime"
+        #
+        print "# Found previously added ftptr:", fpstring
+        return (fpstring, Lib)
+    
     print Tsql.substitute(name=fpstring)
+    added_fptrs.append(fpstring)
     print 'SET @Tid=(select last_insert_id());'
-    print ATtmpl
+    rLib = None
+    if rtype[0:3] == 'Gtk':
+        rLib = 'libgtk-3'
+    elif rtype[0:3] == 'Gdk':
+        rLib = 'libgdk-3'
+    print ATsql.substitute(ret=(getid(conn,rtype,rLib)))
     pos = 0
     for (typ, name) in fpargv:
         #print '# args (pos=%s, type=%s, typeid=%d, name=%s)' % \
-        #       (pos, typ, getid(conn, typ), name)
-        print TMsql.substitute(name=name, tid=getid(conn, typ),
+        #       (pos, typ, getid(conn, typ, None), name)
+        print TMsql.substitute(name=name, tid=getid(conn, typ, None),
                                pos=pos, member='@Tid', typ=typ)
         pos += 1
         
-    return 0
+    return (fpstring, Lib)
 
 
 def addtypemembers(conn, structname, typeid, members):
@@ -266,18 +303,26 @@ def addtypemembers(conn, structname, typeid, members):
 
     pos = 0
     TMtmpl = "INSERT INTO TypeMember " + \
-             "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin) " + \
-             "VALUES(0,'$name',$tid,$pos,$member,'5.0'); # type=$typ"
+             "(TMid,TMname,TMtypeid,TMposition,TMmemberof,TMappearedin,TMbitfield) " + \
+             "VALUES(0,'$name',$tid,$pos,$member,'5.0',$bitf); # type=$typ"
     TMsql = Template(TMtmpl)
 
-    for (flag, membertype, name) in members:
-        if  flag == "fptr":
+    for (flag, membertype, name, bitf) in members:
+        if flag == "fptr":
             fptr_mem = re.search(r'\(\*\s*(\w+?)\)\s*\((.+)\)',
                                  name.strip(), re.S)
             if fptr_mem:
-                memid = addfptr(conn, membertype.strip(), fptr_mem.group(2).strip())
-                print TMsql.substitute(name=fptr_mem.group(1), tid=memid, 
-                                       pos=pos, member=typeid, typ='fptr')
+                (fpname, Lib) = addfptr(conn, membertype.strip(), 
+                                       fptr_mem.group(2).strip())
+                
+                query = "SET @Fptr=(SELECT DISTINCT Tid FROM Type " + \
+                        "WHERE Tname='%s'" % fpname
+                if Lib:
+                    query += " AND Tlibrary='%s'" % Lib
+                query += ");"
+                print query
+                print TMsql.substitute(name=fptr_mem.group(1), tid='@Fptr', 
+                                 pos=pos, member=typeid, bitf=bitf, typ='fptr')
             else:
                 # Unexpected outcome: type is "void (*__gtk_reserved1)"
                 # Two upstream headers (gtkfilechooserbutton.h and
@@ -286,15 +331,11 @@ def addtypemembers(conn, structname, typeid, members):
                 # in gtk-2.0 also.  Does not match our pattern. What to do?
                 print("#OOPS! what happened? %s|%s" % (membertype, name))
         else:
-            # regex splits so if there is a *, it belongs to member name, 
-            # not membertype. Fix. (see comment in extract_structs above)
-            if name[0] == '*':
-                name = name.strip('*')
-                membertype = ' '.join((membertype.strip(), '*'))
-
             memid = getid(conn, membertype)
+            if not memid:
+                print "#WARN: %s returned tid=0" % membertype
             print TMsql.substitute(name=' '.join(name.split()), tid=memid, 
-                                   pos=pos, member=typeid, typ=membertype)
+                             pos=pos, member=typeid, bitf=bitf, typ=membertype)
         pos += 1
 
 
