@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	weekly-C-check.sh
-#		$Id: weekly-C-check.sh,v 1.2 2014/06/18 19:39:34 herrold Exp herrold $
+#		$Id: weekly-C-check.sh,v 1.3 2014/06/18 19:46:17 herrold Exp herrold $
 #
 #	once a week, we examine our inventory of the C git server, 
 #	and note any diffs to stdout ... cron will mail it
@@ -31,19 +31,23 @@ LASTMONDAY=`date --date='last Mon' +%Y%m%d`
 THISMONDAY=`date --date='this Mon' +%Y%m%d`
 #
 SPOKE=""
-[ -s history/c7-packages-${LASTMONDAY}.txt -a 
-  -s history/c7-packages-${THISMONDAY}.txt ] && {
+cd history
+[ -e c7-packages-${LASTMONDAY}.txt -a \
+  -e c7-packages-${THISMONDAY}.txt ] && {
 	echo "${MYNAME}: diff report "
-	diff -u history/c7-packages-${LASTMONDAY}.txt \
-		history/c7-packages-${THISMONDAY}.txt
+	diff -u c7-packages-${LASTMONDAY}.txt \
+		c7-packages-${THISMONDAY}.txt
+	pwd
 	export SPOKE="y"
 	}
+cd ..
 [ "x${SPOKE}" != "xy" ] && {
 #	if we have not spoken yet, there is a problem 
 #	-- note it for investigation with sufficient detail
-	pwd
-	hostname
-	date
 	echo "${MYNAME} had a problem "
+	date
+	hostname
+	pwd
+	ls history/ 
 	}
 #
