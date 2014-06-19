@@ -88,10 +88,11 @@ def extract_structs(header_path):
             for line in re.split(r'[;\}]\s*', header_data, 0, re.S):
                 if struct_name is None:
                     # try to find beginning of struct declr
-                    struct_match = re.match(r'^\s*struct\s+(\w+)\s+{',line,re.S)
+                    struct_match = re.search(r'^\s*struct\s+(\w+)\s+{',line,re.MULTILINE)
                     if struct_match:
                         struct_name = struct_match.group(1)
-                        # find first member, assume not fptr 
+                        # since we split on ';' or '}', first member is in
+                        # this line also, find by '{'. guess it's not fptr 
                         # which appears to always be true in gtk
                         struct_mem = re.search(r'{\s*(.+)\s+([\w*]+)',line,re.S)
                         if struct_mem:
@@ -413,7 +414,7 @@ def main():
 
     print "# Structs detected to have problems (total %d):" % len(bad_types)
     for (structname, typeid) in bad_types:
-        print "\n# %s (%s " % (structname, bad_types_info[structname])
+        print "\n# %s (%s)" % (structname, bad_types_info[structname])
         if debug:
             addtypemembers(conn, structname, typeid,
                            detected_structs[structname]["members"])
