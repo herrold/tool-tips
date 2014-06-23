@@ -4,13 +4,16 @@ as a portible GPL source availability obligation compliance
 distribution format
 
 Note: we use a custom approach to ./SOURCES/ wherein we add also
-the package name into the path:
+the package name into the path (refactoring this out is in process):
 
     [herrold@centos-6 ~]$ grep source  ~/.rpmmacros
     %_sourcedir     %{_topdir}/SOURCES/%{name}
 
 Mailing lists at:
     http://lists.clefos.org/mailman/listinfo
+
+Why?:
+    https://bugzilla.redhat.com/show_bug.cgi?id=1109401#c13
 
 -- Russ herrold
 
