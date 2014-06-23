@@ -15,6 +15,11 @@ Mailing lists at:
 Why?:
     https://bugzilla.redhat.com/show_bug.cgi?id=1109401#c13
 
+The SRPMs run:
+
+    [herrold@centos-6 centos-7-archive]$ du -sLh SRPMS/
+    5.8G    SRPMS/
+
 -- Russ herrold
 
 reports to: info@owlriver.com
