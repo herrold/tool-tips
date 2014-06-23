@@ -1,0 +1,9 @@
+#	DRIVER in: /home/herrold/clefos/git-centos.org/
+#		$Id: DRIVER,v 1.1 2014/06/23 23:01:02 herrold Exp herrold $
+https://git.centos.org/git/sig-core/livemedia.git
+https://git.centos.org/git/sig-core/bld-seven.git
+https://git.centos.org/git/sig-cloud-instance/build-instance.git
+#from#./spot-branches:
+#https://git.centos.org/commit/sig-cloud-instance!build-instance.git
+#https://git.centos.org/commit/sig-core!bld-seven.git               
+#https://git.centos.org/commit/sig-core!livemedia.git   
