@@ -1,13 +1,13 @@
 #!/bin/sh
 #
 #	gitpull.sh
-#		$Id: gitpull.sh,v 1.7 2014/06/23 23:00:13 herrold Exp herrold $
+#		$Id: gitpull.sh,v 1.8 2014/06/23 23:08:49 herrold Exp herrold $
 #	
 #	Copyright (c) R P Herrold info@owlriver.com
 #	reports to: info@owlriver.com	
 #	license: GPLv3+
-#	master lives in: /home/herrold/clefos/git-centos.org/
-#		as: /home/herrold/clefos/git-centos.org/gitpull.sh
+#	master lives in: /home/herrold/clefos/git.centos.org/
+#		as: /home/herrold/clefos/git.centos.org/gitpull.sh
 #
 PATH='/bin:/usr/bin:/usr/sbin:/sbin'
 MYNAME=`basename $0`
@@ -18,7 +18,7 @@ DRIVER="DRIVER"
 #	this file is hand generated using output from
 #	spot-branches.sh as to viable branches
 #
-DIRECT="/home/herrold/clefos/git-centos.org"
+DIRECT="/home/herrold/clefos/git.centos.org"
 #
 cd
 cd ${DIRECT}

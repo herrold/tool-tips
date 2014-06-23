@@ -1,5 +1,5 @@
-#	DRIVER in: /home/herrold/clefos/git-centos.org/
-#		$Id: DRIVER,v 1.1 2014/06/23 23:01:02 herrold Exp herrold $
+#	DRIVER in: /home/herrold/clefos/git.centos.org/
+#		$Id: DRIVER,v 1.2 2014/06/23 23:08:49 herrold Exp herrold $
 https://git.centos.org/git/sig-core/livemedia.git
 https://git.centos.org/git/sig-core/bld-seven.git
 https://git.centos.org/git/sig-cloud-instance/build-instance.git
@@ -7,3 +7,18 @@ https://git.centos.org/git/sig-cloud-instance/build-instance.git
 #https://git.centos.org/commit/sig-cloud-instance!build-instance.git
 #https://git.centos.org/commit/sig-core!bld-seven.git               
 #https://git.centos.org/commit/sig-core!livemedia.git   
+# [herrold@centos-6 git.centos.org]$ ./gitpull.sh > /dev/null
+# trying: livemedia
+# URL: https://git.centos.org/git/sig-core/livemedia.git
+# SUMMARY: https://git.centos.org/summary/sig-core!livemedia.git
+#	commits: 20140623: 5
+# trying: bld-seven
+# URL: https://git.centos.org/git/sig-core/bld-seven.git
+# SUMMARY: https://git.centos.org/summary/sig-core!bld-seven.git
+#	commits: 20140623: 46
+# trying: build-instance
+# URL: https://git.centos.org/git/sig-cloud-instance/build-instance.git
+# SUMMARY:
+# https://git.centos.org/summary/sig-cloud-instance!build-instance.git
+#	commits: 20140623: 25
+# [herrold@centos-6 git.centos.org]$
