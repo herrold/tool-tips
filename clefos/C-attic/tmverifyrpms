@@ -1,0 +1,258 @@
+#!/bin/bash
+# tmverifyrpms.sh
+# Check a set of rpms against a reference.
+# Ideas from David Cox's perl script ported to bash
+# creates tmverifyrpms.log in repository where it is run in the form of:
+# rpmname-cmp OK|OK-PERFECT|FAIL ref:refsize +/-:sizediffabs %:sizediff%
+# Where
+# - refsize is the rpm -q --qf %{SIZE} of the ref rpm
+# - sizediff% is the % difference between cmp and ref
+# - sizediffabs is the difference in bytes
+# If there are library, or file name/perm differences, create
+# reports/rpm.out
+#
+# Version 4.1.5-CentOS
+# 2011-03-10 Johnny Hughes <johnny@centos.org>
+# - Modified to build several secondary files to tell you about
+#   RPMS in the compare or reference directories that do not
+#   match up with each other.
+# - Modified to ignore different dist tags
+# - Modified to put a WARNING in the logs if the release does not
+#   match between two files.
+# 2007-02-27 Johnny Hughes <johnny@centos.org>
+# - Modified so that it will match some of the standard file
+#   extensions we use (.centos, .c4. .el4.centos) with their
+#   reference counterparts w/o those extensions
+# 2005-07-13 Johnny Hughes <johnny@centos.org>
+# - Modified David's great script to run standalone
+#   for using in CentOS compares.
+# - Removed many of the features (run in background,
+#   srpms maps, etc.) which are not needed in this
+#   implementation of the script
+#
+#   You can get all of David's tmtools as a group
+#   from the /tmtools directory of any taolinux
+#   mirror.  See http://www.taolinux.com for details 
+#
+#   Thanks to David for a great script :)
+#
+# Version 4.1.4
+# 2004-12-23 David L. Parsley <parsley@linuxjedi.org>
+# - Sort rpm --requires output
+# 2004-12-21 parsley@linuxjedi.org
+# - Findrepo & cd there first (to run in subdirs)
+# - Put error checking before the fork-to-background
+# 2004-12-03 parsley@linuxjedi.org
+# - Discard rpm errors
+# - Fix sign error in SZDIFF
+# 2004-11-30 parsley@linuxjedi.org
+# - Strip (xxx) from end (ld-linux.so mainly)
+# - Add checking of rpm --requires
+# 2004-09-30 David L. Parsley <parsley@linuxjedi.org>
+# - use mktemp -u, or files will be mode 600
+# 2004-05-16 David L. Parsley <parsley@linuxjedi.org>
+# - Add user & group to fingerprinting
+# - Strip right-hand-side of library linkages (after =>)
+# - dump stderr by default (can override locally)
+# 2004-05-01 David L. Parsley <parsley@linuxjedi.org>j
+# - use rpm --dump for files, can run unpriv
+#set -x
+#
+# This has been modified to become a standalone compare tool
+# by Johnny Hughes for CentOS compares on 7/13/2005
+# 
+
+
+#This is where the reference files are
+REFDIR=RHEL
+
+#This is the files to be compared
+CMPDIR=CentOS
+
+STARTDIR=`pwd`
+RPTDIR=reports
+WORKDIR=work
+
+> tmverifyrpms.log 
+if [ -e $WORKDIR ]
+then
+	rm -rf $WORKDIR
+fi
+
+mkdir -p $RPTDIR $WORKDIR
+
+rpmarch(){
+	STRIPPED=${1%.rpm}
+	echo ${STRIPPED##*.}
+}
+
+genfilelist(){
+    rpm -qp --dump $1 2>/dev/null | LC_ALL=C sort | while read DUMPLINE
+    do
+	DUMPLINE=${DUMPLINE/ [01] [01] /TMLINESEP}
+	FSYMLINK=${DUMPLINE#*TMLINESEP* }
+	DUMPLINE=${DUMPLINE%TMLINESEP*}
+	FILENAME="${DUMPLINE% * * * * * *}"
+	REST=${DUMPLINE#$FILENAME }
+	set $REST
+	echo "$FILENAME mode:$4 owner:$5 group:$6 linkto:$FSYMLINK"
+    done
+}
+
+comprpms(){
+	PKGOK="OK"
+	CMPRPMDIR=`mktemp -d /var/tmp/cmprpm.XXXXXX`
+	REFRPMDIR=`mktemp -d /var/tmp/refrpm.XXXXXX`
+	rm -f $RPTDIR/$1.out
+	cd $STARTDIR
+	rpm2cpio $CMPDIR/$1 | ( cd $CMPRPMDIR; cpio -id --no-absolute-filenames --quiet )
+	rpm2cpio $REFDIR/$2 | ( cd $REFRPMDIR; cpio -id --no-absolute-filenames --quiet )
+	cd $CMPRPMDIR
+	find . ! -type d | while read FILENAME
+	do
+		if [ -x "$FILENAME" -a -f "$FILENAME" ]
+		then
+			echo $FILENAME >> $STARTDIR/$WORKDIR/$CMPDIR-libs
+			ldd $FILENAME | sort >> $STARTDIR/$WORKDIR/$CMPDIR-libs
+		fi
+	done
+	cd $REFRPMDIR
+	find . ! -type d | while read FILENAME
+	do
+		if [ -x "$FILENAME" -a -f "$FILENAME" ]
+		then
+			echo $FILENAME >> $STARTDIR/$WORKDIR/$REFDIR-libs
+			ldd $FILENAME | sort >> $STARTDIR/$WORKDIR/$REFDIR-libs
+		fi
+	done
+	cd $STARTDIR
+	genfilelist $CMPDIR/$1 > $STARTDIR/$WORKDIR/$CMPDIR-list
+	genfilelist $REFDIR/$2 > $STARTDIR/$WORKDIR/$REFDIR-list
+	diff -u $WORKDIR/*list > $WORKDIR/rpmdiff
+	if [ $? -eq 1 ]
+	then
+		PKGOK="FAIL"
+		echo "Differing file fingerprints:">> $RPTDIR/$1.out
+		cat $WORKDIR/rpmdiff >> $RPTDIR/$1.out
+	fi	
+	rpm -qp --requires $CMPDIR/$1 2>/dev/null | LC_ALL=C sort >$STARTDIR/$WORKDIR/$CMPDIR-req
+	rpm -qp --requires $REFDIR/$2 2>/dev/null | LC_ALL=C sort >$STARTDIR/$WORKDIR/$REFDIR-req
+	diff -u $WORKDIR/*req > $WORKDIR/reqdiff
+	if [ $? -eq 1 ]
+	then
+		PKGOK="FAIL"
+		echo "Differing package requirements:">> $RPTDIR/$1.out
+		cat $WORKDIR/reqdiff >> $RPTDIR/$1.out
+	fi	
+	if [ -e $WORKDIR/$REFDIR-libs ]
+	then
+		# Only want what it's looking for, not what it actually gets
+		perl -pi -e 's/ =>.*//' $WORKDIR/$CMPDIR-libs
+		perl -pi -e 's/ =>.*//' $WORKDIR/$REFDIR-libs
+		perl -pi -e 's/ \(.*//' $WORKDIR/$CMPDIR-libs
+		perl -pi -e 's/ \(.*//' $WORKDIR/$REFDIR-libs
+		diff -u $WORKDIR/*libs > $WORKDIR/libdiff
+		if [ $? -eq 1 ]
+		then
+			PKGOK="FAIL"
+			echo "Differing libraries:">> $RPTDIR/$1.out
+			cat $WORKDIR/libdiff >> $RPTDIR/$1.out
+			echo "ldd for $CMPDIR-rpm:">> $RPTDIR/$1.out
+			cat $WORKDIR/$CMPDIR-libs >> $RPTDIR/$1.out
+			echo "ldd for $REFDIR-rpm:">> $RPTDIR/$1.out
+			cat $WORKDIR/$REFDIR-libs >> $RPTDIR/$1.out
+		fi
+	fi
+	if [ -e $WORKDIR/$CMPDIR-libs ]
+	then
+		grep -q 'not found' $WORKDIR/$CMPDIR-libs
+		if [ $? -eq 0 ]
+		then
+			PKGOK="FAIL"
+			echo "Missing libraries:" \
+			  >> $RPTDIR/$1.out
+			cat $WORKDIR/$CMPDIR-libs >> $RPTDIR/$1.out
+		fi
+	fi
+	cd $WORKDIR
+	rm -f libdiff rpmdiff $CMPDIR-libs $REFDIR-libs
+	cd $STARTDIR
+	# MORE TESTS HERE
+	CMPSIZE=`rpm -qp --qf %{SIZE} $CMPDIR/$1 2>/dev/null`
+	REFSIZE=`rpm -qp --qf %{SIZE} $REFDIR/$2 2>/dev/null`
+	SZDIFF=$(($CMPSIZE - $REFSIZE))
+	ABSDIFF=$((SZDIFF<0?-$SZDIFF:$SZDIFF))
+	if [ $REFSIZE -ne 0 ]
+	then
+		PCTDIFF=$(($ABSDIFF * 100 / $REFSIZE))
+	else
+		PCTDIFF=-0-
+	fi
+	if [ $PKGOK = "OK" -a $SZDIFF -eq 0 ]
+	then
+		PKGOK="OK-PERFECT"
+	fi
+	rm -rf $CMPRPMDIR $REFRPMDIR
+	RESULTS="$1 $PKGOK ref:$REFSIZE +/-:$SZDIFF %:$PCTDIFF"
+}
+
+# start the required files over
+if [ -e "$REFDIR"_rpm.lst ]; then
+	rm -f "$REFDIR"_rpm.lst
+fi
+
+if [ -e "$CMPDIR"_rpm.lst ]; then
+        rm -f "$CMPDIR"_rpm.lst
+fi
+
+if [ -e extra_files_"$REFDIR".lst ]; then
+        rm -f extra_files_"$REFDIR".lst
+fi 
+
+if [ -e extra_files_"$CMPDIR".lst ]; then
+        rm -f extra_files_"$CMPDIR".lst
+fi
+
+cd $REFDIR
+for REFRPM in `echo *.rpm`
+do	REFRPM_NVR=`rpm -qp --qf '%{name}-%{version}.%{arch}\n' $REFRPM`
+	echo $REFRPM_NVR" "$REFRPM >> ../"$REFDIR"_rpm.lst
+done
+
+cd $STARTDIR
+
+# Get list of rpms to compare
+cd $CMPDIR
+RPMLIST=`echo *.rpm`
+
+cd $STARTDIR
+for CMPRPM in $RPMLIST
+do
+	CMPRPM_NVR=`rpm -qp --qf '%{name}-%{version}.%{arch}' $CMPDIR/$CMPRPM`
+        echo $CMPRPM_NVR" "$CMPRPM >> "$CMPDIR"_rpm.lst
+
+	REFRPM_ONLIST=`grep "^$CMPRPM_NVR " "$REFDIR"_rpm.lst`
+	if [ "$REFRPM_ONLIST"x != x ]; then
+		REFRPM2=`echo $REFRPM_ONLIST | awk {'print $2'}`
+		echo -n "Verifying $CMPRPM against $REFRPM2"
+		comprpms $CMPRPM $REFRPM2
+               	echo ""
+               	echo $RESULTS
+                if [ "$CMPRPM" != "$REFRPM2" ]; then
+                	echo "WARNING: $CMPRPM and $REFRPM2 are not an exact name match"
+                fi
+		echo "-------------------------"
+	else
+		echo $CMPRPM" was not checked" >> extra_files_"$CMPDIR".lst
+	fi
+done >> tmverifyrpms.log 
+
+for REFRPM in `cat "$REFDIR"_rpm.lst | awk {'print $2'}`
+do
+	REFRPM_NVR=`grep "$REFRPM" "$REFDIR"_rpm.lst | awk {'print $1'}`
+	CMPRPM_ONLIST=`grep "^$REFRPM_NVR " "$CMPDIR"_rpm.lst`
+	if [ "$CMPRPM_ONLIST"x == x ]; then
+		echo $REFRPM" is missing from the "$CMPDIR directory >> extra_files_"$REFDIR".lst
+	fi
+done
+echo "Finished." >> tmverifyrpms.log 
