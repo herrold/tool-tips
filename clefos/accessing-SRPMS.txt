@@ -1,0 +1,70 @@
+
+accessing-SRPMS.txt
+===================
+	$Id: accessing-SRPMS.txt,v 1.1 2014/06/24 15:40:32 herrold Exp herrold $
+
+I have a VM ready with all the SRPMs ready 
+
+All I need from you is a public key
+
+Generate a private / public keypair (I call my private key:
+        /root/.ssh/clefos6-ashland-pmman
+in this example )
+
+something like:
+
+cd
+mkdir .ssh
+chmod 700 .ssh
+cd .ssh
+ssh-keygen -t rsa -f clefos6-ashland-pmman
+# dont bother with a passphrase as we are essentially doing
+# anonymous FTP
+
+Send me a copy of the .pub key;  this armors it to fit onto a
+fixed width email client's compose screen
+
+        cat /root/.ssh/clefos6-ashland-pmman.pub | \
+                uuencode - > clefos6-ashland-pmman.pub.uuencoded
+
+Locally I will reverse the process
+
+        cat clefos6-ashland-pmman.pub.uuencoded | \
+                uudecode > clefos6-ashland-pmman.pub
+
+and inject the key onto the proper host
+
+You may then run this script -- it runs fine under 'screen'.  I have ELIDED
+the hostname in the github example:
+
+[root@clefos6 bin]# cat clefos7-SRPM-mirror.sh
+#!/bin/sh
+#
+#       heap-mirror.sh
+#
+VERBOSE="-v "
+#
+EXTPATH="/var/ftp/pub/mirror/clefos/"
+EXTHOST="ELIDED"
+DESTPATH="/var/ftp/pub/mirror/clefos/"
+# KEYING="-e \" ssh -l root -f \
+#       /root/.ssh/clefos6-ashland-pmman \" "
+#
+RSYNC_CONNECT_PROG=" ssh -l root -f \
+        /root/.ssh/clefos6-ashland-pmman "
+#
+[ ! -e ${DESTPATH} ] && mkdir -p ${DESTPATH}
+cd
+cd ${DESTPATH}
+rsync -a ${VERBOSE} ${KEYING} \
+        ${EXTHOST}:${EXTPATH} ${DESTPATH}
+#
+
+=========================
+File: accessing-SRPMS.txt
+Master lives at: /home/herrold/clefos/
+Outside at: https://github.com/herrold/tool-tips/tree/master/clefos
+Copyright (c) 2014  R P Herrold 
+Reports to: info@owlriver.com
+Licensed: CC-By-SA-2.0 
+
