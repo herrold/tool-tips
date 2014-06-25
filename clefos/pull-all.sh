@@ -2,7 +2,7 @@
 #	debugging: -x
 #
 #	pull-all.sh
-#		$Id: pull-all.sh,v 1.14 2014/06/17 04:13:07 herrold Exp herrold $
+#		$Id: pull-all.sh,v 1.15 2014/06/25 18:51:36 herrold Exp herrold $
 #	Copyright (c) 2014 R P Herrold info@owlriver.com
 #	lives on: centos-6 at: /home/herrold/vcs/git/centos-7-archive
 #	outside will be in: https://github.com/herrold/tool-tips/tree/master/clefos
@@ -53,6 +53,15 @@ NOTWITTER="y"
 #	main body follows
 cd
 cd ${ANCHORDIR}
+#
+#	update the pullscript -- lots of changes upstream 
+#	happening so this may break
+PSD=` echo "${PULLSCRIPT}" | tr '/' ' ' | awk {'print $1'} `
+[ -e ${PSD} ] && {
+	cd ${PSD}
+	git pull
+	cd ..
+	}
 #
 #	SKIPTIL will move into an argument, but for now is hard coded
 #	if present, we are DELAYED building until we see it 
