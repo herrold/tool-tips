@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	push-reboot-notice.sh
-#		$Id: push-reboot-notice.sh,v 1.12 2014/07/30 15:37:50 herrold Exp herrold $
+#		$Id: push-reboot-notice.sh,v 1.13 2014/07/30 15:47:32 herrold Exp herrold $
 #	License: GPLv3+
 #	info@owlriver.com
 #	Copyright (c) 2014 R P Herrold, Columbus OH
@@ -27,14 +27,32 @@ QUIET="-q "
 	exit 1
 	}
 #
-#	only one option
+#	-i: install, is the major option 
 [ "x${1}" = "x-i" ] && {
 	export INSTALL="y"
+	export SHOW=""
 	shift 1
 	}
 #
+#	-s: show  just dumps the crontab
+[ "x${1}" = "x-s" ] && {
+	export SHOW="y"
+	export INSTALL=""
+	shift 1
+	}
+#
+################################################
+#
 cd 
 cd /home/herrold/pmman/admin
+[ "x${SHOW}" != "x" ] && {
+	ssh -l root -t $1 crontab -l 2>&1 | \
+		grep -v "^no crontab for" | \
+		grep -v "^Connection to " | \
+		grep "${TGT}"
+	exit 
+	}
+#
 ssh -l root -t $1 crontab -l 2>&1 | \
 	grep -v "^no crontab for" | \
 	grep -v "^Connection to "
@@ -63,8 +81,8 @@ cat - << END | ssh -l root  $1 tee /root/acme.sh > /dev/null
 {
 #	idempotency, after a fashion
 #	pass 1, add a new uncommented line
-crontab -l | grep -v "^no crontab for" | grep -v "${TGT}"
-crontab -l | grep -v "^no crontab for" | grep    "${TGT}" | sed -e "s~^@~#@~"
+crontab -l 2>&1 | grep -v "^no crontab for" | grep -v "${TGT}"
+crontab -l 2>&1 | grep -v "^no crontab for" | grep    "${TGT}" | sed -e "s~^@~#@~"
 echo "# "
 echo "@reboot 	/root/bin/${TGT} -m > /dev/null 2>&1 "
 } | (sleep 1; crontab -)
@@ -73,8 +91,8 @@ echo "@reboot 	/root/bin/${TGT} -m > /dev/null 2>&1 "
 #		a side effect is that the active line drops to the bottom
 #		of the crontab -l
 {
-crontab -l | grep -v "^no crontab for" | grep -v "${TGT}"
-crontab -l | grep -v "^no crontab for" | grep    "${TGT}" | grep -v "#@"
+crontab -l 2>&1 | grep -v "^no crontab for" | grep -v "${TGT}"
+crontab -l 2>&1 | grep -v "^no crontab for" | grep    "${TGT}" | grep -v "#@"
 echo "#	prior line added: ${YMD} "
 } | (sleep 1; crontab -)
 END
