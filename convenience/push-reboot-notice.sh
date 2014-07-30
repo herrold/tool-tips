@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	push-reboot-notice.sh
-#		$Id: push-reboot-notice.sh,v 1.14 2014/07/30 15:53:22 herrold Exp herrold $
+#		$Id: push-reboot-notice.sh,v 1.15 2014/07/30 21:44:45 herrold Exp herrold $
 #	License: GPLv3+
 #	info@owlriver.com
 #	Copyright (c) 2014 R P Herrold, Columbus OH
@@ -93,7 +93,7 @@ echo "@reboot 	/root/bin/${TGT} -m > /dev/null 2>&1 "
 {
 crontab -l 2>&1 | grep -v "^no crontab for" | grep -v "${TGT}"
 crontab -l 2>&1 | grep -v "^no crontab for" | grep    "${TGT}" | grep -v "#@"
-echo "#	prior line added: ${YMD} "
+echo "#	prior line added: ${YMD} for: ${TGT} "
 } | (sleep 1; crontab -)
 END
 #
