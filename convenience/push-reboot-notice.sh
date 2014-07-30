@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	push-reboot-notice.sh
-#		$Id: push-reboot-notice.sh,v 1.11 2014/07/29 23:01:46 herrold Exp herrold $
+#		$Id: push-reboot-notice.sh,v 1.12 2014/07/30 15:37:50 herrold Exp herrold $
 #	License: GPLv3+
 #	info@owlriver.com
 #	Copyright (c) 2014 R P Herrold, Columbus OH
@@ -59,6 +59,7 @@ ssh -l root $1 rm -f /root/acme.sh
 #	man 1 crontab  under -u shows that stdin may be used
 #
 cat - << END | ssh -l root  $1 tee /root/acme.sh > /dev/null 
+#!/bin/sh
 {
 #	idempotency, after a fashion
 #	pass 1, add a new uncommented line
