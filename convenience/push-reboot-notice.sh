@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	push-reboot-notice.sh
-#		$Id: push-reboot-notice.sh,v 1.13 2014/07/30 15:47:32 herrold Exp herrold $
+#		$Id: push-reboot-notice.sh,v 1.14 2014/07/30 15:53:22 herrold Exp herrold $
 #	License: GPLv3+
 #	info@owlriver.com
 #	Copyright (c) 2014 R P Herrold, Columbus OH
