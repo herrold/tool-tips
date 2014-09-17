@@ -2,6 +2,7 @@
 #
 #	audit-dist.sh 
 #		orig at github
+#		https://github.com/herrold/tool-tips/tree/master/convenience
 #	License: GPLv3+
 #	Reports to: info@owlriver.com
 #	Copyright (c) R P Herrold 2014
