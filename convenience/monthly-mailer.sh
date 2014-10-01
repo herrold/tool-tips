@@ -36,7 +36,7 @@ TGT=0${LASTWED}
 #	warn at ten days out
 WARN=`echo "0${TGT} - 10 " | bc`
 #	send at seven days out
-SEND=`echo "0${TGT} - 10 " | bc`
+SEND=`echo "0${TGT} - 7 " | bc`
 #
 [ 0${DOM} -eq 0${WARN} -o "x${TEST}" != "x" ] && {
 	export PREVIEW="PREVIEW -- "
@@ -44,7 +44,7 @@ SEND=`echo "0${TGT} - 10 " | bc`
 	export SENDIT="y"
 	}
 
-[ 0${DOM} -eq 0${WARN} ] && export SENDIT="y"
+[ 0${DOM} -eq 0${SEND} ] && export SENDIT="y"
 #
 [ "x${SENDIT}" != "x" ] && {
 	lynx -dump ${URL} | \
