@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	gen-pw.sh
-#	$Id: gen-pw.sh,v 1.21 2017/05/05 16:12:55 herrold Exp herrold $
+#	$Id: gen-pw.sh,v 1.22 2017/05/05 16:14:59 herrold Exp herrold $
 #
 #	Copyright (c) 2007, 2014 Owl River Company
 #	reports to: info@owlriver.com
@@ -12,8 +12,8 @@
 #	GH copy lives at: $HOME/vcs/git/herrold/rph-shell-tools/convenience/
 #		and has a dependency on shuffle-stdin.php
 #	release: scp gen-pw.sh $HOME/vcs/git/herrold/rph-shell-tools/convenience/
-#			cd $HOME/vcs/git/herrold/
-#			git add rph-shell-tools/convenience/gen-pw.sh
+#			cd $HOME/vcs/git/herrold/rph-shell-tools
+#			git add convenience/gen-pw.sh
 #			git pull
 #			git commit
 #			git push
