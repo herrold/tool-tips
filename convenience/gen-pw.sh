@@ -1,12 +1,7 @@
 #!/bin/sh
 #
-#	$ date | tr 'A-Za-z0123456789' 'a-zA-Z9876543210' | \
-#		md5sum | base64 | tr 'abcdefABCDEF' '!@#$%^&*][_-'
-#	yields a 48 char string
-#
-#
 #	gen-pw.sh
-#	$Id: gen-pw.sh,v 1.12 2014/09/26 15:55:58 herrold Exp herrold $
+#	$Id: gen-pw.sh,v 1.21 2017/05/05 16:12:55 herrold Exp herrold $
 #
 #	Copyright (c) 2007, 2014 Owl River Company
 #	reports to: info@owlriver.com
@@ -14,14 +9,40 @@
 #	relicensed 2014 09 26 for GH release post COLUG meeting
 #	License: GPLv3+
 #
+#	GH copy lives at: $HOME/vcs/git/herrold/rph-shell-tools/convenience/
+#		and has a dependency on shuffle-stdin.php
+#	release: scp gen-pw.sh $HOME/vcs/git/herrold/rph-shell-tools/convenience/
+#			cd $HOME/vcs/git/herrold/
+#			git add rph-shell-tools/convenience/gen-pw.sh
+#			git pull
+#			git commit
+#			git push
+#
 #	This script produces reasonable stirring, 
 #	but has some predictable parts in the output
 #		viz.: alphas at each end, and a discernable 
 #		(with enough samples) emit pattern
 #		to make it easier to add to the pasteboard by a click
-#		TBD: address this, but that is easier said than done
+#	TBD: address this, but that is easier said than done
+#
+#	TBD:  new word based generator occasionaly emits error noise
 #
 #	TBD: fugly: needs some functions drilled in, a general cleanup
+#
+#	bad symbols:	unix:	| = $ ! (BANG) > <
+#		pulled: 2015 04 22
+#
+#	$ date | tr 'A-Za-z0123456789' 'a-zA-Z9876543210' | \
+#		md5sum | base64 | tr 'abcdefABCDEF' '!@#$%^&*][_-'
+#	yields a 48 char string
+#
+#  http://www.nytimes.com/2014/11/19/magazine/the-secret-life-of-passwords.html
+#		Microsoft’s technicians, Lutnick recalled, knew 
+#		that they needed to take advantage of two facts: 
+#		Many people use the same password for multiple 
+#		accounts, and these passwords are typically personalized.
+#
+#	http://strongpasswordgenerator.com/
 #
 # some rules seen -- taleo.net
 # http://www.oracle.com/us/products/applications/taleo/enterprise/overview/index.html
@@ -41,7 +62,6 @@
 #		(AAA, iiii, $$$$$ ...).
 #    It must not contain your user name.
 #    It must not contain your email address.
-#                                
 #                                
 #	tester: https://dl.dropboxusercontent.com/u/209/zxcvbn/test/index.html
 #	https://github.com/lowe/zxcvbn
@@ -69,8 +89,9 @@
 #
 #		-d   	debug 	-- not in external versions
 #
-#	specials: 	- : @ # ~ % & _ + .
-#	HARD specials: 	! ` $ ^  * ) ( = } { ] [ | \ ; ' " > < /
+#	specials: 	- : @ # ~ & _ + .
+#	HARD specials: 	` * ) ( } { ] [ \ ; ' " / ^
+#	BAD SPECIALS:	! | = $ > < 
 #
 #	any remaining (i.e., optional) arg1 is maximum length
 #
@@ -82,6 +103,42 @@
 #
 PATH='/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:~/bin/'
 #
+CNT=`find /usr/share/dict/ -type f | wc -l | awk {'print $1'}`
+[ 0${CNT} -lt 1 ] && {
+	echo "warning: /usr/share/dict/ is empty -- please install: words package " 1>&2
+	}
+[ 0${CNT} -gt 0 ] && {
+#
+	echo -en "WORDLIST: (14) \t "
+# 	echo "WORDLIST: "
+#	a word
+	LENFILE=`wc -l /usr/share/dict/* | awk {'print $1'} | tail -n 1`
+	EPOCHTIME=`date +%s`
+	EPOCHTIME=`echo " ${EPOCHTIME} ^ 3" | bc | rev`
+	NONCE=`echo "${EPOCHTIME} % ${LENFILE} " | bc`
+	cat /usr/share/dict/* /usr/share/link-grammar/en/words/* | \
+		head -n ${NONCE} | tr -s '[:alnum:]' | \
+		grep -v "^[a-z][a-z][a-z][\ \t\n\r]" | \
+		tr 'aeiou' 'AEIOU' | tail -n 1 | cut -c 1-5 | tr -d '\n\r'
+#	a special
+	ROTOR=` echo "${EPOCHTIME}" | cut -c 1`
+	echo "#@^)(=+/><" | cut -c ${ROTOR} | tr -d '\n\r'
+#             0123456789
+#	another special
+	ROTOR=` echo "${EPOCHTIME}" | cut -c 1`
+	echo "~][}{_-|^*" | cut -c ${ROTOR} | tr -d '\n\r'
+#             0123456789
+#	a couple numbers
+	echo "${EPOCHTIME}" | cut -c 1-2 | tr -d '\n\r'
+#	another word
+	EPOCHTIME=`echo " ${EPOCHTIME} ^ 3" | bc | rev`
+	EPOCHTIME=`date +%s | rev`
+	NONCE=`echo "${EPOCHTIME} % ${LENFILE} " | bc`
+	cat /usr/share/dict/* /usr/share/link-grammar/en/words/* | \
+		head -n ${NONCE} | tr -s '[:alnum:]' | \
+		tr 'aeiou' 'AEIOU' | cut -c 1-5 | tail -n 1 
+	}
+# exit
 DEBUG="n"
 #
 #	pad is 6
@@ -97,11 +154,11 @@ export MAXLEN="14"
 #
 #	guard the string against making it into the bash history
 #	http://mmcgrath.livejournal.com/35143.html
-export BANG=`echo "!"`
+export BANG=`echo "/"`
 #
 #########################################################################
 #
-#	default settings with no options specified are"
+#	OLD default settings with no options specified are"
 #		mixed deck
 #		one symbol at position two
 #		14 char long
@@ -134,8 +191,15 @@ export BANG=`echo "!"`
 #########################################################################
 #	eat the options
 #
-#	set the default
+#	set the default to -m 
+export ALPHANUM="y"
 export SYMBOL="y"
+export MIXED="y"
+export NUMBERS="y"
+#
+export HEX="y"
+export HARD="y"
+export LETTERS="y"
 #
 export ISOPT=`echo "#$1" | cut -c 1-2`
 while [ "x${ISOPT}" = "x#-" ] ; do
@@ -242,10 +306,10 @@ while [ "x${ISOPT}" = "x#-" ] ; do
 	BAS=`basename $0`
 	echo "Usage: ${BAS} [-a] [-d] [-h] (length)" 1>&2
 	echo "       -a limits to alphanumerics " 1>&2
-	echo "       -j alphanumeric with just one special (default) " 1>&2
+	echo "       -j alphanumeric with just one special " 1>&2
 	echo "       -z alphanumeric, special, and HARD specials " 1>&2
 	echo "       -l limits to letters " 1>&2	
-	echo "       -m mixed alphanumeric and specials  " 1>&2
+	echo "       -m mixed alphanumeric and specials (default) " 1>&2
 	echo "       -n numerics " 1>&2
 	echo "       -x hexadecimal mixed " 1>&2
 	shift
@@ -305,16 +369,16 @@ while [ "x${ISOPT}" = "x#-" ] ; do
 #
 [ "x${1}" = "x-h" ] && {
 	BAS=`basename $0`
-	echo "Usage: ${BAS} [-a] [-h] (length)" 1>&2
+	echo "Usage: ${BAS} [-a] [-h] (length) " 1>&2
 	echo "       -a limits to alphanumerics " 1>&2
-	echo "       -j alphanumeric with just one specbial (default) " 1>&2
+	echo "       -j alphanumeric with just one special " 1>&2
 	echo "       -l limits to letters " 1>&2
-	echo "       -m is mixed alphanumerics and specials" 1>&2
-	echo "       -n is only numerals" 1>&2
-	echo "       -x is only hexadecimal digits" 1>&2
+	echo "       -m is mixed alphanumerics and specials (default) " 1>&2
+	echo "       -n is only numerals " 1>&2
+	echo "       -x is only hexadecimal digits " 1>&2
 	echo "" 1>&2
-	echo "       (length) is the optional maximum length" 1>&2
-	echo "          ... length defaults to ${MAXLEN}" 1>&2
+	echo "       (length) is the optional maximum length " 1>&2
+	echo "          ... length defaults to ${MAXLEN} " 1>&2
 	echo "" 1>&2
 	echo " ... last seen option dominates " 1>&2
 	exit
@@ -375,18 +439,18 @@ NONCEL=` (echo "$NONCE" ; ps afx ; date )	|      md5sum - | \
 	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
 #
 #	NONCEM will be 'easy' symbols: 
-#		- : @ # ~ % & _ + . (ten)
+#		- : @ # ~ & _ + . (ten)
 #	22 symbols so some repeat; then squeeze on the ten
 NONCEM=` (df -h ; ps afx ; date ; echo "$NONCE" ) |      md5sum - | \
-	tr '0123456789abcdefABCDEF' '\-\:\@\#\~\%\&\_\+\.\-\:\@\#\~\%\&\_\+\.\-\:' | \
+	tr '0123456789abcdefABCDEF' '\-\:\@\#\~\%\&\_\+\.\-\:\@\#\~\&\&\_\+\.\-\:' | \
 	awk {'print $1'} | tr -s '\-\:\@\#\~\%\&\_\+\.' `
 #
 #	NONCEH will be the 'hard' (non-clickable) symbols:
-#		! ` $ ^ * ) ( = } { ] [ | \ ; ['] " > < / (twenty - 1; drop ')
+#		` ^ * ) ( } { ] [ \ ; ['] " > < / (twenty - 1; drop ')
 #	whole set squeezes
 NONCEH=` (df -h ; ps afx ; date ; echo "$NONCE" ) |      md5sum - | \
-	tr '0123456789abcdefABCD' '\!\`\$\^\*\)\(\=\}\{\]\[\|\\\;\"\>\<\/'| \
-	awk {'print $1'} | tr -s  '\!\`\$\^\*\)\(\=\}\{\]\[\|\\\;\"\>\<\/'  `
+	tr '0123456789cdef' '\`\^\@\)\(\}\{\]\[\\\;\"\/'| \
+	awk {'print $1'} | tr -s  '\`\^\@\)\(\}\{\]\[\\\;\"\/'  `
 #
 #	NUMERIC
 NONCEN=` (ps ax ; date ; echo "$NONCE")		|      md5sum - | \
@@ -408,7 +472,8 @@ NONCEX=` (ps ax ; date ; echo "$NONCE")		|      md5sum - | \
 #
 #	we only need one symbol
 #       0123456789
-SYMSET="@#^*_-><:="
+SYMSET="@#^*_-:"
+NOTSYMSET="|=\$!><"
 SECEPOCH=`date +%s | rev | cut -c 1-4 | rev `
 SYMOFFSET=` echo "( ${SECEPOCH} % 10 ) + 1 " | bc `
 SYMUSE=`echo "${SYMSET}" | cut -c ${SYMOFFSET} `
@@ -426,8 +491,8 @@ SNIPA3=` echo -n "${NONCEA}" | cut -c 3-4 	`
 SNIPA4=` echo -n "${NONCEA}" | rev | cut -c 3-4 `
 #
 #	specials
-SNIPM5=` echo -n "${NONCEM}" | cut -c 1-2 	` 
-SNIPM6=` echo -n "${NONCEM}" | rev | cut -c 1-2 ` 
+SNIPM5=` echo -n "${NONCEM}"  | cut -c 1-2 	` 
+SNIPM6=` echo -n "${NONCEM}"  | rev | cut -c 1-2 ` 
 SNIPM15=` echo -n "${NONCEM}" | cut -c 1-2 	` 
 SNIPM16=` echo -n "${NONCEM}" | rev | cut -c 1-2 ` 
 #
@@ -538,10 +603,10 @@ UC=`echo "${NONCEL}" | cut -c 2 | \
 	tr  'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
 #
 PUN1=`echo "${NONCEM}" | cut -c 1 | tr 'ABCDEF' 'abcdef' | \
-	tr '0123456789abcdef' '~:@#$%^*(){}][<>'`
+	tr '0123456789cdef' '~:@#&^*(){}][/'`
 #..............................0123456789012345
 PUN2=`echo "${NONCEM}" | cut -c 2 | tr 'ABCDEF' 'abcdef' | \
-	tr '0123456789abcdef' '~:@#$%^*(){}][<>'`
+	tr '0123456789cdef' '~:@#&^*(){}][/'`
 #..............................0123456789012345
 #
 NUM1=`echo "${NONCEN}" | cut -c 1 | tr 'ABCDEF' 'abcdef' | \
@@ -592,35 +657,45 @@ HEX6=`echo "${NONCEX}" | cut -c 6 | tr 'ABCDEF' 'abcdef' `
 	echo "================================================================="
 	}
 #
+#	Print stuff
+#
 #	EVERYTHING _NOT_ a DECK are always ONE CHARACTER
 #	DECK is ALWAYS trimmed to 6 less than desired, 
 #		and only contains proper characters
 #
 [ "x${ALPHANUM}" = "xy" ] && {
-	[ "x${DEBUG}" = "xy" ] && echo -n "ALPHANUM: " 
+#	[ "x${DEBUG}" = "xy" ] && 
+echo -e -n "ALPHANUM:\t " 
 	echo "${SNIPL7}${SNIPA1}${DECK}${LC}${UC}${SNIPN11}${SNIPA2}"
 	}
+[ "x${MIXED}" = "xy" ] && {
+#	[ "x${DEBUG}" = "xy" ] && 
+echo -e -n "MIXED:\t\t " 
+	echo "${SNIPL7}${BANG}${DECK}${LC}${UC}${PUN2}${SNIPM15}${SNIPL9}"
+	} 
+[ "x${NUMBERS}" = "xy" ] && {
+#	[ "x${DEBUG}" = "xy" ] && 
+echo -e -n "NUMBERS:\t " 
+	echo "${SNIPN11}${SNIP12}${DECK}${NUM3}${NUM4}${SNIPN13}${SNIPN14}${SNIPN19}${SNIPN20}${SNIPN21}"
+	} 
 [ "x${HEX}" = "xy" ] && {
-	[ "x${DEBUG}" = "xy" ] && echo -n "HEX: " 
+#	[ "x${DEBUG}" = "xy" ] && 
+echo -e -n "HEX:\t\t " 
 	echo -n "${SNIPX23}${SNIPX24}${DECK}${HEX3}${HEX4}${SNIPX25}${SNIPX26}${SNIPX27}${SNIPX28}" | \
 		cut -c 1-4 | tr 'abcdef' 'ABCDEF' | tr -d '\r\n'
 	echo "${SNIPX23}${SNIPX24}${DECK}${HEX3}${HEX4}${SNIPX25}${SNIPX26}${SNIPX27}${SNIPX28}" | \
 		cut -c 5- 
 	} 
 [ "x${SYMBOL}" = "xy" ] && {
-	[ "x${DEBUG}" = "xy" ] && echo -n "SYMBOL: " 
+#	[ "x${DEBUG}" = "xy" ] && 
+echo -e -n "SYMBOL:\t\t " 
 	echo "${SNIPL7}${SYMUSE}${DECK}${LC}${UC}${SNIPN11}${SNIPA2}"
 	}
 [ "x${LETTERS}" = "xy" ] && {
-	[ "x${DEBUG}" = "xy" ] && echo -n "LETTERS: " 
+#	[ "x${DEBUG}" = "xy" ] && 
+echo -e -n "LETTERS:\t " 
 	echo "${SNIPL7}${SNIPL8}${DECK}${LC}${UC}${SNIPL9}${SNIPL10}${SNIPL17}${SNIPL18}"
 	}
-[ "x${MIXED}" = "xy" ] && {
-	[ "x${DEBUG}" = "xy" ] && echo -n "MIXED: " 
-	echo "${SNIPL7}${BANG}${DECK}${LC}${UC}${PUN2}${SNIPM15}${SNIPL9}"
-	} 
-[ "x${NUMBERS}" = "xy" ] && {
-	[ "x${DEBUG}" = "xy" ] && echo -n "NUMBERS: " 
-	echo "${SNIPN11}${SNIP12}${DECK}${NUM3}${NUM4}${SNIPN13}${SNIPN14}${SNIPN19}${SNIPN20}${SNIPN21}"
-	} 
+#
+##############################################################
 #
