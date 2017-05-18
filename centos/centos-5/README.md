@@ -44,10 +44,14 @@ of the file.  Amend that new set of stanzas to reflect:
 
 * enable the repositories:
 
+    ```
     sed -i -e 's@enabled=0@enabled=1@g'  CentOS-Vault.repo
+    ```
 
 *  clean out any stale 'yum' cached matter:
 
+    ```
     yum clean all
+    ```
 
 And one is 'back in business' with a working installation
