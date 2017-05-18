@@ -3,9 +3,9 @@ Responding to the CentOS 5 turndown
 Yes, yes, I know CentOS 5 is 'end of life' and flying monkeys will 
 appear to torment me ...
 
-But some systems, living in protected environments, such as an internal 
-production system may not be worth the effort of migrating, and re-writing 
-code to use later versions
+But some systems, living in protected environments, such as an internal
+production system may not be worth the effort, expense, or lost opportunity
+cost of migrating, and re-writing code to use later versions
 
 
 The people presently running CentOS seem to be tone-deaf to the fact that
