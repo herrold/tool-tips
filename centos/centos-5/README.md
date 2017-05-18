@@ -29,10 +29,12 @@ To USE such for a existing installation, only a couple of steps are needed:
 
 * on the unit, 
 
-    ```cd /etc/yum.repos.d/
+    ```
+    cd /etc/yum.repos.d/
     mkdir attic
     mv CentOS* attic
-    mv attic/CentOS-Vault.repo . ```
+    mv attic/CentOS-Vault.repo . 
+    ```
 
 * using a favorite editor, add a stanza by copying the "[C5.10-base]" and 
 related stanzas, down to and including "[C5.10-centosplus]" one, to the top 
