@@ -13,7 +13,8 @@
 #       master copy on centos-7:~/bin/
 #	internal as externally released under git: 
 #		$HOME/vcs/git/herrold/rph-shell-tools/convenience/
-#	outside appears at: https://github.com/herrold/tool-tips/convenience/
+#	outside appears at: https://github.com/herrold/tool-tips/ 
+#			under: ./convenience/
 #
 #	Copyright (c) 2017 R P Herrold, Columbus OH
 #       License: GPLv3+
