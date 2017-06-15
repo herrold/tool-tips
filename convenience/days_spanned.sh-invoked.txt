@@ -1,0 +1,157 @@
+
+commentary to accompany: days_spanned.sh problem
+================================================
+
+$ /days_spanned.sh > days_spanned.sh-invoked.txt
+
+Compare: -gt 
+month: 1 month spans: 31 days  
+month: 7 plus following month spans: 62 days  
+month: 3 plus following 2 months spans: 92 days  
+month: 5 plus following 3 months spans: 123 days  
+month: 3 plus following 4 months spans: 153 days  
+month: 3 plus following 5 months spans: 184 days  
+month: 7 plus following 6 months spans: 215 days  
+month: 3 plus following 7 months spans: 245 days  
+month: 5 plus following 8 months spans: 276 days  
+month: 3 plus following 9 months spans: 306 days  
+month: 3 plus following 10 months spans: 337 days  
+month: 1 plus following 11 months spans: 366 days  
+
+Compare: -ge 
+month: 12 month spans: 31 days  
+month: 12 plus following month spans: 62 days  
+month: 11 plus following 2 months spans: 92 days  
+month: 10 plus following 3 months spans: 123 days  
+month: 9 plus following 4 months spans: 153 days  
+month: 8 plus following 5 months spans: 184 days  
+month: 7 plus following 6 months spans: 215 days  
+month: 6 plus following 7 months spans: 245 days  
+month: 5 plus following 8 months spans: 276 days  
+month: 4 plus following 9 months spans: 306 days  
+month: 3 plus following 10 months spans: 337 days  
+month: 12 plus following 11 months spans: 366 days  
+
+$ time ( ./days_spanned.sh > /dev/null ) >> days_spanned.sh-invoked.txt
+
+real    0m31.067s
+user    0m7.063s
+sys     0m27.975s
+
+
+====================================
+
+Checking for sanity and boundry cases, each single month span shown has the
+correct number of days (31 for January and December).  I made a decision to
+treat February as having its exception case of 29 days, because I am
+interested in longest spans for purposes of preserving backups.
+
+The application was to retain a limited number of tarballs of a database
+backing a web forum, and of the site HTML under differing expiration
+durations.  Relevant code fragments, and a couple of scripts (duly elided)
+look like this:
+
+[root@forums ~]# cd bin
+[root@forums bin]# grep find *
+back-site.sh:for i in `find .  -maxdepth 1 -mtime +${RETAIN} \
+README-mysql:for i in ` find database -maxdepth 1 -mtime +${RETAIN} \
+
+[root@forums bin]# cat back-site.sh 
+#!/bin/sh
+#
+#       back-site.sh
+#
+#	License: GPLv3+
+#	Copyright (c) 2017 R P Herrold, Columbus OH
+#	Reports to: info@owlriver.com
+#
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+YMD=`date +%Y%m%d`
+Y=`date +%Y`
+#
+cd /var/www/backups
+#
+#       interesting coding problem -- 
+#       what is the max number of days spanned by a three month lookback
+#	answered by data from: days_spanned.sh
+RETAIN=93
+#
+#	we always retain the first of the month backup, and 
+#	never automatically delete it
+#
+#	we retain dailies back three months, for the longest possible
+#	dayspan (it can take a while to notice isses in a very large forum
+#	site)
+#
+for i in `find .  -maxdepth 1 -mtime +${RETAIN} \
+	-name "html*.tgz" | \
+        grep -v "01\.tgz" | grep "$YR"` ; do
+        rm -f ${i}
+done
+#
+cd ..
+[ -e backups/html-${YMD}.tgz ] && rm -f backups/html-${YMD}.tgz
+tar czf backups/html-${YMD}.tgz html/
+#
+
+[root@forums bin]# cat README-mysql
+#!/bin/sh
+#
+#       /root/bin/README-mysql
+#               $Id: README-mysql,v 1.3 2017/03/07 15:17:24 root Exp root $
+#	License: GPLv3+
+#	Copyright (c) 2017 R P Herrold, Columbus OH
+#	Reports to: info@owlriver.com
+#
+#
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+#
+PW="elided_password"
+YMD=`date +%Y%m%d`
+#
+#	database backups are fat enough we cannot save as many
+RETAIN=32
+#
+cd
+[ ! -d database ] && mkdir database
+#
+cd /root/database
+[   -e forums_${YMD}.mysql.gz ] && {
+        echo "error: see a prior forums_${YMD}.mysql.gz in ~/database/ "
+1>&2
+        echo " ... bailing" 1>&2
+        pwd 1>&2
+        ls -al 1>&2
+        exit 1
+        }
+[ ! -e forums_${YMD}.mysql.gz ] && {
+        mysqldump -p"${PW}" forums > forums_db-${YMD}.mysql || {
+                echo "info: mysqldump NON-ZERO return code detected " 1>&2
+                }
+        [ -s forums_db-${YMD}.mysql ] && {
+                gzip -9 forums_db-${YMD}.mysql
+                }
+        }
+sync
+#
+echo
+echo "also check: /var/www/backups "
+du -sh /var/www/backups
+echo
+#
+#       add ageing logic
+cd .. 
+for i in ` find database -maxdepth 1 -mtime +${RETAIN} \
+	-name "forums_*mysql.gz" | \
+        grep -v "01[.]mysql[.]gz" | grep -v "15[.]mysql[.]gz"` ; do
+        [ -e $i ] && {
+                echo "info: expiring: $i "
+                rm -f $i
+                }
+done
+echo 
+#
+df -h
+pwd
+du -sh *
+#
