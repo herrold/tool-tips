@@ -75,8 +75,8 @@ MAX=0
 MAXMONTH=""
 #
 for i in ` seq 1 12 `; do
-	LHS=`echo "$i" | awk -F: {'print $1'}`
-	RHS=`echo "$i" | awk -F: {'print $2'}`
+#	LHS=`echo "$i" | awk -F: {'print $1'}`
+#	RHS=`echo "$i" | awk -F: {'print $2'}`
 #	figure out the end month
 	export FUTUREMONTH=`echo "0$i + 0${OFFSET}" | bc`
 	export DAYCOUNT=0
