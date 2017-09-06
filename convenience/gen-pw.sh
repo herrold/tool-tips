@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	gen-pw.sh
-#	$Id: gen-pw.sh,v 1.22 2017/05/05 16:14:59 herrold Exp herrold $
+#	$Id: gen-pw.sh,v 1.23 2017/09/06 22:15:16 herrold Exp herrold $
 #
 #	Copyright (c) 2007, 2014 Owl River Company
 #	reports to: info@owlriver.com
@@ -122,7 +122,10 @@ CNT=`find /usr/share/dict/ -type f | wc -l | awk {'print $1'}`
 		tr 'aeiou' 'AEIOU' | tail -n 1 | cut -c 1-5 | tr -d '\n\r'
 #	a special
 	ROTOR=` echo "${EPOCHTIME}" | cut -c 1`
-	echo "#@^)(=+/><" | cut -c ${ROTOR} | tr -d '\n\r'
+# 	echo "${SYMSET}${SYMSET}${SYMSET}${SYMSET}" | \
+#		cut -c ${ROTOR} | tr -d '\n\r'
+	echo "${WINSET}${WINSET}${WINSET}${WINSET}" | \
+		cut -c ${ROTOR} | tr -d '\n\r'
 #             0123456789
 #	another special
 	ROTOR=` echo "${EPOCHTIME}" | cut -c 1`
@@ -472,11 +475,17 @@ NONCEX=` (ps ax ; date ; echo "$NONCE")		|      md5sum - | \
 #
 #	we only need one symbol
 #       0123456789
+WINSET="@_-"
+#
 SYMSET="@#^*_-:"
 NOTSYMSET="|=\$!><"
+#
 SECEPOCH=`date +%s | rev | cut -c 1-4 | rev `
 SYMOFFSET=` echo "( ${SECEPOCH} % 10 ) + 1 " | bc `
-SYMUSE=`echo "${SYMSET}" | cut -c ${SYMOFFSET} `
+#
+#	get each set at least 10 long
+SYMUSE=`echo "${SYMSET}${SYMSET}${SYMSET}${SYMSET}" | cut -c ${SYMOFFSET} `
+WINUSE=`echo "${WINSET}${WINSET}${WINSET}${WINSET}" | cut -c ${SYMOFFSET} `
 #
 [ "x${DEBUG}" = "xy" ] && {
 	echo "SYMSET:		${SYMSET} "
