@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/sh 
 #
 #	gen-pw.sh
-#	$Id: gen-pw.sh,v 1.25 2017/09/07 00:59:02 herrold Exp herrold $
+#	$Id: gen-pw.sh,v 1.27 2017/09/07 17:06:55 herrold Exp herrold $
 #
 #	Copyright (c) 2007, 2014 Owl River Company
 #	reports to: info@owlriver.com
@@ -102,7 +102,32 @@
 #
 #########################################################################
 #
-PATH='/usr/bin:/bin:/usr/X11R6/bin:~/bin/'
+PATH=/usr/bin:/bin:/usr/X11R6/bin:~/bin/
+#
+#	Symbol Sets
+#	======================	
+#
+LCALPHA="abcdefghijklmnopqrstuvwxyz"
+ROT13=` echo "${LCALPHA}${LCALPHA}" | cut -c 14-39 | rev `
+UCALPHA=` echo "${ROT13}${LCALPHA}" | rev | tr "a-z" "A-Z" | cut -c 1-26`
+#
+EPOCHSECONDS=` date +%s `
+SOMEDIGITS=` echo "${EPOCHSECONDS}" | tr -d "01" `
+# echo "debug 1"
+LCDIGIT=` echo "${SOMEDIGITS} ^ 2" | bc | tr -s "0-9" | tr -d "01" | \
+	rev | cut -c 1 `
+DRAWLC=`  echo " ( ${EPOCHSECONDS} % 26 ) + 1 " | bc `
+# echo "debug 2"
+LCVALUE=` echo "${LCALPHA}${LCALPHA}" | cut -c ${DRAWLC} `
+#
+SOMEDIGITS=` echo "${EPOCHSECONDS}" | tr -d "01" `
+# echo "debug 3"
+UCDIGIT=`   echo "${SOMEDIGITS} ^ 3" | bc | tr -s "0-9" | tr -d "01" | \
+	rev | cut -c 1 `
+DRAWUC=`  echo " ( ${EPOCHSECONDS} % 26 ) + 1" | bc `
+# echo "debug 4"
+UCVALUE=` echo "${UCALPHA}${UCALPHA}" | cut -c ${DRAWUC} `
+#
 #
 #	we only need one symbol
 #       0123 4 
@@ -112,12 +137,32 @@ SYMSET="@~^*:;,%\`)(}{][\\;\'+#"
 #          012 3456
 NOTSYMSET="!|=\$><&"
 #
+# echo "debug 5"
 SECEPOCH=`date +%s | rev | cut -c 1-4 | rev `
-SYMOFFSET=` echo "( ${SECEPOCH} % 10 ) + 1 " | bc `
+SYMOFFSET=` echo " ( ${SECEPOCH} % 10 ) + 1 " | bc `
+# echo "SYMOFFSET: ${SYMOFFSET}"
 #
 #	get each set at least 10 long
+# echo "debug 6"
 WINUSE=`echo "${WINSET}${WINSET}${WINSET}${WINSET}" | cut -c ${SYMOFFSET} `
+# echo "debug 7"
 SYMUSE=`echo "${WINSET}${SYMSET}${WINSET}${SYMSET}" | cut -c ${SYMOFFSET} `
+#
+#	Digits for ROTOR and friends
+#	============================
+	EPOCHTIME=` date +%s `
+	EPOCHTIME=` echo " ${EPOCHTIME} ^ 3" | bc | rev | tr -s "0-9" `
+#
+#	after this, DIGITS is ONLY 1 thru 9
+	DIGITS=` echo "${EPOCHTIME}" | rev | md5sum - | awk {'print $1'} | \
+		tr -d "0A-Fa-f" | tr -s "1-9" `
+# echo "DIGITS: ${DIGITS} " 1>&2
+#	we always increment the ROTORCNT before using ROTOR
+	ROTORCNT=0
+#
+#
+#	Word Lists
+#	============================
 #
 CNT=`find /usr/share/dict/ -type f | wc -l | awk {'print $1'}`
 [ 0${CNT} -lt 1 ] && {
@@ -125,52 +170,84 @@ CNT=`find /usr/share/dict/ -type f | wc -l | awk {'print $1'}`
 	}
 [ 0${CNT} -gt 0 ] && {
 #
-	echo -en "WORDLIST: (14) \t "
 # 	echo "WORDLIST: "
 #	a word
-	LENFILE=`wc -l /usr/share/dict/* | awk {'print $1'} | tail -n 1`
-	EPOCHTIME=`date +%s`
-	EPOCHTIME=`echo " ${EPOCHTIME} ^ 3" | bc | rev`
-	NONCE=`echo "${EPOCHTIME} % ${LENFILE} " | bc`
+	LENFILE=` wc -l /usr/share/dict/* | awk {'print $1'} | tail -n 1 `
+# echo "debug 8"
+	NONCE=` echo "${EPOCHSECONDS}${LENFILE} ^ 3" | bc | md5sum - | \
+		awk {'print $1'} | tr -d "01a-fA-F" | tr -s "0-9" `
+# echo "NONCE: ${NONCE} " 1>&2
+export NONCE=` echo "${NONCE}" | cut -c 1 `
+#
+#	re-compute if we have a poor value for cutting with
+while [ 0${NONCE} -lt 1 -a 0${NONCE} -gt 9 ] ; do
+	EPOCHSECONDS=` date +%s `
+	export NONCE=` echo " ( ( ${DIGITS}${EPOCHSECONDS} ^ 3 ) \
+		% ${LENFILE} ) + 1 " | bc | md5sum - | awk {'print $1'} | \
+		tr -d "01a-fA-F" | tr -s "0-9" `
+echo "NONCE: ${NONCE} " 1>&2
+	export NONCE=` echo "${NONCE}" | cut -c 1 `
+done
+#
+	echo -en "WORDLIST: (14) \t "
+#
+	echo -n "${UCVALUE}${LCVALUE}"
+#
+# echo "debug 9"
+	SLICE=` echo " ${DIGITS}${EPOCHSECONDS} % ${LENFILE}" | bc `
 	cat /usr/share/dict/* /usr/share/link-grammar/en/words/* | \
-		head -n ${NONCE} | tr -s '[:alnum:]' | \
+		head -n ${SLICE} | tr -s "[:alnum:]" | \
 		grep -v "^[a-z][a-z][a-z][\ \t\n\r]" | \
-		tr 'aeiou' 'AEIOU' | tail -n 1 | cut -c 1-5 | tr -d '\n\r'
+		tr "aeiou" "AEIOU" | tail -n 1 | cut -c 1-5 | tr -d "\n\r"
+#
+#	every time we USE a NONCE, get a new one
+while [ 0${NONCE} -lt 1 -a 0${NONCE} -gt 9 ] ; do
+	EPOCHSECONDS=` date +%s `
+	export NONCE=` echo " ( ( ${DIGITS}${EPOCHSECONDS} ^ 3 ) \
+		% ${LENFILE} ) + 1 " | bc | md5sum - | awk {'print $1'} | \
+		tr -d "01a-fA-F" `
+echo "NONCE: ${NONCE} " 1>&2
+	export NONCE=` echo "${NONCE}" | cut -c 1 `
+done
 #
 #	a special
-	ROTOR=` echo "${EPOCHTIME}" | rev | md5sum - | tr -d 'A-Fa-f' | \
-		cut -c 1`
+	export ROTORCNT=` echo "${ROTORCNT} + 1" | bc `
+# echo "debug 10"
+	ROTOR=` echo "${DIGITS}${DIGITS}" | tr -s "0-9" | \
+		cut -c ${ROTORCNT} `
 #
 #	actually already chosen for one via WINUSE
 # 	echo "${SYMSET}${SYMSET}${SYMSET}${SYMSET}" | \
-#		cut -c ${ROTOR} | tr -d '\n\r'
+#		cut -c ${ROTOR} | tr -s "0-9" | tr -d "\n\r"
 	[ 0${ROTOR} -lt 2 ] && {
 # cases 0 and 1	
-		echo "${WINUSE}" | tr -d '\n\r'
+		echo "${WINUSE}" | tr -d "\n\r"
 		} || {
 # cases: 2 thru 9
 		echo "${WINSET}${WINSET}${WINSET}${WINSET}" | \
-		cut -c ${ROTOR} | tr -d '\n\r'
+		cut -c ${ROTOR} | tr -d "\n\r"
 		}
-#	echo "${WINUSE}" | cut -c 1-${ROTOR} | tr -d '\n\r'
+#	echo "${WINUSE}" | cut -c ${ROTOR} | tr -d "\n\r"
 #             0123456789
 #
 #	another special
-	ROTOR=` echo "${EPOCHTIME}" | md5sum - | tr -d 'A-Fa-f' | cut -c 1`
+	export ROTORCNT=` echo "${ROTORCNT} + 1" | bc`
+	ROTOR=` echo "${DIGITS}${DIGITS}" | tr -s "0-9" | cut -c ${ROTORCNT} `
 ## RPH
 	echo "${WINSET}${WINSET}${WINSET}${WINSET}" | \
-		cut -c ${ROTOR} | tr -d '\n\r'
+		cut -c ${ROTOR} | tr -d "\n\r"
 #             0123456789
 #	a couple numbers
 	echo "${EPOCHTIME}${EPOCHTIME}" | rev | md5sum - | \
-		tr -d 'A-Fa-f' | cut -c 1 | tr -d '\n\r'
+		tr -d "0A-Fa-f" | tr -s "0-9" | cut -c 1 | tr -d "\n\r"
 #	another word
 	EPOCHTIME=`echo " ${EPOCHTIME} ^ 3" | bc | rev`
 	EPOCHTIME=`date +%s | rev`
-	NONCE=`echo "${EPOCHTIME} % ${LENFILE} " | bc`
+#	last time was: ${DIGITS}${EPOCHSECONDS}, so reverse
+	SLICE=`echo "${EPOCHTIME}${DIGITS} % ${LENFILE} " | bc`
 	cat /usr/share/dict/* /usr/share/link-grammar/en/words/* | \
-		head -n ${NONCE} | tr -s '[:alnum:]' | \
-		tr 'aeiou' 'AEIOU' | cut -c 1-5 | tail -n 1 
+		head -n ${SLICE} | tr -s "[:alnum:]" | \
+		tr "aeiou" "AEIOU" | cut -c 1-5 | tail -n 1 
 	}
 # exit
 DEBUG="n"
@@ -460,40 +537,52 @@ export CUTLEN=`echo "${BKPLEN} - ${PAD}" | bc`
 #
 #	make a handful of NONCE's to whack around
 #	the first is just a seed, and not used after this section
-NONCE=`  (df ; date )             | md5sum - | \
-	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 NONCEA=` (ps ax ; echo "$NONCE" ; date )	|      md5sum - | \
-	tr '0123456789abcdefABCDEF' '0123456789WERTYUWERTYU' | \
-	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
+	tr "0123456789abcdefABCDEF" "0123456789WERTYUWERTYU" | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 #	LETTERS
-NONCEL=` (echo "$NONCE" ; ps afx ; date )	|      md5sum - | \
-	tr '0123456789abcdefABCDEF' 'aBcDeFgHiJkLmNoPqRsTuV' | \
-	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
+NONCEL=` ( echo "$NONCE" ; ps afx ; date )	|      md5sum - | \
+	tr "0123456789abcdefABCDEF" "aBcDeFgHiJkLmNoPqRsTuV" | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 #	NONCEM will be 'easy' symbols: 
 #		- : @ # ~ & _ + . (ten)
 #	22 symbols so some repeat; then squeeze on the ten
-NONCEM=` (df -h ; ps afx ; date ; echo "$NONCE" ) |      md5sum - | \
-	tr '0123456789abcdefABCDEF' '\-\:\@\#\~\%\&\_\+\.\-\:\@\#\~\&\&\_\+\.\-\:' | \
-	awk {'print $1'} | tr -s '\-\:\@\#\~\%\&\_\+\.' `
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
+NONCEM=` ( df -h ; ps afx ; date ; echo "$NONCE" ) |      md5sum - | \
+	tr "0123456789abcdefABCDEF" "\-\:\@\#\~\%\&\_\+\.\-\:\@\#\~\&\&\_\+\.\-\:" | \
+	awk {'print $1'} | tr -s "\-\:\@\#\~\%\&\_\+\." `
 #
 #	NONCEH will be the 'hard' (non-clickable) symbols:
 #		` ^ * ) ( } { ] [ \ ; ['] " > < / (twenty - 1; drop ')
 #	whole set squeezes
-NONCEH=` (df -h ; ps afx ; date ; echo "$NONCE" ) |      md5sum - | \
-	tr '0123456789cdef' '\`\^\@\)\(\}\{\]\[\\\;\"\/'| \
-	awk {'print $1'} | tr -s  '\`\^\@\)\(\}\{\]\[\\\;\"\/'  `
+## tr does not like the doublequote in the next subshell
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
+NONCEH=` ( df -h ; ps afx ; date ; echo "$NONCE" ) |      md5sum - | \
+	tr "0123456789def"        '\`\^\@\)\(\}\{\]\[\;\"\/\\x' | \
+	awk {'print $1'} | tr -s  '\`\^\@\)\(\}\{\]\[\;\"\/\\x'  `
+#                                   1 2 3 4 5 6 7 8 9 0 1 2 34
 #
 #	NUMERIC
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 NONCEN=` (ps ax ; date ; echo "$NONCE")		|      md5sum - | \
-	tr '0123456789abcdefABCDEF' '01234567890123456789012' | \
-	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
+	tr "0123456789abcdefABCDEF" "01234567890123456789012" | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 #	HEX
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 NONCEX=` (ps ax ; date ; echo "$NONCE")		|      md5sum - | \
-	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 [ "x${DEBUG}" = "xy" ] && {
 	echo "NONCEA: ${NONCEA}"
@@ -521,8 +610,8 @@ SNIPA3=` echo -n "${NONCEA}" |       cut -c 3-4 	`
 SNIPA4=` echo -n "${NONCEA}" | rev | cut -c 3-4 `
 #
 #	specials
-SNIPM5=` echo -n "${NONCEM}"  |       cut -c 1-2 	` 
-SNIPM6=` echo -n "${NONCEM}"  | rev | cut -c 1-2 ` 
+SNIPM5=`  echo -n "${NONCEM}" |       cut -c 1-2 	` 
+SNIPM6=`  echo -n "${NONCEM}" | rev | cut -c 1-2 ` 
 SNIPM15=` echo -n "${NONCEM}" |       cut -c 1-2 	` 
 SNIPM16=` echo -n "${NONCEM}" | rev | cut -c 1-2 ` 
 #
@@ -565,7 +654,7 @@ SNIPM34=` echo -n "${NONCEH}" | rev | cut -c 1-2 `
 #	alphanum gets alphas, nums, and letters
 [ "x${ALPHANUM}" = "xy" -o "x${SYMBOL}" = "xy" ] && {
 export DECK=` echo "${SNIPA1}${SNIPA2}${SNIPA3}${SNIPA4}${NONCEA}${NONCEN}${NONCEL}" | \
-	tr -s 'a-zA-Z0-9' | awk {'print $1'} | shuffle-stdin.php | \
+	tr -s "a-zA-Z0-9" | awk {'print $1'} | shuffle-stdin.php | \
 	cut -c 1-${CUTLEN} `
 	[ "x${DEBUG}" = "xy" ] && {
 		echo "ALPHANUM or SYMBOL DECK: ${DECK}"
@@ -575,7 +664,7 @@ export DECK=` echo "${SNIPA1}${SNIPA2}${SNIPA3}${SNIPA4}${NONCEA}${NONCEN}${NONC
 #	letters get ONLY letters
 [ "x${LETTERS}" = "xy" ] && {
 export DECK=` echo "${SNIPL7}${SNIPL8}${SNIPL9}${SNIPL10}${NONCEL}" | \
-	tr -s 'a-zA-Z0-9' | awk {'print $1'} | shuffle-stdin.php | \
+	tr -s "a-zA-Z0-9" | awk {'print $1'} | shuffle-stdin.php | \
 	cut -c 1-${CUTLEN} `
 	[ "x${DEBUG}" = "xy" ] && {
 		echo "LETTERS DECK: ${DECK}"
@@ -585,27 +674,31 @@ export DECK=` echo "${SNIPL7}${SNIPL8}${SNIPL9}${SNIPL10}${NONCEL}" | \
 #	mixed gets everything
 [ "x${MIXED}" = "xy" ] && {
 export DECK=` echo "${SNIPA1}${SNIPA2}${SNIPA3}${SNIPA4}${SNIPM5}${SNIPM6}${NONCE}${NONCEL}${NONCEM}${NONCEA}" | \
-	tr -s 'a-zA-Z0-9' | awk {'print $1'} | shuffle-stdin.php | \
+	tr -s "a-zA-Z0-9" | awk {'print $1'} | shuffle-stdin.php | \
 	cut -c 1-${CUTLEN} `
 	[ "x${DEBUG}" = "xy" ] && {
 		echo "MIXED DECK: ${DECK}"
 		}
 	} 
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 #	HARD mixed gets everything PLUS
 [ "x${HARD}" = "xy" ] && {
 export DECK=` echo "${SNIPA1}${SNIPA2}${SNIPA3}${SNIPA4}${SNIPM5}${SNIPM6}${NONCE}${NONCEL}${NONCEM}${NONCEH}${NONCEA}" | \
-	tr -s 'a-zA-Z0-9' | awk {'print $1'} | shuffle-stdin.php | \
+	tr -s "a-zA-Z0-9" | awk {'print $1'} | shuffle-stdin.php | \
 	cut -c 1-${CUTLEN} `
 	[ "x${DEBUG}" = "xy" ] && {
 		echo "MIXED DECK: ${DECK}"
 		}
-	} 
+	}
+NONCE=`  ( df ; date )             | md5sum - | \
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 #	numbers gets ONLY numbers
 [ "x${NUMBERS}" = "xy" ] && {
 export DECK=` echo "${SNIPN11}${SNIPN12}${SNIPN13}${SNIPN14}${NONCEN}" | \
-	tr -s 'a-zA-Z0-9' | awk {'print $1'} | shuffle-stdin.php | \
+	tr -s "a-zA-Z0-9" | awk {'print $1'} | shuffle-stdin.php | \
 	cut -c 1-${CUTLEN} `
 	[ "x${DEBUG}" = "xy" ] && {
 		echo "NUMBERS DECK: ${DECK}"
@@ -615,7 +708,7 @@ export DECK=` echo "${SNIPN11}${SNIPN12}${SNIPN13}${SNIPN14}${NONCEN}" | \
 #	hex gets ONLY hex digits
 [ "x${HEX}" = "xy" ] && {
 export DECK=` echo "${SNIPX23}${SNIPX24}${SNIPX25}${SNIPX26}${NONCEX}" | \
-	tr -s 'a-zA-Z0-9' | awk {'print $1'} | shuffle-stdin.php | \
+	tr -s "a-zA-Z0-9" | awk {'print $1'} | shuffle-stdin.php | \
 	cut -c 1-${CUTLEN} `
 	[ "x${DEBUG}" = "xy" ] && {
 		echo "HEX DECK: ${DECK}"
@@ -624,21 +717,22 @@ export DECK=` echo "${SNIPX23}${SNIPX24}${SNIPX25}${SNIPX26}${NONCEX}" | \
 #
 sleep 2
 NONCE=`  (df ; date )             | md5sum - | \
-	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
+	awk {'print $1'} | tr -s "a-zA-Z0-9" `
 #
 #	make some one char bumpers
 LC=`echo "${NONCEL}"   | cut -c 1 | \
-	tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz' `
+	tr "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz" `
 UC=`echo "${NONCEL}"   | cut -c 2 | \
-	tr  'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
+	tr "abcdefghijklmnopqrstuvwxyz" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" `
 #
 PUN1=`echo "${NONCEM}" | cut -c 1 | tr 'ABCDEF' 'abcdef' | \
-	tr '0123456789cdef' '~:@#&^*(){}][/'`
+	tr "0123456789cdef" "~:@#&^*(){}][/" `
 #..............................0123456789012345
-PUN2=`echo "${NONCEM}" | cut -c 2 | tr 'ABCDEF' 'abcdef' | \
-	tr '0123456789cdef' '~:@#&^*(){}][/'`
+PUN2=`echo "${NONCEM}" | cut -c 2 | tr "ABCDEF" "abcdef" | \
+	tr "0123456789cdef" "~:@#&^*(){}][/" `
 #..............................0123456789012345
 #
+#	tr fixup stop point RPH
 NUM1=`echo "${NONCEN}" | cut -c 1 | tr 'ABCDEF' 'abcdef' | \
 	tr '0123456789abcdef' '0123456789012345'`
 #..............................0123456789012345
