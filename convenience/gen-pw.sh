@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #	gen-pw.sh
-#	$Id: gen-pw.sh,v 1.23 2017/09/06 22:15:16 herrold Exp herrold $
+#	$Id: gen-pw.sh,v 1.25 2017/09/07 00:59:02 herrold Exp herrold $
 #
 #	Copyright (c) 2007, 2014 Owl River Company
 #	reports to: info@owlriver.com
@@ -11,8 +11,8 @@
 #
 #	GH copy lives at: $HOME/vcs/git/herrold/rph-shell-tools/convenience/
 #		and has a dependency on shuffle-stdin.php
-#	release: scp gen-pw.sh $HOME/vcs/git/herrold/rph-shell-tools/convenience/
-#			cd $HOME/vcs/git/herrold/rph-shell-tools
+#	release: scp gen-pw.sh ~/vcs/git/herrold/rph-shell-tools/convenience/
+#			cd  ~/vcs/git/herrold/rph-shell-tools
 #			git add convenience/gen-pw.sh
 #			git pull
 #			git commit
@@ -78,7 +78,7 @@
 #	option: -h      help display    TBD
 #		-a	alphanumerics only in the result 
 #
-#	dash, colon are OK for double click
+#	dash, colon are OK for double click under puty in Windows
 #
 #		-j	just complex enough 
 #		-l	letters only
@@ -89,9 +89,10 @@
 #
 #		-d   	debug 	-- not in external versions
 #
-#	specials: 	- : @ # ~ & _ + .
-#	HARD specials: 	` * ) ( } { ] [ \ ; ' " / ^
-#	BAD SPECIALS:	! | = $ > < 
+#                       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+#	specials: 	_ . / - "
+#	HARD specials: 	@ ~ ^ * : ; , % ` ) ( } { ] [ \ ; ' + #
+#	BAD SPECIALS:	! | = $ > < & 
 #
 #	any remaining (i.e., optional) arg1 is maximum length
 #
@@ -101,7 +102,22 @@
 #
 #########################################################################
 #
-PATH='/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:~/bin/'
+PATH='/usr/bin:/bin:/usr/X11R6/bin:~/bin/'
+#
+#	we only need one symbol
+#       0123 4 
+WINSET="_./-\""
+#       01234567 8901234 56 789
+SYMSET="@~^*:;,%\`)(}{][\\;\'+#"
+#          012 3456
+NOTSYMSET="!|=\$><&"
+#
+SECEPOCH=`date +%s | rev | cut -c 1-4 | rev `
+SYMOFFSET=` echo "( ${SECEPOCH} % 10 ) + 1 " | bc `
+#
+#	get each set at least 10 long
+WINUSE=`echo "${WINSET}${WINSET}${WINSET}${WINSET}" | cut -c ${SYMOFFSET} `
+SYMUSE=`echo "${WINSET}${SYMSET}${WINSET}${SYMSET}" | cut -c ${SYMOFFSET} `
 #
 CNT=`find /usr/share/dict/ -type f | wc -l | awk {'print $1'}`
 [ 0${CNT} -lt 1 ] && {
@@ -120,19 +136,34 @@ CNT=`find /usr/share/dict/ -type f | wc -l | awk {'print $1'}`
 		head -n ${NONCE} | tr -s '[:alnum:]' | \
 		grep -v "^[a-z][a-z][a-z][\ \t\n\r]" | \
 		tr 'aeiou' 'AEIOU' | tail -n 1 | cut -c 1-5 | tr -d '\n\r'
+#
 #	a special
-	ROTOR=` echo "${EPOCHTIME}" | cut -c 1`
+	ROTOR=` echo "${EPOCHTIME}" | rev | md5sum - | tr -d 'A-Fa-f' | \
+		cut -c 1`
+#
+#	actually already chosen for one via WINUSE
 # 	echo "${SYMSET}${SYMSET}${SYMSET}${SYMSET}" | \
 #		cut -c ${ROTOR} | tr -d '\n\r'
+	[ 0${ROTOR} -lt 2 ] && {
+# cases 0 and 1	
+		echo "${WINUSE}" | tr -d '\n\r'
+		} || {
+# cases: 2 thru 9
+		echo "${WINSET}${WINSET}${WINSET}${WINSET}" | \
+		cut -c ${ROTOR} | tr -d '\n\r'
+		}
+#	echo "${WINUSE}" | cut -c 1-${ROTOR} | tr -d '\n\r'
+#             0123456789
+#
+#	another special
+	ROTOR=` echo "${EPOCHTIME}" | md5sum - | tr -d 'A-Fa-f' | cut -c 1`
+## RPH
 	echo "${WINSET}${WINSET}${WINSET}${WINSET}" | \
 		cut -c ${ROTOR} | tr -d '\n\r'
 #             0123456789
-#	another special
-	ROTOR=` echo "${EPOCHTIME}" | cut -c 1`
-	echo "~][}{_-|^*" | cut -c ${ROTOR} | tr -d '\n\r'
-#             0123456789
 #	a couple numbers
-	echo "${EPOCHTIME}" | cut -c 1-2 | tr -d '\n\r'
+	echo "${EPOCHTIME}${EPOCHTIME}" | rev | md5sum - | \
+		tr -d 'A-Fa-f' | cut -c 1 | tr -d '\n\r'
 #	another word
 	EPOCHTIME=`echo " ${EPOCHTIME} ^ 3" | bc | rev`
 	EPOCHTIME=`date +%s | rev`
@@ -473,70 +504,60 @@ NONCEX=` (ps ax ; date ; echo "$NONCE")		|      md5sum - | \
 	echo "NONCEX: ${NONCEL}"
 	}
 #
-#	we only need one symbol
-#       0123456789
-WINSET="@_-"
-#
-SYMSET="@#^*_-:"
-NOTSYMSET="|=\$!><"
-#
-SECEPOCH=`date +%s | rev | cut -c 1-4 | rev `
-SYMOFFSET=` echo "( ${SECEPOCH} % 10 ) + 1 " | bc `
-#
-#	get each set at least 10 long
-SYMUSE=`echo "${SYMSET}${SYMSET}${SYMSET}${SYMSET}" | cut -c ${SYMOFFSET} `
-WINUSE=`echo "${WINSET}${WINSET}${WINSET}${WINSET}" | cut -c ${SYMOFFSET} `
-#
 [ "x${DEBUG}" = "xy" ] && {
-	echo "SYMSET:		${SYMSET} "
 	echo "SECEPOCH: 	${SECEPOCH} "
 	echo "SYMOFFSET: 	${SYMOFFSET} "
+#
+	echo "SYMSET:		${SYMSET} "
 	echo "SYMUSE:		${SYMUSE}"
+#
+	echo "WINSET:		${WINSET} "
+	echo "WINUSE:		${WINUSE}"
 	}
 #
-SNIPA1=` echo -n "${NONCEA}" | cut -c 1-2 	` 
+SNIPA1=` echo -n "${NONCEA}" |       cut -c 1-2 	` 
 SNIPA2=` echo -n "${NONCEA}" | rev | cut -c 1-2 ` 
-SNIPA3=` echo -n "${NONCEA}" | cut -c 3-4 	`
+SNIPA3=` echo -n "${NONCEA}" |       cut -c 3-4 	`
 SNIPA4=` echo -n "${NONCEA}" | rev | cut -c 3-4 `
 #
 #	specials
-SNIPM5=` echo -n "${NONCEM}"  | cut -c 1-2 	` 
+SNIPM5=` echo -n "${NONCEM}"  |       cut -c 1-2 	` 
 SNIPM6=` echo -n "${NONCEM}"  | rev | cut -c 1-2 ` 
-SNIPM15=` echo -n "${NONCEM}" | cut -c 1-2 	` 
+SNIPM15=` echo -n "${NONCEM}" |       cut -c 1-2 	` 
 SNIPM16=` echo -n "${NONCEM}" | rev | cut -c 1-2 ` 
 #
 #	grab LETTERS and ALPHANUM padding characters for the head and 
 #		tail of the string
-SNIPL7=`  echo -n "${NONCEL}"  | cut -c 6 	`
+SNIPL7=`  echo -n "${NONCEL}"  |       cut -c 6 	`
 SNIPL8=`  echo -n "${NONCEL}"  | rev | cut -c 6 `
-SNIPL9=`  echo -n "${NONCEL}"  | cut -c 7 	`
+SNIPL9=`  echo -n "${NONCEL}"  |       cut -c 7 	`
 SNIPL10=` echo -n "${NONCEL}"  | rev | cut -c 7 `
-SNIPL17=` echo -n "${NONCEL}"  | cut -c 8 	`
+SNIPL17=` echo -n "${NONCEL}"  |       cut -c 8 	`
 SNIPL18=` echo -n "${NONCEL}"  | rev | cut -c 8 `
 #
-SNIPN11=` echo -n "${NONCEN}"  | cut -c 1 `
+SNIPN11=` echo -n "${NONCEN}"  |       cut -c 1 `
 SNIPN12=` echo -n "${NONCEN}"  | rev | cut -c 1 `
-SNIPN13=` echo -n "${NONCEN}"  | cut -c 2 `
+SNIPN13=` echo -n "${NONCEN}"  |       cut -c 2 `
 SNIPN14=` echo -n "${NONCEN}"  | rev | cut -c 2 `
-SNIPN19=` echo -n "${NONCEN}"  | cut -c 3 `
+SNIPN19=` echo -n "${NONCEN}"  |       cut -c 3 `
 SNIPN20=` echo -n "${NONCEN}"  | rev | cut -c 3 `
-SNIPN21=` echo -n "${NONCEN}"  | cut -c 4 	`
+SNIPN21=` echo -n "${NONCEN}"  |       cut -c 4 	`
 SNIPN22=` echo -n "${NONCEN}"  | rev | cut -c 4 `
 #
-SNIPX23=` echo -n "${NONCEX}"  | cut -c 1 `
+SNIPX23=` echo -n "${NONCEX}"  |       cut -c 1 `
 SNIPX24=` echo -n "${NONCEX}"  | rev | cut -c 1 `
-SNIPX25=` echo -n "${NONCEX}"  | cut -c 2 `
+SNIPX25=` echo -n "${NONCEX}"  |       cut -c 2 `
 SNIPX26=` echo -n "${NONCEX}"  | rev | cut -c 2 `
-SNIPX27=` echo -n "${NONCEX}"  | cut -c 3 `
+SNIPX27=` echo -n "${NONCEX}"  |       cut -c 3 `
 SNIPX28=` echo -n "${NONCEX}"  | rev | cut -c 3 `
-SNIPX29=` echo -n "${NONCEX}"  | cut -c 4 	`
+SNIPX29=` echo -n "${NONCEX}"  |       cut -c 4 	`
 SNIPX30=` echo -n "${NONCEX}"  | rev | cut -c 4 `
 #
 #
 #	HARD specials
-SNIPM31=` echo -n "${NONCEH}" | cut -c 1-2 	` 
+SNIPM31=` echo -n "${NONCEH}" |       cut -c 1-2 	` 
 SNIPM32=` echo -n "${NONCEH}" | rev | cut -c 1-2 ` 
-SNIPM33=` echo -n "${NONCEH}" | cut -c 1-2 	` 
+SNIPM33=` echo -n "${NONCEH}" |       cut -c 1-2 	` 
 SNIPM34=` echo -n "${NONCEH}" | rev | cut -c 1-2 ` 
 #
 #	we shuffle a deck of characters, and chop out a hunk
@@ -606,9 +627,9 @@ NONCE=`  (df ; date )             | md5sum - | \
 	awk {'print $1'} | tr -s 'a-zA-Z0-9' `
 #
 #	make some one char bumpers
-LC=`echo "${NONCEL}" | cut -c 1 | \
+LC=`echo "${NONCEL}"   | cut -c 1 | \
 	tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz' `
-UC=`echo "${NONCEL}" | cut -c 2 | \
+UC=`echo "${NONCEL}"   | cut -c 2 | \
 	tr  'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
 #
 PUN1=`echo "${NONCEM}" | cut -c 1 | tr 'ABCDEF' 'abcdef' | \
